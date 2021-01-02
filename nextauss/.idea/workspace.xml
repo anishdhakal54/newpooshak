@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2e67830c-c1ee-4e7d-afc8-fc69f3866937" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../public/notify/css/animate.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/notify/css/custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/lang/en/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/lang/en/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/views/layouts/app1.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/views/livewire/partials/menu.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/views/livewire/partials/message.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/views/livewire/partials/search-dropdown-categories.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/views/livewire/partials/search.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/views/livewire/sidebar/categories-item.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/views/pashmina_theme/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/views/pashmina_theme/layouts/app.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/views/pashmina_theme/partials/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/views/pashmina_theme/partials/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../routes/bkpweb.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/../_ide_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Helpers/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/AccountController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/Backend/ConfigurationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/Backend/ConfigurationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/Backend/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/Backend/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/Backend/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/Backend/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/Backend/ProductEnquiryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/Backend/ProductEnquiryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/Backend/RequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/Backend/RequestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/CheckoutController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/ProductEnquiryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/ProductEnquiryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/WelcomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/WelcomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Http/Middleware/TrustProxies.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Middleware/TrustProxies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Http/ViewComposers/ProductListComposer.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/ViewComposers/ProductListComposer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Mail/EmailVerification.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Mail/EmailVerification.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Mail/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Mail/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Mail/QuickMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Mail/QuickMail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Mail/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Mail/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Providers/ComposerServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Providers/ComposerServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Repositories/Category/EloquentCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Repositories/Category/EloquentCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Suscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Suscriber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/../config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config/image.php" beforeDir="false" afterPath="$PROJECT_DIR$/../config/image.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/migrations/2017_09_20_100541_create_configurations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../database/migrations/2017_09_20_100541_create_configurations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/migrations/2017_10_06_072510_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../database/migrations/2017_10_06_072510_create_posts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/migrations/2017_10_07_164005_create_brands_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../database/migrations/2017_10_07_164005_create_brands_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/migrations/2017_10_13_051525_create_slideshows_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../database/migrations/2017_10_13_051525_create_slideshows_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/migrations/2020_07_26_175118_create_colleges_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ecommerce1.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../localhost (1).sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/../public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/assets/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/assets/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/backend/categories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/backend/categories/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/backend/categories/form-create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/backend/categories/form-create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/backend/categories/form-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/backend/categories/form-edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/backend/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/backend/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/backend/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/backend/partials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/backend/products/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/backend/products/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/backend/products/images.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/backend/products/images.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/backend/settings/tab-ad.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/backend/settings/tab-ad.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/backend/settings/tab-footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/backend/settings/tab-footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/backend/settings/tab-general.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/backend/settings/tab-general.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/backend/settings/tab-social.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/backend/settings/tab-social.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/checkout/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/checkout/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/emails/order-updated.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/emails/order-updated.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/emails/quick.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/emails/quick.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/emails/user-order-update.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/emails/user-order-update.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/emails/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/emails/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/my-account/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/my-account/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/my-account/wishlist.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/my-account/wishlist.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/pages/templates/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/pages/templates/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/pages/templates/request-new-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/pages/templates/request-new-product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/single-product/product-image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/single-product/product-image.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/suscriber.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/vendor/mail/html/button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/vendor/mail/html/button.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/vendor/mail/html/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/vendor/mail/html/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/vertification.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/vertification.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../~$ommerce1.docx" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-756165145">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2e67830c-c1ee-4e7d-afc8-fc69f3866937" name="Default Changelist" comment="" />
+      <created>1600662997787</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600662997787</updated>
+      <workItem from="1600662999455" duration="313000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="313000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+</project>

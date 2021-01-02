@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>install passport</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html">
+<p>After command is finished, add the  <code>Laravel\Passport\HasApiTokens</code>  trait to your  <code>App\User</code>  model. This trait will provide a few helper methods to your model which allow you to inspect the authenticated user’s token and scopes:</p>
+<pre class=" language-php"><code class="prism  language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span class="token punctuation">\</span>Auth<span class="token punctuation">\</span>User</span> <span class="token keyword">as</span> Authenticatable<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Notifications<span class="token punctuation">\</span>Notifiable</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Laravel<span class="token punctuation">\</span>Passport<span class="token punctuation">\</span>HasApiTokens</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Authenticatable</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">HasApiTokens</span><span class="token punctuation">,</span> Notifiable<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span></code></pre>
+<p>Next, you should call the  <code>Passport::routes</code>  method within the  <code>boot</code>  method of your  <code>AuthServiceProvider</code>. This method will register the routes necessary to issue access tokens and revoke access tokens, clients, and personal access tokens:</p>
+<pre class=" language-php"><code class="prism  language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Providers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span class="token punctuation">\</span>Support<span class="token punctuation">\</span>Providers<span class="token punctuation">\</span>AuthServiceProvider</span> <span class="token keyword">as</span> ServiceProvider<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Gate</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Laravel<span class="token punctuation">\</span>Passport<span class="token punctuation">\</span>Passport</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AuthServiceProvider</span> <span class="token keyword">extends</span> <span class="token class-name">ServiceProvider</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The policy mappings for the application.
+     *
+     * @var array
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$policies</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string">'App\Model'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'App\Policies\ModelPolicy'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Register any authentication / authorization services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">registerPolicies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Passport<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></code></pre>
+<p>Finally, in your  <code>config/auth.php</code>  configuration file, you should set the  <code>driver</code>  option of the  <code>api</code>  authentication guard to  <code>passport</code>. This will instruct your application to use Passport’s  <code>TokenGuard</code>  when authenticating incoming API requests:</p>
+<pre class=" language-php"><code class="prism  language-php"><span class="token string">'guards'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+    <span class="token string">'web'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token string">'driver'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'session'</span><span class="token punctuation">,</span>
+        <span class="token string">'provider'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'users'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token string">'api'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token string">'driver'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'passport'</span><span class="token punctuation">,</span>
+        <span class="token string">'provider'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'users'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+</code></pre>
+
+</div>
+</body>
+
+</html>
