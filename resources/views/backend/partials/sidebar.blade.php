@@ -45,7 +45,7 @@
             @endrole
             @role(['admin','manager'])
 
-            {{--<li class="treeview {{ ($route == 'dashboard.page.index' || $route == 'dashboard.page.create' || $route == 'dashboard.page.edit') ? 'active': null }}">
+            <li class="treeview {{ ($route == 'dashboard.page.index' || $route == 'dashboard.page.create' || $route == 'dashboard.page.edit') ? 'active': null }}">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
                     <span>Pages</span>
@@ -61,7 +61,7 @@
                         <a href="{{ route('dashboard.page.create') }}"><i class="fa fa-plus-square-o"></i> Add New</a>
                     </li>
                 </ul>
-            </li>--}}
+            </li>
             <li class="treeview {{ ($route == 'dashboard.posts.index' || $route == 'dashboard.posts.create' || $route == 'dashboard.posts.edit') ? 'active': null }}">
                 <a href="#">
                     <i class="fa fa-tags"></i>

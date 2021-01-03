@@ -141,7 +141,7 @@
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-1 hiddenknow">
                         <div class="module-heading">
                             <h4 class="module-title">{{__('Know Us')}}</h4>
-                           <h4> <a href=></a></h4>
+                            <h4><a href=></a></h4>
                         </div>
                         <!-- /.module-heading -->
 
@@ -149,9 +149,8 @@
                             <ul class='list-unstyled'>
                                 <li class="first"><a title="Your Account" href="/about-us">{{__('About Us')}}</a></li>
                                 <li class="first"><a title="Your Account" href="/contact-us">Contact Us</a></li>
-
-                                <li><a title="Information" href="#">{{__('Careers')}}</a></li>
-                                <li><a title="Addresses" href="#">{{__('Our Stories')}}</a></li>
+                                <li><a title="Information" href="{{url('/page/career')}}">{{__('Careers')}}</a></li>
+                                <li><a title="Addresses" href="{{url('/page/our-stories')}}">{{__('Our Stories')}}</a></li>
                             </ul>
                         </div>
                         <!-- /.module-body -->
@@ -165,11 +164,11 @@
 
                         <div class="module-body">
                             <ul class='list-unstyled'>
-                                <li class="first"><a href="#" title="Contact us">{{__('FAQ')}}</a></li>
-                                <li><a href="#" title="About us">{{__('Privacy Policy')}}</a></li>
-                                <li><a href="#" title="faq">{{__('Terms & Condition')}}</a></li>
-                                <li><a href="#" title="Popular Searches">{{__('Return Policy')}}</a></li>
-                                <li><a href="#" title="Popular Searches">{{__('Careers')}}</a></li>
+                                <li class="first"><a href="{{url('/page/faq')}}" title="Contact us">{{__('FAQ')}}</a></li>
+                                <li><a href="{{url('/page/privacy-and-policies')}}" title="About us">{{__('Privacy Policy')}}</a></li>
+                                <li><a href="{{url('/page/terms-and-condition')}}" title="faq">{{__('Terms & Condition')}}</a></li>
+                                <li><a href="{{url('/page/return-and-policy')}}" title="Popular Searches">{{__('Return Policy')}}</a></li>
+                                <li><a href="{{url('/page/career')}}" title="Popular Searches">{{__('Careers')}}</a></li>
                             </ul>
                         </div>
                         <!-- /.module-body -->
@@ -191,7 +190,7 @@
                                 <li><a title="Addresses" href="#">Industrial Cloth</a></li>
                                 <li><a title="Addresses" href="#">Tshirt</a></li>
                                 <li><a title="Addresses" href="#">Other Products</a></li>
-                                                       </ul>
+                            </ul>
                         </div>
                         <!-- /.module-body -->
                     </div>
