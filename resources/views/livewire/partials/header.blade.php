@@ -350,13 +350,9 @@
                 </div>
                 <div class="cart-checkout-btn">
                     <a class="btn-hover cart-btn-style" href="/cart">{{__('View Cart')}}</a>
-                    <div class="no-mrg btn-hover cart-btn-style">
-                        <form method="get" action="{{route('my-account.getcheckout')}}">
-                            <button type="submit" class="no-mrg btn-hover cart-btn-style"
-                            >{{__('Checkout')}}
-                            </button>
-                        </form>
-                    </div>
+                    <a class="btn-hover cart-btn-style" href="{{route('checkout')}}">{{__('Checkout')}}</a>
+
+                  
                 </div>
             </div>
         </div>
