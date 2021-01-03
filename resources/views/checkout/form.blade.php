@@ -1,11 +1,11 @@
 <div class="col-md-6">
     <div class="form-col">
-        <h3>Address Details</h3>
+        <h3>1</h3>
 
         <div class="row">
             <div class="col-xs-6 col-md-6">
                 <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-                    <label for="first_name">First Name<span class="required">*</span></label>
+                    <label for="first_name">test Name<span class="required">*</span></label>
                     <input type="text" name="first_name"
                            value="{{ isset($address->first_name) ? $address->first_name : auth()->user()->first_name }}"
                            id="first_name"
@@ -66,16 +66,19 @@
 
         <div class="row">
             <div class="col-xs-12 col-md-12">
-                <div class="form-group wide{{ $errors->has('address1') ? ' has-error' : '' }}">
-                    <label for="address1">Address<span class="required">*</span></label>
-                    <input type="text" name="address1"
-                           value="{{ isset($address->address1) ? $address->address1 : old('address1') }}" id="address1"
-                           class="form-control" required>
-
-                    @if ($errors->has('address1'))
+                <div class="form-group wide{{ $errors->has('zone') ? ' has-error' : '' }}">
+                    <label for="Zone">Address<span class="required">*</span></label>
+                    <select class="form-control checkselect" id="zone"
+                            name="zone">
+                        <option value="0" disabled="" selected>Select Zone</option>
+                        @foreach(\App\DeliveryCharge::where('parent_id',0)->get() as $zones)
+                            <option value="{{$zones->id}}">{{$zones->name}}</option>
+                        @endforeach
+                    </select>
+                    @if ($errors->has('zone'))
                         <span class="help-block">
-                            {{ $errors->first('address1') }}
-                        </span>
+                                {{ $errors->first('zone') }}
+                            </span>
                     @endif
                 </div>
             </div>
@@ -221,4 +224,6 @@
         </div>
 
     </div>
+
+
 </div>

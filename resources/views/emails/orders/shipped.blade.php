@@ -105,10 +105,10 @@
     </tr>
     <tr>
       <td>
-        City
+        district
       </td>
       <td>
-        {{$content['city']}}
+        {{$content['district']}}
       </td>
     </tr>
     <tr>

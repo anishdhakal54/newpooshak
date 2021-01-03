@@ -631,9 +631,9 @@
 
               document.getElementById('lat').value = lat;
               document.getElementById('lon').value = lon;
+                // @this->set('lat', lat);
+                // @this->set('lon', lon);
 
-              $this->set('lat', lat);
-              $this->set('lon', lon);
               myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
               map.invalidateSize();
             });

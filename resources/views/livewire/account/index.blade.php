@@ -53,7 +53,7 @@
     <div wire:ignore class=" accounts">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-12 leftaccount">
-                <h3>Hello, UserName
+                <h3>Hello, {{Auth::user()->first_name}}
                     <img src="assets/images/newchecks.svg">
                 </h3>
                 <div class="manage">
@@ -184,9 +184,9 @@
                     </div>
                 </div>
 
-                <div wire:click="editinfo" class="editprofile updateprofile">
-                    <button type="button">
-                        UPDATE PROFILE
+                <div  class="editprofile updateprofile" >
+                    <button  type="button" wire:click="editinfo" wire:loading.class="disabled">  <span><i wire:loading wire:target="editinfo" class="fas fa-spinner fa-spin"></i>
+                             UPDATE PROFILE</span>
                     </button>
                 </div>
             </div>
