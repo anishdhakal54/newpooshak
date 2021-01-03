@@ -32,14 +32,10 @@
                                                 <h5>NPR {{ $cartContent->price }}</h5>
                                             </div>
                                         </td>
-                                        <td class="quantity__item">
-                                            <div class="quantity">
-                                                <div class="pro-qty-2">
-                                                    @livewire('update-cart-quantity',['cartContent' =>
-                                                    $cartContent],key($loop->index))
-                                                </div>
-                                            </div>
-                                        </td>
+
+                                        @livewire('update-cart-quantity',['cartContent' =>
+                                        $cartContent],key($loop->index))
+                                       
                                         <td class="cart__price"><h6 style="font-weight: bold;">
                                                 NPR {{ $cartContent->total }}</h6></td>
                                         <td class="cart__close" style="cursor: pointer;">
@@ -298,4 +294,19 @@
     {{--        </div>--}}
     {{--    </div>--}}
     {{--    <!-- cart area end -->--}}
+    
+    @push('styles')
+    <style>
+        .first_seventh {
+            margin-right: 2px;
+        }
+        .first_seventh input {
+            padding: 1rem;
+        }
+        .product-quantity .size_flex:first-child{
+            margin-bottom:11px;
+        }
+    </style>
+    @endpush
+    
 </div>

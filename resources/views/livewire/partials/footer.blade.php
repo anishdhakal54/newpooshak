@@ -230,16 +230,16 @@
                             <p class="text-muted subscribe">
                               {{__('Stay informed! Monthly offers & discounts.')}}
                             </p>
-                            <form>
+                            <form action="/suscriber" method="post">
+                              @csrf
                               <div class="form-group">
                                 <label for="exampleInputEmail1">{{__('Email address')}}</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                <input name="newsletterEmail" type="email" class="form-control" id="exampleInputEmail1"
                                        aria-describedby="emailHelp" placeholder="Enter email">
                                 <small id="emailHelp" class="form-text text-muted">{{__('We will never share your email with anyone else.')}}</small>
                               </div>
 
-                              <button type="submit" class="btn btn-block btn-cta subsform" data-dismiss="modal"
-                                      aria-label="Close">{{__('Subscribe')}}</button>
+                              <button type="submit" class="btn btn-block btn-cta subsform" >{{__('Subscribe')}}</button>
                             </form>
                           </div>
                         </div>

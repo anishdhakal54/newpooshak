@@ -89,10 +89,10 @@
 
                                                                     <div class="login_button social_button">
                                                                         <button type="submit">Sign In With Facebook <img
-                                                                                    src="assets/images/facebook.png">
+                                                                                    src="{{asset('assets/images/facebook.png')}}">
                                                                         </button>
                                                                         <button type="submit">Sign In With Google <img
-                                                                                    src="assets/images/gmail.svg">
+                                                                                    src="{{asset('assets/images/gmail.svg')}}">
                                                                         </button>
                                                                     </div>
                                                                 </div>
@@ -106,7 +106,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="hehehe">
-                                                    <img src="assets/images/hehehe.png">
+                                                    <img src="{{asset('assets/images/hehehe.png')}}">
                                                 </div>
                                             </div>
 
@@ -310,30 +310,17 @@
 
                             <li class="single-product-cart">
                                 <div class="cart-img">
-                                    <a href="#"
-                                    ><img src="{{ asset(getProductImage($cartContent->id, 'medium')) }}" alt=""
-                                        /></a>
+                                    <a href="javascript:void(0);">
+                                        <img src="{{asset('/uploads/embroidery/'.$cartContent->options->imagename)}}"
+                                          alt="test-img">
+                                    </a>
                                 </div>
                                 <div class="cart-title">
                                     <h4><a href="#">{{ $cartContent->name }}</a></h4>
                                     <span> {{ $cartContent->qty }} × {{ $cartContent->price }} </span>
-                                    <p>{{$cartContent->options->quantity_m}}</p>
-                                    <p>{{$cartContent->options->quantity_s}}</p>
-                                    <p>{{$cartContent->options->quantity_xs}}</p>
-                                    <p>{{$cartContent->options->quantity_xl}}</p>
-                                    <p>{{$cartContent->options->quantity_2xl}}</p>
-                                    <p>{{$cartContent->options->quantity_3xl}}</p>
-
-                                    <p> has frame:{{$cartContent->options->has_frame}}</p>
-                                    @if($cartContent->options->place>0)
-                                        @foreach($cartContent->options->place as $place)
-                                            <p>{{$place}}</p>
-                                        @endforeach
-                                    @endif
 
                                     <p> {{$cartContent->options->imagename}} </p>
-                                    <img src="{{asset('/uploads/embroidery/'.$cartContent->options->imagename)}}"
-                                         alt="test-img">
+
 
                                 </div>
 
@@ -345,18 +332,13 @@
                         @endforeach
                     @endif
                 </ul>
-                <div class="cart-total">
-                    <h4>{{__('Subtotal')}}: <span>{{ Cart::instance('default')->total() }}</span></h4>
-                </div>
+{{--                <div class="cart-total">--}}
+{{--                    <h4>{{__('Subtotal')}}: <span>{{ Cart::instance('default')->total() }}</span></h4>--}}
+{{--                </div>--}}
                 <div class="cart-checkout-btn">
                     <a class="btn-hover cart-btn-style" href="/cart">{{__('View Cart')}}</a>
-                    <div class="no-mrg btn-hover cart-btn-style">
-                        <form method="get" action="{{route('my-account.getcheckout')}}">
-                            <button type="submit" class="no-mrg btn-hover cart-btn-style"
-                            >{{__('Checkout')}}
-                            </button>
-                        </form>
-                    </div>
+                    <a class="btn-hover cart-btn-style" href="{{route('checkout')}}">{{__('Checkout')}}</a>
+
                 </div>
             </div>
         </div>
