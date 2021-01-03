@@ -305,13 +305,13 @@
             <div class="cart-content">
                 <h3>{{__('Shopping Cart')}}</h3>
                 <ul>
-                    @if(Cart::instance('default')->count())
-                        @foreach(Cart::content() as $cartContent)
+                    @if($cart->count()>0)
+                        @foreach($cart->count() as $cartContent)
 
                             <li class="single-product-cart">
                                 <div class="cart-img">
                                     <a href="javascript:void(0);">
-                                        <img src="{{asset('/uploads/embroidery/'.$cartContent->options->imagename)}}"
+                                        <img src="{{asset('/uploads/embroidery/'.$cartContent->imagename)}}"
                                           alt="test-img">
                                     </a>
                                 </div>

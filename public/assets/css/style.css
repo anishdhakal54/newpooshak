@@ -22795,10 +22795,12 @@ body {
 }
 
 .single-product-wrap .product-img a {
+  border:unset;
   display: block;
   overflow: hidden;
   box-shadow: unset;
   border-radius: 0;
+  width:100%;
 }
 
 .album img,
@@ -23916,8 +23918,8 @@ body {
 }
 
 .single-product-wrap img {
-  height: 190px !important;
-  width: 100% !important;
+  height: unset;
+  width: 59px;
   text-align: center;
   margin: auto;
   object-fit: contain !important;

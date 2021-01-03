@@ -11,6 +11,7 @@ return array(
     'App\\Attribute' => $baseDir . '/app/Attribute.php',
     'App\\Background' => $baseDir . '/app/Background.php',
     'App\\Brand' => $baseDir . '/app/Brand.php',
+    'App\\CartProduct' => $baseDir . '/app/CartProduct.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\College' => $baseDir . '/app/College.php',
     'App\\Comment' => $baseDir . '/app/Comment.php',

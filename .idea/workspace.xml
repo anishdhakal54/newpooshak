@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7925f788-79da-4a97-a3d1-0ce599b45bed" name="Default Changelist" comment="">
+    <list default="true" id="9dc1963d-690f-4179-8e7d-39a870d9652a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Partials/Header.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Partials/Header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Partials/ProductDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Partials/ProductDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/UpdateCartQuantity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/UpdateCartQuantity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/product-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/product-detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +191,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7925f788-79da-4a97-a3d1-0ce599b45bed" name="Default Changelist" comment="" />
+      <changelist id="9dc1963d-690f-4179-8e7d-39a870d9652a" name="Default Changelist" comment="" />
       <created>1609569617791</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -192,6 +201,8 @@
       <workItem from="1609570815581" duration="3677000" />
       <workItem from="1609581893330" duration="9751000" />
       <workItem from="1609647532915" duration="2754000" />
+      <workItem from="1609660397766" duration="162000" />
+      <workItem from="1609662775748" duration="8279000" />
     </task>
     <servers />
   </component>
