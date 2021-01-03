@@ -277,13 +277,13 @@
               <p>{{getConfiguration('site_primary_phone')}}</p>
             </div>
 
-            <ul class='list-unstyled soc footsoc'>
+                        <ul class='list-unstyled soc footsoc'>
 
-              <i class="fa fa-facebook"></i>
-              <i class="fa fa-twitter"></i>
-              <i class="fa fa-google"></i>
-              <i class="fa fa-youtube"></i>
-            </ul>
+                            <i class="fa fa-facebook"></i>
+                            <i class="fa fa-twitter"></i>
+                            <i class="fa fa-google"></i>
+                            <i class="fa fa-youtube"></i>
+                        </ul>
 
 
             <!-- /.module-body -->
@@ -296,26 +296,23 @@
     </div>
 
 
+    </footer>
 
-
-
-  </footer>
-
-  <div class="paycopy container-fluid">
-    <div class=" payment-methods">
-      <h3>{{__('Payment Methods')}}</h3>
-      <ul>
-        <li><img src="assets/images/cod.png" alt=""></li>
-        <li><img src="assets/images/esewa.png" alt=""></li>
-        <li><img src="assets/images/khalti.png" alt=""></li>
-        <li><img src="assets/images/International-Money-Express-IME-Agents-in-Janakpur-Dhanusha-1410545138.png"
-                 alt=""></li>
-      </ul>
+    <div class="paycopy container-fluid">
+        <div class=" payment-methods">
+            <h3>{{__('Payment Methods')}}</h3>
+            <ul>
+                <li><img src="assets/images/cod.png" alt=""></li>
+                <li><img src="assets/images/esewa.png" alt=""></li>
+                <li><img src="assets/images/khalti.png" alt=""></li>
+                <li><img src="assets/images/International-Money-Express-IME-Agents-in-Janakpur-Dhanusha-1410545138.png"
+                         alt=""></li>
+            </ul>
+        </div>
+        <div class="copyr">
+            <p>© {{date('Y')}} {{__('Pooshak. All rights reserved.')}} </p>
+        </div>
     </div>
-    <div class="copyr">
-      <p>© {{date('Y')}} {{__('Pooshak. All rights reserved.')}} </p>
-    </div>
-  </div>
 
 
 

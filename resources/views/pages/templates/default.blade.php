@@ -1,14 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="page-header">
+    <section class="page-header mb-none">
         <div class="container">
             <ul class="breadcrumb">
-                <li><a href="{{ route('welcome') }}">Home</a></li>
+                <li><a href="/">Home/</a></li>
                 <li class="active">{{ $page->name }}</li>
             </ul>
         </div>
-    </section>
 
     <div class="container">
         <div class="row">
@@ -41,9 +40,9 @@
 
             </div>
 
-            <div class="col-md-3">
-                @include('blog.sidebar')
-            </div>
+{{--            <div class="col-md-3">--}}
+{{--                @include('blog.sidebar')--}}
+{{--            </div>--}}
         </div>
     </div>
 @endsection

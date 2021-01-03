@@ -297,7 +297,7 @@ Route::get('storage/{folder}/{filename}', function ($folder, $filename) {
 });
 
 // Catch all PageController (place at the very bottom)
-/*Route::get('{slug}', ['uses' => 'PageController@getPage'])->where('slug', '([A-Za-z0-9\-\/]+)');*/
+Route::get('/page/{slug}', ['uses' => 'PageController@getPage'])->where('slug', '([A-Za-z0-9\-\/]+)');
 Route::get('/get-quote', 'Controller@getquote')->name('getquote');
 Route::get('/checkout/zone/', 'CheckoutController@zonechange')->name('checkout.zone');
 Route::get('autocomplete', 'SearchController@autocomplete');
