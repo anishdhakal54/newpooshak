@@ -222,7 +222,7 @@
     </div>
   </div>
   @if(count($relatedProducts))
-    <section class="recent-add-area">
+    <section class="recent-add-area product-categories-area">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -232,7 +232,7 @@
             </div>
           </div>
         </div>
-        <div class="recent-product-slider owl-carousel owl-nav-style">
+        <div class="product-categories-slider-1 recent-product-slider owl-carousel owl-nav-style">
           @foreach($relatedProducts as $relatedProduct)
             @livewire('partials.product-item',['product' => $relatedProduct])
           @endforeach
@@ -243,7 +243,7 @@
   @endif
 
   @if(count($best_selling_products))
-    <section class="recent-add-area">
+    <section class="recent-add-area ">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -253,7 +253,7 @@
             </div>
           </div>
         </div>
-        <div class="recent-product-slider1 owl-carousel owl-nav-style">
+        <div class="product-categories-slider-1 recent-product-slider owl-carousel owl-nav-style">
           @foreach($best_selling_products as $best_sell_product)
             @php($product = $best_sell_product->product)
             @livewire('partials.product-item',['product'=>$product,'is_category'=>true])

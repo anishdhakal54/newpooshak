@@ -4,7 +4,7 @@
     <div class="container-fluid top_sell all_cate">
       <div class="top_sell">
         <div class="top_sell_title cate_title">
-          <h3>All Categories</h3>
+          <h3>{{__('All Categories')}}</h3>
         </div>
         <hr>
         <div class="catrow">

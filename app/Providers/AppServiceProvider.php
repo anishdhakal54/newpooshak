@@ -12,6 +12,8 @@ use App\Repositories\College\CollegeRepository;
 use App\Repositories\College\EloquentCollege;
 use App\Repositories\Comment\CommentRepository;
 use App\Repositories\Comment\EloquentComment;
+use App\Repositories\Gallery\EloquentGallery;
+use App\Repositories\Gallery\GalleryRepository;
 use App\Repositories\Message\EloquentMessage;
 use App\Repositories\Message\MessageRepository;
 use App\Repositories\Order\EloquentOrder;
@@ -73,6 +75,7 @@ class AppServiceProvider extends ServiceProvider
 
     $this->app->singleton(CommentRepository::class, EloquentComment::class);
     $this->app->singleton(AboutRepository::class, EloquentAbout::class);
+    $this->app->singleton(GalleryRepository::class, EloquentGallery::class);
 
   }
 }

@@ -5,7 +5,7 @@
         <div class="_1GRhLX _3JslKL">
           <div class="section-title-btn-wrap border-bottom-3">
             <div class="section-title-3">
-              <h2>Best Selling</h2>
+              <h2>{{__('Best Selling')}}</h2>
             </div>
             <div class="btn-style-7">
               <a href="/shop">All Product</a>

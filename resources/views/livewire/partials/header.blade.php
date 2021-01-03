@@ -5,14 +5,14 @@
             <div class="header-top bg-gray-6 mathiko-padding">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-xl-7 col-lg-7">
+                        <div class="col-xl-6 col-lg-6">
                             <div class="header-offer-wrap-2 mrg-none mt-1">
                                 <p>{{getConfiguration('ribbon_text')}}
                                 </p>
 
                             </div>
                         </div>
-                        <div class="col-xl-5 col-lg-5">
+                        <div class="col-xl-6 col-lg-6">
                             <div class="header-top-right">
                                 <div class="header-action header-action-flex pr-20">
                                     <div class="same-style-2 text-pad top-right-whistlist same-style-2-white same-style-2-font-dec">
@@ -44,7 +44,8 @@
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                             <div class="text-center pt-5">
-                                                                <img src="assets/images/login.svg" class="loginsvg">
+                                                                <img src="{{asset('assets/images/login.svg')}}"
+                                                                     class="loginsvg">
                                                                 <h3 class="loginheadings">Login</h3>
 
 
@@ -110,7 +111,7 @@
                                             </div>
 
 
-                                            <a href="register.html"> Register</a>
+                                            <a href="{{route('register')}}"> Register</a>
                                         </div>
                                     @else
                                         @role(['admin', 'manager','shop-manager'])
@@ -141,7 +142,18 @@
                                         </div>
 
                                     @endif
+                                    <div class="same-style-2 text-pad top-right-whistlist same-style-2-white same-style-2-font-dec">
 
+                                        @if(Session::get('applocale')=='en')
+                                            <a data-turbolinks="false" href="{{ route('switch.lang','ne') }}">
+                                                भाषा परिवर्तन</a
+                                            >
+                                        @else
+                                            <a data-turbolinks="false" href="{{ route('switch.lang','en') }}">
+                                                Change Language</a>
+                                        @endif
+
+                                    </div>
 
                                 </div>
                             </div>
@@ -198,7 +210,7 @@
                                 <div class="same-style-2 same-style-2-font-inc">
                                     <div class="demo-area quotebutton">
                                         <button type="button" class="btn btn-cta" wire:click="getquote">
-                                            Get A Quote
+                                            {{__('Get A Quote')}}
                                         </button>
                                     </div>
 
@@ -272,7 +284,7 @@
                             <div
                                     class="same-style-2 same-style-2-white same-style-2-hover-black same-style-2-font-inc header-cart">
                                 <a class="cart-active" href="#">
-                                    <i class="icon-basket-loaded"></i><span class="pro-count black">02</span>
+                                    <i class="icon-basket-loaded"></i><span class="pro-count black">{{\App\Wishlist::where(['user_id' => auth()->id()])->count()}}</span>
                                 </a>
                             </div>
                             <div class="same-style-2 same-style-2-white same-style-2-hover-black main-menu-icon">
@@ -291,7 +303,7 @@
         <div class="sidebar-cart-all">
             <a class="cart-close" href=""><i class="icon_close"></i></a>
             <div class="cart-content">
-                <h3>Shopping Cart</h3>
+                <h3>{{__('Shopping Cart')}}</h3>
                 <ul>
                     @if(Cart::instance('default')->count())
                         @foreach(Cart::content() as $cartContent)
@@ -334,14 +346,14 @@
                     @endif
                 </ul>
                 <div class="cart-total">
-                    <h4>Subtotal: <span>{{ Cart::instance('default')->total() }}</span></h4>
+                    <h4>{{__('Subtotal')}}: <span>{{ Cart::instance('default')->total() }}</span></h4>
                 </div>
                 <div class="cart-checkout-btn">
-                    <a class="btn-hover cart-btn-style" href="/cart">view cart</a>
+                    <a class="btn-hover cart-btn-style" href="/cart">{{__('View Cart')}}</a>
                     <div class="no-mrg btn-hover cart-btn-style">
                         <form method="get" action="{{route('my-account.getcheckout')}}">
                             <button type="submit" class="no-mrg btn-hover cart-btn-style"
-                            >checkout
+                            >{{__('Checkout')}}
                             </button>
                         </form>
                     </div>

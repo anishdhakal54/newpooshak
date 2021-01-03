@@ -3,6 +3,8 @@
 namespace App\Http\Livewire;
 
 use App\Category;
+use App\Slideshow;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -26,6 +28,7 @@ class ShopCategory extends Component
   public $categoryid = [];
 
   public $filterbyprice = false;
+  public $slideshows;
 
   protected $updatesQueryString = ['min', 'max', 'count', 'orderby'];
 
@@ -42,6 +45,7 @@ class ShopCategory extends Component
   }
   public function render()
   {
+    $this->slideshows = Slideshow::orderBy(DB::raw('LENGTH(priority), priority'))->where('page','home')->where('active', '=', 1)->get();
     if ($this->filterbyprice) {
       $products = $this->category->products()->leftJoin('product_prices', 'products.id', '=', 'product_prices.product_id')
         ->where('regular_price', '>', $this->min)

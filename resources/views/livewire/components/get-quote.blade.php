@@ -11,7 +11,7 @@
                 <form id="get-quote">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">First Name</label>
+                            <label for="inputEmail4">{{__('First Name')}}</label>
                             <input class="form-control" type="text"
                                    placeholder="Enter your first name here.."
                                    wire:model="firszstname"/>
@@ -20,7 +20,7 @@
                             @endif
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputPassword4">Last Name</label>
+                            <label for="inputPassword4">{{__('Last Name')}}</label>
                             <input class="form-control" type="text"
                                    placeholder="Enter your lastname here.."
                                    wire:model="lastname"/>
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputAddress">Email</label>
+                        <label for="inputAddress">{{__('Email')}}</label>
                         <input class="form-control " type="email"
                                placeholder="Enter your email  here.."
                                wire:model="email"/>
@@ -39,7 +39,7 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail4">Company Name</label>
+                        <label for="inputEmail4">{{__('Company Name')}}</label>
                         <input class="form-control" type="text"
                                placeholder="Enter Company Name"
                                wire:model="companyname"/>
@@ -49,7 +49,7 @@
                     </div>
             
                     <div class="form-group">
-                        <label for="inputAddress">Address</label>
+                        <label for="inputAddress">{{__('Address')}}</label>
                         <input class="form-control " type="text"
                                placeholder="Enter your address  here.."
                                wire:model="address"/>
@@ -79,11 +79,11 @@
                     @endif
             
                     @if(!Auth::check())
-                    <button type="button" class="btn_add_to_cart" data-toggle="modal" data-target="#demoModal3669">Submit</button>
+                    <button type="button" class="btn_add_to_cart" data-toggle="modal" data-target="#demoModal3669">{{__('Submit')}}</button>
     
                     @else
                     <button class="btn btn-cta btn-submitnow" type="button" wire:click="sendquote" wire:loading.class="disabled">
-                        <span><i wire:loading wire:target="sendquote" class="fas fa-spinner fa-spin"></i> Submit</span>
+                        <span><i wire:loading wire:target="sendquote" class="fas fa-spinner fa-spin"></i> {{__('Submit')}}</span>
             
                     </button>
                     @endif
@@ -123,41 +123,41 @@
             <form>
     
               <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
+                <label for="exampleInputEmail1">{{__('Email address')}}</label>
                 <input wire:model='login_email' type="email" class="form-control" id="exampleInputEmail1"
                   aria-describedby="emailHelp">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Password</label>
+                <label for="exampleInputEmail1">{{__('Password')}}</label>
                 <input wire:model='password' type="password" class="form-control" id="exampleInputEmail1"
                   aria-describedby="emailHelp">
               </div>
     
               <div class="login_button">
                 <button type="submit" wire:click="login" wire:loading.class="disabled">
-                  <span><i wire:loading wire:target="login" class="fas fa-spinner fa-spin"></i> Login</span>
+                  <span><i wire:loading wire:target="login" class="fas fa-spinner fa-spin"></i> {{__('Login')}}</span>
             
                 </button>
               </div>
               <div class="for">
                 <div class="left_forgot">
-                  <a href="#">Forgot Password?</a>
+                  <a href="#">{{__('Forgot Password?')}}</a>
                 </div>
                 <div class="new">
-                  New to Poshak? <a href="register.html">Click here to register.</a>
+                  New to Poshak? <a href="{{route('register')}}">{{__('Click here to register.')}}</a>
                 </div>
               </div>
     
     
     
-              <span class="or">OR</span>
+              <span class="or">{{__('OR')}}</span>
     
               <div class="social_last_share login_share" style="margin-bottom: 1rem">
     
                 <div class="login_button social_button">
-                  <button type="submit">Sign In With Facebook <img
+                  <button type="submit">{{__('Sign In With Facebook')}} <img
                       src="{{asset('assets/images/facebook.png')}}"></button>
-                  <button type="submit">Sign In With Google <img
+                  <button type="submit">{{__('Sign In With Google')}} <img
                       src="{{asset('assets/images/gmail.svg')}}"></button>
                 </div>
               </div>
@@ -172,7 +172,7 @@
         </div>
       </div>
       <div class="hehehe">
-        <img src="assets/images/hehehe.png">
+        <img src="{{asset('assets/images/hehehe.png')}}">
       </div>
     </div>
     

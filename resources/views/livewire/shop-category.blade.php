@@ -424,7 +424,8 @@
     <div class="container-fluid">
       <div class="row flex-row-reverse">
         <div class="col-lg-9" style="padding-left: 0">
-          <img src="/assets/images/atm-banner.png" width="100%">
+          @livewire('partials.slideshows')
+
           <div class="shop-topbar-wrapper">
             <div class="shop-topbar-left">
               <p> {{$products->total()}} results found!!!</p>
@@ -527,28 +528,36 @@
 
 
                   </div>
-                  <br/>
-                  <button type="button" wire:click="filterbyPrice" wire:loading.class="disabled">
-                    <span style="margin-bottom:0"><i wire:loading wire:target="filterbyPrice"
-                                                     class="fas fa-spinner fa-spin"></i> Filter</span>
-                  </button>
+                  
                 </div>
               </div>
             </div>
 
-            <div class="sidebar-widget shop-sidebar-border mb-35 pt-40">
-              <h4 class="sidebar-widget-title">All Categories</h4>
-              <div class="shop-catigory">
-                <ul>
-                  @foreach($productCategories as $key=>$productCategory)
+{{--            <div class="sidebar-widget shop-sidebar-border mb-35 pt-40">--}}
+{{--              <h4 class="sidebar-widget-title">All Categories</h4>--}}
+{{--              <div class="shop-catigory">--}}
+{{--                <ul>--}}
+{{--                  @foreach($productCategories as $key=>$productCategory)--}}
 
-                    <li><a href="/category/{{$productCategory['slug']}}">{!!   $productCategory['name']!!}</a></li>
+{{--                    <li><a href="/category/{{$productCategory['slug']}}">{!!   $productCategory['name']!!}</a></li>--}}
 
-                  @endforeach
+{{--                  @endforeach--}}
 
-                </ul>
-              </div>
+{{--                </ul>--}}
+{{--              </div>--}}
+{{--            </div>--}}
+<div>
+
+              <a href="{{getConfiguration('ad4_link')}}">
+                <img class="full-width" alt="advertisement" src="{{ url('storage') . '/' . getConfiguration('ad4') }}"/>
+              </a>
+</div>
+            <div>
+              <a href="{{getConfiguration('ad5_link')}}">
+                <img class="full-width" alt="advertisement" src="{{ url('storage') . '/' . getConfiguration('ad5') }}"/>
+              </a>
             </div>
+            
           </div>
         </div>
       </div>

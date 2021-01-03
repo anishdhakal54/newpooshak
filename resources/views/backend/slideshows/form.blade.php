@@ -53,6 +53,18 @@
             </div>
 
 
+            {!! Form::label('Home','Home:',['class'=>'control-label']) !!}
+            {!! Form ::radio('page', 'home',(isset($slideshow->page) && $slideshow->page == "home"))!!}
+            {!! Form::label('category','Category:',['class'=>'control-label']) !!}
+            {!! Form ::radio('page', 'category',(isset($slideshow->page) && $slideshow->page == "category"))!!}
+
+            @if($errors->has('page'))
+                <span class="help-block">{{$errors->first()}}</span>
+            @endif
+
+
+
+
         </div>
         <!-- /.box-body -->
     </div>

@@ -31,6 +31,7 @@ class Slideshow extends Model
     'link',
     'slug',
     'caption',
+    'page',
     'status', 'priority'
   ];
 

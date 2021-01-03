@@ -124,10 +124,11 @@
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 footlogo">
             <div class="logo">
-              <a href="index.html">
-                <img alt="logo" src="assets/images/footlogo.png" />
-                <img class="mini-logo" src="assets/images/footlogo1.png" alt="">
+              <a href="/">
+                <img alt="logo" src="{{ url('storage') . '/' . getConfiguration('site_logo') }}"/>
+                <img class="mini-logo" src="{{asset('assets/images/footlogo1.png')}}" alt="">
               </a>
+              
               <div class="trades">
                 <p>Our Trademark</p>
               </div>
@@ -140,15 +141,15 @@
 
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-1 hiddenknow">
             <div class="module-heading">
-              <h4 class="module-title">Know Us</h4>
+              <h4 class="module-title">{{__('Know Us')}}</h4>
             </div>
             <!-- /.module-heading -->
 
             <div class="module-body">
               <ul class='list-unstyled'>
-                <li class="first"><a title="Your Account" href="#">About Us</a></li>
-                <li><a title="Information" href="#">Careers</a></li>
-                <li><a title="Addresses" href="#">Our Stories</a></li>
+                <li class="first"><a title="Your Account" href="#">{{__('About Us')}}</a></li>
+                <li><a title="Information" href="#">{{__('Careers')}}</a></li>
+                <li><a title="Addresses" href="#">{{__('Our Stories')}}</a></li>
               </ul>
             </div>
             <!-- /.module-body -->
@@ -156,17 +157,17 @@
 
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 poli">
             <div class="module-heading">
-              <h4 class="module-title">Our Policies</h4>
+              <h4 class="module-title">{{__('Our Policies')}}</h4>
             </div>
             <!-- /.module-heading -->
 
             <div class="module-body">
               <ul class='list-unstyled'>
-                <li class="first"><a href="#" title="Contact us">FAQ's</a></li>
-                <li><a href="#" title="About us">Privacy Policy</a></li>
-                <li><a href="#" title="faq">Terms & Condition</a></li>
-                <li><a href="#" title="Popular Searches">Return Policy</a></li>
-                <li><a href="#" title="Popular Searches">Careers</a></li>
+                <li class="first"><a href="#" title="Contact us">{{__('FAQ')}}</a></li>
+                <li><a href="#" title="About us">{{__('Privacy Policy')}}</a></li>
+                <li><a href="#" title="faq">{{__('Terms & Condition')}}</a></li>
+                <li><a href="#" title="Popular Searches">{{__('Return Policy')}}</a></li>
+                <li><a href="#" title="Popular Searches">{{__('Careers')}}</a></li>
               </ul>
             </div>
             <!-- /.module-body -->
@@ -181,10 +182,10 @@
 
             <div class="module-body">
               <ul class='list-unstyled'>
-                <li class="first"><a title="Your Account" href="#">Payments</a></li>
-                <li><a title="Information" href="#">Shipping</a></li>
-                <li><a title="Addresses" href="#">Cancellation & Returns</a></li>
-                <li><a title="Addresses" href="#">Offers & Coupons</a></li>
+                <li class="first"><a title="Your Account" href="#">{{__('Payments')}}</a></li>
+                <li><a title="Information" href="#">{{__('Shipping')}}</a></li>
+                <li><a title="Addresses" href="#">{{__('Cancellation & Returns')}}</a></li>
+                <li><a title="Addresses" href="#">{{__('Offers & Coupons')}}</a></li>
               </ul>
             </div>
             <!-- /.module-body -->
@@ -193,20 +194,20 @@
 
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <div class="module-heading">
-              <h4 class="module-title">Connect</h4>
+              <h4 class="module-title">{{__('Connect')}}</h4>
             </div>
             <!-- /.module-heading -->
 
             <div class="module-body">
 
               <div class="healthdose">
-                <p>Sign up for our newsletter to receive updates & exclusive offers
+                <p>{{__('Sign up for our newsletter to receive updates & exclusive offers')}}
 
                 </p>
                 <div class="demo-area ">
                   <button type="button" class="btn btn-dark btn-cta subnowbtn" data-toggle="modal"
                           data-target="#subs">
-                    Subscribe
+                    {{__('Subscribe')}}
                   </button>
                 </div>
                 <!-- Modal -->
@@ -221,25 +222,24 @@
                         </button>
                         <div class="row">
                           <div class="col-md-6 bg-img rounded-left m-h-60 d-none d-sm-block modalimg">
-                            <img src="assets/images/undraw_subscribe_vspl.svg">
+                            <img src="{{asset('assets/images/undraw_subscribe_vspl.svg')}}">
                           </div>
                           <div class="col-md-6 py-5 px-sm-5  newsletterform">
 
-                            <h2 class="pt-sm-3">Subscribe to our Newsletter</h2>
+                            <h2 class="pt-sm-3">{{__('Subscribe to our Newsletter')}}</h2>
                             <p class="text-muted subscribe">
-                              Stay informed! Monthly offers & discounts.
+                              {{__('Stay informed! Monthly offers & discounts.')}}
                             </p>
                             <form>
                               <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
+                                <label for="exampleInputEmail1">{{__('Email address')}}</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1"
                                        aria-describedby="emailHelp" placeholder="Enter email">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
-                                  anyone else.</small>
+                                <small id="emailHelp" class="form-text text-muted">{{__('We will never share your email with anyone else.')}}</small>
                               </div>
 
                               <button type="submit" class="btn btn-block btn-cta subsform" data-dismiss="modal"
-                                      aria-label="Close">Subscribe</button>
+                                      aria-label="Close">{{__('Subscribe')}}</button>
                             </form>
                           </div>
                         </div>
@@ -257,27 +257,28 @@
 
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
             <div class="module-heading">
-              <h4 class="module-title">Contact Us</h4>
+              <h4 class="module-title">{{__('Contact Us')}}</h4>
             </div>
             <!-- /.module-heading -->
 
             <div class="conloc">
               <i class="fa fa-map-marker"></i>
-              <p>Kusunti-13, Lalitpur, Nepal</p>
+              <p>{{getConfiguration('site_address')}}</p>
             </div>
 
             <div class="conloc">
               <i class="fa fa-envelope"></i>
-              <p>info@pooshak.com.np
+              <p>{{getConfiguration('site_primary_email')}}
               </p>
             </div>
 
             <div class="conloc">
               <i class="fa fa-phone"></i>
-              <p>+977 9846579211</p>
+              <p>{{getConfiguration('site_primary_phone')}}</p>
             </div>
 
             <ul class='list-unstyled soc footsoc'>
+
               <i class="fa fa-facebook"></i>
               <i class="fa fa-twitter"></i>
               <i class="fa fa-google"></i>
@@ -287,16 +288,6 @@
 
             <!-- /.module-body -->
           </div>
-
-
-
-
-
-
-
-
-
-
 
 
         </div>
@@ -312,7 +303,7 @@
 
   <div class="paycopy container-fluid">
     <div class=" payment-methods">
-      <h3>Payment Methods</h3>
+      <h3>{{__('Payment Methods')}}</h3>
       <ul>
         <li><img src="assets/images/cod.png" alt=""></li>
         <li><img src="assets/images/esewa.png" alt=""></li>
@@ -322,7 +313,7 @@
       </ul>
     </div>
     <div class="copyr">
-      <p>© 2020 Pooshak. All rights reserved. </p>
+      <p>© {{date('Y')}} {{__('Pooshak. All rights reserved.')}} </p>
     </div>
   </div>
 

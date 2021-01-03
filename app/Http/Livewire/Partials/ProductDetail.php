@@ -99,12 +99,12 @@ public $lat,$lon;
 
 
                 $frame_rate = getFrameRate($this->getTotalQuantity(), $this->color_no);
-                $this->color_price = $side_count * getPerColorPrice() * $this->getTotalQuantity();
+                $this->color_price = $this->color_no * $side_count * getPerColorPrice() * $this->getTotalQuantity();
                 $this->frame_price = $frame_rate;
                 if ($this->has_frame) {
                     $this->frame_price = 0;
                 }
-                $this->color_message = $side_count . " * " . getPerColorPrice() . " * " . $this->getTotalQuantity() . " = " . $this->color_price;
+                $this->color_message = $this->color_no." * ".$side_count . " * " . getPerColorPrice() . " * " . $this->getTotalQuantity() . " = " . $this->color_price;
                 $this->frame_message = getPerFramePrice() . " * " . $this->color_no . " = " . $this->frame_price . "(Per frame price = 400, no of color = " . $this->color_no . ")";
                 if ($frame_rate == 0)
                     $this->frame_message = "Frame Rate is free ( only if item is above or equal to 200)";
@@ -112,7 +112,7 @@ public $lat,$lon;
                     $this->frame_message = "Frame Rate is free because of old user but it is reviewed from our Admin";
                 }
                 if ($this->color_price != 0)
-                    $this->color_message .= " (No. of side to print = " . $side_count . ", Per color price = " . getPerColorPrice() . " and Item = " . $this->getTotalQuantity() . ")";
+                    $this->color_message .= " (No. of color = ".$this->color_no." No. of side to print = " . $side_count . ", Per color price = " . getPerColorPrice() . " and Item = " . $this->getTotalQuantity() . ")";
 
                 if ($side_count == 0) {
                     $this->size_message = "<i class=\"fa fa-exclamation-circle\"></i> Please Choose 'Front, Back or Pocket' where you want to print logo.";

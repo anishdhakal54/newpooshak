@@ -20,7 +20,7 @@
   background-size: 10px;
   background-repeat: repeat-x;
   background-position: 0 100.1%;">
-          <img src="assets/images/onboard.svg" alt="">
+          <img src="{{asset('assets/images/onboard.svg')}}" alt="">
         </div>
         <div class="modal-body automodal">
           <div class=" text-center">

@@ -40,10 +40,10 @@ class ImageService extends ImageManager {
 
 			// Insert resized image centered into background
 
-      $watermark = Image::make(public_path('/assets/images/poosak.png'));
+//      $watermark = Image::make(public_path('/assets/images/poosak.png'));
 
 			$canvas->insert($image, 'center');
-      $canvas->insert($watermark, 'center');
+//      $canvas->insert($watermark, 'center');
 
 			$sizePath = $image->dirname . '/' . $sizeName . "-" . $image->basename;
 			$canvas->save( $sizePath );

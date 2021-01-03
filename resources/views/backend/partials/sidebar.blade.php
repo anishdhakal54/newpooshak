@@ -139,6 +139,28 @@
                 </ul>
             </li>
             @endrole
+
+            @role(['admin', 'manager','shop-manager'])
+
+            <li class="treeview {{ ($route == 'dashboard.gallerys.index' || $route == 'dashboard.gallerys.create' || $route == 'dashboard.gallerys.edit') ? 'active': null }}">
+                <a href="#">
+                    <i class="fa fa-file-text-o"></i>
+                    <span>Galleries</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ $route == 'dashboard.gallerys.index' ? 'active': null }}">
+                        <a href="{{ route('dashboard.gallerys.index') }}"><i class="fa fa-table"></i> All Photos</a>
+                    </li>
+                    <li class="{{ $route == 'dashboard.gallerys.create' ? 'active': null }}">
+                        <a href="{{ route('dashboard.gallerys.create') }}"><i class="fa fa-plus-square-o"></i> Add
+                            New Photos</a>
+                    </li>
+                </ul>
+            </li>
+            @endrole
             {{--@role(['admin', 'manager','shop-manager'])--}}
 
 

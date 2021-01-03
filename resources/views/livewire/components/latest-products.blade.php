@@ -5,10 +5,10 @@
         <div class="_1GRhLX _3JslKL">
           <div class="section-title-btn-wrap border-bottom-3">
             <div class="section-title-3">
-              <h2>Latest Products</h2>
+              <h2>{{__('Latest Products')}}</h2>
             </div>
             <div class="btn-style-7">
-              <a href="javascript:void(0);">All Product</a>
+              <a href="javascript:void(0);">{{__('All Product')}}</a>
             </div>
           </div>
           <div class="product-categories-slider-1 nav-style-3">
