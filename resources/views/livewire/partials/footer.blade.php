@@ -177,7 +177,7 @@
 
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 shop">
                         <div class="module-heading">
-                            <h4 class="module-title">Category</h4>
+                            <h4 class="module-title">Categorydtrfhgjhy</h4>
                         </div>
                         <!-- /.module-heading -->
 
