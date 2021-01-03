@@ -30,6 +30,7 @@ class AccountInformation extends Component
 
   public function editinfo()
   {
+      dd($this);
     $user = Auth::user();
 
     $user->first_name = $this->first_name;

@@ -11,7 +11,7 @@ class Index extends Component
 {
     public $user;
     public $first_name, $last_name, $email, $phone;
-    public $shippingBillingAddress,$address1, $state_name,$address2,$postcode,$state,$allstate;
+    public $shippingBillingAddress,$address1, $zone,$district,$address2,$postcode,$state,$allstate;
     public function mount()
     {
         $this->user = Auth::user();
@@ -43,6 +43,7 @@ class Index extends Component
     }
     public function editinfo()
     {
+//        dd($this);
         $user = Auth::user();
 
         $user->first_name = $this->first_name;

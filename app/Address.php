@@ -19,6 +19,11 @@ class Address extends Model {
 		'country_id',
 		'email',
 		'phone',
+        'zone',
+        'area',
+        'district',
+        'lat',
+        'lon'
 	];
 
 	public function state() {

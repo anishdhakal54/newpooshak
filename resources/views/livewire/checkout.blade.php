@@ -1,80 +1,122 @@
 <div>
 
 
-    <section class="shopping-cart checkshopspad spad">
+    <section wire:ignore class="shopping-cart checkshopspad spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-12 checkformsleft">
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputEmail4">First Name</label>
-                                <input type="text" class="form-control" id="inputEmail4" placeholder="Your First Name">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Last Name</label>
-                                <input type="text" class="form-control" id="inputPassword4"
-                                       placeholder="Your Last Name">
-                            </div>
+                    {{--                    <form>--}}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">First Name</label>
+                            <input type="text" wire:model="first_name" class="form-control" id="inputEmail4"
+                                   placeholder="Your First Name">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Last Name</label>
+                            <input type="text" class="form-control" wire:model="last_name" id="inputPassword4"
+                                   placeholder="Your Last Name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Phone Number</label>
+                            <input type="number" wire:model="phone" class="form-control" id="inputEmail4"
+                                   placeholder="Your Email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Email Address</label>
+                            <input type="email" wire:model="email" class="form-control" id="inputPassword4"
+                                   placeholder="Your Email Address">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Zone</label>
+                            <select wire:model="zone" class="form-control checkselect" id="zone"
+                                    name="zone">
+                                <option value="0" disabled="" selected>Select Zone</option>
+                                @foreach(\App\DeliveryCharge::where('parent_id',0)->get() as $zones)
+                                    <option value="{{$zones->id}}">{{$zones->name}}</option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('zone'))
+                                <span class="help-block">
+                                {{ $errors->first('zone') }}
+                            </span>
+                            @endif
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">District</label>
+                            <select class="form-control checkselect" wire:model="district"
+                                    id="district"
+                                    name="district"
+                                    disabled>
+                                <option value="0">Select District</option>
+                            </select>
+                            @if ($errors->has('district'))
+                                <span class="help-block">
+                                {{ $errors->first('district') }}
+                            </span>
+
+                            @endif
+                        </div>
+
+                    </div>
+
+                    <div class="form-row ">
+
+                        <div class="form-group col-md-12">
+                            <label for="inputState">Area</label>
+                            <select class="form-control checkselect" wire:model="area" id="area"
+                                    name="area"
+                                    disabled>
+                                <option value="0">Select Area</option>
+                            </select>
+                            @if ($errors->has('area'))
+                                <span class="help-block">
+                                {{ $errors->first('area') }}
+                            </span>
+
+                            @endif
+                        </div>
+
+                        <div class="form-group col-md-6">
                             <label for="inputAddress">Street Address</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            <input type="text" wire:model="address1" class="form-control" id="inputAddress"
+                                   placeholder="1234 Main St">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <label for="inputAddress2">Street Address 2</label>
-                            <input type="text" class="form-control" id="inputAddress2"
+                            <input type="text" wire:model="address2" class="form-control" id="inputAddress2"
                                    placeholder="Apartment, studio, or floor">
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputEmail4">Phone Number</label>
-                                <input type="number" class="form-control" id="inputEmail4" placeholder="Your Email">
+                        @if ($errors->has('address'))
+                            <span class="help-block">
+                                {{ $errors->first('address') }}
+                            </span>
+
+                        @endif
+                        <div class="col-lg-12 col-md-12">
+                            <div class="col-md-12">
+                                <div id="mapid"></div>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Email Address</label>
-                                <input type="email" class="form-control" id="inputPassword4"
-                                       placeholder="Your Email Address">
+
+                            <div class="col-md-6">
+                                <input type="hidden" wire:model="lon" class="form-control" name="lat"
+                                       id="lat" size=12
+                                       value="">
+                                <input type="hidden" wire:model="lat" class="form-control" name="lon"
+                                       id="lon" size=12
+                                       value="">
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputCity">City</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected>Kathmandu</option>
-                                    <option>...</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputState">Province</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected>1</option>
-                                    <option>...</option>
-                                </select>
-                            </div>
+                    </div>
 
-                        </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputCity">Dustrict</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected>Kathmandu</option>
-                                    <option>...</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputState">Region</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected>1</option>
-                                    <option>...</option>
-                                </select>
-                            </div>
-
-                        </div>
-
-                        <button type="submit" class="btn savecheckout">Save</button>
-                    </form>
+                    {{--                        <button type="submit" class="btn savecheckout">Save</button>--}}
+                    {{--                    </form>--}}
 
                 </div>
                 <div class="col-lg-4 col-md-12 checkform checkformsright ">
@@ -142,14 +184,14 @@
 
 
                     </div>
-                    <div class="paynow">
+                    <div class="paynow" style="margin-top: -35px;">
 
-{{--                        <a class="btn-hover" wire:click="orderNow" wire:loading.class="disabled"--}}
+                        {{--                        <a class="btn-hover" wire:click="orderNow" wire:loading.class="disabled"--}}
                         {{--                           href="javascript:void(0);"><i--}}
                         {{--                                    wire:loading wire:target="orderNow" class="fas fa-spinner fa-spin"></i>--}}
                         {{--                            Place Order</a>--}}
 
-                        <button type="submit" wire:click="orderNow"wire:loading.class="disabled"
+                        <button type="submit" wire:click="orderNow" wire:loading.class="disabled"
                                 href="javascript:void(0);"><i
                                     wire:loading wire:target="orderNow" class="fas fa-spinner fa-spin"></i>
                             Place My Order
@@ -337,99 +379,99 @@
 {{--                                    </div>--}}
 {{--                                </div>--}}
 {{--                            </div>--}}
-                            {{-- <div class="checkout-account mb-50px">
-                               <input class="checkout-toggle2" type="checkbox"/>
-                               <label>Create an account?</label>
-                             </div>
-                             <div class="checkout-account-toggle open-toggle2 mb-30">
-                               <input placeholder="Email address" type="email"/>
-                               <input placeholder="Password" type="password"/>
-                               <button class="btn-hover checkout-btn" type="submit">register</button>
-                             </div>
-                             <div class="additional-info-wrap">
-                               <h4>Additional information</h4>
-                               <div class="additional-info">
-                                 <label>Order notes</label>
-                                 <textarea placeholder="Notes about your order, e.g. special notes for delivery. "
-                                           name="message"></textarea>
-                               </div>
-                             </div>
-                             <div class="checkout-account mt-25">
-                               <input class="checkout-toggle" type="checkbox"/>
-                               <label>Ship to a different address?</label>
-                             </div>
-                             <div class="different-address open-toggle mt-30">
-                               <div class="row">
-                                 <div class="col-lg-6 col-md-6">
-                                   <div class="billing-info mb-20px">
-                                     <label>First Name</label>
-                                     <input type="text"/>
-                                   </div>
-                                 </div>
-                                 <div class="col-lg-6 col-md-6">
-                                   <div class="billing-info mb-20px">
-                                     <label>Last Name</label>
-                                     <input type="text"/>
-                                   </div>
-                                 </div>
-                                 <div class="col-lg-12">
-                                   <div class="billing-info mb-20px">
-                                     <label>Company Name</label>
-                                     <input type="text"/>
-                                   </div>
-                                 </div>
-                                 <div class="col-lg-12">
-                                   <div class="billing-select mb-20px">
-                                     <label>Country</label>
-                                     <select>
-                                       <option>Select a country</option>
-                                       <option>Azerbaijan</option>
-                                       <option>Bahamas</option>
-                                       <option>Bahrain</option>
-                                       <option>Bangladesh</option>
-                                       <option>Barbados</option>
-                                     </select>
-                                   </div>
-                                 </div>
-                                 <div class="col-lg-12">
-                                   <div class="billing-info mb-20px">
-                                     <label>Street Address</label>
-                                     <input class="billing-address" placeholder="House number and street name" type="text"/>
-                                     <input placeholder="Apartment, suite, unit etc." type="text"/>
-                                   </div>
-                                 </div>
-                                 <div class="col-lg-12">
-                                   <div class="billing-info mb-20px">
-                                     <label>Town / City</label>
-                                     <input type="text"/>
-                                   </div>
-                                 </div>
-                                 <div class="col-lg-6 col-md-6">
-                                   <div class="billing-info mb-20px">
-                                     <label>State / County</label>
-                                     <input type="text"/>
-                                   </div>
-                                 </div>
-                                 <div class="col-lg-6 col-md-6">
-                                   <div class="billing-info mb-20px">
-                                     <label>Postcode / ZIP</label>
-                                     <input type="text"/>
-                                   </div>
-                                 </div>
-                                 <div class="col-lg-6 col-md-6">
-                                   <div class="billing-info mb-20px">
-                                     <label>Phone</label>
-                                     <input type="text"/>
-                                   </div>
-                                 </div>
-                                 <div class="col-lg-6 col-md-6">
-                                   <div class="billing-info mb-20px">
-                                     <label>Email Address</label>
-                                     <input type="text"/>
-                                   </div>
-                                 </div>
-                               </div>
-                             </div>--}}
+{{-- <div class="checkout-account mb-50px">
+   <input class="checkout-toggle2" type="checkbox"/>
+   <label>Create an account?</label>
+ </div>
+ <div class="checkout-account-toggle open-toggle2 mb-30">
+   <input placeholder="Email address" type="email"/>
+   <input placeholder="Password" type="password"/>
+   <button class="btn-hover checkout-btn" type="submit">register</button>
+ </div>
+ <div class="additional-info-wrap">
+   <h4>Additional information</h4>
+   <div class="additional-info">
+     <label>Order notes</label>
+     <textarea placeholder="Notes about your order, e.g. special notes for delivery. "
+               name="message"></textarea>
+   </div>
+ </div>
+ <div class="checkout-account mt-25">
+   <input class="checkout-toggle" type="checkbox"/>
+   <label>Ship to a different address?</label>
+ </div>
+ <div class="different-address open-toggle mt-30">
+   <div class="row">
+     <div class="col-lg-6 col-md-6">
+       <div class="billing-info mb-20px">
+         <label>First Name</label>
+         <input type="text"/>
+       </div>
+     </div>
+     <div class="col-lg-6 col-md-6">
+       <div class="billing-info mb-20px">
+         <label>Last Name</label>
+         <input type="text"/>
+       </div>
+     </div>
+     <div class="col-lg-12">
+       <div class="billing-info mb-20px">
+         <label>Company Name</label>
+         <input type="text"/>
+       </div>
+     </div>
+     <div class="col-lg-12">
+       <div class="billing-select mb-20px">
+         <label>Country</label>
+         <select>
+           <option>Select a country</option>
+           <option>Azerbaijan</option>
+           <option>Bahamas</option>
+           <option>Bahrain</option>
+           <option>Bangladesh</option>
+           <option>Barbados</option>
+         </select>
+       </div>
+     </div>
+     <div class="col-lg-12">
+       <div class="billing-info mb-20px">
+         <label>Street Address</label>
+         <input class="billing-address" placeholder="House number and street name" type="text"/>
+         <input placeholder="Apartment, suite, unit etc." type="text"/>
+       </div>
+     </div>
+     <div class="col-lg-12">
+       <div class="billing-info mb-20px">
+         <label>Town / City</label>
+         <input type="text"/>
+       </div>
+     </div>
+     <div class="col-lg-6 col-md-6">
+       <div class="billing-info mb-20px">
+         <label>State / County</label>
+         <input type="text"/>
+       </div>
+     </div>
+     <div class="col-lg-6 col-md-6">
+       <div class="billing-info mb-20px">
+         <label>Postcode / ZIP</label>
+         <input type="text"/>
+       </div>
+     </div>
+     <div class="col-lg-6 col-md-6">
+       <div class="billing-info mb-20px">
+         <label>Phone</label>
+         <input type="text"/>
+       </div>
+     </div>
+     <div class="col-lg-6 col-md-6">
+       <div class="billing-info mb-20px">
+         <label>Email Address</label>
+         <input type="text"/>
+       </div>
+     </div>
+   </div>
+ </div>--}}
 {{--                        </div>--}}
 {{--                    </div>--}}
 {{--                    <div class="col-lg-5">--}}
@@ -579,5 +621,174 @@
 {{--            </div>--}}
 {{--        </div>--}}
 {{--    </div>--}}
-    <!-- checkout area end -->
+<!-- checkout area end -->
+    @push('styles')
+        <style>
+            div#mapid {
+                width: 100%;
+                height: 300px;
+            }
+
+            .address {
+                cursor: pointer
+            }
+
+            .address:hover {
+                color: #AA0000;
+                text-decoration: underline
+            }
+        </style>
+    @endpush
+
+    @push('scripts')
+        <script src="{{asset('assets/fullleaflet/leaflet.js')}}"></script>
+        <script type="text/javascript">
+            var myMarker;
+            var map;
+            init_map();
+
+
+            function init_map() {
+                var startlat = 27.69029236;
+                var startlon = 85.33630908;
+
+
+                var options = {
+                    center: [startlat, startlon],
+                    zoom: 14
+                }
+
+                document.getElementById('lat').value = startlat;
+                document.getElementById('lon').value = startlon;
+
+                map = L.map('mapid', options);
+                var nzoom = 12;
+
+                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+                    {attribution: 'OSM'}
+                ).addTo(map);
+                myMarker = L.marker([startlat, startlon], {
+                    title: "Coordinates",
+                    alt: "Coordinates",
+                    draggable: true
+                }).addTo(map).on('dragend', function () {
+
+                    var lat = myMarker.getLatLng().lat.toFixed(8);
+                    var lon = myMarker.getLatLng().lng.toFixed(8);
+
+
+                    var czoom = map.getZoom();
+
+                    document.getElementById('lat').value = lat;
+                    document.getElementById('lon').value = lon;
+                    //
+                @this.set('lat', lat);
+                @this.set('lon', lon);
+                    myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
+                    map.invalidateSize();
+                });
+
+                chooseAddr(startlat, startlon);
+            }
+
+            function chooseAddr(lat1, lng1) {
+                myMarker.closePopup();
+                map.setView([lat1, lng1], 18);
+                myMarker.setLatLng([lat1, lng1]);
+                lat = lat1.toFixed(8);
+                lon = lng1.toFixed(8);
+                document.getElementById('lat').value = lat;
+                document.getElementById('lon').value = lon;
+                myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
+            }
+        </script>
+
+
+
+        <script>
+            $(document).ready(function () {
+                document.getElementById("area").onchange = function () {
+                    var e = document.getElementById("area");
+
+                    var zone = e.options[e.selectedIndex].value;
+
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        type: 'GET',
+                        url: "",
+                        data: {
+                            location: zone
+                        },
+                        success: function (data) {
+                            $('#shipping_charge').html(data.amount.toLocaleString());
+                            $('#ship_amnt').html(data.amount.toLocaleString());
+                            $('#grand_total_value').html(data.grandTotal.toLocaleString());
+                            $('#ship_amnt_total').html(data.grandTotal.toLocaleString());
+                        }
+                    });
+
+
+                };
+            })
+        </script>
+        <script>
+            document.getElementById("zone").onchange = function () {
+
+                var e = document.getElementById("zone");
+                var zone = e.options[e.selectedIndex].value;
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: 'GET',
+                    url: "{{ route('checkout.zone') }}",
+                    data: {
+                        zone: zone
+                    },
+                    success: function (data) {
+//                console.log(data);
+
+                        $('#district').html(data);
+                        $('#district').removeAttr('disabled');
+                        $('#zone').css('width', 'auto');
+
+                    }
+
+                });
+            };
+
+            document.getElementById("district").onchange = function () {
+
+                var e = document.getElementById("district");
+                var zone = e.options[e.selectedIndex].value;
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: 'GET',
+                    url: "{{ route('checkout.zone') }}",
+                    data: {
+                        zone: zone
+                    },
+                    success: function (data) {
+                        $('#area').html(data);
+                        $('#area').removeAttr('disabled');
+                        $('#district').css('width', 'auto');
+
+                    }
+
+                });
+            };
+
+
+        </script>
+    @endpush
 </div>

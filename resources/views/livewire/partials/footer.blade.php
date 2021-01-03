@@ -147,7 +147,7 @@
 
                         <div class="module-body">
                             <ul class='list-unstyled'>
-                                <li class="first"><a title="Your Account" href="/about-us">{{__('About Us')}}</a></li>
+                                <li class="first"><a title="Your Account" href="/page/about-us">{{__('About Us')}}</a></li>
                                 <li class="first"><a title="Your Account" href="/contact-us">Contact Us</a></li>
                                 <li><a title="Information" href="{{url('/page/career')}}">{{__('Careers')}}</a></li>
                                 <li><a title="Addresses" href="{{url('/page/our-stories')}}">{{__('Our Stories')}}</a></li>
