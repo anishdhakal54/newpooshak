@@ -30,7 +30,8 @@ class Page extends Model {
 		'parent',
 		'template',
 		'meta_title',
-		'meta_description'
+		'meta_description',
+        'nepali_content',
 	];
 
 	/**

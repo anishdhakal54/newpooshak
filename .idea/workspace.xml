@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9dc1963d-690f-4179-8e7d-39a870d9652a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+
+    <list default="true" id="686090c3-3055-422d-b0fb-08b533d5b111" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/footer.blade.php" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,6 +174,11 @@
       <recent name="$PROJECT_DIR$/app/Repositories" />
       <recent name="$PROJECT_DIR$/app/Http/Requests" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\pooshak-master\public\assets\images" />
+      <recent name="C:\xampp\htdocs\pooshak-master\public\assets" />
+      <recent name="C:\xampp\htdocs\pooshak-master\public" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -182,7 +189,10 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9dc1963d-690f-4179-8e7d-39a870d9652a" name="Default Changelist" comment="" />
+
+      <changelist id="686090c3-3055-422d-b0fb-08b533d5b111" name="Default Changelist" comment="" />
+
+
       <created>1609569617791</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -191,17 +201,34 @@
       <workItem from="1609570713387" duration="69000" />
       <workItem from="1609570815581" duration="3677000" />
       <workItem from="1609581893330" duration="9751000" />
-      <workItem from="1609647532915" duration="2754000" />
-      <workItem from="1609660397766" duration="162000" />
-      <workItem from="1609662775748" duration="8279000" />
+
+      <workItem from="1609731038286" duration="5871000" />
+
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1609734099721">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1609734099721" />
+
+  
   </component>
 </project>
