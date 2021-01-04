@@ -5,10 +5,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="breadcrumb-content">
-                        <h1 class="breadcrumb-hrading">Contact Page</h1>
+                        <h1 class="breadcrumb-hrading">{{__('Contact Page')}}</h1>
                         <ul class="breadcrumb-links">
-                            <li><a href="index.html">Home</a></li>
-                            <li>Contact Us</li>
+                            <li><a href="">Home</a></li>
+                            <li>{{__('Contact Us')}}</li>
                         </ul>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                 <div class="col-lg-8 col-md-7">
                     <div class="contact-form">
                         <div class="contact-title mb-30">
-                            <h2>Get In Touch</h2>
+                            <h2>{{__('Get In Touch')}}</h2>
                         </div>
                         @if (Session::has('success'))
                             <div class="alert alert-success alert-dismissable">
@@ -151,7 +151,7 @@
                                     <button class="submit" type="button" wire:click="insertContact"
                                             wire:loading.class="disabled">
                                         <span><i wire:loading wire:target="insertContact"
-                                                 class="fas fa-spinner fa-spin"></i> SEND</span>
+                                                 class="fas fa-spinner fa-spin"></i> {{__('SEND')}}</span>
 
                                     </button>
 
