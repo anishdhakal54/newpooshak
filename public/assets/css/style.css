@@ -3521,11 +3521,16 @@ textarea:focus {
 
 .header-action .same-style-2 .same-right-whistlist {
   margin-right: 60px;
+  display:flex!important;
+  align-items: center!important;
 }
 
 .header-action .same-style-2 {
   line-height: 1;
   margin-right: 30px;
+  display:flex!important;
+  align-items: center!important;
+  margin-top: 10px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -23599,7 +23604,6 @@ body {
 }
 
 .mathiko-padding {
-  height: 30px !important;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
@@ -25362,3 +25366,30 @@ body {
 .aboutus_gallerypage {
   margin-bottom: 2rem;
 }
+
+.privacy-image img{
+  width: 100%;
+}
+
+.container .text-center {
+  text-align: initial!important;
+  color: white;
+  background-color: #113b6d;
+  padding: 1em;
+  border-radius: 999px;
+}
+
+.text-center {
+  margin-top: 1em;
+}
+
+.privacy-title {
+  color: red;
+  margin-top: 1em;
+}
+
+.second-part {
+  margin-left: 2em;
+}
+
+

@@ -1,6 +1,6 @@
 <div class="main_login">
   <div class="top_login">
-    <h3>LOGIN</h3>
+    <h3>Register</h3>
   </div>
   @if (Session::has('success'))
     <div class="alert alert-success alert-dismissable">
