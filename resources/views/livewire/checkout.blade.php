@@ -36,7 +36,7 @@
                             <label for="inputCity">Zone</label>
                             <select wire:model="zone" class="form-control checkselect" id="zone"
                                     name="zone">
-                                <option value="0" disabled="" selected>Select Zone</option>
+                                <option value="0" >Select Zone</option>
                                 @foreach(\App\DeliveryCharge::where('parent_id',0)->get() as $zones)
                                     <option value="{{$zones->id}}">{{$zones->name}}</option>
                                 @endforeach

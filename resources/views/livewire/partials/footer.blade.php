@@ -149,7 +149,7 @@
                             <ul class='list-unstyled'>
                                 <li class="first"><a title="Your Account" href="/page/about-us">{{__('About Us')}}</a>
                                 </li>
-                                <li class="first"><a title="Your Account" href="/contact-us">Contact Us</a></li>
+                                <li class="first"><a title="Your Account" href="/contact-us">{{__('Contact Us') }}</a></li>
                             </ul>
                         </div>
                         <!-- /.module-body -->
@@ -165,7 +165,7 @@
                             <ul class='list-unstyled'>
     {{--                                <li class="first"><a href="{{url('/page/faq')}}" title="Contact us">{{__('FAQ')}}</a>--}}
     {{--                                </li>--}}
-                                <li><a href="{{url('/page/privacy-and-policies')}}"
+                                <li><a href="{{url('/page/privacy-and-policy')}}"
                                        title="About us">{{__('Privacy Policy')}}</a></li>
                                 <li><a href="{{url('/page/terms-and-condition')}}"
                                        title="faq">{{__('Terms & Condition')}}</a></li>

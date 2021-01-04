@@ -29,12 +29,13 @@ class GetQuote extends Component
 
     public function sendquote()
     {
+//        dd('test');
 
         //       dd( $this->user_id);
-        if (!Auth::user()) {
-            session()->flash('error', 'You need to be logged in first!');
-            return redirect(route('login'));
-        }
+//        if (!Auth::user()) {
+//            session()->flash('error', 'You need to be logged in first!');
+//            return redirect(route('login'));
+//        }
 
 
         foreach ($this->category as $cat) {
@@ -61,7 +62,7 @@ class GetQuote extends Component
 
     public function login()
     {
-        dd('here');
+
 
         $this->validate([
             'login_email' => 'required|max:255|email',

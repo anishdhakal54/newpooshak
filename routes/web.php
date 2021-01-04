@@ -21,6 +21,7 @@ Route::livewire('/about-us', 'about-us')->name('about-us');
 Route::livewire('/blog', 'blog')->name('blog');
 Route::livewire('/blog/{slug}', 'blog-detail')->name('blog.show');
 Route::livewire('/get-quote', 'get-quote')->name('getquote');
+Route::livewire('/get-quotess', 'getquotes')->name('getquotes');
 
 
 Route::get('/privacy-policy', function () {

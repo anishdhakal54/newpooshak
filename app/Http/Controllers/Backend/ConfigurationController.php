@@ -99,7 +99,9 @@ class ConfigurationController extends Controller
             'marker_description',
             'latitude',
             'longitude',
-            'newsletter_text'
+            'newsletter_text',
+            'home_eng_content',
+            'home_ne_content'
         );
 
         foreach ($inputs as $inputKey => $inputValue) {
