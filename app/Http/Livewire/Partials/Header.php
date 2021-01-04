@@ -16,7 +16,7 @@ class Header extends Component
     $cart = "";
     if (Auth::check()) {
 
-      $cart = CartProduct::where('user_id', auth()->user()->id)->get();
+      $cart = CartProduct::where('user_id', auth()->user()->id)->orderBy('id','desc')->get();
     }
 
     return view('livewire.partials.header', compact('cart'));

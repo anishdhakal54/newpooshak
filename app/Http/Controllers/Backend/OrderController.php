@@ -422,12 +422,11 @@ class OrderController extends Controller
           'tax_amount' => $productValue->pivot->tax_amount,
         ];
 
-        $priceTotal += $productValue->pivot->qty * $productValue->pivot->price;
+        $priceTotal +=  $productValue->pivot->price;
 
-        $dis = 0;
-        $dis = $priceTotal * ($productValue->pivot->discount) / 100;
+        /*$dis = 0;
         $priceTotal += $productValue->pivot->total_frame_price + $productValue->pivot->total_color_price;
-        $priceTotal -= $dis;
+        $priceTotal -= $dis;*/
       }
 
 

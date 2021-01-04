@@ -199,51 +199,51 @@
         </div>
         <!-- /.box-body -->
     </div>
-    <!-- /.box -->
-    <div class="box box-order-product">
-        <div class="box-header with-border">
-            <h3 class="box-title">Product Details</h3>
-        </div>
-        <!-- /.box-header -->
-        <!-- form start -->
-        <div class="box-body">
-            <table class="table table-hover table-order">
-                <thead>
-                <tr>
-                    <th colspan="2">Item</th>
-                    <th>Cost</th>
-                    <th>Quantity</th>
-                    <th>Discount(%)</th>
-                    <th>Total</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                @if(isset($products))
-                    @include('backend.orders.products', ['products' => $products])
-                @endif
-                </tbody>
-            </table>
+{{--    <!-- /.box -->--}}
+{{--    <div class="box box-order-product">--}}
+{{--        <div class="box-header with-border">--}}
+{{--            <h3 class="box-title">Product Details</h3>--}}
+{{--        </div>--}}
+{{--        <!-- /.box-header -->--}}
+{{--        <!-- form start -->--}}
+{{--        <div class="box-body">--}}
+{{--            <table class="table table-hover table-order">--}}
+{{--                <thead>--}}
+{{--                <tr>--}}
+{{--                    <th colspan="2">Item</th>--}}
+{{--                    <th>Cost</th>--}}
+{{--                    <th>Quantity</th>--}}
+{{--                    <th>Discount(%)</th>--}}
+{{--                    <th>Total</th>--}}
+{{--                    <th>Actions</th>--}}
+{{--                </tr>--}}
+{{--                </thead>--}}
+{{--                <tbody>--}}
+{{--                @if(isset($products))--}}
+{{--                    @include('backend.orders.products', ['products' => $products])--}}
+{{--                @endif--}}
+{{--                </tbody>--}}
+{{--            </table>--}}
 
-            <div class="hs-order-data-row">
-                <table class="table-order-summary">
-                    <tbody></tbody>
-                </table>
-                <div class="clear"></div>
-            </div>
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer" style="display: none">
-            <div class="col-sm-6">
-                <select name="products" id="products" class="form-control" multiple></select>
-                <button type="button" id="btn-product-add" class="btn btn-danger">Add</button>
-            </div>
-            <div class="col-sm-6 text-right">
-                {{--<button type="button" class="btn btn-default">Add shipping cost</button>--}}
-            </div>
-        </div>
-    </div>
-    <!-- /.box -->
+{{--            <div class="hs-order-data-row">--}}
+{{--                <table class="table-order-summary">--}}
+{{--                    <tbody></tbody>--}}
+{{--                </table>--}}
+{{--                <div class="clear"></div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <!-- /.box-body -->--}}
+{{--        <div class="box-footer" style="display: none">--}}
+{{--            <div class="col-sm-6">--}}
+{{--                <select name="products" id="products" class="form-control" multiple></select>--}}
+{{--                <button type="button" id="btn-product-add" class="btn btn-danger">Add</button>--}}
+{{--            </div>--}}
+{{--            <div class="col-sm-6 text-right">--}}
+{{--                --}}{{--<button type="button" class="btn btn-default">Add shipping cost</button>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <!-- /.box -->--}}
 
     <div class="box">
         <div class="box-header">

@@ -14,7 +14,7 @@ class AlterPagesTable extends Migration
     public function up()
     {
         Schema::table('pages', function (Blueprint $table) {
-            $table->string('nepali_content')->after('content');
+            $table->text('nepali_content')->after('content');
 
         });
     }

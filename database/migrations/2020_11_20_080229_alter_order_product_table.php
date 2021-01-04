@@ -17,8 +17,8 @@ class AlterOrderProductTable extends Migration
       $table->string('image_name')->after('discount')->nullable();
       $table->tinyInteger('interest_logo')->after('discount')->nullable();
       $table->integer('color_no')->after('discount')->default(1)->nullable();
-      $table->integer('total_color_price')->after('discount')->default(1)->nullable();
-      $table->integer('total_frame_price')->after('discount')->default(1)->nullable();
+      $table->integer('total_color_price')->after('discount')->default(0)->nullable();
+      $table->integer('total_frame_price')->after('discount')->default(0)->nullable();
       $table->integer('quantity_xs')->after('discount')->default(0)->nullable();
       $table->integer('quantity_s')->after('discount')->default(0)->nullable();
       $table->integer('quantity_m')->after('discount')->default(0)->nullable();

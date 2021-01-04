@@ -102,14 +102,15 @@ class ProductDetail extends Component
         $frame_rate = getFrameRate($this->getTotalQuantity(), $this->color_no);
         $this->color_price = $this->color_no * $side_count * getPerColorPrice() * $this->getTotalQuantity();
         $this->frame_price = $frame_rate;
-        if ($this->has_frame) {
+
+        if ($this->has_frame=="true") {
           $this->frame_price = 0;
         }
         $this->color_message = $this->color_no . " * " . $side_count . " * " . getPerColorPrice() . " * " . $this->getTotalQuantity() . " = " . $this->color_price;
         $this->frame_message = getPerFramePrice() . " * " . $this->color_no . " = " . $this->frame_price . "(Per frame price = 400, no of color = " . $this->color_no . ")";
         if ($frame_rate == 0)
           $this->frame_message = "Frame Rate is free ( only if item is above or equal to 200)";
-        if ($this->has_frame) {
+        if ($this->has_frame=="true") {
           $this->frame_message = "Frame Rate is free because of old user but it is reviewed from our Admin";
         }
         if ($this->color_price != 0)
@@ -136,7 +137,7 @@ class ProductDetail extends Component
         $this->color_no_message = "";
       }
     } else {
-      $this->has_frame = false;
+      $this->has_frame = "false";
       $this->front = false;
       $this->back = false;
       $this->pocket = false;
@@ -160,25 +161,45 @@ class ProductDetail extends Component
 
   public function addtocart()
   {
-    $cart_product = CartProduct::create([
-      'user_id' => auth()->user()->id,
-      'product_id' => $this->product->id,
-      'name' => $this->product->name,
-      'front' => $this->front ? 1 : 0,
-      'back' => $this->back ? 1 : 0,
-      'pocket' => $this->pocket ? 1 : 0,
-      'hasframe' => $this->has_frame ? 1 : 0,
-      'color_no' => $this->color_no,
-      'xs' => $this->quantity_xs,
-      's' => $this->quantity_s,
-      'm' => $this->quantity_m,
-      'xl' => $this->quantity_xl,
-      'xxl' => $this->quantity_2xl,
-      'xxxl' => $this->quantity_3xl,
-      'interest_logo' => $this->interest_logo,
-      'price' => $this->total,
-      'imagename' => $this->imagename,
-    ]);
+    if(!$this->agree_term){
+      $notify = json_notification('error', 'Sorry!!!', 'Please agree our Terms and Conditions', 'linecons-pen');
+      $this->emit('notification', $notify);
+      return false;
+    }
+
+    if ($this->getTotalQuantity() != 0) {
+      $cart_product = CartProduct::create([
+        'user_id' => auth()->user()->id,
+        'product_id' => $this->product->id,
+        'name' => $this->product->name,
+        'front' => $this->front ? 1 : 0,
+        'back' => $this->back ? 1 : 0,
+        'pocket' => $this->pocket ? 1 : 0,
+        'hasframe' => $this->has_frame ? 1 : 0,
+        'color_no' => $this->color_no,
+        'xs' => $this->quantity_xs,
+        's' => $this->quantity_s,
+        'm' => $this->quantity_m,
+        'xl' => $this->quantity_xl,
+        'xxl' => $this->quantity_2xl,
+        'xxxl' => $this->quantity_3xl,
+        'interest_logo' => $this->interest_logo,
+        'price' => $this->total,
+        'imagename' => $this->imagename,
+      ]);
+      $notify = json_notification('success', 'Success!!!', 'Successfully Added to cart!!!', 'linecons-like');
+      $this->emit('notification', $notify);
+      session()->flash('order', " Thank you. Your order has been received.");
+      $this->emit('rerenderHeader');
+      $this->emit('order_success');
+    }else{
+      $notify = json_notification('error', 'Sorry!!!', 'Please select size', 'linecons-pen');
+      $this->emit('notification', $notify);
+      return false;
+    }
+
+
+
 
     //$quantity_xs = 0, $quantity_s = 0, $quantity_m = 0, $quantity_xl = 0, $quantity_2xl = 0, $quantity_3xl = 0;
   }

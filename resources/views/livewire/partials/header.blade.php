@@ -170,10 +170,11 @@
                                     <img alt="logo"
                                          src="{{ url('storage') . '/' . getConfiguration('site_logo') }}"/>
                                     <img class="mini-logo" src="{{asset('assets/images/robho.png')}}" alt="">
-                                </a>
+
                                 <div class="trades">
                                     <p>Our Trademark</p>
                                 </div>
+                                </a>
                             </div>
                         </div>
 

@@ -229,6 +229,21 @@ function cartCount()
 
 }
 
+function cartTotal()
+{
+  $cartCount = 0;
+  $total =0;
+  if (Auth::check()) {
+
+    $carts = \App\CartProduct::where('user_id', auth()->user()->id)->get();
+    foreach($carts as $cart){
+      $total += $cart->price;
+    }
+  }
+  return $total;
+
+}
+
 function cartQty($cart)
 {
   $id = $cart->id;

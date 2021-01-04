@@ -3,12 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="9dc1963d-690f-4179-8e7d-39a870d9652a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/CartProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CartProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Checkout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Partials/Header.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Partials/Header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Partials/ProductDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Partials/ProductDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_02_134556_alter_slideshows_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_02_134556_alter_slideshows_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_03_062616_create_cart_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_03_062616_create_cart_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_04_043124_alter_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_04_043124_alter_addresses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_20_080229_alter_order_product_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_20_080229_alter_order_product_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_04_050203_alter-pages-table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_04_050203_alter-pages-table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/orders/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/orders/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/orders/invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/orders/invoice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/product-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/product-detail.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +160,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1mVCxUbopjSfeaWCXQqcrKosGu5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -187,7 +195,10 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="9dc1963d-690f-4179-8e7d-39a870d9652a" name="Default Changelist" comment="" />
@@ -207,6 +218,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

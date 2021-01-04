@@ -165,20 +165,20 @@
                         @endphp
 
                         <div class="ordersummarysubtotal">
-                            <p>Subtotal ( 1 Item(s))</p>
-                            <p>{{trans('app.money_symbol')}}  {{ $subTotal }}</p>
+                            <p>Subtotal ( {{cartCount()}} Item(s))</p>
+                            <p>{{trans('app.money_symbol')}}  {{ cartTotal() }}</p>
                         </div>
 
                         <div class="ordersummaryship">
                             <p>Shipping Fee</p>
-                            <p>Rs. 100</p>
+                            <p>Rs. 0</p>
                         </div>
 
                         <div class="ordersummarytotal">
                             <p>Total</p>
                             <div class="totalwithvat">
-                                <p>{{trans('app.money_symbol')}}  {{ number_format($grandTotal, 2) }}</p>
-                                <p class="vat">VAT Included</p>
+                                <p>{{trans('app.money_symbol')}}  {{ number_format(cartTotal(), 2) }}</p>
+
                             </div>
                         </div>
 
