@@ -24,7 +24,7 @@ class Header extends Component
 
   public function getquote()
   {
-    return redirect()->to('/get-quote');
+    return redirect()->to('/get-quotess');
   }
 
   public $login_email, $password;
@@ -79,6 +79,7 @@ class Header extends Component
 
 
   }
+
 
 
 }
