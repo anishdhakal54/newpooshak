@@ -76,7 +76,7 @@
             <div class="col-lg-8 col-md-8 col-sm-12 rightaccount">
 
 
-                <div  class="row">
+                <div class="row">
                     <div class="col-lg-6 col-md-6 col-12 coninformation">
                         <h3>Contact Information</h3>
                         <form>
@@ -132,31 +132,28 @@
                                 <label for="exampleFormControlSelect1">County</label>
                                 <select class="form-control" id="exampleFormControlSelect1">
                                     <option>Nepal</option>
-                                    <option>Nepal</option>
-                                    <option>Nepal</option>
-                                    <option>Nepal</option>
-                                    <option>Nepal</option>
                                 </select>
                             </div>
 
-                            <div  class="form-group">
+                            <div class="form-group">
                                 <label for="exampleFormControlSelect1">State/Province</label>
                                 <select class="form-control" id="exampleFormControlSelect1">
 
                                     @foreach ($allstate as $key => $value)
-                                        <option wire:model="state" value="{{ $key }}" {{ ( $value->id == $state->id) ? 'selected' : '' }}>
+                                        <option wire:model="state"
+                                                value="{{ $key }}" {{ ( $value->id == $state->id) ? 'selected' : '' }}>
                                             {{ $value->name}}
                                         </option>
                                     @endforeach
 
-{{--                                @foreach ($allstate as $key => $allstate)--}}
-{{--                                        <option value="{{$key}}" {{ ( $key == $state->id) ? 'selected' : ''}}>{{$allstate->name}}</option>--}}
+                                    {{--                                @foreach ($allstate as $key => $allstate)--}}
+                                    {{--                                        <option value="{{$key}}" {{ ( $key == $state->id) ? 'selected' : ''}}>{{$allstate->name}}</option>--}}
 
-{{--                                    @foreach ($items as $key => $value)--}}
-{{--                                        <option value="{{ $key }}" {{ ( $key == $selectedID) ? 'selected' : '' }}>--}}
-{{--                                            {{ $value }}--}}
-{{--                                        </option>--}}
-{{--                                    @endforeach--}}
+                                    {{--                                    @foreach ($items as $key => $value)--}}
+                                    {{--                                        <option value="{{ $key }}" {{ ( $key == $selectedID) ? 'selected' : '' }}>--}}
+                                    {{--                                            {{ $value }}--}}
+                                    {{--                                        </option>--}}
+                                    {{--                                    @endforeach--}}
 
                                     {{--                  <option>2</option>--}}
                                     {{--                  <option>3</option>--}}
@@ -184,8 +181,10 @@
                     </div>
                 </div>
 
-                <div  class="editprofile updateprofile" >
-                    <button  type="button" wire:click="editinfo" wire:loading.class="disabled">  <span><i wire:loading wire:target="editinfo" class="fas fa-spinner fa-spin"></i>
+                <div class="editprofile updateprofile">
+                    <button type="button" wire:click="editinfo" wire:loading.class="disabled">  <span><i wire:loading
+                                                                                                         wire:target="editinfo"
+                                                                                                         class="fas fa-spinner fa-spin"></i>
                              UPDATE PROFILE</span>
                     </button>
                 </div>
