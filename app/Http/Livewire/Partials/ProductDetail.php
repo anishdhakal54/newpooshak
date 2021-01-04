@@ -175,6 +175,7 @@ class ProductDetail extends Component
       'xl' => $this->quantity_xl,
       'xxl' => $this->quantity_2xl,
       'xxxl' => $this->quantity_3xl,
+      'interest_logo' => $this->interest_logo,
       'price' => $this->total,
       'imagename' => $this->imagename,
     ]);

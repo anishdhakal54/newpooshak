@@ -28,6 +28,7 @@ class CreateCartProductsTable extends Migration
             $table->integer('pocket')->default(0);
             $table->string('imagename')->nullable();
             $table->decimal('price',10,2)->nullable();
+            $table->boolean('interest_logo');
             $table->integer('product_id');
             $table->integer('user_id');
             $table->timestamps();

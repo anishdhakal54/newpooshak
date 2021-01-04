@@ -27,7 +27,7 @@ class AlterPagesTable extends Migration
     public function down()
     {
         Schema::table('pages', function (Blueprint $table) {
-            //
+          $table->dropColumn('nepali_content');
         });
     }
 }

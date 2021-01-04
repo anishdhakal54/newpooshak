@@ -26,7 +26,7 @@ class AlterSlideshowsTable extends Migration
     public function down()
     {
         Schema::table('slideshows', function (Blueprint $table) {
-          $table->integer('page');
+          $table->dropColumn('page');
         });
     }
 }

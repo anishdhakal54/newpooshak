@@ -30,11 +30,11 @@ class AlterAddressesTable extends Migration
     public function down()
     {
         Schema::table('addresses', function (Blueprint $table) {
-          $table->string('area');
-          $table->string('district');
-          $table->string('zone');
-          $table->string('lat');
-          $table->string('lon');
+          $table->dropColumn('area');
+          $table->dropColumn('district');
+          $table->dropColumn('zone');
+          $table->dropColumn('lat');
+          $table->dropColumn('lon');
         });
     }
 }

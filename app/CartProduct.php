@@ -21,6 +21,7 @@ class CartProduct extends Model
     'pocket',
     'imagename',
     'price',
+    'interest_logo',
     'product_id',
     'user_id',
   ];
