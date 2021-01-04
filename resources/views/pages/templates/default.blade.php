@@ -31,7 +31,11 @@
                                 <a href="javascript:void(0);">{{ $page->title }}</a>
                             </h2>
 
-                            {!! $page->content !!}
+                            @if(Session::get('applocale')=='ne')
+                                {{$page->nepali_content}}
+                            @else
+                                {!!$page->content!!}
+                            @endif
 
                         </div>
                     </article>
