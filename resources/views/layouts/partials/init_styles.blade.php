@@ -18,4 +18,5 @@
 <link rel="stylesheet" href="{{asset('assets/css/album.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/lightbox.min.css')}}" />
 <!--  <link rel="stylesheet" href="assets/css/style.min.css"> -->

@@ -49,14 +49,12 @@
         <div class="poosgallery">
             @foreach($gallery as $gallery)
                 <div class="image1">
-                    <a href="assets/images/newpro1.jpg" data-lightbox="mygallery">
+                    <a href="{{ optional($gallery->getImage())->url }}" data-lightbox="mygallery">
                         <img src="{{ optional($gallery->getImage())->url }}"> </a>
                 </div>
+
             @endforeach
-            {{--            <div class="image1">--}}
-            {{--                <a href="assets/images/newpro2.jpg" data-lightbox="mygallery">--}}
-            {{--                    <img src="assets/images/newpro2.jpg"> </a>--}}
-            {{--            </div>--}}
+
             {{--            <div class="image1">--}}
             {{--                <a href="assets/images/newpro3.jpg" data-lightbox="mygallery">--}}
             {{--                    <img src="assets/images/newpro3.jpg"> </a>--}}
@@ -314,4 +312,13 @@
     {{--            </div>--}}
     {{--        </div>--}}
     {{--    </section>--}}
+{{--    @push('styles')--}}
+{{--    <link href="{{asset('assets/lightbox.min.css')}}">--}}
+{{--    @endpush--}}
+
+{{--    @push('scripts')--}}
+{{--        <script src="{{asset('assets/lightbox-plus-jquery.min.js')}}"></script>--}}
+
+{{--    @endpush--}}
+
 @endsection

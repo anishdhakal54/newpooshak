@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9dc1963d-690f-4179-8e7d-39a870d9652a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/templates/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/templates/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/ConfigurationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ConfigurationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ne.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ne.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/settings/tab-home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/settings/tab-home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/init_scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/init_scripts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/init_styles.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/init_styles.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/templates/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/templates/about.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,10 +221,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="0" y="0" key="#Live_Templates/0.0.1366.738@0.0.1366.738" timestamp="1609740177279" />
-    <state x="339" y="22" width="672" height="676" key="search.everywhere.popup" timestamp="1609747436280">
+    <state x="339" y="22" width="672" height="676" key="search.everywhere.popup" timestamp="1609754102812">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="22" width="672" height="676" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1609747436280" />
+    <state x="339" y="22" width="672" height="676" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1609754102812" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
