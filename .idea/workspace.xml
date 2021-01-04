@@ -21,11 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="686090c3-3055-422d-b0fb-08b533d5b111" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/PageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Account/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Account/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Page.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Page.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/account/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/account/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/footer.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -223,7 +218,7 @@
       <workItem from="1609570713387" duration="69000" />
       <workItem from="1609570815581" duration="3677000" />
       <workItem from="1609581893330" duration="9751000" />
-      <workItem from="1609731038286" duration="2794000" />
+      <workItem from="1609731038286" duration="5871000" />
     </task>
     <servers />
   </component>
@@ -243,9 +238,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1609672095317">
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1609734099721">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1609672095317" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1609734099721" />
   </component>
 </project>
