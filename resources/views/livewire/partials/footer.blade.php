@@ -239,10 +239,11 @@
                                                         <p class="text-muted subscribe">
                                                             {{__('Stay informed! Monthly offers & discounts.')}}
                                                         </p>
-                                                        <form>
+                                                        <form method="POST" action="/suscriber">
                                                             <div class="form-group">
                                                                 <label for="exampleInputEmail1">{{__('Email address')}}</label>
                                                                 <input type="email" class="form-control"
+                                                                       name="newsletterEmail"
                                                                        id="exampleInputEmail1"
                                                                        aria-describedby="emailHelp"
                                                                        placeholder="Enter email">

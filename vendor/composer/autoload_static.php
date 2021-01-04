@@ -644,6 +644,7 @@ class ComposerStaticInit46972693046797650976b0e587300f95
         'App\\Attribute' => __DIR__ . '/../..' . '/app/Attribute.php',
         'App\\Background' => __DIR__ . '/../..' . '/app/Background.php',
         'App\\Brand' => __DIR__ . '/../..' . '/app/Brand.php',
+        'App\\CartProduct' => __DIR__ . '/../..' . '/app/CartProduct.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\College' => __DIR__ . '/../..' . '/app/College.php',
         'App\\Comment' => __DIR__ . '/../..' . '/app/Comment.php',

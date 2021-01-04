@@ -374,17 +374,21 @@
                     <button type="button" class="btn_add_to_cart" data-toggle="modal" data-target="#myModal">
                         Order Now
                     </button>
+                    <button href="javascript:void(0);" class="button pro-add-to-cart " wire:click="addtocart"
+                            data-product="{{ $product->id }}" title="Add to Cart" type="button"><span><i
+                                    class="fa fa-shopping-cart"></i> Add to Cart</span></button>
                 @else
                     <button type="button" class="btn_add_to_cart" data-toggle="modal" data-target="#demoModal36699">
                         Order
                         Now
                     </button>
+                    <button type="button" class="btn_add_to_cart" data-toggle="modal" data-target="#demoModal36699">
+                        Add to Cart
+                    </button>
                 @endif
             @else
             @endif
-            <button href="javascript:void(0);" class="button pro-add-to-cart addtocart"
-                    data-product="{{ $product->id }}" title="Add to Cart" type="button"><span><i
-                            class="fa fa-shopping-cart"></i> Add to Cart</span></button>
+
 
 
         </div>
@@ -413,6 +417,9 @@
 
                     </div>
                     <form>
+                        <div class="alert alert-warning" style="padding: 3px" role="alert">
+                            <p class="help-block alert"><i class="fa fa-exclamation-circle"></i> Please login first!!!</p>
+                        </div>
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
@@ -706,318 +713,6 @@
           });
         </script>
 
-        <script>
-
-          $(document).on("click", ".addtowishlist", function (e) {
-            e.preventDefault();
-            var $this = $(this);
-            var product = $this.attr('data-product');
-
-            if (product) {
-              $.ajaxSetup({
-                headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-              });
-              $.ajax({
-                type: "POST",
-                url: "{{ route('wishlist.store')  }}",
-                data: {
-                  product: product
-                },
-                beforeSend: function (data) {
-                  $this.prop('disabled', true);
-                },
-                success: function (data) {
-                  if (data.status) {
-                    $('.alert-message.alert-danger').fadeOut();
-
-                    var message = '<div><span><strong><i class="fa fa-thumbs-o-up"></i>Success!</strong> ';
-                    message += data.message;
-                    message += '</span><a href="{{ route('home') }}" class="btn btn-xs btn-primary pull-right">View wishlist</a></div>';
-
-                    $('.alert-message.alert-success').html(message).fadeIn().delay(3000).fadeOut('slow');
-
-                    sweetAlert('success', 'Success', data.message + '<a href="{{ route('home') }}"> View Wishlist</a>');
-                  }
-                  UpdateWishlist();
-
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                  var err;
-                  if (xhr.status === 401) {
-                    err = eval("(" + xhr.responseText + ")");
-                    sweetAlert('error', 'Oops...', err.message + '<a href="{{ route('login') }}"> Login</a>');
-                    return false;
-                  }
-
-                  sweetAlert('error', 'Oops...', 'Something went wrong!');
-                },
-                complete: function () {
-                  $this.prop('disabled', false);
-                  //$("html, body").animate({scrollTop: 0}, "slow");
-                }
-              });
-            }
-
-          });
-
-
-          function UpdateMiniCart() {
-            $.ajax({
-              type: "GET",
-              url: "{{ route('cart.mini')  }}",
-              beforeSend: function (data) {
-                //
-              },
-              success: function (data) {
-                //  $('#update-cart').html(data);
-                $('#update-minicart').html(data);
-              },
-              error: function (xhr, ajaxOptions, thrownError) {
-                //
-              },
-              complete: function () {
-                //
-              }
-            });
-          }
-
-
-          function sweetAlert(type, title, message) {
-            swal({
-              title: title,
-              html: message,
-              type: type,
-              confirmButtonColor: '#ee3d43',
-              timer: 3000
-            }).catch(swal.noop);
-          }
-
-          // Add product to cart
-          $(document).on("click", ".addtocart", function (e) {
-            e.preventDefault();
-            var $this = $(this);
-            var product = $this.attr('data-product');
-            var quantity = $('#qty').val();
-            var quantity_3xl = $('#quantity_3xl').val();
-            var quantity_2xl = $('#quantity_2xl').val();
-            var quantity_xl = $('#quantity_xl').val();
-            var quantity_m = $('#quantity_m').val();
-            var quantity_s = $('#quantity_s').val();
-            var quantity_xs = $('#quantity_xs').val();
-            var has_frame = $(".has_frame:checked").val();
-            var color_no = $('#color_no').val();
-            var imagename = $('#imagename').val();
-
-            console.log(color_no);
-            var selected = new Array();
-
-            $("#place input[type=checkbox]:checked").each(function () {
-
-              selected.push(this.value);
-
-            });
-
-            // if (selected.length > 0) {
-            //
-            //     alert("Selected values: " + selected.join(","));
-            //
-            // }
-
-
-            quantity = quantity ? quantity : 1;
-
-            //  alert(product);
-            // console.log(product);
-            // var select = document.getElementById("select_size");
-            // if (select) {
-            //     var size = select.options[select.selectedIndex].value;
-            // }
-            if (document.querySelector('input[name="size"]:checked')) {
-              var size = document.querySelector('input[name="size"]:checked').value;
-            }
-            // if (document.querySelector('input[name="colour"]:checked')) {
-            //     var colour = document.querySelector('input[name="colour"]:checked').value;
-            // }
-            // size = size ? size : 1;
-
-            if (product) {
-              $.ajaxSetup({
-                headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-              });
-
-              $.ajax({
-                type: "POST",
-                url: "{{ route('cart.store')  }}",
-                data: {
-                  product: product,
-                  quantity: quantity,
-                  size: size,
-                  quantity_3xl: quantity_3xl,
-                  quantity_2xl: quantity_2xl,
-                  quantity_xl: quantity_xl,
-                  quantity_m: quantity_m,
-                  quantity_s: quantity_s,
-                  quantity_xs: quantity_xs,
-                  has_frame: has_frame,
-                  place: selected,
-                  color_no: color_no,
-                  imagename: imagename,
-
-                },
-                beforeSend: function (data) {
-                  $this.html('<i class="fa fa-spinner fa-spin"></i> Please wait');
-                },
-                success: function (data) {
-                  if (data.status) {
-                    $('.alert-message.alert-danger').fadeOut();
-
-                    var message = '<div><span><strong><i class="fa fa-thumbs-o-up"></i>Success!</strong> ';
-                    message += data.message;
-
-                    $('.alert-message.alert-success').html(message).fadeIn().delay(3000).fadeOut('slow');
-
-                    location.reload();
-                  }
-
-                  UpdateMiniCart();
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                  var err;
-                  if (xhr.status === 401) {
-                    err = eval("(" + xhr.responseText + ")");
-                    sweetAlert('error', 'Oops...', err.message);
-                    return false;
-                  }
-
-                  sweetAlert('error', 'Oops...', 'Something went wrong!');
-                },
-                complete: function () {
-                  $this.html('<i class="fa fa-shopping-cart"></i> Add to cart');
-                  //$("html, body").animate({scrollTop: 0}, "slow");
-                }
-              });
-            }
-
-          });
-
-          // Increment quantity
-          $(document).on("click", ".qty-inc-btn", function (e) {
-            e.preventDefault();
-            var $this = $(this);
-
-            var quantity = $this.parents().find(".qty-input");
-            var val = parseInt(quantity.val());
-            quantity.val(val + 1);
-            // alert(val);
-            // $('.btn-update-cart').prop('disabled', false);
-
-          });
-
-          // Decrement quantity
-          $(document).on("click", ".qty-dec-btn", function (e) {
-            e.preventDefault();
-            var $this = $(this);
-
-            var quantity = $this.parents().find(".qty-input");
-            var val = parseInt(quantity.val());
-            quantity.val(val - 1);
-            if (quantity.val() < 0) {
-              quantity.val(0);
-            }
-
-            // $('.btn-update-cart').prop('disabled', false);
-          });
-        </script>
-
-        <script>
-          $(document).ready(function () {
-            document.getElementById("area").onchange = function () {
-              var e = document.getElementById("area");
-
-              var zone = e.options[e.selectedIndex].value;
-
-              $.ajaxSetup({
-                headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-              });
-              $.ajax({
-                type: 'GET',
-                url: "",
-                data: {
-                  location: zone
-                },
-                success: function (data) {
-                  $('#shipping_charge').html(data.amount.toLocaleString());
-                  $('#ship_amnt').html(data.amount.toLocaleString());
-                  $('#grand_total_value').html(data.grandTotal.toLocaleString());
-                  $('#ship_amnt_total').html(data.grandTotal.toLocaleString());
-                }
-              });
-
-
-            };
-          })
-        </script>
-        <script>
-          document.getElementById("zone").onchange = function () {
-
-            var e = document.getElementById("zone");
-            var zone = e.options[e.selectedIndex].value;
-            $.ajaxSetup({
-              headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-            });
-            $.ajax({
-              type: 'GET',
-              url: "{{ route('checkout.zone') }}",
-              data: {
-                zone: zone
-              },
-              success: function (data) {
-//                console.log(data);
-
-                $('#district').html(data);
-                $('#district').removeAttr('disabled');
-                $('#zone').css('width', 'auto');
-
-              }
-
-            });
-          };
-
-          document.getElementById("district").onchange = function () {
-
-            var e = document.getElementById("district");
-            var zone = e.options[e.selectedIndex].value;
-            $.ajaxSetup({
-              headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-            });
-            $.ajax({
-              type: 'GET',
-              url: "{{ route('checkout.zone') }}",
-              data: {
-                zone: zone
-              },
-              success: function (data) {
-                $('#area').html(data);
-                $('#area').removeAttr('disabled');
-                $('#district').css('width', 'auto');
-
-              }
-
-            });
-          };
-
-
-        </script>
 
 
 
