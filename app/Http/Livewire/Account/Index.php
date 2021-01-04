@@ -50,6 +50,15 @@ class Index extends Component
         $user->last_name  = $this->last_name;
         $user->email      = $this->email;
         $user->phone      = $this->phone;
+        $shippingBillingAddress= Address::where('user_id',$this->user->id)->first();
+
+      $shippingBillingAddress->address1=$this->address1;
+        $shippingBillingAddress->address2=$this->address2;
+
         $user->save();
+        $shippingBillingAddress->save();
+        $notify = json_notification('success', 'Success!!!', 'Profile Updated Successfully', 'linecons-like');
+        $this->emit('notification', $notify);
+        $this->emit('rerenderHeader');
     }
 }

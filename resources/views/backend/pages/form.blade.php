@@ -22,6 +22,16 @@
                 @endif
 
             </div>
+            <div class="form-group @if ($errors->has('nepali_content')) has-error @endif">
+                {!! Form::label('content','Nepali Content', ['class' => 'control-label']) !!}
+                {{ Form::textarea('nepali_content', null, ['class' => 'form-control']) }}
+                @if ($errors->has('content'))
+                    <span class="help-block">
+                        {{ $errors->first('nepali_content') }}
+                    </span>
+                @endif
+
+            </div>
 
             <h4>SEO</h4>
 

@@ -51,6 +51,7 @@ class PageController extends Controller {
 	 * @throws Exception
 	 */
 	public function store( PageRequest $request ) {
+//	    dd($request->all());
 		try {
 
 			$this->page->create( $request->all() );
@@ -103,6 +104,7 @@ class PageController extends Controller {
 	 * @throws Exception
 	 */
 	public function update( PageRequest $request, $id ) {
+//	    dd($request->all());
 		try {
 
 			$this->page->update( $id, $request->all() );
