@@ -328,6 +328,13 @@
                     <span>Get Quotes</span>
                 </a>
             </li>
+
+            <li class="{{ $route == 'dashboard.getRequestedProduct' ? 'active': null }}">
+                <a href="{{ route('dashboard.getRequestedProduct') }}">
+                    <i class="fa fa-cogs"></i>
+                    <span>Requested Product</span>
+                </a>
+            </li>
             @endrole
         </ul>
     </section>

@@ -57,6 +57,28 @@
 
                     </div>
 
+{{--                    <div class="form-group">--}}
+{{--                        <label for="inputAddress">{{__('attachment1')}}</label>--}}
+{{--                        <input class="form-control " type="file"--}}
+{{--                               placeholder="Upload File here.."--}}
+{{--                               wire:model="attachment1"/>--}}
+{{--                        @if ($errors->has('attachment1'))--}}
+{{--                            <span class="error help-block">{{ $errors->first('attachment1') }}</span>--}}
+{{--                        @endif--}}
+
+{{--                    </div>--}}
+
+{{--                    <div class="form-group">--}}
+{{--                        <label for="inputAddress">{{__('attachment2')}}</label>--}}
+{{--                        <input class="form-control " type="file"--}}
+{{--                               placeholder="Upload File  here.."--}}
+{{--                               wire:model="attachment2"/>--}}
+{{--                        @if ($errors->has('attachment2'))--}}
+{{--                            <span class="error help-block">{{ $errors->first('attachment2') }}</span>--}}
+{{--                        @endif--}}
+
+{{--                    </div>--}}
+
 
                     @php
                         $categories = \App\Category::all();

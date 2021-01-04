@@ -149,7 +149,8 @@
                             <ul class='list-unstyled'>
                                 <li class="first"><a title="Your Account" href="/page/about-us">{{__('About Us')}}</a>
                                 </li>
-                                <li class="first"><a title="Your Account" href="/contact-us">{{__('Contact Us') }}</a></li>
+                                <li class="first"><a title="Your Account" href="/contact-us">{{__('Contact Us') }}</a>
+                                </li>
                             </ul>
                         </div>
                         <!-- /.module-body -->
@@ -163,16 +164,16 @@
 
                         <div class="module-body">
                             <ul class='list-unstyled'>
-    {{--                                <li class="first"><a href="{{url('/page/faq')}}" title="Contact us">{{__('FAQ')}}</a>--}}
-    {{--                                </li>--}}
+                                {{--                                <li class="first"><a href="{{url('/page/faq')}}" title="Contact us">{{__('FAQ')}}</a>--}}
+                                {{--                                </li>--}}
                                 <li><a href="{{url('/page/privacy-and-policy')}}"
                                        title="About us">{{__('Privacy Policy')}}</a></li>
                                 <li><a href="{{url('/page/terms-and-condition')}}"
                                        title="faq">{{__('Terms & Condition')}}</a></li>
                                 <li><a href="{{url('/page/return-and-policy')}}"
                                        title="Popular Searches">{{__('Return Policy')}}</a></li>
-{{--                                <li><a href="{{url('/page/exchange-policy')}}"--}}
-{{--                                       title="Popular Searches">{{__('Exchange Policy')}}</a></li>--}}
+                                {{--                                <li><a href="{{url('/page/exchange-policy')}}"--}}
+                                {{--                                       title="Popular Searches">{{__('Exchange Policy')}}</a></li>--}}
                             </ul>
                         </div>
                         <!-- /.module-body -->
@@ -330,4 +331,4 @@
 </div>
 
 
-</div>
+

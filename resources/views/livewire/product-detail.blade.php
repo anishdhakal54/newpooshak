@@ -37,74 +37,55 @@
             <div class="col-md-12" style="    text-align: end;
     margin-top: 21px;">
               @if($product->has_chart)
-                <a href="javascript:void(0);" class="product-wish" data-toggle="modal" data-target="#exampleModal">
+                <a href="javascript:void(0);" class="product-wish size_charts" data-toggle="modal" data-target="#exampleModal">
                   <i class="fa fa-ruler-horizontal"></i> &nbsp;Size chart
                 </a>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Chart</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <style>
-                        .table.table-striped tr{
-                          text-align: left;
-                        }
-                      </style>
-                      <div class="modal-body">
-                        <table class="table table-striped">
-                          <tr>
-                            <td>{{$product->size_chart->v1}}</td>
-                            <td>{{$product->size_chart->v2}}</td>
-                            <td>{{$product->size_chart->v3}}</td>
-                            <td>{{$product->size_chart->v4}}</td>
-                            <td>{{$product->size_chart->v5}}</td>
-                            <td>{{$product->size_chart->v6}}</td>
-                          </tr>
-                          <tr>
-                            <td>{{$product->size_chart->w1}}</td>
-                            <td>{{$product->size_chart->w2}}</td>
-                            <td>{{$product->size_chart->w3}}</td>
-                            <td>{{$product->size_chart->w4}}</td>
-                            <td>{{$product->size_chart->w5}}</td>
-                            <td>{{$product->size_chart->w6}}</td>
-                          </tr>
-                          <tr>
-                            <td>{{$product->size_chart->x1}}</td>
-                            <td>{{$product->size_chart->x2}}</td>
-                            <td>{{$product->size_chart->x3}}</td>
-                            <td>{{$product->size_chart->x4}}</td>
-                            <td>{{$product->size_chart->x5}}</td>
-                            <td>{{$product->size_chart->x6}}</td>
-                          </tr>
-                          <tr>
-                            <td>{{$product->size_chart->y1}}</td>
-                            <td>{{$product->size_chart->y2}}</td>
-                            <td>{{$product->size_chart->y3}}</td>
-                            <td>{{$product->size_chart->y4}}</td>
-                            <td>{{$product->size_chart->y5}}</td>
-                            <td>{{$product->size_chart->y6}}</td>
-                          </tr>
-                          <tr>
-                            <td>{{$product->size_chart->z1}}</td>
-                            <td>{{$product->size_chart->z2}}</td>
-                            <td>{{$product->size_chart->z3}}</td>
-                            <td>{{$product->size_chart->z4}}</td>
-                            <td>{{$product->size_chart->z5}}</td>
-                            <td>{{$product->size_chart->z6}}</td>
-                          </tr>
+                <table class="table table-striped sizemodal">
+                  <tr>
+                    <td>{{$product->size_chart->v1}}</td>
+                    <td>{{$product->size_chart->v2}}</td>
+                    <td>{{$product->size_chart->v3}}</td>
+                    <td>{{$product->size_chart->v4}}</td>
+                    <td>{{$product->size_chart->v5}}</td>
+                    <td>{{$product->size_chart->v6}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{$product->size_chart->w1}}</td>
+                    <td>{{$product->size_chart->w2}}</td>
+                    <td>{{$product->size_chart->w3}}</td>
+                    <td>{{$product->size_chart->w4}}</td>
+                    <td>{{$product->size_chart->w5}}</td>
+                    <td>{{$product->size_chart->w6}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{$product->size_chart->x1}}</td>
+                    <td>{{$product->size_chart->x2}}</td>
+                    <td>{{$product->size_chart->x3}}</td>
+                    <td>{{$product->size_chart->x4}}</td>
+                    <td>{{$product->size_chart->x5}}</td>
+                    <td>{{$product->size_chart->x6}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{$product->size_chart->y1}}</td>
+                    <td>{{$product->size_chart->y2}}</td>
+                    <td>{{$product->size_chart->y3}}</td>
+                    <td>{{$product->size_chart->y4}}</td>
+                    <td>{{$product->size_chart->y5}}</td>
+                    <td>{{$product->size_chart->y6}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{$product->size_chart->z1}}</td>
+                    <td>{{$product->size_chart->z2}}</td>
+                    <td>{{$product->size_chart->z3}}</td>
+                    <td>{{$product->size_chart->z4}}</td>
+                    <td>{{$product->size_chart->z5}}</td>
+                    <td>{{$product->size_chart->z6}}</td>
+                  </tr>
 
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                </table>
+
+
               @endif
             </div>
           </div>
@@ -401,6 +382,12 @@
       });
 
 
+    </script>
+
+    <script>
+      $(".size_charts").click(function(){
+        $(".sizemodal").toggle(200);
+      });
     </script>
 
   @endpush
