@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Partials;
 
 use App\CartProduct;
+use Auth;
 use Livewire\Component;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -12,7 +13,12 @@ class Header extends Component
 
   public function render()
   {
-    $cart = CartProduct::where('user_id', auth()->user()->id)->get();
+    $cart = "";
+    if (Auth::check()) {
+
+      $cart = CartProduct::where('user_id', auth()->user()->id)->get();
+    }
+
     return view('livewire.partials.header', compact('cart'));
   }
 
@@ -64,17 +70,14 @@ class Header extends Component
 
   public function destroyRow($rowId)
   {
-    dd($rowId);
-    Cart::remove($rowId);
+    $cart = CartProduct::find($rowId);
+    $cart->delete();
 
-    // $notify = json_notification('Success', 'Item Removed', 'Item Removed from Cart', 'linecons-like');
-    // $this->emit('notification', $notify);
-    // $this->emit('rerenderHeader');
+     $notify = json_notification('Success', 'Item Removed', 'Item Removed from Cart', 'linecons-like');
+     $this->emit('notification', $notify);
+     $this->emit('rerenderHeader');
 
-    return response()->json([
-      'status' => 'success',
-      'message' => 'Product successfully removed from cart.'
-    ], 200);
+
   }
 
 

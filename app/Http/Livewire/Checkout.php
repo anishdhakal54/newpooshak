@@ -190,18 +190,31 @@ class Checkout extends Component
         ]);
 
         // Attach products
-        $cartContents = Cart::content();
-        if ($cartContents) {
+        $cartContents = cartContent();
+        if ($cartContents->count>0) {
 
 
             foreach ($cartContents as $cartContent) {
 
                 $order->products()->attach($cartContent->id,
                     [
-                        'qty' => $cartContent->qty,
-                        'price' => $cartContent->price,
-                        'discount' => 0.00,
-                        'tax_amount' => 0.00
+                      'qty' => $cartContent->qty,
+                      'price' => $cartContent->price,
+                      'image_name' => $cartContent->image_name,
+//                      'total_color_price' => $cartContent->,
+//                      'total_frame_price' => $cartContent->,
+                      'front' => $cartContent->front,
+                      'back' => $cartContent->back,
+                      'pocket' => $cartContent->pocket,
+                      'color_no' => $cartContent->color_no,
+                      'quantity_xs' => $cartContent->xs,
+                      'quantity_s' => $cartContent->s,
+                      'quantity_m' => $cartContent->m,
+                      'quantity_xl' => $cartContent->xl,
+                      'quantity_2xl' => $cartContent->xxl,
+                      'quantity_3xl' => $cartContent->xxxl,
+                      'interest_logo' =>1
+
 
                     ]
                 );

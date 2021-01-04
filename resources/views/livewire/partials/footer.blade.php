@@ -312,11 +312,9 @@
         <div class=" payment-methods">
             <h3>{{__('Payment Methods')}}</h3>
             <ul>
-                <li><img src="assets/images/cod.png" alt=""></li>
-                <li><img src="assets/images/esewa.png" alt=""></li>
-                <li><img src="assets/images/khalti.png" alt=""></li>
-                <li><img src="assets/images/International-Money-Express-IME-Agents-in-Janakpur-Dhanusha-1410545138.png"
-                         alt=""></li>
+                <li><img src="{{asset('assets/images/cod.png')}}" alt=""></li>
+                <li><img src="{{asset('assets/images/esewa.png')}}" alt=""></li>
+
             </ul>
         </div>
         <div class="copyr">

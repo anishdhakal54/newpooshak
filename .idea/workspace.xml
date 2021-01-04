@@ -2,8 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9dc1963d-690f-4179-8e7d-39a870d9652a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/jquery.elevateZoom-3.0.8.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Checkout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Partials/Header.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Partials/Header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/gallerys/2021/01/02/large-—Pngtree—yellow smiley face_4230400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/gallerys/2021/01/02/largeSlideshow-—Pngtree—yellow smiley face_4230400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/gallerys/2021/01/02/medium-—Pngtree—yellow smiley face_4230400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/gallerys/2021/01/02/mediumBlog-—Pngtree—yellow smiley face_4230400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/gallerys/2021/01/02/mediumCat-—Pngtree—yellow smiley face_4230400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/gallerys/2021/01/02/single-—Pngtree—yellow smiley face_4230400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/gallerys/2021/01/02/small-—Pngtree—yellow smiley face_4230400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/gallerys/2021/01/02/—Pngtree—yellow smiley face_4230400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/init_scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/init_scripts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/product-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/product-detail.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +172,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/assets/css" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -166,11 +182,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/assets/css" />
       <recent name="$PROJECT_DIR$/resources/views/backend" />
       <recent name="$PROJECT_DIR$/database/migrations" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/Repositories" />
-      <recent name="$PROJECT_DIR$/app/Http/Requests" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/assets/js" />
     </key>
   </component>
   <component name="RunManager">

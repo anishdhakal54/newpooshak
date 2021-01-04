@@ -6,7 +6,7 @@
   <div class="img_zoom">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-5 col-md-5 col-12">
+        <div class="col-lg-6 col-md-6 col-12">
           <div class="row">
             <div class="col-md-2">
               <ul>
@@ -16,7 +16,7 @@
                       @if($loop->first)
                         <?php $first_image = $gallery; ?>
                       @endif
-                      <li><img src="{{ $gallery->smallUrl }}" data-largeimg="{{$gallery->largeUrl}}" class="small_img">
+                      <li><img src="{{ $gallery->smallUrl }}" data-mediumimg="{{$gallery->mediumUrl}}" data-largeimg="{{$gallery->url}}" class="small_img">
                       </li>
                     @endforeach
                   </div>
@@ -25,8 +25,9 @@
               </ul>
             </div>
 
-            <div class="col-md-9">
-              <canvas id="c" width="475px" height="475px"></canvas>
+            <div class="col-md-9" id="gallery_01">
+              <canvas style="display: none" id="c" width="475px" height="475px"></canvas>
+              <img class="zoom_01 big_img" src="{{$image->mediumUrl}}" style="width: 100%" data-zoom-image="{{$image->url}}" alt="">
               @livewire('partials.wishlist-icon',['product' => $product])
             </div>
 
@@ -109,7 +110,7 @@
           </div>
         </div>
 
-        <div class="col-lg-7 col-md-7 col-12 prod_right" style="padding-left: 28px;">
+        <div class="col-lg-6 col-md-6 col-12 prod_right" style="padding-left: 28px;">
           <div class="prod_title">
             <h2>{{$product->name}}</h2>
           </div>
@@ -268,22 +269,52 @@
   @push('scripts')
     <script src="{{asset('assets/js/fabric.min.js')}}"></script>
     <script>
+      var img = $('.big_img');
+      var canvas = new fabric.Canvas('c');
+      //Create
+      img.elevateZoom();
+      $('.canvas-container').hide();
+
+      //...change src and data-zoom-image...
+
+
 
 
       $(document).ready(function () {
         $("#add_image").change(function () {
           readURL(this);
           $('#upload').css('display', 'block');
+
         });
 
-        $(".small_img").click(function () {
-          $(".big_img").attr('src', $(this).attr('src'));
-        });
+        // $(".small_img").click(function () {
+        //   $(".big_img").attr('src', $(this).attr('src'));
+        // });
         $(".checkme").click(function (event) {
           var x = $(this).is(':checked');
           if (x == true) {
             $(this).parents(".checkbox-card").find('.passport-box').show();
             $(this).parents(".checkbox-card").find('.apply-box').hide();
+
+
+
+            fabric.Image.fromURL('{{$first_image->largeUrl}}', function (img) {
+              canvas.add(img);
+              img.scaleToHeight(480);
+              img.selectable = false;
+            });
+            alert('test');
+            $('#c').show();
+            $('.big_img').hide();
+            $('.canvas-container').show();
+            $.removeData($('.big_img'), 'elevateZoom');
+            $('.big_img').removeData('elevateZoom');
+            //Remove
+            $('.zoomContainer').remove();
+            img.removeData('elevateZoom');
+            img.removeData('zoomImage');
+
+
           } else {
             $(this).parents(".checkbox-card").find('.passport-box').hide();
             $(this).parents(".checkbox-card").find('.apply-box').show();
@@ -294,13 +325,7 @@
     <script>
 
 
-      var canvas = new fabric.Canvas('c');
 
-      fabric.Image.fromURL('{{$first_image->largeUrl}}', function (img) {
-        canvas.add(img);
-        img.scaleToHeight(480);
-        img.selectable = false;
-      });
 
       $("#upload").click(function () {
         $("#c").get(0).toBlob(function (blob) {
@@ -348,13 +373,31 @@
       }
 
       $('.small_img').click(function () {
-        var largeImage = $(this).data('largeimg');
-        canvas.clear();
-        fabric.Image.fromURL(largeImage, function (img) {
-          canvas.add(img);
-          img.scaleToHeight(480);
-          img.selectable = false;
-        });
+
+          var x = $('.checkme').is(':checked');
+          if (x == true) {
+            var largeImage = $(this).data('largeimg');
+            canvas.clear();
+            fabric.Image.fromURL(largeImage, function (img) {
+              canvas.add(img);
+              img.scaleToHeight(480);
+              img.selectable = false;
+            });
+          } else {
+
+            $.removeData($('.big_img'), 'elevateZoom');
+            $(".big_img").attr('src', $(this).attr('data-mediumimg'));
+            $(".big_img").attr('data-zoom-image', $(this).attr('data-largeimg'));
+            $('.big_img').removeData('elevateZoom');
+            //Remove
+            $('.zoomContainer').remove();
+            img.removeData('elevateZoom');
+            img.removeData('zoomImage');
+
+            //Re-create
+            img.elevateZoom();
+
+          }
       });
 
 

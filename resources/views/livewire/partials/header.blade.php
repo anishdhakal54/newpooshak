@@ -220,7 +220,7 @@
                                 <div class="same-style-2 same-style-2-font-inc header-cart">
                                     <a class="cart-active" href="#">
                                         <i class="icon-basket-loaded"></i><span
-                                                class="pro-count green">{{Cart::instance('default')->count()}}</span>
+                                                class="pro-count green">{{cartCount()}}</span>
                                         <!-- <span class="cart-amount">$2,435.30</span> -->
                                     </a>
                                 </div>
@@ -284,7 +284,8 @@
                             <div
                                     class="same-style-2 same-style-2-white same-style-2-hover-black same-style-2-font-inc header-cart">
                                 <a class="cart-active" href="#">
-                                    <i class="icon-basket-loaded"></i><span class="pro-count black">{{\App\Wishlist::where(['user_id' => auth()->id()])->count()}}</span>
+                                    <i class="icon-basket-loaded"></i><span
+                                            class="pro-count black">{{cartCount()}}</span>
                                 </a>
                             </div>
                             <div class="same-style-2 same-style-2-white same-style-2-hover-black main-menu-icon">
@@ -301,40 +302,55 @@
 
     <div class="sidebar-cart-active">
         <div class="sidebar-cart-all">
-            <a class="cart-close" href=""><i class="icon_close"></i></a>
+            <a class="cart-close" href="javascript:void(0);"><i class="icon_close"></i></a>
             <div class="cart-content">
                 <h3>{{__('Shopping Cart')}}</h3>
+
                 <ul>
-                    @if($cart->count()>0)
-                        @foreach($cart->count() as $cartContent)
+                    @if($cart && $cart->count()>0)
+                        @foreach($cart as $cartContent)
 
                             <li class="single-product-cart">
                                 <div class="cart-img">
                                     <a href="javascript:void(0);">
+                                        @if($cartContent->imagename!="")
                                         <img src="{{asset('/uploads/embroidery/'.$cartContent->imagename)}}"
-                                          alt="test-img">
+                                             alt="test-img">
+                                            @else
+                                            @php
+
+
+                                            @endphp
+                                            <img src="{{$cartContent->product->getImageAttribute()->smallUrl}}"
+                                                 alt="test-img">
+                                        @endif
                                     </a>
                                 </div>
                                 <div class="cart-title">
-                                    <h4><a href="#">{{ $cartContent->name }}</a></h4>
-                                    <span> {{ $cartContent->qty }} × {{ $cartContent->price }} </span>
+                                    <h4><a href="#">{{ $cartContent->product->name }}</a></h4>
+                                    <span> {{ cartQty($cartContent) }} × {{ $cartContent->price }} </span>
 
-                                    <p> {{$cartContent->options->imagename}} </p>
+
 
 
                                 </div>
 
                                 <div class="cart-delete">
-                                    <a href="" wire:click="destroyRow({{$cartContent->rowId}})">×</a>
+                                    <a href="" wire:click="destroyRow({{$cartContent->id}})">×</a>
                                 </div>
 
                             </li>
                         @endforeach
+                    @else
+
+                        <div class="alert alert-info" role="alert">
+                            This is a secondary alert—check it out!
+                        </div>
                     @endif
                 </ul>
-{{--                <div class="cart-total">--}}
-{{--                    <h4>{{__('Subtotal')}}: <span>{{ Cart::instance('default')->total() }}</span></h4>--}}
-{{--                </div>--}}
+                {{--                <div class="cart-total">--}}
+                {{--                    <h4>{{__('Subtotal')}}: <span>{{ Cart::instance('default')->total() }}</span></h4>--}}
+                {{--                </div>--}}
                 <div class="cart-checkout-btn">
                     <a class="btn-hover cart-btn-style" href="/cart">{{__('View Cart')}}</a>
                     <a class="btn-hover cart-btn-style" href="{{route('checkout')}}">{{__('Checkout')}}</a>

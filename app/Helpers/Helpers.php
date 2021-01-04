@@ -1,5 +1,6 @@
 <?php
 
+use App\CartProduct;
 use App\Category;
 use App\Configuration;
 use App\Helpers\Image\LocalImageFile;
@@ -215,4 +216,33 @@ function getFrameRate($item_no, $color_no)
   } else {
     return $color_no * getPerFramePrice();
   }
+}
+
+function cartCount()
+{
+  $cartCount = 0;
+  if (Auth::check()) {
+
+    $cartCount = \App\CartProduct::where('user_id', auth()->user()->id)->get()->count();
+  }
+  return $cartCount;
+
+}
+
+function cartQty($cart)
+{
+  $id = $cart->id;
+  $total = 0;
+  $cartCount = \App\CartProduct::where('id', $id)->first();
+  $total += $cartCount->xs;
+  $total += $cartCount->s;
+  $total += $cartCount->m;
+  $total += $cartCount->xl;
+  $total += $cartCount->xxl;
+  $total += $cartCount->xxxl;
+  return $total;
+
+}
+function cartContent(){
+  return CartProduct::where('user_id', auth()->user()->id)->get();
 }
