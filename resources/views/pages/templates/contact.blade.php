@@ -5,7 +5,7 @@
         <div class="container">
             <ul class="breadcrumb">
                 <li><a href="{{ route('welcome') }}">Home</a></li>
-                <li class="active">Contact Us</li>
+                <li class="active">{{__('Contact Page')}}</li>
             </ul>
         </div>
     </section>

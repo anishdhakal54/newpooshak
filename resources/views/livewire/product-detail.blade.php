@@ -41,64 +41,47 @@
                   <i class="fa fa-ruler-horizontal"></i> &nbsp;Size chart
                 </a>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Chart</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <style>
-                        .table.table-striped tr{
-                          text-align: left;
-                        }
-                      </style>
-                      <div class="modal-body">
-                          <table class="table table-striped">
-                          <tr>
-                            <td>{{$product->size_chart->v1}}</td>
-                            <td>{{$product->size_chart->v2}}</td>
-                            <td>{{$product->size_chart->v3}}</td>
-                            <td>{{$product->size_chart->v4}}</td>
-                            <td>{{$product->size_chart->v5}}</td>
-                            <td>{{$product->size_chart->v6}}</td>
-                          </tr>
-                          <tr>
-                            <td>{{$product->size_chart->w1}}</td>
-                            <td>{{$product->size_chart->w2}}</td>
-                            <td>{{$product->size_chart->w3}}</td>
-                            <td>{{$product->size_chart->w4}}</td>
-                            <td>{{$product->size_chart->w5}}</td>
-                            <td>{{$product->size_chart->w6}}</td>
-                          </tr>
-                          <tr>
-                            <td>{{$product->size_chart->x1}}</td>
-                            <td>{{$product->size_chart->x2}}</td>
-                            <td>{{$product->size_chart->x3}}</td>
-                            <td>{{$product->size_chart->x4}}</td>
-                            <td>{{$product->size_chart->x5}}</td>
-                            <td>{{$product->size_chart->x6}}</td>
-                          </tr>
-                          <tr>
-                            <td>{{$product->size_chart->y1}}</td>
-                            <td>{{$product->size_chart->y2}}</td>
-                            <td>{{$product->size_chart->y3}}</td>
-                            <td>{{$product->size_chart->y4}}</td>
-                            <td>{{$product->size_chart->y5}}</td>
-                            <td>{{$product->size_chart->y6}}</td>
-                          </tr>
-                          <tr>
-                            <td>{{$product->size_chart->z1}}</td>
-                            <td>{{$product->size_chart->z2}}</td>
-                            <td>{{$product->size_chart->z3}}</td>
-                            <td>{{$product->size_chart->z4}}</td>
-                            <td>{{$product->size_chart->z5}}</td>
-                            <td>{{$product->size_chart->z6}}</td>
-                          </tr>
+                <table class="table table-striped sizemodal">
+                  <tr>
+                    <td>{{$product->size_chart->v1}}</td>
+                    <td>{{$product->size_chart->v2}}</td>
+                    <td>{{$product->size_chart->v3}}</td>
+                    <td>{{$product->size_chart->v4}}</td>
+                    <td>{{$product->size_chart->v5}}</td>
+                    <td>{{$product->size_chart->v6}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{$product->size_chart->w1}}</td>
+                    <td>{{$product->size_chart->w2}}</td>
+                    <td>{{$product->size_chart->w3}}</td>
+                    <td>{{$product->size_chart->w4}}</td>
+                    <td>{{$product->size_chart->w5}}</td>
+                    <td>{{$product->size_chart->w6}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{$product->size_chart->x1}}</td>
+                    <td>{{$product->size_chart->x2}}</td>
+                    <td>{{$product->size_chart->x3}}</td>
+                    <td>{{$product->size_chart->x4}}</td>
+                    <td>{{$product->size_chart->x5}}</td>
+                    <td>{{$product->size_chart->x6}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{$product->size_chart->y1}}</td>
+                    <td>{{$product->size_chart->y2}}</td>
+                    <td>{{$product->size_chart->y3}}</td>
+                    <td>{{$product->size_chart->y4}}</td>
+                    <td>{{$product->size_chart->y5}}</td>
+                    <td>{{$product->size_chart->y6}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{$product->size_chart->z1}}</td>
+                    <td>{{$product->size_chart->z2}}</td>
+                    <td>{{$product->size_chart->z3}}</td>
+                    <td>{{$product->size_chart->z4}}</td>
+                    <td>{{$product->size_chart->z5}}</td>
+                    <td>{{$product->size_chart->z6}}</td>
+                  </tr>
 
                         </table>
                       </div>
@@ -243,28 +226,28 @@
     </section>
   @endif
 
-{{--  @if(count($best_selling_products))--}}
-{{--    <section class="recent-add-area ">--}}
-{{--      <div class="container">--}}
-{{--        <div class="row">--}}
-{{--          <div class="col-md-12">--}}
-{{--            <div class="section-title">--}}
-{{--              <h2>You Might Also Like</h2>--}}
-{{--              <p>Add Related products to weekly line up</p>--}}
-{{--            </div>--}}
-{{--          </div>--}}
-{{--        </div>--}}
-{{--        <div class="product-categories-slider-1 recent-product-slider owl-carousel owl-nav-style">--}}
-{{--          @foreach($best_selling_products as $best_sell_product)--}}
-{{--            @php($product = $best_sell_product->product)--}}
-{{--            @livewire('partials.product-item',['product'=>$product,'is_category'=>true])--}}
-{{--          @endforeach--}}
+  @if(count($best_selling_products))
+    <section class="recent-add-area ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-title">
+              <h2>You Might Also Like</h2>
+              <p>Add Related products to weekly line up</p>
+            </div>
+          </div>
+        </div>
+        <div class="product-categories-slider-1 recent-product-slider owl-carousel owl-nav-style">
+          @foreach($best_selling_products as $best_sell_product)
+            @php($product = $best_sell_product->product)
+            @livewire('partials.product-item',['product'=>$product,'is_category'=>true])
+          @endforeach
 
 
-{{--        </div>--}}
-{{--      </div>--}}
-{{--    </section>--}}
-{{--  @endif--}}
+        </div>
+      </div>
+    </section>
+  @endif
 
   @push('scripts')
     <script src="{{asset('assets/js/fabric.min.js')}}"></script>
@@ -303,6 +286,7 @@
               img.scaleToHeight(480);
               img.selectable = false;
             });
+            alert('test');
             $('#c').show();
             $('.big_img').hide();
             $('.canvas-container').show();
@@ -400,6 +384,12 @@
       });
 
 
+    </script>
+
+    <script>
+      $(".size_charts").click(function(){
+        $(".sizemodal").toggle(200);
+      });
     </script>
 
   @endpush

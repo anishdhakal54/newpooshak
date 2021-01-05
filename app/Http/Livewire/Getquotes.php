@@ -4,9 +4,11 @@ namespace App\Http\Livewire;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Getquotes extends Component
 {
+    use WithFileUploads;
     public function render()
     {
         return view('livewire.getquotes');
@@ -16,6 +18,7 @@ class Getquotes extends Component
     public $login_email, $password;
     public $enable = true;
     public $count = 5;
+    public   $attachment1,$attachment2;
 
     //    protected $rules = [
     //        'firstname' => 'required|string',
@@ -37,13 +40,20 @@ class Getquotes extends Component
 //            return redirect(route('login'));
 //        }
 
-
+//        dd($this->attachment1,$this->attachment2);
         foreach ($this->category as $cat) {
             if ($cat !== false) {
                 array_push($this->categories, $cat);
             }
         }
         //        dd($this->user_id);
+
+        $this->attachment1->store('quotes','public');
+        $this->attachment2->store('quotes','public');
+
+//        $filename = $this->name->store(');
+
+
 
         \App\Getquote::create([
             'first_name' => $this->firstname,
@@ -53,6 +63,9 @@ class Getquotes extends Component
             'address' => $this->address,
             'category' => json_encode($this->categories),
             'user_id' => Auth::user()->id,
+            'attachment1'=>$this->attachment1,
+            'attachment2'=>$this->attachment2,
+
         ]);
 
         $notify = json_notification('success', 'Success!!!', 'We will soon contact you.', 'linecons-like');

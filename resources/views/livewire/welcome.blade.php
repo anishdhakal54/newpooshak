@@ -61,8 +61,8 @@
                                 <i class="icon-refresh"></i>
                             </div>
                             <div class="service-content-2">
-                                <h3>5 days Exchange</h3>
-                                <p>For any problems</p>
+                                <h3>{{__('10 Days Return')}}</h3>
+                                <p>{{__('For any problems')}}</p>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
         <div class="container-fluid">
             <div class="about-us-content-2">
                 <div class="about-us-content-2-title">
-                    <h4>{{__('Poosak: The One-stop Shopping Destination')}}   </h4>
+                    <h4>{{__(' Pooshak: The One-stop Shopping Destination')}}   </h4>
                 </div>
                 <p>
                     @if(Session::get('applocale')=='ne')

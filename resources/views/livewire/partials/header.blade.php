@@ -217,6 +217,17 @@
 
 
                                 </div>
+                                <div class="same-style-2 same-style-2-font-inc">
+                                    <div class="demo-area quotebutton">
+                                        <form action="{{route('getProductRequest')}}" method="get">
+                                        <button type="submit" class="btn btn-cta" >
+                                            {{__('Request Product')}}
+                                        </button>
+                                        </form>
+                                    </div>
+
+
+                                </div>
 
                                 <div class="same-style-2 same-style-2-font-inc header-cart">
                                     <a class="cart-active" href="#">
