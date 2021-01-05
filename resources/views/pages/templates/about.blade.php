@@ -92,8 +92,8 @@
                                 <i class="icon-cursor"></i>
                             </div>
                             <div class="service-content-2">
-                                <h3>{{__('Free Shipping')}}</h3>
-                                <p>Oders over Rs. 10000</p>
+                                <h3>{{__('Free Shipping ')}}</h3>
+                                <p>inside ktm valley over 5000</p>
                             </div>
                         </div>
                     </div>

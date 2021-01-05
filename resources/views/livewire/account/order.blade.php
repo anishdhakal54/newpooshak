@@ -58,26 +58,7 @@
 
     <div class=" accounts">
     <div class="row">
-        <div class="col-lg-3 col-md-12 col-sm-12 leftaccount">
-            <h3>Hello, UserName
-                <img src="assets/images/newchecks.svg">
-            </h3>
-            <div class="manage">
-                <a href="#">Manage My Account</a>
-                <div class="manage_lists">
-                    <a href="{{route('my-account.index')}}"><i class="fa fa-chevron-right"></i> My Profile</a>
-
-                </div>
-            </div>
-            <div class="order">
-                <a href="{{route('account.order')}}">My Orders</a>
-
-            </div>
-            <div class="wish">
-                <a href="profilecart.html">My Cart</a>
-
-            </div>
-        </div>
+        @include('livewire.account.sidebar')
 
         <div class="col-lg-8 col-md-12 col-sm-12 rightaccount orderaccount">
             <h3>My Orders</h3>
@@ -91,7 +72,7 @@
                     <table class="table ordertable">
                         <thead>
                         <tr>
-                            <th scope="col">ORDER NUMBER</th>
+                            <th scope="col">ORDER No.</th>
                             <th scope="col">DATE</th>
                             <th scope="col">Status</th>
                             <th scope="col">TOTAL</th>

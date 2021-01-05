@@ -45,4 +45,10 @@
 }
 .big_img{
     height:auto;
-}
+}.single-product-wrap {
+     width: 220px !important;
+ }
+ .help-block{
+     font-style: italic;
+     color:red;
+ }

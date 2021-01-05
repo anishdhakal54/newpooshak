@@ -14,11 +14,11 @@ class AlterAddressesTable extends Migration
     public function up()
     {
         Schema::table('addresses', function (Blueprint $table) {
-          $table->string('area')->after('country_id')->default("country_id");
-          $table->string('district')->after('country_id')->default("country_id");
-          $table->string('zone')->after('country_id')->default("country_id");
-          $table->string('lat')->after('country_id')->default("country_id");
-          $table->string('lon')->after('country_id')->default("country_id");
+          $table->string('area')->after('country_id')->nullable();
+          $table->string('district')->after('country_id')->nullable();
+          $table->string('zone')->after('country_id')->nullable();
+          $table->string('lat')->after('country_id')->nullable();
+          $table->string('lon')->after('country_id')->nullable();
         });
     }
 

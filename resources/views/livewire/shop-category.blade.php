@@ -624,6 +624,9 @@
         background: unset;
         color: #000;
       }
+      .single-product-wrap {
+        width: 261px !important;
+      }
     </style>
   @endpush
   @push('scripts')

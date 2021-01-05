@@ -1,7 +1,7 @@
 <div>
 
 
-    <section wire:ignore class="shopping-cart checkshopspad spad">
+    <section class="shopping-cart checkshopspad spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-12 checkformsleft">
@@ -11,11 +11,36 @@
                             <label for="inputEmail4">First Name</label>
                             <input type="text" wire:model="first_name" class="form-control" id="inputEmail4"
                                    placeholder="Your First Name">
+                            @if ($errors->has('first_name'))
+                                <span class="help-block">{{ $errors->first('first_name') }}</span>
+                            @endif
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Last Name</label>
                             <input type="text" class="form-control" wire:model="last_name" id="inputPassword4"
                                    placeholder="Your Last Name">
+                            @if ($errors->has('last_name'))
+                                <span class="help-block">{{ $errors->first('last_name') }}</span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Billing Name</label>
+                            <input type="text" wire:model="billing_name" class="form-control" id="inputEmail4"
+                                   placeholder="Billing name">
+                            @if ($errors->has('billing_name'))
+                                <span class="help-block">{{ $errors->first('billing_name') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Pan</label>
+                            <input type="text" class="form-control" wire:model="pan" id="inputPassword4"
+                                   placeholder="Your Pan no.">
+
+                            @if ($errors->has('pan'))
+                                <span class="help-block">{{ $errors->first('pan') }}</span>
+                            @endif
                         </div>
                     </div>
 
@@ -24,14 +49,20 @@
                             <label for="inputEmail4">Phone Number</label>
                             <input type="number" wire:model="phone" class="form-control" id="inputEmail4"
                                    placeholder="Your Email">
+                            @if ($errors->has('phone'))
+                                <span class="help-block">{{ $errors->first('phone') }}</span>
+                            @endif
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Email Address</label>
                             <input type="email" wire:model="email" class="form-control" id="inputPassword4"
                                    placeholder="Your Email Address">
+                            @if ($errors->has('email'))
+                                <span class="help-block">{{ $errors->first('email') }}</span>
+                            @endif
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" wire:ignore>
                         <div class="form-group col-md-6">
                             <label for="inputCity">Zone</label>
                             <select wire:model="zone" class="form-control checkselect" id="zone"
@@ -65,7 +96,7 @@
 
                     </div>
 
-                    <div class="form-row ">
+                    <div class="form-row " wire:ignore>
 
                         <div class="form-group col-md-12">
                             <label for="inputState">Area</label>
@@ -126,7 +157,7 @@
                     </div>
                     <div class="addresswithview">
                         <div class="address">
-                            <img src="assets/images/pin.svg">
+                            <img src="{{asset('assets/images/pin.svg')}}">
                             <div class="checkaddress">
                                 <input wire:model="address1" readonly>
                                 <p class="checkships">Shipping Address</p>
@@ -134,7 +165,7 @@
                             </div>
                         </div>
                         <div class="address">
-                            <img src="assets/images/call.svg">
+                            <img src="{{asset('assets/images/call.svg')}}">
                             <div class="checkaddress">
                                 <input wire:model="phone" readonly>
                                 <p class="checkships">Contact Number
@@ -144,7 +175,7 @@
                         </div>
 
                         <div class="address">
-                            <img src="assets/images/pin.svg">
+                            <img src="{{asset('assets/images/pin.svg')}}">
                             <div class="checkaddress">
                                 <input wire:model="email" readonly>
                                 <p class="checkships">Email Address</p>

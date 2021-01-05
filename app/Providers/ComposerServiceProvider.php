@@ -14,7 +14,7 @@ class ComposerServiceProvider extends ServiceProvider {
 	 */
 	public function boot() {
 		view()->composer(
-			[ 'layouts.app', 'index','livewire.partials.header' ], 'App\Http\ViewComposers\MenuListComposer'
+			[ 'layouts.app', 'index','livewire.partials.header','livewire.partials.footer' ], 'App\Http\ViewComposers\MenuListComposer'
 		);
 
 		view()->composer(

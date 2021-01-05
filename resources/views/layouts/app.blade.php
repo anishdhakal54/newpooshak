@@ -44,6 +44,13 @@
         }
       })
     });
+
+    window.livewire.on('reload', message => {
+      setTimeout(function () {
+        window.location.href = "{{url('/')}}";
+      }, 1000)
+
+    });
   });
 
 

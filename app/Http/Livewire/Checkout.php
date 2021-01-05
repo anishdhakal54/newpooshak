@@ -24,6 +24,7 @@ class Checkout extends Component
 
   public $first_name, $last_name, $email, $phone, $zone, $lat, $lon, $district, $area, $address1, $address2, $postcode, $country = 1, $order_note;
 
+  public $pan, $billing_name;
   public function updated($field)
   {
     $this->validateOnly($field, [
@@ -34,8 +35,8 @@ class Checkout extends Component
       'zone' => 'required',
       'district' => 'required',
       'area' => 'required',
-      '$address1' => 'required',
-      '$address2' => 'required'
+      'address1' => 'required',
+      'pan' => 'digits:9|integer'
 
 //      'address1' => 'required|max:255',
 
@@ -49,10 +50,16 @@ class Checkout extends Component
     $this->user = Auth::user();
     $this->getUserAddress($this->user);
     $this->countries = Country::pluck('name', 'id')->toArray();
+    $cartContents = cartContent();
+    if ($cartContents->count() == 0) {
+      return $this->redirect('/');
+
+    }
   }
 
   public function render()
   {
+
     return view('livewire.checkout');
   }
 
@@ -65,7 +72,7 @@ class Checkout extends Component
       $this->lon = 85.33630908;
     }
 //        dd($this->lat,$this->lon);
-    if ($this->first_name == '' || $this->last_name == '' || $this->email == '' || $this->phone == '' || $this->address1 == '' || $this->country == '') {
+    if ($this->first_name == '' || $this->last_name == '' || $this->email == '' || $this->phone == '' || $this->address1 == '' || $this->country == ''|| $this->zone == ''|| $this->district == ''|| $this->area == '') {
       $notify = json_notification('error', 'Validation Error', 'Please fill all the field', 'linecons-pen');
       $this->emit('notification', $notify);
     }
@@ -77,6 +84,7 @@ class Checkout extends Component
       'address1' => 'required|max:255',
       'district' => 'required|max:255',
       'zone' => 'required|max:255',
+      'pan' => 'digits:9|integer'
 //            'country' => 'required|max:255'
     ]);
     $cartContents = Cart::content();
@@ -129,6 +137,7 @@ class Checkout extends Component
     $this->emit('notification', $notify);
     session()->flash('order', " Thank you. Your order has been received.");
     $this->emit('rerenderHeader');
+    $this->emit('reload');
 
   }
 
@@ -148,6 +157,8 @@ class Checkout extends Component
       $this->area = $address->area;
       $this->lat = $address->lat;
       $this->lon = $address->lon;
+      $this->billing_name = $address->billing_name;
+      $this->pan = $address->pan;
 
     }
 
@@ -171,6 +182,9 @@ class Checkout extends Component
       'area' => $this->area,
       'lat' => $this->lat,
       'lon' => $this->lon,
+      'billing_name' => $this->billing_name,
+      'pan' => $this->pan,
+
     ];
 
     $address = Address::updateOrCreate(['user_id' => auth()->id()], $addressData);

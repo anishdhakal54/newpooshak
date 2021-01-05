@@ -186,15 +186,19 @@
                         <!-- /.module-heading -->
 
                         <div class="module-body">
-                            <ul class='list-unstyled'>
-                                <li class="first"><a title="Your Account" href="#">Hospital Dress</a></li>
-                                <li><a title="Information" href="" wire:click="contact-us">Hotel Dress</a></li>
-                                <li><a title="Addresses" href="#">Industrial Cloth</a></li>
-                                <li><a title="Addresses" href="#">Hospital Shoes</a></li>
-                                <li><a title="Addresses" href="#">Industrial Cloth</a></li>
-                                <li><a title="Addresses" href="#">Tshirt</a></li>
-                                <li><a title="Addresses" href="#">Other Products</a></li>
+                            <ul class="list-unstyled">
+                                @foreach($menuList as $menu)
+                                    <li>
+                                        <a href="{{ $menu['link'] }}">
+                                            {{ $menu['label'] }}
+
+                                        </a>
+
+                                    </li>
+                                @endforeach
+
                             </ul>
+
                         </div>
                         <!-- /.module-body -->
                     </div>
@@ -293,10 +297,10 @@
 
                         <ul class='list-unstyled soc footsoc'>
 
-                            <i class="fa fa-facebook"></i>
-                            <i class="fa fa-twitter"></i>
-                            <i class="fa fa-google"></i>
-                            <i class="fa fa-youtube"></i>
+                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-google"></i>
+                            <i class="fab fa-linkedin"></i>
+                            <i class="fab fa-instagram"></i>
                         </ul>
 
 

@@ -52,26 +52,7 @@
 
     <div wire:ignore class=" accounts">
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-12 leftaccount">
-                <h3>Hello, {{Auth::user()->first_name}}
-                    <img src="assets/images/newchecks.svg">
-                </h3>
-                <div class="manage">
-                    <a href="#">Manage My Account</a>
-                    <div class="manage_lists">
-                        <a href="profile.html"><i class="fa fa-chevron-right"></i> My Profile</a>
-
-                    </div>
-                </div>
-                <div class="order">
-                    <a href="{{route('account.order')}}">My Orders</a>
-
-                </div>
-                <div class="wish">
-                    <a href="profilecart.html">My Cart</a>
-
-                </div>
-            </div>
+            @include('livewire.account.sidebar')
 
             <div class="col-lg-8 col-md-8 col-sm-12 rightaccount">
 

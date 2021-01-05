@@ -285,7 +285,7 @@ class ProductController extends Controller
     $dbPath = $checkDirectory . '/' . $image->getClientOriginalName();
 
     $imageService = new ImageService();
-    $image = $imageService->upload($image, $checkDirectory);
+    $image = $imageService->uploadProduct($image, $checkDirectory);
 
     $tmp = $this->_getTmpString();
 

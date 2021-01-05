@@ -345,7 +345,7 @@
                     @else
 
                         <div class="alert alert-info" role="alert">
-                            This is a secondary alert—check it out!
+                            No item in cart. Please add some.
                         </div>
                     @endif
                 </ul>
