@@ -29,19 +29,15 @@
                     <td>{{$quote->address}}</td>
                     <td>
                         {{$quote->phone}}
-
                     </td>
-
-                    <td>
-                        {{$quote->phone}}
-
-                    </td>
-                    <td><img src="{{asset('uploads/RequestProduct/'.$quote->attachment1)}}" style="width: 100px; height: 100px;"
+                    <td><img src="{{asset('uploads/RequestProduct/'.$quote->attachment1)}}"
+                             style="width: 100px; height: 100px;"
                         >
 
                     </td>
                     <td>
-                        <img src="{{asset('uploads/RequestProduct/'.$quote->attachment2)}}" style="width: 100px; height: 100px;"
+                        <img src="{{asset('uploads/RequestProduct/'.$quote->attachment2)}}"
+                             style="width: 100px; height: 100px;"
                         >
 
                     </td>
@@ -50,7 +46,7 @@
                         @endforeach--}}
 
                     <td>
-                        <form action="{{route('dashboard.deleteQuote')}}" method="post">
+                        <form action="{{route('dashboard.deleteRequestedProduct')}}" method="post">
                             {{csrf_field()}}
                             <input type="hidden" value="{{$quote->id}}" name="id"/>
                             <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>

@@ -48,8 +48,8 @@
                                 <i class="icon-cursor"></i>
                             </div>
                             <div class="service-content-2">
-                                <h3>Free Shipping</h3>
-                                <p>Oders over Rs. 10000</p>
+                                <h3>{{__('Free Shipping')}}</h3>
+                                <p>{{__('Oders over Rs. 10000')}}</p>
                             </div>
                         </div>
                     </div>
@@ -72,8 +72,8 @@
                                 <i class="icon-credit-card"></i>
                             </div>
                             <div class="service-content-2">
-                                <h3>Secure Payment</h3>
-                                <p>100% Guarantee</p>
+                                <h3>{{__('Secure Payment')}}</h3>
+                                <p>{{__('100% Guarantee')}}</p>
                             </div>
                         </div>
                     </div>
@@ -83,8 +83,8 @@
                                 <i class="icon-earphones"></i>
                             </div>
                             <div class="service-content-2">
-                                <h3>24h Support</h3>
-                                <p>Dedicated support</p>
+                                <h3>{{__('24h Support')}}</h3>
+                                <p>{{__('Dedicated support')}}</p>
                             </div>
                         </div>
                     </div>
