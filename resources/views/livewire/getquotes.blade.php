@@ -5,7 +5,9 @@
                  style="background-image: url('https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1331&q=80')">
 
             </div>
-            <div class="col-md-6 py-5 px-sm-5 ">
+            <div class="col-md-6 py-2 px-sm-5 ">
+                <h1 class="text-center">Get Quotes </h1>
+
                 <form id="get-quote">
                     <div class="form-row">
                         <div class="form-group col-md-6">
