@@ -21,6 +21,24 @@
   <component name="ChangeListManager">
     <list default="true" id="7e63e343-23aa-4e48-9157-a99230b5ec85" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Partials/ProductDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Partials/ProductDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Product/EloquentProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Product/EloquentProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_04_155401_create_request_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_04_155401_create_request_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/products/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/products/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/products/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/products/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/products/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/enquiry/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/enquiry/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/product-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/product-detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/product-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/product-detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.php" beforeDir="false" afterPath="$PROJECT_DIR$/server.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +197,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -223,7 +241,9 @@
       <workItem from="1609662775748" duration="8279000" />
       <workItem from="1609820833808" duration="4000" />
       <workItem from="1609820909307" duration="40000" />
-      <workItem from="1609867662922" duration="635000" />
+      <workItem from="1609867662922" duration="6347000" />
+      <workItem from="1609902387287" duration="158000" />
+      <workItem from="1609907259009" duration="2554000" />
     </task>
     <servers />
   </component>

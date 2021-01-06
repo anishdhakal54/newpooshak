@@ -62,6 +62,17 @@
         </div>
     @endif
 
+    @if($product->colors->count()>0)
+        <div class="seventh">
+            <div class="size_flex">
+                <div class="first_seventh">
+                    <h2>Write quantity</h2>
+                    <input type="number" name="quantity" wire:model="quantity" value="0">
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="checkbox-card">
         <div class="checkbox">
             <label>
@@ -390,7 +401,6 @@
             @endif
 
 
-
         </div>
 
     </div>
@@ -418,7 +428,8 @@
                     </div>
                     <form>
                         <div class="alert alert-warning" style="padding: 3px" role="alert">
-                            <p class="help-block alert"><i class="fa fa-exclamation-circle"></i> Please login first!!!</p>
+                            <p class="help-block alert"><i class="fa fa-exclamation-circle"></i> Please login first!!!
+                            </p>
                         </div>
 
                         <div class="form-group">
@@ -631,8 +642,8 @@
 
               document.getElementById('lat').value = lat;
               document.getElementById('lon').value = lon;
-                // @this->set('lat', lat);
-                // @this->set('lon', lon);
+              // @this->set('lat', lat);
+              // @this->set('lon', lon);
 
               myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
               map.invalidateSize();

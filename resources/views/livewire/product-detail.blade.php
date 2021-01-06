@@ -226,28 +226,28 @@
     </section>
   @endif
 
-  @if(count($best_selling_products))
-    <section class="recent-add-area ">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="section-title">
-              <h2>You Might Also Like</h2>
-              <p>Add Related products to weekly line up</p>
-            </div>
-          </div>
-        </div>
-        <div class="product-categories-slider-1 recent-product-slider owl-carousel owl-nav-style">
-          @foreach($best_selling_products as $best_sell_product)
-            @php($product = $best_sell_product->product)
-            @livewire('partials.product-item',['product'=>$product,'is_category'=>true])
-          @endforeach
+{{--  @if(count($best_selling_products))--}}
+{{--    <section class="recent-add-area ">--}}
+{{--      <div class="container">--}}
+{{--        <div class="row">--}}
+{{--          <div class="col-md-12">--}}
+{{--            <div class="section-title">--}}
+{{--              <h2>You Might Also Like</h2>--}}
+{{--              <p>Add Related products to weekly line up</p>--}}
+{{--            </div>--}}
+{{--          </div>--}}
+{{--        </div>--}}
+{{--        <div class="product-categories-slider-1 recent-product-slider owl-carousel owl-nav-style">--}}
+{{--          @foreach($best_selling_products as $best_sell_product)--}}
+{{--            @php($product = $best_sell_product->product)--}}
+{{--            @livewire('partials.product-item',['product'=>$product,'is_category'=>true])--}}
+{{--          @endforeach--}}
 
 
-        </div>
-      </div>
-    </section>
-  @endif
+{{--        </div>--}}
+{{--      </div>--}}
+{{--    </section>--}}
+{{--  @endif--}}
 
   @push('scripts')
     <script src="{{asset('assets/js/fabric.min.js')}}"></script>

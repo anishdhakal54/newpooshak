@@ -112,6 +112,14 @@ class Product extends Model
   /**
    * @return \Illuminate\Database\Eloquent\Relations\HasMany
    */
+  public function colors()
+  {
+    return $this->hasMany(ProductColor::class);
+  }
+
+  /**
+   * @return \Illuminate\Database\Eloquent\Relations\HasMany
+   */
   public function faqs()
   {
     return $this->hasMany(ProductFaq::class);

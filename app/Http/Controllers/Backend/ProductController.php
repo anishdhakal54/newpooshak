@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Requests\ProductRequest;
 use App\Mail\User;
 use App\Product;
+use App\ProductColor;
 use App\ProductFaq;
 use App\ProductSpecification;
 use App\ProductDownload;
@@ -192,7 +193,7 @@ class ProductController extends Controller
   public function update(Request $request, $id)
   {
 
-    try {
+//    try {
       if ($request->hasFile('view_chart')) {
         request()->validate([
           'view_chart' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -214,10 +215,10 @@ class ProductController extends Controller
 
       }
 
-    } catch (Exception $e) {
-
-      throw new Exception('Error in saving product: ' . $e->getMessage());
-    }
+//    } catch (Exception $e) {
+//
+//      throw new Exception('Error in saving product: ' . $e->getMessage());
+//    }
 
     return redirect()->back()->with('success', 'Product successfully updated!');
   }
@@ -327,6 +328,18 @@ class ProductController extends Controller
     return response()->json([
       'success' => true,
       'message' => 'Specification successfully deleted!!'
+    ]);
+  }
+
+  public function deleteColor(Request $request)
+  {
+    $color = ProductColor::findOrFail($request->input('color'));
+
+    $color->delete();
+
+    return response()->json([
+      'success' => true,
+      'message' => 'Color successfully deleted!!'
     ]);
   }
 

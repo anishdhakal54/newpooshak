@@ -260,4 +260,6 @@ function cartQty($cart)
 }
 function cartContent(){
   return CartProduct::where('user_id', auth()->user()->id)->get();
+
+
 }
