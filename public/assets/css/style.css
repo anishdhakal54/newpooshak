@@ -25406,3 +25406,31 @@ td.quantity__item
 
 
 }
+
+.proinfoswow{
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 14px;
+    border: 2px solid #113b6d;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.proinfoswow h3{
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.proinfoswow li{
+    list-style: none;
+}
+
+.proinfoswow i{
+    font-size: 10px;
+    color: gray;
+}
+
+.proinfoswow p{
+    margin-top: 12px;
+    font-weight: 600;
+    font-style: italic;
+}

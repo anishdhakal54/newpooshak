@@ -58,7 +58,7 @@
 
 
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-12 coninformation">
+                    <div class="col-lg-12 col-md-12 col-12 coninformation">
                         <h3>Contact Information</h3>
                         <form>
                             <div class="form-group">
@@ -98,81 +98,116 @@
                         </form>
                     </div>
 
-                    <div class="col-lg-6 col-md-6 col-12 coninformation">
-                        <h3>Address</h3>
-                        <form>
-                            <div class="form-group streetaddress">
-                                <label for="exampleInputEmail1">Street Address</label>
-                                <input type="text" class="form-control" wire:model="address1" id="exampleInputEmail1"
-                                       aria-describedby="emailHelp">
-                                <input type="text" class="form-control" id="exampleInputEmail1" wire:model="address2"
-                                       aria-describedby="emailHelp">
 
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">County</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>Nepal</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">State/Province</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
-
-                                    @foreach ($allstate as $key => $value)
-                                        <option wire:model="state"
-                                                value="{{ $key }}" {{ ( $value->id == $state->id) ? 'selected' : '' }}>
-                                            {{ $value->name}}
-                                        </option>
-                                    @endforeach
-
-                                    {{--                                @foreach ($allstate as $key => $allstate)--}}
-                                    {{--                                        <option value="{{$key}}" {{ ( $key == $state->id) ? 'selected' : ''}}>{{$allstate->name}}</option>--}}
-
-                                    {{--                                    @foreach ($items as $key => $value)--}}
-                                    {{--                                        <option value="{{ $key }}" {{ ( $key == $selectedID) ? 'selected' : '' }}>--}}
-                                    {{--                                            {{ $value }}--}}
-                                    {{--                                        </option>--}}
-                                    {{--                                    @endforeach--}}
-
-                                    {{--                  <option>2</option>--}}
-                                    {{--                  <option>3</option>--}}
-                                    {{--                  <option>4</option>--}}
-                                    {{--                  <option>5</option>--}}
-                                    {{--                  <option>6</option>--}}
-                                    {{--                  <option>7</option>--}}
-
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">District
-                                </label>
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>Kathmandu</option>
-                                    <option>Bhaktapur</option>
-                                    <option>Lalitpur</option>
-
-                                </select>
-                            </div>
-
-
-                        </form>
-                    </div>
-                </div>
-
-                <div class="editprofile updateprofile">
-                    <button type="button" wire:click="editinfo" wire:loading.class="disabled">  <span><i wire:loading
-                                                                                                         wire:target="editinfo"
-                                                                                                         class="fas fa-spinner fa-spin"></i>
+                    {{--                                <select class="form-control checkselect" wire:model="district"--}}
+                    {{--                                        id="district"--}}
+                    {{--                                        name="district"--}}
+                    {{--                                    >--}}
+                    {{--                                    <option value="0">Select District</option>--}}
+                    {{--                                </select>--}}
+                    {{--                            </div>--}}
+                    <div class="editprofile updateprofile">
+                        <button type="button" wire:click="editinfo" wire:loading.class="disabled">  <span><i
+                                        wire:loading
+                                        wire:target="editinfo"
+                                        class="fas fa-spinner fa-spin"></i>
                              UPDATE PROFILE</span>
-                    </button>
+                        </button>
+                    </div>
                 </div>
             </div>
 
+
         </div>
+
     </div>
-
-
 </div>
+
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            document.getElementById("area").onchange = function () {
+                var e = document.getElementById("area");
+
+                var zone = e.options[e.selectedIndex].value;
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: 'GET',
+                    url: "",
+                    data: {
+                        location: zone
+                    },
+                    success: function (data) {
+                        $('#shipping_charge').html(data.amount.toLocaleString());
+                        $('#ship_amnt').html(data.amount.toLocaleString());
+                        $('#grand_total_value').html(data.grandTotal.toLocaleString());
+                        $('#ship_amnt_total').html(data.grandTotal.toLocaleString());
+                    }
+                });
+
+
+            };
+        })
+    </script>
+    <script>
+        document.getElementById("zone").onchange = function () {
+
+            var e = document.getElementById("zone");
+            var zone = e.options[e.selectedIndex].value;
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: "{{ route('checkout.zone') }}",
+                data: {
+                    zone: zone
+                },
+                success: function (data) {
+//                console.log(data);
+
+                    $('#district').html(data);
+                    $('#district').removeAttr('disabled');
+                    $('#zone').css('width', 'auto');
+
+                }
+
+            });
+        };
+
+        document.getElementById("district").onchange = function () {
+
+            var e = document.getElementById("district");
+            var zone = e.options[e.selectedIndex].value;
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: 'GET',
+                url: "{{ route('checkout.zone') }}",
+                data: {
+                    zone: zone
+                },
+                success: function (data) {
+                    $('#area').html(data);
+                    $('#area').removeAttr('disabled');
+                    $('#district').css('width', 'auto');
+
+                }
+
+            });
+        };
+
+
+    </script>
+    @endpush
+    </div>

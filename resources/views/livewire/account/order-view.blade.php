@@ -29,10 +29,16 @@
             <address class="mb-none">
               {{ $order->getShippingAddressAttribute()->first_name . ' ' . $order->getShippingAddressAttribute()->last_name }}
               <br>
-              {{ $order->getShippingAddressAttribute()->address1 . ' ' . $order->getShippingAddressAttribute()->address2 }}
+              {{ $order->getShippingAddressAttribute()->address1 . ' ,' . $order->getShippingAddressAttribute()->address2 }}
               <br>
-              {!! isset($order->getShippingAddressAttribute()->city) ? $order->getShippingAddressAttribute()->city .'<br/>' : '' !!}
-              {!! isset($order->getShippingAddressAttribute()->state_id->name) ? $order->getShippingAddressAttribute()->state_id->name . '<br/>' : '' !!}
+{{--              @php--}}
+{{--              \App\DeliveryCharge::all()->where('id',$order->getShippingAddressAttribute()->zone);--}}
+
+{{--              @endphp--}}
+              {!! isset($zone ) ? $zone[0]  .'<br/>' : '' !!}
+              {!! isset($district ) ? $district[0]  . '<br/>' : '' !!}
+              {!! isset($area ) ? $area[0]  . '<br/>' : '' !!}
+
               {{ $order->getShippingAddressAttribute()->postcode }}
             </address>
           </div>

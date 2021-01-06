@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <h1></h1>
     <form action="{{route('storeRequestProduct')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="container-fluid">
@@ -9,9 +10,13 @@
                      style="background-image: url('https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1331&q=80')">
 
                 </div>
-                <div class="col-md-6 py-5 px-sm-5 ">
+
+
+                <div class="col-md-6 py-2 px-sm-5 ">
                     <form id="get-quote">
+                        <h1>Request Product </h1>
                         <div class="form-row">
+
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">{{__('First Name')}}</label>
                                 <input class="form-control" type="text"
@@ -93,6 +98,19 @@
 
                         </div>
 
+
+<div class="proinfoswow">
+    <h3>Notice: </h3>
+    <li>
+        <i class="fa fa-chevron-right"></i> If the product limit is between 10-20 piece, time to be taken = 1 week</li>
+    <li>  <i class="fa fa-chevron-right"></i> If the product limit is between 20-100 piece, time to be taken = 2 weeks</li>
+    <li>  <i class="fa fa-chevron-right"></i> If the product limit is between 100-500 piece, time to be taken = 1 month</li>
+
+    <p>Delivery time might vary accordingly!</p>
+
+
+
+</div>
 
                         @if(!Auth::check())
                             <button type="submit" class="btn_add_to_cart" data-toggle="modal"
