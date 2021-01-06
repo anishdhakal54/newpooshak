@@ -286,7 +286,6 @@
               img.scaleToHeight(480);
               img.selectable = false;
             });
-            alert('test');
             $('#c').show();
             $('.big_img').hide();
             $('.canvas-container').show();
