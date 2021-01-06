@@ -52,3 +52,9 @@
      font-style: italic;
      color:red;
  }
+ .updatebtn{
+     height: 31px;
+     padding: 0 10px;
+     margin-left: 10px;
+     margin-right: 10px;
+ }

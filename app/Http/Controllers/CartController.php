@@ -22,7 +22,9 @@ class CartController extends Controller
 
     public function index()
     {
-        return view('cart.index');
+      $usercart=  CartProduct::where('user_id',Auth::user()->id)->get();
+      dd($usercart);
+        return view('cart.index',compact('usercart'));
     }
 
     public function store(CartRequest $request)

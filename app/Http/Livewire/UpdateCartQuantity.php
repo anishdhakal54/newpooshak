@@ -40,6 +40,11 @@ class UpdateCartQuantity extends Component
     $this->updateQuantity();
   }
 
+  public function test()
+  {
+    dd($this->quantity_s);
+  }
+
   public function updateQuantity()
   {
     /*$rowId = $this->rowId;

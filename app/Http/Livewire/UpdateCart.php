@@ -2,16 +2,25 @@
 
 namespace App\Http\Livewire;
 
-use Gloudemans\Shoppingcart\Facades\Cart;
+use App\CartProduct;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class UpdateCart extends Component
 {
   protected $listeners = ['rerenderCart' => '$refresh'];
   public function render()
   {
-    return view('livewire.update-cart');
+    $usercart=  CartProduct::where('user_id',Auth::id())->get();
+ 
+    return view('livewire.update-cart',compact('usercart'));
   }
+
+  // public function mount(){
+ 
+
+  // }
 
   public function deleteCartItem($rowId)
   {

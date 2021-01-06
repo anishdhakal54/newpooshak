@@ -29,22 +29,22 @@ class Checkout extends Component
 
     public function updated($field)
     {
-//        $this->validateOnly($field, [
-//            'first_name' => 'required|max:255',
-//            'last_name' => 'required|max:255',
-//            'email' => 'required|max:255|email',
-//            'phone' => 'required|max:255',
-//            'zone' => 'required',
-//            'district' => 'required',
-//            'area' => 'required',
-//            'address1' => 'required',
-//            'pan' => 'digits:9|integer'
-//
-////      'address1' => 'required|max:255',
-//
-//
-////      'country' => 'required|max:255'
-//        ]);
+       $this->validateOnly($field, [
+           'first_name' => 'required|max:255',
+           'last_name' => 'required|max:255',
+           'email' => 'required|max:255|email',
+           'phone' => 'required|max:255',
+           'zone' => 'required',
+           'district' => 'required',
+           'area' => 'required',
+           'address1' => 'required',
+           'pan' => 'digits:9|integer'
+
+//      'address1' => 'required|max:255',
+
+
+//      'country' => 'required|max:255'
+       ]);
     }
 
     public function mount()
@@ -95,19 +95,19 @@ class Checkout extends Component
             $notify = json_notification('error', 'Validation Error', 'Please fill all the field', 'linecons-pen');
             $this->emit('notification', $notify);
         }
-//       dd($this);
-        $this->validate([
-            'first_name' => 'required|max:255',
-            'last_name' => 'required|max:255',
-            'email' => 'required|max:255|email',
-            'phone' => 'required|max:255',
-            'address1' => 'required|max:255',
-            'district' => 'required|max:255',
-            'zone' => 'required|max:255',
-            'pan' => 'digits:9|integer',
+// //       dd($this);
+//         $this->validate([
+//             'first_name' => 'required|max:255',
+//             'last_name' => 'required|max:255',
+//             'email' => 'required|max:255|email',
+//             'phone' => 'required|max:255',
+//             'address1' => 'required|max:255',
+//             'district' => 'required|max:255',
+//             'zone' => 'required|max:255',
+//             'pan' => 'digits:9|integer',
 
-//            'country' => 'required|max:255'
-        ]);
+// //            'country' => 'required|max:255'
+//         ]);
 //        dd('here');
         $cartContents = Cart::content();
         $this->error_message = [];

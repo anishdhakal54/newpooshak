@@ -90,6 +90,8 @@
                     <input type="radio" class="has_frame" name="has_frame" value="false" wire:model="has_frame"> No
 
                 </div>
+
+               
                 <div class="notice success">
                     <h2>Frame Price:</h2>
 
@@ -99,6 +101,12 @@
                         only if item is above or equal to 200</p>
 
 
+                </div>
+                <div class="col-md-12">
+                    <p>Choose the color of the product. </p>
+                    @foreach($product_color as $color)
+                    <input   type="radio" class="color" wire:model="color"  name="color" value="{{$color->id}}">{{$color->color }}
+                    @endforeach
                 </div>
 
             </div>
