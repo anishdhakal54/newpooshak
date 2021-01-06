@@ -11,16 +11,22 @@
                             <label for="inputEmail4">First Name</label>
                             <input type="text" wire:model="first_name" class="form-control" id="inputEmail4"
                                    placeholder="Your First Name">
+
                             @if ($errors->has('first_name'))
-                                <span class="help-block">{{ $errors->first('first_name') }}</span>
+                                <span class="help-block">
+                                {{ $errors->first('first_name') }}
+                            </span>
                             @endif
+
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Last Name</label>
                             <input type="text" class="form-control" wire:model="last_name" id="inputPassword4"
                                    placeholder="Your Last Name">
                             @if ($errors->has('last_name'))
-                                <span class="help-block">{{ $errors->first('last_name') }}</span>
+                                <span class="help-block">
+                                {{ $errors->first('last_name') }}
+                            </span>
                             @endif
                         </div>
                     </div>
@@ -30,16 +36,20 @@
                             <input type="text" wire:model="billing_name" class="form-control" id="inputEmail4"
                                    placeholder="Billing name">
                             @if ($errors->has('billing_name'))
-                                <span class="help-block">{{ $errors->first('billing_name') }}</span>
+                                <span class="help-block">
+                                {{ $errors->first('billing_name') }}
+                            </span>
                             @endif
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" wire:ignore>
                             <label for="inputPassword4">Pan</label>
                             <input type="text" class="form-control" wire:model="pan" id="inputPassword4"
                                    placeholder="Your Pan no.">
 
                             @if ($errors->has('pan'))
-                                <span class="help-block">{{ $errors->first('pan') }}</span>
+                                <span class="help-block">
+                                {{ $errors->first('pan') }}
+                            </span>
                             @endif
                         </div>
                     </div>
@@ -50,7 +60,9 @@
                             <input type="number" wire:model="phone" class="form-control" id="inputEmail4"
                                    placeholder="Your Email">
                             @if ($errors->has('phone'))
-                                <span class="help-block">{{ $errors->first('phone') }}</span>
+                                <span class="help-block">
+                                {{ $errors->first('phone') }}
+                            </span>
                             @endif
                         </div>
                         <div class="form-group col-md-6">
@@ -58,7 +70,9 @@
                             <input type="email" wire:model="email" class="form-control" id="inputPassword4"
                                    placeholder="Your Email Address">
                             @if ($errors->has('email'))
-                                <span class="help-block">{{ $errors->first('email') }}</span>
+                                <span class="help-block">
+                                {{ $errors->first('email') }}
+                            </span>
                             @endif
                         </div>
                     </div>
@@ -67,7 +81,7 @@
                             <label for="inputCity">Zone</label>
                             <select wire:model="zone" class="form-control checkselect" id="zone"
                                     name="zone">
-                                <option value="0" >Select Zone</option>
+                                <option value="0">Select Zone</option>
                                 @foreach(\App\DeliveryCharge::where('parent_id',0)->get() as $zones)
                                     <option value="{{$zones->id}}">{{$zones->name}}</option>
                                 @endforeach
@@ -77,6 +91,7 @@
                                 {{ $errors->first('zone') }}
                             </span>
                             @endif
+
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputCity">District</label>
@@ -90,7 +105,6 @@
                                 <span class="help-block">
                                 {{ $errors->first('district') }}
                             </span>
-
                             @endif
                         </div>
 
@@ -109,23 +123,30 @@
                                 <span class="help-block">
                                 {{ $errors->first('area') }}
                             </span>
-
                             @endif
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="inputAddress">Street Address</label>
-                            <input type="text" wire:model="address1" class="form-control" id="inputAddress"
+                            <input type="text" wire:model="address1" name="address1" class="form-control"
+                                   id="inputAddress"
                                    placeholder="1234 Main St">
+                            @if ($errors->has('address1'))
+                                <span class="help-block">
+                                {{ $errors->first('address1') }}
+                            </span>
+
+                            @endif
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputAddress2">Street Address 2</label>
-                            <input type="text" wire:model="address2" class="form-control" id="inputAddress2"
+                            <input type="text" wire:model="address2" name="address2" class="form-control"
+                                   id="inputAddress2"
                                    placeholder="Apartment, studio, or floor">
                         </div>
-                        @if ($errors->has('address'))
+                        @if ($errors->has('address2'))
                             <span class="help-block">
-                                {{ $errors->first('address') }}
+                                {{ $errors->first('address2') }}
                             </span>
 
                         @endif
@@ -133,7 +154,7 @@
                             <div class="col-md-12">
                                 <div id="mapid"></div>
                             </div>
-
+                            <p class="text-primary">Please dragon the pointer to your location</p>
                             <div class="col-md-6">
                                 <input type="hidden" wire:model="lon" class="form-control" name="lat"
                                        id="lat" size=12
@@ -159,8 +180,8 @@
                         <div class="address">
                             <img src="{{asset('assets/images/pin.svg')}}">
                             <div class="checkaddress">
-                                <input wire:model="address1" readonly>
-                                <p class="checkships">Shipping Address</p>
+                                <input wire:model="first_name" readonly>
+                                <p class="checkships">User</p>
 
                             </div>
                         </div>

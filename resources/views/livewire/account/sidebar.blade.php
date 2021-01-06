@@ -14,14 +14,20 @@
 
     </div>
     <div class="wish">
-        <a href="profilecart.html">My Cart</a>
+        <a href="/cart" wire:click="/cart">My Cart</a>
 
     </div>
     <div class="wish">
-        <a  data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Exchange</a>
-        <div class="collapse" id="collapseExample">
+        <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+           aria-controls="collapseExample">Exchange</a>
+        <div wire:ignore class="collapse" id="collapseExample">
             <div class="card card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                <label for="">Please enter order id</label>
+                <input type="text" name="orderid" wire:model="order_id" placeholder="Please enter order id">
+                <p> Please note that after submitting your order will status will be on exchanged and you can buy new
+                    product. </p>
+                <button type="button" wire:click="exchangeOrder" class="form-control btn btn-danger">Submit</button>
+
             </div>
         </div>
     </div>

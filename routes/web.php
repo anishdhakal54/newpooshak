@@ -187,7 +187,7 @@ Route::group([
   Route::get('/get-quotes', 'GetQuoteController@getQuotes')->name('getquotes');
   Route::post('/delete-quotes', 'GetQuoteController@delete')->name('deleteQuote');
     Route::get('/get-requested-product', 'RequstedProductController@getRequestedProduct')->name('getRequestedProduct');
-    Route::post('/delete-quotes', 'GetQuoteController@delete')->name('deleteQuote');
+    Route::post('/delete-requestedproduct', 'RequstedProductController@delete')->name('deleteRequestedProduct');
 });
 Route::group([
   'prefix' => 'dashboard',
