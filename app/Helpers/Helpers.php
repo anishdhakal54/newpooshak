@@ -9,8 +9,11 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
+
+
 function getProductSlug($id)
 {
+
   $product = Product::findOrFail($id);
 
   return isset($product->slug) ? $product->slug : Str::slug($product->name);
