@@ -27,6 +27,7 @@ class CreateAddressesTable extends Migration
 	        $table->string('city')->nullable()->default(null);
 	        $table->integer('state_id')->unsigned()->nullable()->default(null);
 	        $table->integer('country_id')->unsigned()->nullable()->default(null);
+
 	        $table->timestamps();
 
 	        $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
