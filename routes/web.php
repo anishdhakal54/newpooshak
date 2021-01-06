@@ -204,6 +204,7 @@ Route::group([
   Route::post('/product/image/delete', 'ProductController@deleteImage')->name('product.image.delete-image');
   Route::post('/product/faq/delete', 'ProductController@deleteFaq')->name('product.faq.delete');
   Route::post('/product/specification/delete', 'ProductController@deleteSpecification')->name('product.specification.delete');
+  Route::post('/product/color/delete', 'ProductController@deleteColor')->name('product.color.delete');
   Route::post('/product/download/delete', 'ProductController@deleteDownload')->name('product.download.delete');
   Route::post('/product/download/file/upload', 'ProductController@downloadFileUpload')->name('product.download.file.upload');
 

@@ -45,13 +45,20 @@ class ProductDetail extends Component
   public $interest_logo = false;
   public $front = true, $back = false, $pocket = false;
 
+  public $product_color = "";
+
 
   public $first_name, $last_name, $email, $phone, $address, $address2, $city, $zone, $district, $state, $area, $postcode, $country = 1, $order_note;
 
   public $lat, $lon;
 
+  public $quantity;
+
   public function getTotalQuantity()
   {
+    if($this->product->disable_size){
+      return $this->quantity;
+    }
     if ($this->total_quantity == 0) {
       return intval($this->quantity_xs) + intval($this->quantity_s) + intval($this->quantity_m) + intval($this->quantity_xl) + intval($this->quantity_2xl) + intval($this->quantity_3xl);
     } else {
@@ -80,6 +87,7 @@ class ProductDetail extends Component
   public function mount($product)
   {
     $this->product = $product;
+
   }
 
   public function render()
@@ -165,6 +173,13 @@ class ProductDetail extends Component
       $notify = json_notification('error', 'Sorry!!!', 'Please agree our Terms and Conditions', 'linecons-pen');
       $this->emit('notification', $notify);
       return false;
+    }
+    if($this->product->colors->count()>0){
+      if($this->product_color==""){
+        $notify = json_notification('error', 'Sorry!!!', 'Please choose color', 'linecons-pen');
+        $this->emit('notification', $notify);
+        return false;
+      }
     }
 
     if ($this->getTotalQuantity() != 0) {

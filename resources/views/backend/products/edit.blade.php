@@ -185,6 +185,63 @@
 
             });
 
+            jQuery(document).on('click', '.btn-delete-color', function (e) {
+                e.preventDefault();
+
+                var $this = $(this);
+
+                var color = $this.attr('data-color');
+
+                if (!color) {
+                    $this.closest("tr").remove();
+                    return false;
+                }
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('dashboard.product.color.delete')  }}",
+                    data: {
+                        color: color
+                    },
+                    beforeSend: function () {
+                        $this.prop('disabled', true);
+                    },
+                    success: function (data) {
+                        $this.closest("tr").remove();
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        //
+                    },
+                    complete: function () {
+                        $this.prop('disabled', false);
+                    }
+                });
+            });
+
+            jQuery(document).on('click', '.btn-add-color', function (e) {
+                e.preventDefault();
+
+                var lastRow = $('table.table-colors > tbody > tr').last().attr('data-row');
+                var counter = parseInt(lastRow) + 1;
+                var randomInteger = generateRandomInteger();
+
+                var newRow = jQuery('<tr data-row="' + counter + '">' +
+                    '<td>' + counter + '</td>' +
+                    '<td><input type="text" name="colors[color][' + randomInteger + ']" class="form-control" required/></td>' +
+                    '<td><input type="text" name="colors[color_code][' + randomInteger + ']" class="form-control" /></td>' +
+                    '<td><button type="button" class="btn btn-danger btn-xs btn-delete-color" data-color=""><i class="fa fa-trash"></i></button></td>' +
+                    '</tr>');
+
+                jQuery('table.table-colors').append(newRow);
+
+            });
+
             jQuery(document).on('click', '.btn-delete-faq', function (e) {
                 e.preventDefault();
 
