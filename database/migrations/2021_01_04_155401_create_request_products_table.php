@@ -23,7 +23,6 @@ class CreateRequestProductsTable extends Migration
             $table->string('attachment1');
             $table->string('attachment2');
             $table->timestamps();
-            $table->timestamps();
         });
     }
 

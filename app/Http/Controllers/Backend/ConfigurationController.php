@@ -47,6 +47,7 @@ class ConfigurationController extends Controller
 
     public function postConfiguration(Request $request)
     {
+//        dd($request->all());
         $inputs = $request->only(
             'ribbon_text',
             'site_title',
@@ -101,7 +102,8 @@ class ConfigurationController extends Controller
             'longitude',
             'newsletter_text',
             'home_eng_content',
-            'home_ne_content'
+            'home_ne_content',
+            'rewards'
         );
 
         foreach ($inputs as $inputKey => $inputValue) {

@@ -3,6 +3,7 @@
 namespace App\Repositories\Product;
 
 use App\Product;
+use App\ProductColor;
 use App\ProductFaq;
 use App\ProductSpecification;
 use App\ProductDownload;
@@ -105,6 +106,24 @@ class EloquentProduct implements ProductRepository
           'product_id' => $product->id,
           'title' => $titles[$specification],
           'description' => $descriptions[$specification],
+        ]);
+      }
+    }
+
+    // Product Colors
+    if (isset($attributes['colors'])) {
+      $titles = $attributes['colors']['color'];
+      $descriptions = $attributes['colors']['color_code'];
+
+      $colorsKeys = array_keys($titles);
+
+      foreach ($colorsKeys as $color) {
+        // Create color
+        $this->createColor([
+          'user_id' => auth()->id(),
+          'product_id' => $product->id,
+          'color' => $titles[$color],
+          'color_code' => $descriptions[$color],
         ]);
       }
     }
@@ -252,6 +271,33 @@ class EloquentProduct implements ProductRepository
       }
     }
 
+    // Product Colors
+    if (isset($attributes['colors'])) {
+      $titles = $attributes['colors']['color'];
+      $descriptions = $attributes['colors']['color_code'];
+
+      $colorKeys = array_keys($titles);
+
+      foreach ($colorKeys as $color) {
+        if ($this->colorExists($color)) {
+          // Update color
+          $this->updateColor([
+            'id' => $color,
+            'color' => $titles[$color],
+            'color_code' => $descriptions[$color],
+          ]);
+        } else {
+          // Create color
+          $this->createColor([
+            'user_id' => auth()->id(),
+            'product_id' => $id,
+            'color' => $titles[$color],
+            'color_code' => $descriptions[$color],
+          ]);
+        }
+      }
+    }
+
     // Product Faqs
     if (isset($attributes['faqs'])) {
       $questions = $attributes['faqs']['question'];
@@ -351,6 +397,48 @@ class EloquentProduct implements ProductRepository
     return $specification;
   }
 
+
+  /**
+   * Check if Color already exists
+   *
+   * @param $color
+   *
+   * @return mixed
+   */
+  protected function colorExists($color)
+  {
+    return ProductColor::where('id', '=', $color)->exists();
+  }
+
+  /**
+   * Update Color
+   *
+   * @param array $attributes
+   */
+  protected function createColor(array $attributes)
+  {
+    return ProductColor::create($attributes);
+  }
+
+  /**
+   * Update Color
+   *
+   * @param array $attributes
+   *
+   * @return bool
+   */
+  protected function updateColor(array $attributes)
+  {
+    $color = ProductColor::findOrFail($attributes['id']);
+
+    $color->color = $attributes['color'];
+    $color->color_code = $attributes['color_code'];
+
+    $color->save();
+
+    return $color;
+  }
+
   /**
    * Check if Faq already exists
    *
@@ -442,6 +530,9 @@ class EloquentProduct implements ProductRepository
 
     // Delete specifications
     $product->specifications()->delete();
+
+    // Delete colors
+    $product->colors()->delete();
 
     // Delete faqs
     $product->faqs()->delete();

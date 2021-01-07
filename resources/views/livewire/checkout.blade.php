@@ -208,17 +208,47 @@
                         <h4>Order Summary
                         </h4>
                         @php
-                            $subTotal = str_replace(',', '', Cart::instance('default')->subtotal());
+                            $subTotal = 0;
+                            $discount = 0;
+                            $has_bulk_discount=false;
+                        @endphp
+                        @foreach($usercart as $cartContent)
+
+                            @php
+                                $subTotal_ =getSubtotal($cartContent);
+                                $subTotal += getSubtotal($cartContent);
+                                $discount_ = getDiscount(cartQty($cartContent));
+                                $discount += $subTotal_ * $discount_ / 100;
+                                if(cartQty($cartContent)>4){
+                                  $has_bulk_discount = true;
+                                }
+                            @endphp
+                        @endforeach
+                        @php
+                            if(!$has_bulk_discount){
+                              $discount_item = getMitemDiscount($usercart);
+                              $discount = $subTotal * $discount_item / 100;
+                            }
+
                             $tax = 0;
                             if (getConfiguration('enable_tax')) {
                                 $tax = ($subTotal * getConfiguration('tax_percentage')) / 100;
                             }
-                            $grandTotal = $subTotal + $tax;
-                        @endphp
+                            $grandTotal = $subTotal + $tax - $discount;
 
+                        @endphp
                         <div class="ordersummarysubtotal">
-                            <p>Subtotal ( {{cartCount()}} Item(s))</p>
-                            <p>{{trans('app.money_symbol')}}  {{ cartTotal() }}</p>
+                            <p>Subtotal ( {{$usercart->count()}} Item(s))</p>
+                            <p>{{trans('app.money_symbol')}}  {{ $subTotal }}</p>
+                        </div>
+
+                        <div class="ordersummaryship">
+                            <p>
+                                @if(!$has_bulk_discount) Unique Discount ({{getUniqueDiscount()}}%) @else
+                                    Discount @endif
+                            </p>
+                            <p
+                                    class="subprice">{{trans('app.money_symbol')}} {{ $discount }}</p>
                         </div>
 
                         <div class="ordersummaryship">
@@ -229,7 +259,7 @@
                         <div class="ordersummarytotal">
                             <p>Total</p>
                             <div class="totalwithvat">
-                                <p>{{trans('app.money_symbol')}}  {{ number_format(cartTotal(), 2) }}</p>
+                                <p>{{trans('app.money_symbol')}}  {{ number_format($grandTotal, 2) }}</p>
 
                             </div>
                         </div>
@@ -695,150 +725,150 @@
     @push('scripts')
         <script src="{{asset('assets/fullleaflet/leaflet.js')}}"></script>
         <script type="text/javascript">
-            var myMarker;
-            var map;
-            init_map();
+          var myMarker;
+          var map;
+          init_map();
 
 
-            function init_map() {
-                var startlat = 27.69029236;
-                var startlon = 85.33630908;
+          function init_map() {
+            var startlat = 27.69029236;
+            var startlon = 85.33630908;
 
 
-                var options = {
-                    center: [startlat, startlon],
-                    zoom: 14
+            var options = {
+              center: [startlat, startlon],
+              zoom: 14
+            }
+
+            document.getElementById('lat').value = startlat;
+            document.getElementById('lon').value = startlon;
+
+            map = L.map('mapid', options);
+            var nzoom = 12;
+
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+              {attribution: 'OSM'}
+            ).addTo(map);
+            myMarker = L.marker([startlat, startlon], {
+              title: "Coordinates",
+              alt: "Coordinates",
+              draggable: true
+            }).addTo(map).on('dragend', function () {
+
+              var lat = myMarker.getLatLng().lat.toFixed(8);
+              var lon = myMarker.getLatLng().lng.toFixed(8);
+
+
+              var czoom = map.getZoom();
+
+              document.getElementById('lat').value = lat;
+              document.getElementById('lon').value = lon;
+              //
+            @this.set('lat', lat);
+            @this.set('lon', lon);
+              myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
+              map.invalidateSize();
+            });
+
+            chooseAddr(startlat, startlon);
+          }
+
+          function chooseAddr(lat1, lng1) {
+            myMarker.closePopup();
+            map.setView([lat1, lng1], 18);
+            myMarker.setLatLng([lat1, lng1]);
+            lat = lat1.toFixed(8);
+            lon = lng1.toFixed(8);
+            document.getElementById('lat').value = lat;
+            document.getElementById('lon').value = lon;
+            myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
+          }
+        </script>
+
+
+
+        <script>
+          $(document).ready(function () {
+            document.getElementById("area").onchange = function () {
+              var e = document.getElementById("area");
+
+              var zone = e.options[e.selectedIndex].value;
+
+              $.ajaxSetup({
+                headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
-
-                document.getElementById('lat').value = startlat;
-                document.getElementById('lon').value = startlon;
-
-                map = L.map('mapid', options);
-                var nzoom = 12;
-
-                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-                    {attribution: 'OSM'}
-                ).addTo(map);
-                myMarker = L.marker([startlat, startlon], {
-                    title: "Coordinates",
-                    alt: "Coordinates",
-                    draggable: true
-                }).addTo(map).on('dragend', function () {
-
-                    var lat = myMarker.getLatLng().lat.toFixed(8);
-                    var lon = myMarker.getLatLng().lng.toFixed(8);
+              });
+              $.ajax({
+                type: 'GET',
+                url: "",
+                data: {
+                  location: zone
+                },
+                success: function (data) {
+                  $('#shipping_charge').html(data.amount.toLocaleString());
+                  $('#ship_amnt').html(data.amount.toLocaleString());
+                  $('#grand_total_value').html(data.grandTotal.toLocaleString());
+                  $('#ship_amnt_total').html(data.grandTotal.toLocaleString());
+                }
+              });
 
 
-                    var czoom = map.getZoom();
-
-                    document.getElementById('lat').value = lat;
-                    document.getElementById('lon').value = lon;
-                    //
-                @this.set('lat', lat);
-                @this.set('lon', lon);
-                    myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
-                    map.invalidateSize();
-                });
-
-                chooseAddr(startlat, startlon);
-            }
-
-            function chooseAddr(lat1, lng1) {
-                myMarker.closePopup();
-                map.setView([lat1, lng1], 18);
-                myMarker.setLatLng([lat1, lng1]);
-                lat = lat1.toFixed(8);
-                lon = lng1.toFixed(8);
-                document.getElementById('lat').value = lat;
-                document.getElementById('lon').value = lon;
-                myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
-            }
-        </script>
-
-
-
-        <script>
-            $(document).ready(function () {
-                document.getElementById("area").onchange = function () {
-                    var e = document.getElementById("area");
-
-                    var zone = e.options[e.selectedIndex].value;
-
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-                    $.ajax({
-                        type: 'GET',
-                        url: "",
-                        data: {
-                            location: zone
-                        },
-                        success: function (data) {
-                            $('#shipping_charge').html(data.amount.toLocaleString());
-                            $('#ship_amnt').html(data.amount.toLocaleString());
-                            $('#grand_total_value').html(data.grandTotal.toLocaleString());
-                            $('#ship_amnt_total').html(data.grandTotal.toLocaleString());
-                        }
-                    });
-
-
-                };
-            })
+            };
+          })
         </script>
         <script>
-            document.getElementById("zone").onchange = function () {
+          document.getElementById("zone").onchange = function () {
 
-                var e = document.getElementById("zone");
-                var zone = e.options[e.selectedIndex].value;
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    type: 'GET',
-                    url: "{{ route('checkout.zone') }}",
-                    data: {
-                        zone: zone
-                    },
-                    success: function (data) {
+            var e = document.getElementById("zone");
+            var zone = e.options[e.selectedIndex].value;
+            $.ajaxSetup({
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+            $.ajax({
+              type: 'GET',
+              url: "{{ route('checkout.zone') }}",
+              data: {
+                zone: zone
+              },
+              success: function (data) {
 //                console.log(data);
 
-                        $('#district').html(data);
-                        $('#district').removeAttr('disabled');
-                        $('#zone').css('width', 'auto');
+                $('#district').html(data);
+                $('#district').removeAttr('disabled');
+                $('#zone').css('width', 'auto');
 
-                    }
+              }
 
-                });
-            };
+            });
+          };
 
-            document.getElementById("district").onchange = function () {
+          document.getElementById("district").onchange = function () {
 
-                var e = document.getElementById("district");
-                var zone = e.options[e.selectedIndex].value;
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    type: 'GET',
-                    url: "{{ route('checkout.zone') }}",
-                    data: {
-                        zone: zone
-                    },
-                    success: function (data) {
-                        $('#area').html(data);
-                        $('#area').removeAttr('disabled');
-                        $('#district').css('width', 'auto');
+            var e = document.getElementById("district");
+            var zone = e.options[e.selectedIndex].value;
+            $.ajaxSetup({
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+            $.ajax({
+              type: 'GET',
+              url: "{{ route('checkout.zone') }}",
+              data: {
+                zone: zone
+              },
+              success: function (data) {
+                $('#area').html(data);
+                $('#area').removeAttr('disabled');
+                $('#district').css('width', 'auto');
 
-                    }
+              }
 
-                });
-            };
+            });
+          };
 
 
         </script>

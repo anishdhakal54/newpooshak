@@ -62,6 +62,23 @@
         </div>
     @endif
 
+    @if($product->colors->count()>0)
+        <div class="seventh">
+            <div class="size_flex">
+                <div class="first_seventh">
+                    <h2>Choose the color of the product. </h2>
+                    @foreach($product->colors as $color)
+                        <label for="{{$color}}">
+                            <input id="{{$color}}" type="radio" class="color" wire:model="color" name="color"
+                                   value="{{$color->color}}">{{$color->color }}
+                        </label>
+
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="checkbox-card">
         <div class="checkbox">
             <label>
@@ -79,6 +96,8 @@
                     <input type="radio" class="has_frame" name="has_frame" value="false" wire:model="has_frame"> No
 
                 </div>
+
+
                 <div class="notice success">
                     <h2>Frame Price:</h2>
 
@@ -89,6 +108,7 @@
 
 
                 </div>
+
 
             </div>
             <div class="row">
@@ -390,7 +410,6 @@
             @endif
 
 
-
         </div>
 
     </div>
@@ -418,7 +437,8 @@
                     </div>
                     <form>
                         <div class="alert alert-warning" style="padding: 3px" role="alert">
-                            <p class="help-block alert"><i class="fa fa-exclamation-circle"></i> Please login first!!!</p>
+                            <p class="help-block alert"><i class="fa fa-exclamation-circle"></i> Please login first!!!
+                            </p>
                         </div>
 
                         <div class="form-group">
@@ -631,8 +651,8 @@
 
               document.getElementById('lat').value = lat;
               document.getElementById('lon').value = lon;
-                // @this->set('lat', lat);
-                // @this->set('lon', lon);
+              // @this->set('lat', lat);
+              // @this->set('lon', lon);
 
               myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
               map.invalidateSize();

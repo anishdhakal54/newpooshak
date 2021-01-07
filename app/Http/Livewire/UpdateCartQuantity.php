@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\CartProduct;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 
@@ -11,15 +12,24 @@ class UpdateCartQuantity extends Component
   public $subtotal;
   public $rowId;
   public $quantity;
+  public $cartId;
 
   public $quantity_xs = 0, $quantity_s = 0, $quantity_m = 0, $quantity_xl = 0, $quantity_2xl = 0, $quantity_3xl = 0;
 
   public function mount($cartContent)
   {
+    $this->cartId = $cartContent->id;
     $this->cartContent = $cartContent->toArray();
     $this->subtotal = $cartContent->total;
     $this->rowId = $cartContent->rowId;
     $this->quantity = $cartContent->qty;
+    $this->quantity_xs = $this->cartContent['xs'];
+    $this->quantity_s = $this->cartContent['s'];
+    $this->quantity_m = $this->cartContent['m'];
+    $this->quantity_xl = $this->cartContent['xl'];
+    $this->quantity_2l = $this->cartContent['xxl'];
+    $this->quantity_3xl = $this->cartContent['xxxl'];
+
 
   }
 
@@ -38,6 +48,23 @@ class UpdateCartQuantity extends Component
   {
     $this->quantity--;
     $this->updateQuantity();
+  }
+
+  public function updatecart()
+  {
+    $cartProduct = CartProduct::find($this->cartId);
+    $cartProduct->xs = $this->quantity_xs;
+    $cartProduct->s = $this->quantity_s;
+    $cartProduct->m = $this->quantity_m;
+    $cartProduct->xl = $this->quantity_xl;
+    $cartProduct->xxl = $this->quantity_2xl;
+    $cartProduct->xxxl = $this->quantity_3xl;
+    $cartProduct->price = getTotal($cartProduct,$cartProduct->has_frame);
+    $cartProduct->save();
+    $notify = json_notification('success', 'Success!!!', 'Cart Updated Successfully!!!', 'linecons-like');
+    $this->emit('notification', $notify);
+    $this->emit('reload_current');
+
   }
 
   public function updateQuantity()

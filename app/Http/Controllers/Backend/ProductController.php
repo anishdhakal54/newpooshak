@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Requests\ProductRequest;
 use App\Mail\User;
 use App\Product;
+use App\ProductColor;
 use App\ProductFaq;
 use App\ProductSpecification;
 use App\ProductDownload;
@@ -66,22 +67,24 @@ class ProductController extends Controller
     return view('backend.products.create', compact('categories', 'sizes'));
   }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param ProductRequest|Request $request
-   *
-   * @return \Illuminate\Http\Response
-   * @throws Exception
-   */
-  public function store(ProductRequest $request)
-  {
-    try {
-      if ($request->hasFile('view_chart')) {
-        request()->validate([
-          'view_chart' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        $imageName = time() . '.' . request()->view_chart->getClientOriginalExtension();
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param ProductRequest|Request $request
+     *
+     * @return \Illuminate\Http\Response
+     * @throws Exception
+     */
+    public function store(ProductRequest $request)
+    {
+
+
+        try {
+            if ($request->hasFile('view_chart')) {
+                request()->validate([
+                    'view_chart' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $imageName = time() . '.' . request()->view_chart->getClientOriginalExtension();
 
         request()->view_chart->move(public_path('view_chart/'), $imageName);
       }
@@ -328,9 +331,21 @@ class ProductController extends Controller
     ]);
   }
 
-  public function deleteDownload(Request $request)
-  {
-    $download = ProductDownload::findOrFail($request->input('download'));
+    public function deleteColor(Request $request)
+    {
+        $color = ProductColor::findOrFail($request->input('color'));
+
+        $color->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Color successfully deleted!!'
+        ]);
+    }
+
+    public function deleteDownload(Request $request)
+    {
+        $download = ProductDownload::findOrFail($request->input('download'));
 
     $download->delete();
 

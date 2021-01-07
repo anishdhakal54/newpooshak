@@ -156,6 +156,34 @@
 
             });
 
+            jQuery(document).on('click', '.btn-delete-color', function (e) {
+                e.preventDefault();
+
+                var $this = $(this);
+
+                $this.closest("tr").remove();
+            });
+
+            jQuery(document).on('click', '.btn-add-color', function (e) {
+                e.preventDefault();
+
+                var lastRow = $('table.table-colors > tbody > tr').last().attr('data-row');
+
+                var counter = lastRow ? parseInt(lastRow) + 1 : 1;
+
+                var randomInteger = generateRandomInteger();
+
+                var newRow = jQuery('<tr data-row="' + counter + '">' +
+                    '<td>' + counter + '</td>' +
+                    '<td><input type="text" name="colors[color][' + randomInteger + ']" class="form-control" required/></td>' +
+                    '<td><input type="text" name="colors[color_code][' + randomInteger + ']" class="form-control" /></td>' +
+                    '<td><button type="button" class="btn btn-danger btn-xs btn-delete-color" data-color=""><i class="fa fa-trash"></i></button></td>' +
+                    '</tr>');
+
+                jQuery('table.table-colors').append(newRow);
+
+            });
+
             jQuery(document).on('click', '.btn-delete-faq', function (e) {
                 e.preventDefault();
 

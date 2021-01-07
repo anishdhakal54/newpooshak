@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <section class="page-header mb-lg">
-
+  
         <div class="container">
             <ul class="breadcrumb">
                 <li><a href="{{ route('welcome') }}">Home</a></li>
@@ -24,12 +24,15 @@
 
 
             <div class="row">
-                @if(Cart::instance('default')->count())
+
+            
+                @if($usercart->count()>0)
                     <div class="col-md-8 col-lg-9">
                         <div class="cart-table-wrap">
                             <table class="cart-table">
                                 <thead>
                                 <tr>
+
                                     <th></th>
                                     <th></th>
                                     <th>Product Name</th>
@@ -136,6 +139,7 @@
                     <div class="col-md-12">
                         <div class="alert alert-success alert-message display-block mb-none">
                             <div>
+                    
                                 <span>No items found in cart.
                                     <a href="{{ url('/shop') }}"
                                        class="btn btn-xs btn-primary pull-right">Back to shop</a>

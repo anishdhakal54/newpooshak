@@ -69,14 +69,18 @@
             <a href="#tab_specification" data-toggle="tab"
                aria-expanded="false">Specification</a>
           </li>
+{{--          <li class="faqs">--}}
+{{--            <a href="#tab_faqs" data-toggle="tab"--}}
+{{--               aria-expanded="false">FAQs</a>--}}
+{{--          </li>--}}
           <li class="faqs">
-            <a href="#tab_faqs" data-toggle="tab"
-               aria-expanded="false">FAQs</a>
+            <a href="#tab_colors" data-toggle="tab"
+               aria-expanded="false">Color</a>
           </li>
-          <li class="faqs">
+<!--          <li class="faqs">
             <a href="#tab_downloads" data-toggle="tab"
                aria-expanded="false">Downloads</a>
-          </li>
+          </li>-->
           <li class="seo">
             <a href="#tab_seo" data-toggle="tab">SEO</a>
           </li>
@@ -214,6 +218,61 @@
                     <th></th>
                     <th>
                       <button class="btn btn-danger btn-sm btn-add-specification">Add New</button>
+                    </th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-color tab-pane" id="tab_colors">
+            <div class="row">
+              <div class="col-md-12">
+                <table class="table table-bordered table-colors">
+                  <thead>
+                  <tr>
+                    <th>SN</th>
+                    <th>Color</th>
+                    <th>Color Code</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  @if(isset($product->colors))
+                    @foreach($product->colors as $color)
+                      <tr data-row="{{ $loop->iteration }}">
+                        <td>{{ $loop->iteration }}</td>
+                        <td>
+                          <div class="form-group">
+                            <input type="text" name="colors[color][{{ $color->id }}]"
+                                   value="{{ $color->color }}"
+                                   class="form-control" required>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group">
+                            <input type="text" name="colors[color_code][{{ $color->id }}]"
+                                   value="{{ $color->color_code }}"
+                                   class="form-control" >
+                          </div>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-danger btn-xs btn-delete-color"
+                                  data-specification="{{ $color->id }}"><i class="fa fa-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    @endforeach
+                  @endif
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>
+                      <button class="btn btn-danger btn-sm btn-add-color">Add New</button>
                     </th>
                   </tr>
                   </tfoot>
@@ -643,3 +702,64 @@
 
   <!-- /.box -->
 </div>
+
+@if(isset(json_decode(getConfiguration('products_section_10'))[0]))
+  <div class="block-floor-products block-floor-products-opt1 floor-products1" id="floor0-1">
+    <div class="container">
+      <div class="block-title ">
+            <span class="title">
+                <img alt="img" src="{{asset('assets/images/media/index1/floor1.png')}}">{{(getConfiguration('product_section_title10'))}}
+
+            </span>
+
+        <a class="seemore"
+           href="{{getCategoryLink(json_decode(getConfiguration('products_section_10'))[0])}}"
+        >See More <i
+                  class="fa fa-angle-double-right"></i>
+        </a>
+        <div class="links dropdown">
+          <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="block-content">
+
+
+        <div class="col-products tab-content">
+
+
+          <!-- tab 3 -->
+          @foreach(json_decode(getConfiguration('products_section_10')) as $key=>$configuration)
+            <div class="tab-pane {{$loop->first?'active in':''}} fade" id="floor-{{$key}}" role="tabpanel">
+              <div class="owl-carousel" data-nav="true" data-dots="false" data-margin="0" data-responsive='{
+                                        "0":{"items":2},
+                                        "420":{"items":2},
+                                        "600":{"items":3},
+                                        "768":{"items":4},
+                                        "992":{"items":5},
+                                        "1200":{"items":5}
+                                    }'>
+                @foreach(getProductsByCategory($configuration) as $product)
+                  @livewire('partials.product-item',['product'=>$product])
+                @endforeach
+
+              </div>
+              <?php
+              $slug = str_slug($configuration);
+              ?>
+            </div>
+          @endforeach
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+@endif

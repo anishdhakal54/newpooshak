@@ -1,8 +1,7 @@
 <div>
-
     <section class="shopping-cart spad">
         <div class="container">
-            @if(Cart::instance('default')->count())
+            @if($usercart->count()>0)
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="shopping__cart__table">
@@ -11,41 +10,49 @@
                                 <tr>
                                     <th>Product</th>
                                     <th class="quant">Quantity</th>
-                                    <th>Total</th>
-                                    <th></th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach(Cart::instance('default')->content() as $cartContent)
-
+                                    @php
+                                        $subTotal = 0;
+                                        $discount = 0;
+                                        $has_bulk_discount=false;
+                                    @endphp
+                                @foreach($usercart as $cartContent)
                                     <tr>
                                         <td class="product__cart__item">
                                             <div class="product__cart__item__pic">
-                                                <a href="{{ route('product.show', getProductSlug($cartContent->id)) }}">
-                                                    <img src="{{ asset(getProductImage($cartContent->id, 'small')) }}"
+                                                <a href="{{ route('product.show', getProductSlug($cartContent->product_id)) }}">
+                                                    <img src="{{ asset(getProductImage($cartContent->product_id, 'small')) }}"
                                                          alt="{{$cartContent->name}}">
                                                 </a></div>
                                             <div class="product__cart__item__text">
-                                                <h6><a
-                                                            href="{{ route('product.show', getProductSlug($cartContent->id)) }}">{{ $cartContent->name }}</a>
-                                                </h6>
-                                                <h5>NPR {{ $cartContent->price }}</h5>
+                                                <h4><a
+                                                            href="{{ route('product.show', getProductSlug($cartContent->product_id)) }}">{{ $cartContent->product->name }}</a>
+                                                </h4>
+
+                                                <h5>NPR {{ $cartContent->price}}</h5>
+                                                @if($cartContent->color !="" && $cartContent->color !=null)
+                                                    <p>{{$cartContent->color}}</p>
+                                                @endif
                                             </div>
                                         </td>
 
                                         @livewire('update-cart-quantity',['cartContent' =>
                                         $cartContent],key($loop->index))
-                                       
-                                        <td class="cart__price"><h6 style="font-weight: bold;">
-                                                NPR {{ $cartContent->total }}</h6></td>
-                                        <td class="cart__close" style="cursor: pointer;">
 
-                                            <a href="javascript:void(0);"
-                                               wire:click="deleteCartItem('{{$cartContent->rowId}}')">
 
-                                                <img src="assets/images/trash.svg"></a></td>
                                     </tr>
-
+                                    @php
+                                        $subTotal_ =getSubtotal($cartContent);
+                                        $subTotal += getSubtotal($cartContent);
+                                        $discount_ = getDiscount(cartQty($cartContent));
+                                        $discount += $subTotal_ * $discount_ / 100;
+                                        if(cartQty($cartContent)>4){
+                                          $has_bulk_discount = true;
+                                        }
+                                    @endphp
                                 @endforeach
                                 </tbody>
                             </table>
@@ -53,29 +60,33 @@
 
                     </div>
                     <div class="col-lg-4 discart">
-                        <div class="cart__discount">
-                            <h6>Discount codes</h6>
-                            <form action="#">
-                                <input type="text" placeholder="Coupon code">
-                                <button type="submit">Apply</button>
-                            </form>
-                        </div>
                         <div class="cart__total">
                             <h6>Cart total</h6>
                             @php
-                                $subTotal = str_replace(',', '', Cart::instance('default')->subtotal());
+                                if(!$has_bulk_discount){
+                                  $discount_item = getMitemDiscount($usercart);
+                                  $discount = $subTotal * $discount_item / 100;
+                                }
+
                                 $tax = 0;
                                 if (getConfiguration('enable_tax')) {
                                     $tax = ($subTotal * getConfiguration('tax_percentage')) / 100;
                                 }
-                                $grandTotal = $subTotal + $tax;
+                                $grandTotal = $subTotal + $tax - $discount;
+
                             @endphp
                             <ul>
-                                <li>Subtotal (1 items) <span
+                                <li>Subtotal ({{$usercart->count()}} items) <span
                                             class="subprice">{{trans('app.money_symbol')}} {{ $subTotal }}</span></li>
                                 <li>Tax <span
                                             class="subprice">{{trans('app.money_symbol')}} {{ number_format($tax, 2) }}</span>
                                 </li>
+
+                                <li>
+                                    @if(!$has_bulk_discount) Unique Discount ({{getUniqueDiscount()}}%) @else Discount @endif
+                                      <span
+                                            class="subprice">{{trans('app.money_symbol')}} {{ $discount }}</span></li>
+
                                 <li>Total <span
                                             class="totprice">{{trans('app.money_symbol')}} {{ number_format($grandTotal, 2) }}</span>
                                 </li>
@@ -294,19 +305,25 @@
     {{--        </div>--}}
     {{--    </div>--}}
     {{--    <!-- cart area end -->--}}
-    
+
     @push('styles')
-    <style>
-        .first_seventh {
-            margin-right: 2px;
-        }
-        .first_seventh input {
-            padding: 1rem;
-        }
-        .product-quantity .size_flex:first-child{
-            margin-bottom:11px;
-        }
-    </style>
+        <style>
+            .first_seventh {
+                margin-right: 2px;
+            }
+
+            .first_seventh input {
+                padding: 1rem;
+            }
+
+            .product-quantity .size_flex:first-child {
+                margin-bottom: 11px;
+            }
+
+            .shopping__cart__table table tbody tr td.product__cart__item {
+                width: 313px;
+            }
+        </style>
     @endpush
-    
+
 </div>

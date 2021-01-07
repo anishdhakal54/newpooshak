@@ -7,7 +7,7 @@
         <span class="qty-loading" wire:loading wire:target="decrementQty"><i class="fa fa-spinner fa-spin"></i> </span>
         <div class="inc qtybutton" wire:click="incrementQty" wire:loading.class="disabled">+</div>
       </div>-->
-
+<div class="row">
     <div class="size_flex">
         <div class="first_seventh">
             <h6>XS</h6>
@@ -35,6 +35,22 @@
             <h6>3XL</h6>
             <input type="number" id="quantity_3xl" wire:model="quantity_3xl" min="0" value="0">
         </div>
+
     </div>
+
+    <div class="size_flex">
+        <button type="button" class="updatebtn btn btn-success" wire:click="updatecart" wire:loading.class="disabled">
+            <span><i wire:loading wire:target="updatecart" class="fa fa-spinner fa-spin"></i> Update Cart</span>
+
+        </button>
+        <a href="javascript:void(0);"
+           wire:click="">
+
+            <img width="15px" src="{{asset('assets/images/trash.svg')}}"></a>
+    </div>
+</div>
+
+
+
 
 </td>
