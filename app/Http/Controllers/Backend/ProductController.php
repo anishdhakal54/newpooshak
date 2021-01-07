@@ -76,8 +76,6 @@ class ProductController extends Controller
    */
   public function store(ProductRequest $request)
   {
-
-
     try {
       if ($request->hasFile('view_chart')) {
         request()->validate([

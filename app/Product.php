@@ -48,6 +48,10 @@ class Product extends Model
     'status',
     'page_title',
     'page_description',
+      'quantity_xs',
+      'quantity_s',
+      'quantity_m',
+      'quantity_xl',
   ];
 
 
