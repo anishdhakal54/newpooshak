@@ -224,11 +224,13 @@
                         <div class="ordersummaryship">
                             <p>Shipping Fee</p>
                             <p>Rs. 0</p>
+
                         </div>
 
                         <div class="ordersummarytotal">
                             <p>Total</p>
                             <div class="totalwithvat">
+
                                 <p>{{trans('app.money_symbol')}}  {{ number_format(cartTotal(), 2) }}</p>
 
                             </div>

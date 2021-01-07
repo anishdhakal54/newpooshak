@@ -1,5 +1,5 @@
 <div>
-fsdafsdafsdafsadf
+   
     <section class="shopping-cart spad">
         <div class="container">
             @if($usercart->count()>0)
@@ -69,7 +69,8 @@ fsdafsdafsdafsadf
                                             class="subprice">{{trans('app.money_symbol')}} {{ $subTotal }}</span></li>
                                 <li>Tax <span
                                             class="subprice">{{trans('app.money_symbol')}} {{ number_format($tax, 2) }}</span>
-                                </li>
+
+
                                 <li>Total <span
                                             class="totprice">{{trans('app.money_symbol')}} {{ number_format($grandTotal, 2) }}</span>
                                 </li>
