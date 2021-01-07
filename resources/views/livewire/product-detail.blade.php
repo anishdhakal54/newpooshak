@@ -27,7 +27,7 @@
 
             <div class="col-md-9" id="gallery_01">
               <canvas style="display: none" id="c" width="475px" height="475px"></canvas>
-              <img class="zoom_01 big_img" src="{{$image->mediumUrl}}" style="width: 100%" data-zoom-image="{{$image->url}}" alt="">
+              <img class="zoom_01 big_img" src="{{$image->singleUrl}}" style="width: 100%" data-zoom-image="{{$image->url}}" alt="">
               @livewire('partials.wishlist-icon',['product' => $product])
             </div>
 

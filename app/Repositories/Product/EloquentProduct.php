@@ -37,43 +37,43 @@ class EloquentProduct implements ProductRepository
   public function create(array $attributes)
   {
     // sizes
-      $attributes['size'] = json_encode($attributes['size']);
+    $attributes['size'] = json_encode($attributes['size']);
 
     $product = $this->model->create($attributes);
     // size
-      SizeChart::create([
-          'product_id'=>$product->id,
-          "v1"=>$attributes['v1'],
-          "v2"=>$attributes['v2'],
-          "v3"=>$attributes['v3'],
-          "v4"=>$attributes['v4'],
-          "v5"=>$attributes['v5'],
-          "v6"=>$attributes['v6'],
-          "w1"=>$attributes['w1'],
-          "w2"=>$attributes['w2'],
-          "w3"=>$attributes['w3'],
-          "w4"=>$attributes['w4'],
-          "w5"=>$attributes['w5'],
-          "w6"=>$attributes['w6'],
-          "x1"=>$attributes['x1'],
-          "x2"=>$attributes['x2'],
-          "x3"=>$attributes['x3'],
-          "x4"=>$attributes['x4'],
-          "x5"=>$attributes['x5'],
-          "x6"=>$attributes['x6'],
-          "y1"=>$attributes['y1'],
-          "y2"=>$attributes['y2'],
-          "y3"=>$attributes['y3'],
-          "y4"=>$attributes['y4'],
-          "y5"=>$attributes['y5'],
-          "y6"=>$attributes['y6'],
-          "z1"=>$attributes['z1'],
-          "z2"=>$attributes['z2'],
-          "z3"=>$attributes['z3'],
-          "z4"=>$attributes['z4'],
-          "z5"=>$attributes['z5'],
-          "z6"=>$attributes['z6'],
-      ]);
+    SizeChart::create([
+      'product_id' => $product->id,
+      "v1" => isset($attributes['v1']) ? $attributes['v1'] : "",
+      "v2" => isset($attributes['v2']) ? $attributes['v2'] : "",
+      "v3" => isset($attributes['v3']) ? $attributes['v3'] : "",
+      "v4" => isset($attributes['v4']) ? $attributes['v4'] : "",
+      "v5" => isset($attributes['v5']) ? $attributes['v5'] : "",
+      "v6" => isset($attributes['v6']) ? $attributes['v6'] : "",
+      "w1" => isset($attributes['w1']) ? $attributes['w1'] : "",
+      "w2" => isset($attributes['w2']) ? $attributes['w2'] : "",
+      "w3" => isset($attributes['w3']) ? $attributes['w3'] : "",
+      "w4" => isset($attributes['w4']) ? $attributes['w4'] : "",
+      "w5" => isset($attributes['w5']) ? $attributes['w5'] : "",
+      "w6" => isset($attributes['w6']) ? $attributes['w6'] : "",
+      "x1" => isset($attributes['x1']) ? $attributes['x1'] : "",
+      "x2" => isset($attributes['x2']) ? $attributes['x2'] : "",
+      "x3" => isset($attributes['x3']) ? $attributes['x3'] : "",
+      "x4" => isset($attributes['x4']) ? $attributes['x4'] : "",
+      "x5" => isset($attributes['x5']) ? $attributes['x5'] : "",
+      "x6" => isset($attributes['x6']) ? $attributes['x6'] : "",
+      "y1" => isset($attributes['y1']) ? $attributes['y1'] : "",
+      "y2" => isset($attributes['y2']) ? $attributes['y2'] : "",
+      "y3" => isset($attributes['y3']) ? $attributes['y3'] : "",
+      "y4" => isset($attributes['y4']) ? $attributes['y4'] : "",
+      "y5" => isset($attributes['y5']) ? $attributes['y5'] : "",
+      "y6" => isset($attributes['y6']) ? $attributes['y6'] : "",
+      "z1" => isset($attributes['z1']) ? $attributes['z1'] : "",
+      "z2" => isset($attributes['z2']) ? $attributes['z2'] : "",
+      "z3" => isset($attributes['z3']) ? $attributes['z3'] : "",
+      "z4" => isset($attributes['z4']) ? $attributes['z4'] : "",
+      "z5" => isset($attributes['z5']) ? $attributes['z5'] : "",
+      "z6" => isset($attributes['z6']) ? $attributes['z6'] : "",
+    ]);
     // Product price
     $product->prices()->create([
       'regular_price' => $attributes['regular_price'],
@@ -172,7 +172,7 @@ class EloquentProduct implements ProductRepository
 
     $product = $this->model->findOrFail($id);
     // sizes
-    $attributes['size'] = isset($attributes['size']) ? json_encode($attributes['size']):'';
+    $attributes['size'] = isset($attributes['size']) ? json_encode($attributes['size']) : '';
     $attributes['is_trending'] = !isset($attributes['is_trending']) ? 0 : 1;
     $attributes['is_featured'] = !isset($attributes['is_featured']) ? 0 : 1;
     $attributes['disable_size'] = !isset($attributes['disable_size']) ? 0 : 1;
@@ -187,37 +187,37 @@ class EloquentProduct implements ProductRepository
       'sale_price' => $attributes['sale_price']
     ]);
     $product->size_chart()->update([
-        'product_id'=>$product->id,
-        "v1"=>$attributes['v1'],
-        "v2"=>$attributes['v2'],
-        "v3"=>$attributes['v3'],
-        "v4"=>$attributes['v4'],
-        "v5"=>$attributes['v5'],
-        "v6"=>$attributes['v6'],
-        "w1"=>$attributes['w1'],
-        "w2"=>$attributes['w2'],
-        "w3"=>$attributes['w3'],
-        "w4"=>$attributes['w4'],
-        "w5"=>$attributes['w5'],
-        "w6"=>$attributes['w6'],
-        "x1"=>$attributes['x1'],
-        "x2"=>$attributes['x2'],
-        "x3"=>$attributes['x3'],
-        "x4"=>$attributes['x4'],
-        "x5"=>$attributes['x5'],
-        "x6"=>$attributes['x6'],
-        "y1"=>$attributes['y1'],
-        "y2"=>$attributes['y2'],
-        "y3"=>$attributes['y3'],
-        "y4"=>$attributes['y4'],
-        "y5"=>$attributes['y5'],
-        "y6"=>$attributes['y6'],
-        "z1"=>$attributes['z1'],
-        "z2"=>$attributes['z2'],
-        "z3"=>$attributes['z3'],
-        "z4"=>$attributes['z4'],
-        "z5"=>$attributes['z5'],
-        "z6"=>$attributes['z6'],
+      'product_id' => $product->id,
+      "v1" => isset($attributes['v1']) ? $attributes['v1'] : "",
+      "v2" => isset($attributes['v2']) ? $attributes['v2'] : "",
+      "v3" => isset($attributes['v3']) ? $attributes['v3'] : "",
+      "v4" => isset($attributes['v4']) ? $attributes['v4'] : "",
+      "v5" => isset($attributes['v5']) ? $attributes['v5'] : "",
+      "v6" => isset($attributes['v6']) ? $attributes['v6'] : "",
+      "w1" => isset($attributes['w1']) ? $attributes['w1'] : "",
+      "w2" => isset($attributes['w2']) ? $attributes['w2'] : "",
+      "w3" => isset($attributes['w3']) ? $attributes['w3'] : "",
+      "w4" => isset($attributes['w4']) ? $attributes['w4'] : "",
+      "w5" => isset($attributes['w5']) ? $attributes['w5'] : "",
+      "w6" => isset($attributes['w6']) ? $attributes['w6'] : "",
+      "x1" => isset($attributes['x1']) ? $attributes['x1'] : "",
+      "x2" => isset($attributes['x2']) ? $attributes['x2'] : "",
+      "x3" => isset($attributes['x3']) ? $attributes['x3'] : "",
+      "x4" => isset($attributes['x4']) ? $attributes['x4'] : "",
+      "x5" => isset($attributes['x5']) ? $attributes['x5'] : "",
+      "x6" => isset($attributes['x6']) ? $attributes['x6'] : "",
+      "y1" => isset($attributes['y1']) ? $attributes['y1'] : "",
+      "y2" => isset($attributes['y2']) ? $attributes['y2'] : "",
+      "y3" => isset($attributes['y3']) ? $attributes['y3'] : "",
+      "y4" => isset($attributes['y4']) ? $attributes['y4'] : "",
+      "y5" => isset($attributes['y5']) ? $attributes['y5'] : "",
+      "y6" => isset($attributes['y6']) ? $attributes['y6'] : "",
+      "z1" => isset($attributes['z1']) ? $attributes['z1'] : "",
+      "z2" => isset($attributes['z2']) ? $attributes['z2'] : "",
+      "z3" => isset($attributes['z3']) ? $attributes['z3'] : "",
+      "z4" => isset($attributes['z4']) ? $attributes['z4'] : "",
+      "z5" => isset($attributes['z5']) ? $attributes['z5'] : "",
+      "z6" => isset($attributes['z6']) ? $attributes['z6'] : "",
     ]);
     // Product categories
     if (isset($attributes['category'])) {
