@@ -273,6 +273,19 @@
 
             });
 
+            $(document).ready(function(){
+               $('.btn-add-size_name').click(function(){
+                   var newRow = jQuery('<tr data-row="' + counter + '">' +
+                       '<td>' + counter + '</td>' +
+                       '<td><input type="text" name="downloads[title][' + randomInteger + ']" class="form-control" required/></td>' +
+                       '<td><input type="file" name="downloads[file][' + randomInteger + ']" class="form-control mb-15 download-file"><input type="text" name="downloads[link][' + randomInteger + ']" class="download-file-link form-control" placeholder="Link" required/></td>' +
+                       '<td><button type="button" class="btn btn-danger btn-xs btn-delete-download" data-download=""><i class="fa fa-trash"></i></button></td>' +
+                       '</tr>');
+
+                   jQuery('table.table-size_name').append(newRow);
+               })
+            });
+
         });
 
     </script>

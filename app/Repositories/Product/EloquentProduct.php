@@ -8,6 +8,7 @@ use App\ProductFaq;
 use App\ProductSpecification;
 use App\ProductDownload;
 use App\ProductImage;
+use App\SizeChart;
 
 class EloquentProduct implements ProductRepository
 {
@@ -36,9 +37,43 @@ class EloquentProduct implements ProductRepository
   public function create(array $attributes)
   {
     // sizes
-    $attributes['size'] = json_encode($attributes['size']);
+      $attributes['size'] = json_encode($attributes['size']);
 
     $product = $this->model->create($attributes);
+    // size
+      SizeChart::create([
+          'product_id'=>$product->id,
+          "v1"=>$attributes['v1'],
+          "v2"=>$attributes['v2'],
+          "v3"=>$attributes['v3'],
+          "v4"=>$attributes['v4'],
+          "v5"=>$attributes['v5'],
+          "v6"=>$attributes['v6'],
+          "w1"=>$attributes['w1'],
+          "w2"=>$attributes['w2'],
+          "w3"=>$attributes['w3'],
+          "w4"=>$attributes['w4'],
+          "w5"=>$attributes['w5'],
+          "w6"=>$attributes['w6'],
+          "x1"=>$attributes['x1'],
+          "x2"=>$attributes['x2'],
+          "x3"=>$attributes['x3'],
+          "x4"=>$attributes['x4'],
+          "x5"=>$attributes['x5'],
+          "x6"=>$attributes['x6'],
+          "y1"=>$attributes['y1'],
+          "y2"=>$attributes['y2'],
+          "y3"=>$attributes['y3'],
+          "y4"=>$attributes['y4'],
+          "y5"=>$attributes['y5'],
+          "y6"=>$attributes['y6'],
+          "z1"=>$attributes['z1'],
+          "z2"=>$attributes['z2'],
+          "z3"=>$attributes['z3'],
+          "z4"=>$attributes['z4'],
+          "z5"=>$attributes['z5'],
+          "z6"=>$attributes['z6'],
+      ]);
     // Product price
     $product->prices()->create([
       'regular_price' => $attributes['regular_price'],
@@ -151,7 +186,39 @@ class EloquentProduct implements ProductRepository
       'regular_price' => $attributes['regular_price'],
       'sale_price' => $attributes['sale_price']
     ]);
-
+    $product->size_chart()->update([
+        'product_id'=>$product->id,
+        "v1"=>$attributes['v1'],
+        "v2"=>$attributes['v2'],
+        "v3"=>$attributes['v3'],
+        "v4"=>$attributes['v4'],
+        "v5"=>$attributes['v5'],
+        "v6"=>$attributes['v6'],
+        "w1"=>$attributes['w1'],
+        "w2"=>$attributes['w2'],
+        "w3"=>$attributes['w3'],
+        "w4"=>$attributes['w4'],
+        "w5"=>$attributes['w5'],
+        "w6"=>$attributes['w6'],
+        "x1"=>$attributes['x1'],
+        "x2"=>$attributes['x2'],
+        "x3"=>$attributes['x3'],
+        "x4"=>$attributes['x4'],
+        "x5"=>$attributes['x5'],
+        "x6"=>$attributes['x6'],
+        "y1"=>$attributes['y1'],
+        "y2"=>$attributes['y2'],
+        "y3"=>$attributes['y3'],
+        "y4"=>$attributes['y4'],
+        "y5"=>$attributes['y5'],
+        "y6"=>$attributes['y6'],
+        "z1"=>$attributes['z1'],
+        "z2"=>$attributes['z2'],
+        "z3"=>$attributes['z3'],
+        "z4"=>$attributes['z4'],
+        "z5"=>$attributes['z5'],
+        "z6"=>$attributes['z6'],
+    ]);
     // Product categories
     if (isset($attributes['category'])) {
       $product->categories()->sync($attributes['category']);
