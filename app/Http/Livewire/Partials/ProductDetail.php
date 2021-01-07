@@ -180,7 +180,7 @@ class ProductDetail extends Component
             return false;
         }
         if ($this->product->colors->count() > 0) {
-            if ($this->product_color == "") {
+            if ($this->color == "") {
                 $notify = json_notification('error', 'Sorry!!!', 'Please choose color', 'linecons-pen');
                 $this->emit('notification', $notify);
                 return false;

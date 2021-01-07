@@ -66,8 +66,14 @@
         <div class="seventh">
             <div class="size_flex">
                 <div class="first_seventh">
-                    <h2>Write quantity</h2>
-                    <input type="number" name="quantity" wire:model="quantity" value="0">
+                    <h2>Choose the color of the product. </h2>
+                    @foreach($product->colors as $color)
+                        <label for="{{$color}}">
+                            <input id="{{$color}}" type="radio" class="color" wire:model="color" name="color"
+                                   value="{{$color->color}}">{{$color->color }}
+                        </label>
+
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -91,7 +97,7 @@
 
                 </div>
 
-               
+
                 <div class="notice success">
                     <h2>Frame Price:</h2>
 
@@ -102,12 +108,7 @@
 
 
                 </div>
-                <div class="col-md-12">
-                    <p>Choose the color of the product. </p>
-                    @foreach($product_color as $color)
-                    <input   type="radio" class="color" wire:model="color"  name="color" value="{{$color->id}}">{{$color->color }}
-                    @endforeach
-                </div>
+
 
             </div>
             <div class="row">

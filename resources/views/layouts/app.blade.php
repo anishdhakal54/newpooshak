@@ -51,6 +51,13 @@
       }, 1000)
 
     });
+
+    window.livewire.on('reload_current', message => {
+      setTimeout(function () {
+        location.reload();
+      }, 1000)
+
+    });
   });
 
 

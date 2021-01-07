@@ -87,23 +87,20 @@
 
                 <tbody>
                 @php
-                  $priceTotal = 0.00;
-                  $frameTotal = 0.00;
-                  $colorTotal = 0.00;
+                  $subTotal = 0;
+                  $discount = 0;
+                  $has_bulk_discount=false;
                 @endphp
+
                 @foreach($order->products as $product)
                   @php
-                    $discount = $product->pivot->discount;
-                    $actualPrice = $product->pivot->price * $product->pivot->qty;
-
-                    $frame_rate = $product->pivot->total_frame_price;
-                    $color_rate = $product->pivot->total_color_price;
-                    $frameTotal+=$frame_rate;
-                    $colorTotal+=$color_rate;
-
-                    $discountAmount = $actualPrice * ( $discount / 100 );
-                    $productSubTotal = $actualPrice - ( $discountAmount );
-                    $priceTotal += ($actualPrice - ( $discountAmount )+$frame_rate+$color_rate);
+                    $subTotal_ =getSubtotal($cartContent);
+                    $subTotal += getSubtotal($cartContent);
+                    $discount_ = getDiscount(cartQty($cartContent));
+                    $discount += $subTotal_ * $discount_ / 100;
+                    if(cartQty($cartContent)>4){
+                      $has_bulk_discount = true;
+                    }
                   @endphp
 
                   <tr>
@@ -118,11 +115,25 @@
                       2XL<strong> x {{$product->pivot->quantity_2xl}}</strong><br>
                       3XL<strong> x {{$product->pivot->quantity_3xl}}</strong>
                     </td>
-                    <td>RS {{ number_format($product->pivot->price, 2) }}</td>
+                    <td>RS {{ number_format($subtotal, 2) }}</td>
                     <td>RS {{ number_format($discountAmount, 2) }}</td>
                     <td>RS {{ number_format($productSubTotal, 2) }}</td>
                   </tr>
                 @endforeach
+
+                @php
+                  if(!$has_bulk_discount){
+                    $discount_item = getMitemDiscount($usercart);
+                    $discount = $subTotal * $discount_item / 100;
+                  }
+
+                  $tax = 0;
+                  if (getConfiguration('enable_tax')) {
+                      $tax = ($subTotal * getConfiguration('tax_percentage')) / 100;
+                  }
+                  $grandTotal = $subTotal + $tax - $discount;
+
+                @endphp
                 </tbody>
                 <tfoot>
                 @php

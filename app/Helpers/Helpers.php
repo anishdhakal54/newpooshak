@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 
-
 function getProductSlug($id)
 {
 
@@ -235,11 +234,11 @@ function cartCount()
 function cartTotal()
 {
   $cartCount = 0;
-  $total =0;
+  $total = 0;
   if (Auth::check()) {
 
     $carts = \App\CartProduct::where('user_id', auth()->user()->id)->get();
-    foreach($carts as $cart){
+    foreach ($carts as $cart) {
       $total += $cart->price;
     }
   }
@@ -249,20 +248,72 @@ function cartTotal()
 
 function cartQty($cart)
 {
-  $id = $cart->id;
   $total = 0;
-  $cartCount = \App\CartProduct::where('id', $id)->first();
-  $total += $cartCount->xs;
-  $total += $cartCount->s;
-  $total += $cartCount->m;
-  $total += $cartCount->xl;
-  $total += $cartCount->xxl;
-  $total += $cartCount->xxxl;
+  $total += $cart->xs;
+  $total += $cart->s;
+  $total += $cart->m;
+  $total += $cart->xl;
+  $total += $cart->xxl;
+  $total += $cart->xxxl;
   return $total;
 
 }
-function cartContent(){
+
+function sideCount($cart)
+{
+  $total = 0;
+  $total += $cart->front;
+  $total += $cart->back;
+  $total += $cart->pocket;
+  return $total;
+}
+
+function cartContent()
+{
   return CartProduct::where('user_id', auth()->user()->id)->get();
+}
 
+function getSubtotal($cartContent)
+{
+  $product_price = $cartContent->product->getPrice();
+  $subtotal = $product_price * cartQty($cartContent);
+  return $subtotal;
+}
 
+function getTotal($cartContent, $has_frame)
+{
+  $color_no = $cartContent->color_no;
+  $totalqty = cartQty($cartContent);
+  $side_count = sideCount($cartContent);
+  if ($cartContent->interest_logo) {
+    $frame_price = getFrameRate($totalqty, $color_no);
+    $color_price = $color_no * $side_count * getPerColorPrice() * $totalqty;
+    if ($has_frame) {
+      $frame_price = 0;
+    }
+  } else {
+    $frame_price = 0;
+    $color_price = 0;
+  }
+  $subtotal = getSubtotal($cartContent);
+
+  // Discount price
+  $discount = getDiscount($totalqty);
+  $discount_amount = $subtotal * $discount / 100;
+
+  $grand_total = $subtotal - $discount_amount + $frame_price + $color_price;
+  return $grand_total;
+
+}
+
+function getUniqueDiscount(){
+  return 2;
+}
+
+function getMitemDiscount($usercart){
+  $arr = $usercart->pluck('product_id')->toArray();
+  if(count(array_unique($arr))>1){
+   return getUniqueDiscount();
+  }
+  return 0;
 }
