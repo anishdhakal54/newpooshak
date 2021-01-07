@@ -40,10 +40,13 @@
                                     <li><a href="#footer" data-toggle="tab">Footer</a></li>
                                     <li><a href="#ad" data-toggle="tab">Ads</a></li>
                                     <li><a href="#map" data-toggle="tab">Map</a></li>
+                                    <li><a href="#reward" data-toggle="tab"></a></li>
 
                                     {{--<li><a href="#product-archive" data-toggle="tab">Product Archive</a></li>--}}
                                     {{--<li><a href="#product-single" data-toggle="tab">Product Single</a></li>--}}
                                     <li><a href="#seo" data-toggle="tab">SEO</a></li>
+                                    <li><a href="#reward" data-toggle="tab">Rewards</a></li>
+
                                 </ul>
                                 <div class="tab-content">
                                     @include('backend.settings.tab-general')
@@ -59,6 +62,7 @@
                                     {{--@include('backend.settings.tab-product-archive')--}}
                                     {{--@include('backend.settings.tab-product-single')--}}
                                     @include('backend.settings.tab-seo')
+                                    @include('backend.settings.tab-reward')
                                 </div>
                                 <!-- /.tab-content -->
                             </div>
