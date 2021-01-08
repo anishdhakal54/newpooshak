@@ -132,7 +132,7 @@ class OrderController extends Controller
         $countries = Country::pluck('name', 'id')->toArray();
         $states = array('' => 'Select a state') + State::pluck('name', 'id')->toArray();
 
-        return view('backend.orders.edit', compact('order', 'products', 'userDetails', 'orderStatuses', 'countries', 'states'));
+        return view('backend.orders.update', compact('order', 'products', 'userDetails', 'orderStatuses', 'countries', 'states'));
     }
 
     /**
@@ -147,19 +147,17 @@ class OrderController extends Controller
     public function update(Request $request, $id)
     {
 
-        dd($request->id);
-//        dd($request->all());
-//        $request->validate([
-//            'order_status' => 'required',
-//            'first_name' => 'required|max:255',
-//            'last_name' => 'required|max:255',
-//            'state' => 'required',
-////            'products' => 'required|array',
-//        ]);
+//   dd($request->all());
+        $request->validate([
+            'order_status' => 'required',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'state' => 'required',
+        ]);
 
 //dd($request->all());
         $status = $request->order_status;
-        dd($status);
+//        dd($status);
         switch ($status) {
             case '5':
                 $value = "Canceled";
@@ -185,28 +183,28 @@ class OrderController extends Controller
 
 
         }
-        $data2 = [
-            'name' => $request['first_name'] . $request['last_name'],
-            'value' => $value,
-            'id' => $id,
-
-        ];
-        $data = [
-
-            'id' => $id,
-            'value' => $value
-
-
-        ];
+//        $data2 = [
+//            'name' => $request['first_name'] . $request['last_name'],
+//            'value' => $value,
+//            'id' => $id,
+//
+//        ];
+//        $data = [
+//
+//            'id' => $id,
+//            'value' => $value
+//
+//
+//        ];
 
 
         try {
 
-
-            Mail::to(getConfiguration('order_email'))->send(new  \App\Mail\OrderUpdated($data));
-
-
-            Mail::to($request->email)->send(new \App\Mail\UserOrderUpdate($data2));
+//
+//            Mail::to(getConfiguration('order_email'))->send(new  \App\Mail\OrderUpdated($data));
+//
+//
+//            Mail::to($request->email)->send(new \App\Mail\UserOrderUpdate($data2));
 
 
             $this->order->update($id, $request->all());
