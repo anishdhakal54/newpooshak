@@ -14,7 +14,7 @@
     <section class="content">
         <div class="row">
             {!! Form::model($order, ['method' => 'PATCH', 'action' => ['Backend\OrderController@update', $order->id], 'class' => 'form-order']) !!}
-            @include('backend.orders.form', ['submitButtonText' => 'Update'])
+            @include('backend.orders.update-form', ['submitButtonText' => 'Update'])
             {!! Form::close() !!}
         </div>
         <!-- /.row -->
@@ -26,7 +26,7 @@
     <script>
 
         function getOrderSummary() {
-            var productsArray = [];
+            // var productsArray = [];
 
             $('.table-order > tbody > tr.item').each(function (i, el) {
                 var product = $(el).attr('data-product');
@@ -34,12 +34,12 @@
                 var quantity = $(el).find('.quantity input').val();
                 var discount = $(el).find('.discount input').val();
 
-                productsArray.push({
-                    id: product,
-                    price: price,
-                    quantity: quantity,
-                    discount: discount
-                });
+                // productsArray.push({
+                //     id: product,
+                //     price: price,
+                //     quantity: quantity,
+                //     discount: discount
+                // });
 
             });
 
@@ -47,7 +47,7 @@
                 type: "GET",
                 url: "{{ route('dashboard.order.update-product-summary') }}",
                 data: {
-                    products: productsArray,
+                    // products: productsArray,
                     order: "{{ $order->id }}"
                 },
                 success: function (data) {
@@ -137,33 +137,33 @@
 
         });
 
-        $(document).on("click", "#btn-product-add", function () {
-            var $this = $(this);
+        {{--$(document).on("click", "#btn-product-add", function () {--}}
+        {{--    var $this = $(this);--}}
 
-            var productsSelector = $("#products");
-            var products = $.trim(productsSelector.select2("val"));
+        {{--    var productsSelector = $("#products");--}}
+        {{--    var products = $.trim(productsSelector.select2("val"));--}}
 
-            if (products) {
-                $.ajax({
-                    type: "GET",
-                    url: "{{ route('dashboard.order.add.product') }}",
-                    data: {products: products},
-                    beforeSend: function (xhr, settings) {
-                        $this.prop('disabled', true);
-                    },
-                    success: function (data) {
-                        $('.table-order tbody').append(data);
-                    },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                    },
-                    complete: function () {
-                        $this.prop('disabled', false);
-                        productsSelector.val('').trigger('change');
-                        getOrderSummary();
-                    }
-                });
-            }
-        });
+        {{--    if (products) {--}}
+        {{--        $.ajax({--}}
+        {{--            type: "GET",--}}
+        {{--            url: "{{ route('dashboard.order.add.product') }}",--}}
+        {{--            data: {products: products},--}}
+        {{--            beforeSend: function (xhr, settings) {--}}
+        {{--                $this.prop('disabled', true);--}}
+        {{--            },--}}
+        {{--            success: function (data) {--}}
+        {{--                $('.table-order tbody').append(data);--}}
+        {{--            },--}}
+        {{--            error: function (xhr, ajaxOptions, thrownError) {--}}
+        {{--            },--}}
+        {{--            complete: function () {--}}
+        {{--                $this.prop('disabled', false);--}}
+        {{--                productsSelector.val('').trigger('change');--}}
+        {{--                getOrderSummary();--}}
+        {{--            }--}}
+        {{--        });--}}
+        {{--    }--}}
+        {{--});--}}
 
         $(document).on("click", ".delete-order-item", function () {
             var $this = $(this);
@@ -228,26 +228,26 @@
             var user = "{{ $userDetails->user_id }}";
 
             // Product details
-            var products = [];
+            // var products = [];
 
-            $('.table-order > tbody > tr.item').each(function (i, el) {
-                var product = $(el).attr('data-product');
-                var price = $(el).find('.item_cost input').val();
-                var quantity = $(el).find('.quantity input').val();
-                var discount = $(el).find('.discount input').val();
-
-                products.push({
-                    id: product,
-                    price: price,
-                    qty: quantity,
-                    discount: discount
-                });
-
-            });
+            // $('.table-order > tbody > tr.item').each(function (i, el) {
+            //     var product = $(el).attr('data-product');
+            //     var price = $(el).find('.item_cost input').val();
+            //     var quantity = $(el).find('.quantity input').val();
+            //     var discount = $(el).find('.discount input').val();
+            //
+            //     products.push({
+            //         id: product,
+            //         price: price,
+            //         qty: quantity,
+            //         discount: discount
+            //     });
+            //
+            // });
 
              var taxPercentage = $("input[name=tax_percentage]").val();
 
-            if (products.length > 0) {
+            // if (products.length > 0) {
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -274,7 +274,7 @@
                         state: state,
                         city: city,
                         postcode: postcode,
-                        products: products,
+                        // products: products,
                         tax_percentage: taxPercentage
                     },
                     beforeSend: function (data) {
@@ -309,9 +309,10 @@
                         $("html, body").animate({scrollTop: 0}, "slow");
                     }
                 });
-            } else {
-                alert('Select products to continue.');
-            }
+            // }
+            // else {
+            //     alert('Select products to continue.');
+            // }
 
         });
 

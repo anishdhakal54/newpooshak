@@ -5,23 +5,15 @@ namespace App\Http\Livewire\Account;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class OrderItem extends Component
+class Sidebar extends Component
 {
-    public $order;
-
-    public function mount($order)
-    {
-        $this->order = $order;
-    }
-
+    public $order_id;
     public function render()
     {
-        return view('livewire.account.order-item');
+        return view('livewire.account.sidebar');
     }
-
     public function exchangeOrder()
     {
-
         $user_id = Auth::user()->id;
 
 
@@ -44,6 +36,7 @@ class OrderItem extends Component
         $this->emit('notification', $notify);
         $this->emit('rerenderHeader');
         $this->order_id = '';
-    }
 
+
+    }
 }

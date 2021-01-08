@@ -58,7 +58,7 @@
 
     <div class=" accounts">
     <div class="row">
-        @include('livewire.account.sidebar')
+        @livewire('account.sidebar')
 
         <div class="col-lg-8 col-md-12 col-sm-12 rightaccount orderaccount">
             <h3>My Orders</h3>
