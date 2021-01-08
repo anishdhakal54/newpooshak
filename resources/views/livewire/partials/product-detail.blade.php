@@ -466,7 +466,7 @@
                                 <a href="#">Forgot Password?</a>
                             </div>
                             <div class="new">
-                                New to Poshak? <a href="register.html">Click here to register.</a>
+                                New to Poshak? <a href="{{route('register')}}">Click here to register.</a>
                             </div>
                         </div>
 
@@ -492,13 +492,12 @@
             </div>
         </div>
         <div class="hehehe">
-            <img src="assets/images/hehehe.png">
+            <img src="{{asset('assets/images/hehehe.png')}}">
         </div>
     </div>
 
     @push('styles')
-        <link rel="stylesheet" href="{{asset('assets/leaflet/dist/leaflet.css')}}"/>
-
+   
         <style>
             .help-block {
                 color: red;
@@ -612,69 +611,6 @@
 
     @endpush
     @push('scripts')
-        <script src="{{asset('assets/fullleaflet/leaflet.js')}}"></script>
-        <script type="text/javascript">
-          var myMarker;
-          var map;
-          init_map();
-
-
-          function init_map() {
-            var startlat = 27.69029236;
-            var startlon = 85.33630908;
-
-            var options = {
-              center: [startlat, startlon],
-              zoom: 14
-            }
-
-            document.getElementById('lat').value = startlat;
-            document.getElementById('lon').value = startlon;
-
-            map = L.map('mapid', options);
-            var nzoom = 12;
-
-            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-              {attribution: 'OSM'}
-            ).addTo(map);
-            myMarker = L.marker([startlat, startlon], {
-              title: "Coordinates",
-              alt: "Coordinates",
-              draggable: true
-            }).addTo(map).on('dragend', function () {
-
-              var lat = myMarker.getLatLng().lat.toFixed(8);
-              var lon = myMarker.getLatLng().lng.toFixed(8);
-
-
-              var czoom = map.getZoom();
-
-              document.getElementById('lat').value = lat;
-              document.getElementById('lon').value = lon;
-              // @this->set('lat', lat);
-              // @this->set('lon', lon);
-
-              myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
-              map.invalidateSize();
-            });
-
-            chooseAddr(startlat, startlon);
-          }
-
-          function chooseAddr(lat1, lng1) {
-            myMarker.closePopup();
-            map.setView([lat1, lng1], 18);
-            myMarker.setLatLng([lat1, lng1]);
-            lat = lat1.toFixed(8);
-            lon = lng1.toFixed(8);
-            document.getElementById('lat').value = lat;
-            document.getElementById('lon').value = lon;
-            myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
-          }
-        </script>
-
-
-
 
 
         <script>
@@ -708,16 +644,6 @@
             });
           });
         </script>
-
-        <script>
-          $(document).ready(function () {
-            $(".big_img").imagezoomsl({
-              zoomrange: [3, 3]
-            });
-          });
-
-        </script>
-
 
 
 

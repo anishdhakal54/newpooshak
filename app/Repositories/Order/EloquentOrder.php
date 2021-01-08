@@ -154,7 +154,7 @@ class EloquentOrder implements OrderRepository
                 $order->isGiven = false
             ]);
         }
-        if ($order->isGiven == 1 && ($attributes['order_status'] == 5 || $attributes['order_status'] == 1 || $attributes['order_status'] == 2 || $attributes['order_status'] == 5 ||$attributes['order_status'] == 6  )) {
+        if ($order->isGiven == 1 && ($attributes['order_status'] == 2 || $attributes['order_status'] == 5 || $attributes['order_status'] == 6 )) {
             $deducted_reward = $user->rewards - $order->rewards;
             $user->update([
                 $user->rewards = $deducted_reward

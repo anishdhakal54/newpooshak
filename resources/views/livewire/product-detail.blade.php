@@ -281,14 +281,17 @@
 
 
 
+
+            $('#c').show();
+            $('.canvas-container').show();
+            canvas = new fabric.Canvas('c');
             fabric.Image.fromURL('{{$first_image->largeUrl}}', function (img) {
               canvas.add(img);
               img.scaleToHeight(480);
               img.selectable = false;
             });
-            $('#c').show();
             $('.big_img').hide();
-            $('.canvas-container').show();
+
             $.removeData($('.big_img'), 'elevateZoom');
             $('.big_img').removeData('elevateZoom');
             //Remove
