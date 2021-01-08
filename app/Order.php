@@ -18,6 +18,7 @@ class Order extends Model
     'order_status_id',
     'order_note',
     'order_date',
+      'rewards'
   ];
 
   /**

@@ -260,7 +260,7 @@
                             <p>Total</p>
                             <div class="totalwithvat">
                                 <p>{{trans('app.money_symbol')}}  {{ number_format($grandTotal, 2) }}</p>
-
+                                <input type="hidden" wire:model="grandTotal"  value="{{ number_format($grandTotal, 2) }}">
                             </div>
                         </div>
 
@@ -725,150 +725,150 @@
     @push('scripts')
         <script src="{{asset('assets/fullleaflet/leaflet.js')}}"></script>
         <script type="text/javascript">
-          var myMarker;
-          var map;
-          init_map();
+            var myMarker;
+            var map;
+            init_map();
 
 
-          function init_map() {
-            var startlat = 27.69029236;
-            var startlon = 85.33630908;
+            function init_map() {
+                var startlat = 27.69029236;
+                var startlon = 85.33630908;
 
 
-            var options = {
-              center: [startlat, startlon],
-              zoom: 14
+                var options = {
+                    center: [startlat, startlon],
+                    zoom: 14
+                }
+
+                document.getElementById('lat').value = startlat;
+                document.getElementById('lon').value = startlon;
+
+                map = L.map('mapid', options);
+                var nzoom = 12;
+
+                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+                    {attribution: 'OSM'}
+                ).addTo(map);
+                myMarker = L.marker([startlat, startlon], {
+                    title: "Coordinates",
+                    alt: "Coordinates",
+                    draggable: true
+                }).addTo(map).on('dragend', function () {
+
+                    var lat = myMarker.getLatLng().lat.toFixed(8);
+                    var lon = myMarker.getLatLng().lng.toFixed(8);
+
+
+                    var czoom = map.getZoom();
+
+                    document.getElementById('lat').value = lat;
+                    document.getElementById('lon').value = lon;
+                    //
+                @this.set('lat', lat);
+                @this.set('lon', lon);
+                    myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
+                    map.invalidateSize();
+                });
+
+                chooseAddr(startlat, startlon);
             }
 
-            document.getElementById('lat').value = startlat;
-            document.getElementById('lon').value = startlon;
-
-            map = L.map('mapid', options);
-            var nzoom = 12;
-
-            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-              {attribution: 'OSM'}
-            ).addTo(map);
-            myMarker = L.marker([startlat, startlon], {
-              title: "Coordinates",
-              alt: "Coordinates",
-              draggable: true
-            }).addTo(map).on('dragend', function () {
-
-              var lat = myMarker.getLatLng().lat.toFixed(8);
-              var lon = myMarker.getLatLng().lng.toFixed(8);
-
-
-              var czoom = map.getZoom();
-
-              document.getElementById('lat').value = lat;
-              document.getElementById('lon').value = lon;
-              //
-            @this.set('lat', lat);
-            @this.set('lon', lon);
-              myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
-              map.invalidateSize();
-            });
-
-            chooseAddr(startlat, startlon);
-          }
-
-          function chooseAddr(lat1, lng1) {
-            myMarker.closePopup();
-            map.setView([lat1, lng1], 18);
-            myMarker.setLatLng([lat1, lng1]);
-            lat = lat1.toFixed(8);
-            lon = lng1.toFixed(8);
-            document.getElementById('lat').value = lat;
-            document.getElementById('lon').value = lon;
-            myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
-          }
+            function chooseAddr(lat1, lng1) {
+                myMarker.closePopup();
+                map.setView([lat1, lng1], 18);
+                myMarker.setLatLng([lat1, lng1]);
+                lat = lat1.toFixed(8);
+                lon = lng1.toFixed(8);
+                document.getElementById('lat').value = lat;
+                document.getElementById('lon').value = lon;
+                myMarker.bindPopup("Lat " + lat + "<br />Lon " + lon).openPopup();
+            }
         </script>
 
 
 
         <script>
-          $(document).ready(function () {
-            document.getElementById("area").onchange = function () {
-              var e = document.getElementById("area");
+            $(document).ready(function () {
+                document.getElementById("area").onchange = function () {
+                    var e = document.getElementById("area");
 
-              var zone = e.options[e.selectedIndex].value;
+                    var zone = e.options[e.selectedIndex].value;
 
-              $.ajaxSetup({
-                headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-              });
-              $.ajax({
-                type: 'GET',
-                url: "",
-                data: {
-                  location: zone
-                },
-                success: function (data) {
-                  $('#shipping_charge').html(data.amount.toLocaleString());
-                  $('#ship_amnt').html(data.amount.toLocaleString());
-                  $('#grand_total_value').html(data.grandTotal.toLocaleString());
-                  $('#ship_amnt_total').html(data.grandTotal.toLocaleString());
-                }
-              });
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        type: 'GET',
+                        url: "",
+                        data: {
+                            location: zone
+                        },
+                        success: function (data) {
+                            $('#shipping_charge').html(data.amount.toLocaleString());
+                            $('#ship_amnt').html(data.amount.toLocaleString());
+                            $('#grand_total_value').html(data.grandTotal.toLocaleString());
+                            $('#ship_amnt_total').html(data.grandTotal.toLocaleString());
+                        }
+                    });
 
 
-            };
-          })
+                };
+            })
         </script>
         <script>
-          document.getElementById("zone").onchange = function () {
+            document.getElementById("zone").onchange = function () {
 
-            var e = document.getElementById("zone");
-            var zone = e.options[e.selectedIndex].value;
-            $.ajaxSetup({
-              headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-            });
-            $.ajax({
-              type: 'GET',
-              url: "{{ route('checkout.zone') }}",
-              data: {
-                zone: zone
-              },
-              success: function (data) {
+                var e = document.getElementById("zone");
+                var zone = e.options[e.selectedIndex].value;
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: 'GET',
+                    url: "{{ route('checkout.zone') }}",
+                    data: {
+                        zone: zone
+                    },
+                    success: function (data) {
 //                console.log(data);
 
-                $('#district').html(data);
-                $('#district').removeAttr('disabled');
-                $('#zone').css('width', 'auto');
+                        $('#district').html(data);
+                        $('#district').removeAttr('disabled');
+                        $('#zone').css('width', 'auto');
 
-              }
+                    }
 
-            });
-          };
+                });
+            };
 
-          document.getElementById("district").onchange = function () {
+            document.getElementById("district").onchange = function () {
 
-            var e = document.getElementById("district");
-            var zone = e.options[e.selectedIndex].value;
-            $.ajaxSetup({
-              headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-            });
-            $.ajax({
-              type: 'GET',
-              url: "{{ route('checkout.zone') }}",
-              data: {
-                zone: zone
-              },
-              success: function (data) {
-                $('#area').html(data);
-                $('#area').removeAttr('disabled');
-                $('#district').css('width', 'auto');
+                var e = document.getElementById("district");
+                var zone = e.options[e.selectedIndex].value;
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: 'GET',
+                    url: "{{ route('checkout.zone') }}",
+                    data: {
+                        zone: zone
+                    },
+                    success: function (data) {
+                        $('#area').html(data);
+                        $('#area').removeAttr('disabled');
+                        $('#district').css('width', 'auto');
 
-              }
+                    }
 
-            });
-          };
+                });
+            };
 
 
         </script>

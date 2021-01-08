@@ -29,4 +29,5 @@ class OrderView extends Component
     {
         return view('livewire.account.order-view');
     }
+
 }
