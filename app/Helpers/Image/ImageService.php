@@ -56,6 +56,11 @@ class ImageService extends ImageManager {
 
 	public function uploadProduct( $image, $path = null, $keepAspectRation = true ) {
 		$this->image = parent::make( $image );
+
+    $img = Image::make(public_path($path));
+    $img->insert(public_path('/assets/images/poosak.png'),'center');
+    $img->save();
+
 		$this->directory( public_path( $path )  );
 
 		$name = $image->getClientOriginalName();
