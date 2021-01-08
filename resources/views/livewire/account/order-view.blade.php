@@ -79,7 +79,7 @@
                 <thead>
                 <tr>
                   <th>Product</th>
-                  <th>Price</th>
+                  <th>Quantity</th>
                   <th>Total</th>
                 </tr>
                 </thead>
@@ -108,7 +108,7 @@
                   <tr>
                     <td>
                       <a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
-                      <strong>x {{ $product->pivot->qty }}</strong><br>
+                      <br>
 
                       XS<strong> x {{$product->pivot->quantity_xs}}</strong><br>
                       S<strong> x {{$product->pivot->quantity_s}}</strong><br>
@@ -117,9 +117,8 @@
                       2XL<strong> x {{$product->pivot->quantity_2xl}}</strong><br>
                       3XL<strong> x {{$product->pivot->quantity_3xl}}</strong>
                     </td>
+                    <td>{{ $product->pivot->qty }}</td>
                     <td>RS {{ number_format($product->pivot->price, 2) }}</td>
-                    <td>RS {{ number_format($discountAmount, 2) }}</td>
-                    <td>RS {{ number_format($productSubTotal, 2) }}</td>
                   </tr>
                 @endforeach
                 </tbody>
@@ -132,24 +131,24 @@
                   }
                   $grandTotal = $subTotal + $tax;
                 @endphp
-                <tr>
-                  <td colspan="3">Subtotal:</td>
+                <tr style="border-top: 1px solid #dee2e6">
+                  <td colspan="2">Subtotal:</td>
                   <td>RS {{ number_format($subTotal, 2) }}</td>
                 </tr>
                 <tr>
-                  <td colspan="3">Color price:</td>
+                  <td colspan="2">Color price:</td>
                   <td>RS {{ number_format($colorTotal, 2) }}</td>
                 </tr>
                 <tr>
-                  <td colspan="3">Frame Price:</td>
+                  <td colspan="2">Frame Price:</td>
                   <td>RS {{ number_format($frameTotal, 2) }}</td>
                 </tr>
                 <tr>
-                  <td colspan="3">Tax:</td>
+                  <td colspan="2">Tax:</td>
                   <td>RS {{ number_format($tax, 2) }}</td>
                 </tr>
                 <tr>
-                  <td colspan="3">Total:</td>
+                  <td colspan="2">Total:</td>
                   <td>RS {{ number_format($grandTotal, 2) }}</td>
                 </tr>
                 </tfoot>
