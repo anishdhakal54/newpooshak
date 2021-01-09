@@ -2,17 +2,16 @@
 
 namespace App\Repositories\Order;
 
-use App\Address;
-use App\Order;
-use App\OrderProduct;
-use App\OrderStatus;
 use App\User;
-use Carbon\Carbon;
-use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use App\Product;
 use Mail;
+use App\Order;
+use App\Address;
+use App\Product;
+use Carbon\Carbon;
+use App\OrderStatus;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 
 class EloquentOrder implements OrderRepository
@@ -104,12 +103,12 @@ class EloquentOrder implements OrderRepository
         Cart::destroy();
 
         return $order;
-
     }
 
     public function update($id, array $attributes)
     {
-//       dd($attributes);
+
+        // Update address
         $addressDetails = [
             'type' => 'SHIPPING',
             'first_name' => $attributes['first_name'],
@@ -140,91 +139,155 @@ class EloquentOrder implements OrderRepository
         $attributes['shipping_address_id'] = $address->id;
 
         // Update order
+        $id1 = auth()->id();
+        //  dd($id1);
         $order = $this->getById($id);
+
+        $user = User::where('id', $order->user_id)->first();
+//        dd($order->rewards,$user->rewards);
+        if ($order->isGiven == 1 && $attributes['order_status'] == 6) {
+            $deducted_reward = $user->rewards - $order->rewards;
+            $user->update([
+                $user->rewards = $deducted_reward
+            ]);
+            $order->update([
+                $order->isGiven = false
+            ]);
+        }
+        if ($order->isGiven == 1 && ($attributes['order_status'] == 2 || $attributes['order_status'] == 5 || $attributes['order_status'] == 6 )) {
+            $deducted_reward = $user->rewards - $order->rewards;
+            $user->update([
+                $user->rewards = $deducted_reward
+            ]);
+            $order->update([
+                $order->isGiven = false
+            ]);
+        }
+        if ($order->isGiven == 0 && $attributes['order_status'] == 3) {
+            // $order_isGiven = 1;
+
+            $order->update([
+                $order->isGiven = true
+            ]);
+
+//            dd($user->rewards);
+//            $user =  Auth::user();
+            $user_rewards = $user->rewards;
+//             dd($user_rewards);
+            $order_reward = $order->rewards;
+//            dd($order_reward);
+            $total_reward = $user_rewards + $order_reward;
+//             dd($total_reward);
+
+            $user->update([
+                $user->rewards = $total_reward,
+
+            ]);
+
+            //   dd($userOrder->reward_given);
+
+            //     if ($userOrder->isGiven == 'true'){
+            //         User::where('id', $id1)->update(['rewards' => $total_reward]);
+            //         //  dd('test');
+            //         Order::where('id',$id)->update(
+            //             array(
+            //                 'isGiven' => 'false',
+            //             )
+            //         );
+            //     }
+            // }
+        }
+
 
         $order->update([
             'billing_address_id' => $attributes['billing_address_id'],
             'shipping_address_id' => $attributes['shipping_address_id'],
             'user_id' => isset($attributes['user_id']) ? $attributes['user_id'] : null,
-            'enable_tax' => $attributes['tax_percentage'] > 0 ? 1 : 0,
-            'tax_percentage' => $attributes['tax_percentage'],
+            // 'enable_tax'      	  => $attributes['tax_percentage'] > 0 ? 1 : 0,
+            // 'tax_percentage'      => $attributes['tax_percentage'],
             'order_status_id' => $attributes['order_status'],
             'order_note' => $attributes['order_note'],
             'order_date' => $attributes['order_date'],
+//             'isGiven' => $order_isGiven
+
         ]);
-        if ($attributes['order_status'] == 2) {
-            foreach ($attributes['products'] as $orderProduct) {
-                $pid = $orderProduct['id'];
-                $qty = $orderProduct['qty'];
 
 
-                $product = Product::where('id', $pid)->first();
-
-                $product->stock_qty = (int)($product->stock_qty) - (int)($qty);
-                $product->update();
-
-            }
-        }
-        if ($attributes['order_status'] == 4 && $order->order_status_id != 4) {
-            $orders = OrderProduct::where('order_id', $id)->get();
-            $total = 0;
+        // if ($attributes['order_status'] == 2) {
+        //     foreach ( $attributes['products'] as $orderProduct ) {
+        //         $pid=$orderProduct['id'];
+        //         $qty=$orderProduct['qty'];
 
 
-            $userOrder = Order::find($id);
-            // dd($userOrder->reward_given);
-            foreach ($orders as $order_product) {
-                $actualprice = $order_product->qty * $order_product->price;
-                $subtotal = $actualprice + ($actualprice * $order_product->tax / 100);
+        //         $product = Product::where('id', $pid)->first();
 
-            }
-            //    $order->update([ 'order_status_id' => 1, 'delivery_destination_id' => null  ]);
-            $id1 = auth()->id();
-            $user = Auth::user();
-            $user_reward = $user->reward_point;
-            $order_reward = $userOrder->reward;
-            $total_reward = $user_reward + $order_reward;
-            //   dd($userOrder->reward_given);
+        //         $product->stock_qty =(int)($product->stock_qty) - (int)($qty);
+        //         $product->update();
 
-            if ($userOrder->reward_given == 'false') {
-                User::where('id', $id1)->update(['rewards' => $total_reward]);
-                //  dd('test');
-                Order::where('id', $id)->update(
-                    array(
-                        'isGiven' => 'true',
-                    )
-                );
-//                $order->isGiven == true;
-            }
-        }
+        //     }
+        // }
+        // if ($attributes['order_status'] == 6 && $order->order_status_id != 1) {
 
-        if ($attributes['order_status'] == 5) {
-            foreach ($attributes['products'] as $orderProduct) {
-                $pid = $orderProduct['id'];
-                $qty = $orderProduct['qty'];
+        //     // foreach ( $attributes['products'] as $orderProduct ) {
+        //     //     $pid=$orderProduct['id'];
+        //     //     $qty=$orderProduct['qty'];
+        //     //     // $product = Product::where('id', $pid)->first();
+        //     //     // $product->stock_quantity =(int)($product->stock_quantity) + (int)($qty);
+        //     //     $product->update();
+        //     //     if(isset($product->additionals) && $product->additionals->isNotEmpty())
+        //     //     {
+        //     //         // $size = OrderProduct::where('order_id', $order->id)->where('product_id', $pid)->first()->size;
+        //     //         // $additional = ProductAdditional::where('product_id', $pid)->where('size', $size)->first();
+        //     //         // $additional->quantity = (int)($additional->quantity) + (int)($qty);
+        //     //         // $additional->update();
+        //     //     }
+        //     // }
+        //     $userOrder= Order::find($id);
+        //     $id1 = auth()->id();
+        //     $user =  Auth::user();
+        //     $user_rewards = $user->rewards;
+        //     $order_reward = $userOrder->rewards;
+        //     $total_reward = $user_reward - $order_reward;
+        //     //   dd($userOrder->reward_given);
+
+        //     if ($userOrder->isGiven == 'true'){
+        //         User::where('id', $id1)->update(['rewards' => $total_reward]);
+        //         //  dd('test');
+        //         Order::where('id',$id)->update(
+        //             array(
+        //                 'isGiven' => 'false',
+        //             )
+        //         );
+        //     }
+        // }
+        // if ($attributes['order_status'] == 5) {
+        //     foreach ( $attributes['products'] as $orderProduct ) {
+        //         $pid=$orderProduct['id'];
+        //         $qty=$orderProduct['qty'];
 
 
-                $product = Product::where('id', $pid)->first();
+        //         $product = Product::where('id', $pid)->first();
 
-                $product->stock_qty = (int)($product->stock_qty) + (int)($qty);
-                $product->update();
+        //         $product->stock_qty =(int)($product->stock_qty) + (int)($qty);
+        //         $product->update();
 
-            }
-        }
-
-
-        $orderedProducts = [];
-
-        foreach ($attributes['products'] as $orderProduct) {
+        //     }
+        // }
 
 
-            $orderedProducts[$orderProduct['id']] = [
-                'qty' => $orderProduct['qty'],
-                'price' => $orderProduct['price'],
-                'discount' => $orderProduct['discount']
-            ];
-        }
+        // $orderedProducts = [];
 
-        $order->products()->sync($orderedProducts);
+        // foreach ( $attributes['products'] as $orderProduct ) {
+
+
+        //     $orderedProducts[ $orderProduct['id'] ] = [
+        //         'qty'      => $orderProduct['qty'],
+        //         'price'    => $orderProduct['price'],
+        //         'discount' => $orderProduct['discount']
+        //     ];
+        // }
+
+        // $order->products()->sync( $orderedProducts );
 
 
         return $order;
@@ -311,7 +374,8 @@ class EloquentOrder implements OrderRepository
 
             foreach ($cartContents as $cartContent) {
 
-                $order->products()->attach($cartContent->id,
+                $order->products()->attach(
+                    $cartContent->id,
                     [
                         'qty' => $cartContent->qty,
                         'price' => $cartContent->price,
@@ -321,7 +385,6 @@ class EloquentOrder implements OrderRepository
 
                     ]
                 );
-
             }
         }
         // Destory cart
@@ -332,7 +395,6 @@ class EloquentOrder implements OrderRepository
 
     public function updateFrontendOrder($id, array $attributes)
     {
-
     }
 
     /**

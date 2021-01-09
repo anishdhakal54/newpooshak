@@ -250,7 +250,7 @@ class Checkout extends Component
 //dd($rewards_inpercent );
 //        dd($this->grandTotal);
         $this->rewards = ($rewards_inpercent / 100) * $this->grandTotal;
-
+//
 //        dd($this->rewards);
         $address = Address::updateOrCreate(['user_id' => auth()->id()], $addressData);
 

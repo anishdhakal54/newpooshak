@@ -1,9 +1,16 @@
+<div class="col-lg-3 col-md-12 col-sm-12 leftaccount">
+    <h3 class="text-center">Hello, {{auth()->user()->first_name}}
 
-    <div class="col-lg-3 col-md-12 col-sm-12 leftaccount">
-        <h3>Hello, {{auth()->user()->first_name}}
-            <img src="assets/images/newchecks.svg">
-        </h3>
-        <div class="manage">
+        <img src="assets/images/newchecks.svg">
+        <div>
+            <img src="{{asset('assets/images/coin.svg')}}"> Reward Points:
+            {{auth()->user()->rewards}}
+        </div>
+
+    </h3>
+
+    <div class="px-4">
+        <div class="manage ">
             <a href="#">Manage My Account</a>
             <div class="manage_lists">
                 <a href="{{route('my-account.index')}}"><i class="fa fa-chevron-right"></i> My Profile</a>
@@ -34,3 +41,4 @@
             </div>
         </div>
     </div>
+</div>
