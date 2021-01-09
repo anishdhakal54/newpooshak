@@ -90,6 +90,7 @@ return array(
     'App\\Http\\Livewire\\Account\\Order' => $baseDir . '/app/Http/Livewire/Account/Order.php',
     'App\\Http\\Livewire\\Account\\OrderItem' => $baseDir . '/app/Http/Livewire/Account/OrderItem.php',
     'App\\Http\\Livewire\\Account\\OrderView' => $baseDir . '/app/Http/Livewire/Account/OrderView.php',
+    'App\\Http\\Livewire\\Account\\Sidebar' => $baseDir . '/app/Http/Livewire/Account/Sidebar.php',
     'App\\Http\\Livewire\\Account\\Wishlist' => $baseDir . '/app/Http/Livewire/Account/Wishlist.php',
     'App\\Http\\Livewire\\Account\\WishlistItem' => $baseDir . '/app/Http/Livewire/Account/WishlistItem.php',
     'App\\Http\\Livewire\\Auth\\Login' => $baseDir . '/app/Http/Livewire/Auth/Login.php',

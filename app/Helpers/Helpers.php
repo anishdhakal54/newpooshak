@@ -248,6 +248,9 @@ function cartTotal()
 
 function cartQty($cart)
 {
+  if($cart->product->disable_size){
+    return $cart->qty;
+  }
   $total = 0;
   $total += $cart->xs;
   $total += $cart->s;
@@ -282,6 +285,7 @@ function getSubtotal($cartContent)
 
 function getTotal($cartContent, $has_frame)
 {
+
   $color_no = $cartContent->color_no;
   $totalqty = cartQty($cartContent);
   $side_count = sideCount($cartContent);
@@ -302,6 +306,7 @@ function getTotal($cartContent, $has_frame)
   $discount_amount = $subtotal * $discount / 100;
 
   $grand_total = $subtotal - $discount_amount + $frame_price + $color_price;
+//  dd("$subtotal - $discount_amount + $frame_price + $color_price");
   return $grand_total;
 
 }

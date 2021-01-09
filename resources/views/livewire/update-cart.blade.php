@@ -14,11 +14,11 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @php
-                                        $subTotal = 0;
-                                        $discount = 0;
-                                        $has_bulk_discount=false;
-                                    @endphp
+                                @php
+                                    $subTotal = 0;
+                                    $discount = 0;
+                                    $has_bulk_discount=false;
+                                @endphp
                                 @foreach($usercart as $cartContent)
                                     <tr>
                                         <td class="product__cart__item">
@@ -29,13 +29,20 @@
                                                 </a></div>
                                             <div class="product__cart__item__text">
                                                 <h4><a
-                                                            href="{{ route('product.show', getProductSlug($cartContent->product_id)) }}">{{ $cartContent->product->name }}</a>
+                                                            href="{{ route('product.show', getProductSlug($cartContent->product_id)) }}">
+                                                        {{ $cartContent->product->name }}
+                                                        {{getTotal($cartContent,$cartContent->hasframe)}}
+                                                    </a>
                                                 </h4>
 
                                                 <h5>NPR {{ $cartContent->price}}</h5>
                                                 @if($cartContent->color !="" && $cartContent->color !=null)
                                                     <p>{{$cartContent->color}}</p>
                                                 @endif
+                                                @if($cartContent->qty>4)
+                                                    {{getDiscount($cartContent->qty)}} % discount
+                                                @endif
+
                                             </div>
                                         </td>
 
@@ -45,10 +52,9 @@
 
                                     </tr>
                                     @php
-                                        $subTotal_ =getSubtotal($cartContent);
-                                        $subTotal += getSubtotal($cartContent);
-                                        $discount_ = getDiscount(cartQty($cartContent));
-                                        $discount += $subTotal_ * $discount_ / 100;
+                                        $subTotal_ =$cartContent->price;
+                                        $subTotal +=  $cartContent->price;
+
                                         if(cartQty($cartContent)>4){
                                           $has_bulk_discount = true;
                                         }
@@ -83,8 +89,9 @@
                                 </li>
 
                                 <li>
-                                    @if(!$has_bulk_discount) Unique Discount ({{getUniqueDiscount()}}%) @else Discount @endif
-                                      <span
+                                    @if(!$has_bulk_discount) Unique Discount ({{getUniqueDiscount()}}%) @else
+                                        Discount @endif
+                                    <span
                                             class="subprice">{{trans('app.money_symbol')}} {{ $discount }}</span></li>
 
                                 <li>Total <span

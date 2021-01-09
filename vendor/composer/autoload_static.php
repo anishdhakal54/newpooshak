@@ -723,6 +723,7 @@ class ComposerStaticInit46972693046797650976b0e587300f95
         'App\\Http\\Livewire\\Account\\Order' => __DIR__ . '/../..' . '/app/Http/Livewire/Account/Order.php',
         'App\\Http\\Livewire\\Account\\OrderItem' => __DIR__ . '/../..' . '/app/Http/Livewire/Account/OrderItem.php',
         'App\\Http\\Livewire\\Account\\OrderView' => __DIR__ . '/../..' . '/app/Http/Livewire/Account/OrderView.php',
+        'App\\Http\\Livewire\\Account\\Sidebar' => __DIR__ . '/../..' . '/app/Http/Livewire/Account/Sidebar.php',
         'App\\Http\\Livewire\\Account\\Wishlist' => __DIR__ . '/../..' . '/app/Http/Livewire/Account/Wishlist.php',
         'App\\Http\\Livewire\\Account\\WishlistItem' => __DIR__ . '/../..' . '/app/Http/Livewire/Account/WishlistItem.php',
         'App\\Http\\Livewire\\Auth\\Login' => __DIR__ . '/../..' . '/app/Http/Livewire/Auth/Login.php',
