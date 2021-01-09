@@ -119,6 +119,17 @@ class Checkout extends Component
 
     public function orderNow()
     {
+      $validatedData = $this->validate([
+        'first_name' => 'required|max:255',
+        'last_name' => 'required|max:255',
+        'email' => 'required|max:255|email',
+        'phone' => 'required|max:255',
+        'zone' => 'required',
+        'district' => 'required',
+        'area' => 'required',
+        'address1' => 'required',
+        'pan' => 'digits:9|integer'
+      ]);
 //        dd($this->grandTotal);
         if ($this->lat == null && $this->lon == null) {
 

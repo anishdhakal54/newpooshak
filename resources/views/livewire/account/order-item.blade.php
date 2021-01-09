@@ -6,18 +6,12 @@
                                     </span></td>
     <td>    @php
             $priceTotal = 0.00;
+            $actualPrice = 0;
             foreach ($order->products as $product){
-                $discount = $product->pivot->discount;
-                $actualPrice = $product->pivot->price * $product->pivot->qty;
-                $frame_rate = $product->pivot->total_frame_price;
-                $color_rate = $product->pivot->total_color_price;
-
-                $discountAmount = $actualPrice * ( $discount / 100 );
-                $productSubTotal = $actualPrice - ( $discountAmount );
-                $priceTotal += ($actualPrice - ( $discountAmount )+$frame_rate+$color_rate);
+                $actualPrice += $product->pivot->price;
             }
 
-            $subTotal = $priceTotal;
+            $subTotal = $actualPrice;
             $tax = 0;
             if ($order->enable_tax) {
                 $tax = ($subTotal * $order->tax_percentage) / 100;

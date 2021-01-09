@@ -8,7 +8,7 @@
                     {{--                    <form>--}}
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">First Name</label>
+                            <label for="inputEmail4">First Name*</label>
                             <input type="text" wire:model="first_name" class="form-control" id="inputEmail4"
                                    placeholder="Your First Name">
 
@@ -20,7 +20,7 @@
 
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputPassword4">Last Name</label>
+                            <label for="inputPassword4">Last Name*</label>
                             <input type="text" class="form-control" wire:model="last_name" id="inputPassword4"
                                    placeholder="Your Last Name">
                             @if ($errors->has('last_name'))
@@ -56,9 +56,9 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">Phone Number</label>
+                            <label for="inputEmail4">Phone Number*</label>
                             <input type="number" wire:model="phone" class="form-control" id="inputEmail4"
-                                   placeholder="Your Email">
+                                   placeholder="Your Phone">
                             @if ($errors->has('phone'))
                                 <span class="help-block">
                                 {{ $errors->first('phone') }}
@@ -66,7 +66,7 @@
                             @endif
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputPassword4">Email Address</label>
+                            <label for="inputPassword4">Email Address*</label>
                             <input type="email" wire:model="email" class="form-control" id="inputPassword4"
                                    placeholder="Your Email Address">
                             @if ($errors->has('email'))
@@ -78,7 +78,7 @@
                     </div>
                     <div class="form-row" wire:ignore>
                         <div class="form-group col-md-6">
-                            <label for="inputCity">Zone</label>
+                            <label for="inputCity">Zone*</label>
                             <select wire:model="zone" class="form-control checkselect" id="zone"
                                     name="zone">
                                 <option value="0">Select Zone</option>
@@ -94,7 +94,7 @@
 
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputCity">District</label>
+                            <label for="inputCity">District*</label>
                             <select class="form-control checkselect" wire:model="district"
                                     id="district"
                                     name="district"
@@ -113,7 +113,7 @@
                     <div class="form-row " wire:ignore>
 
                         <div class="form-group col-md-12">
-                            <label for="inputState">Area</label>
+                            <label for="inputState">Area*</label>
                             <select class="form-control checkselect" wire:model="area" id="area"
                                     name="area"
                                     disabled>
@@ -127,7 +127,7 @@
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="inputAddress">Street Address</label>
+                            <label for="inputAddress">Street Address*</label>
                             <input type="text" wire:model="address1" name="address1" class="form-control"
                                    id="inputAddress"
                                    placeholder="1234 Main St">
