@@ -8,6 +8,7 @@ class CartProduct extends Model
 {
     protected $fillable = [
         'id',
+        'qty',
         'xs',
         's',
         'm',

@@ -13,11 +13,13 @@ class UpdateCartQuantity extends Component
   public $rowId;
   public $quantity;
   public $cartId;
+  public $disable_size = false;
 
   public $quantity_xs = 0, $quantity_s = 0, $quantity_m = 0, $quantity_xl = 0, $quantity_2xl = 0, $quantity_3xl = 0;
 
   public function mount($cartContent)
   {
+    $this->disable_size = $cartContent->product->disable_size;
     $this->cartId = $cartContent->id;
     $this->cartContent = $cartContent->toArray();
     $this->subtotal = $cartContent->total;
@@ -53,13 +55,14 @@ class UpdateCartQuantity extends Component
   public function updatecart()
   {
     $cartProduct = CartProduct::find($this->cartId);
+    $cartProduct->qty = $this->quantity;
     $cartProduct->xs = $this->quantity_xs;
     $cartProduct->s = $this->quantity_s;
     $cartProduct->m = $this->quantity_m;
     $cartProduct->xl = $this->quantity_xl;
     $cartProduct->xxl = $this->quantity_2xl;
     $cartProduct->xxxl = $this->quantity_3xl;
-    $cartProduct->price = getTotal($cartProduct,$cartProduct->has_frame);
+    $cartProduct->price = getTotal($cartProduct,$cartProduct->hasframe);
     $cartProduct->save();
     $notify = json_notification('success', 'Success!!!', 'Cart Updated Successfully!!!', 'linecons-like');
     $this->emit('notification', $notify);

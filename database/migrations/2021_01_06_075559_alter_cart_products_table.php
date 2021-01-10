@@ -15,6 +15,7 @@ class AlterCartProductsTable extends Migration
     {
         Schema::table('cart_products', function (Blueprint $table) {
             $table->string('color')->after('price')->nullable();
+          $table->integer('qty')->after('id')->default(0);
         });
     }
 
@@ -27,6 +28,7 @@ class AlterCartProductsTable extends Migration
     {
         Schema::table('cart_products', function (Blueprint $table) {
            $table->dropColumn('color');
+           $table->dropColumn('qty');
         });
     }
 }
