@@ -19,6 +19,7 @@ class Getquotes extends Component
     public $enable = true;
     public $count = 5;
     public   $attachment1,$attachment2;
+    public $subcategory=[];
 
     //    protected $rules = [
     //        'firstname' => 'required|string',
@@ -32,6 +33,7 @@ class Getquotes extends Component
 
     public function sendquote()
     {
+        dd($this->subcategory);
 //        dd('test');
 
         //       dd( $this->user_id);

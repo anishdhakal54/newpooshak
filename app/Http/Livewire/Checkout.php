@@ -120,6 +120,10 @@ class Checkout extends Component
     public function orderNow()
     {
 //        dd($this->grandTotal);
+
+//        dd($this->quantity_l);
+
+
         if ($this->lat == null && $this->lon == null) {
 
             $this->lat = 27.69029236;
@@ -272,9 +276,23 @@ class Checkout extends Component
 
         // Attach products
         $cartContents = cartContent();
+
+
         if ($cartContents->count() > 0) {
+//            dd($cartContents);
+
 
             foreach ($cartContents as $cartContent) {
+                $product = Product::find($cartContent->product_id);
+
+                $product->quantity_xs = $product->quantity_xs - $cartContent->xs;
+                $product->quantity_s = $product->quantity_s - $cartContent->s;
+                $product->quantity_m     = $product->quantity_m - $cartContent->m;
+                $product->quantity_l = $product->quantity_l - $cartContent->l;
+                $product->quantity_xl = $product->quantity_xl - $cartContent->xl;
+                $product->quantity_xxl = $product->quantity_xxl - $cartContent->xxl;
+                $product->quantity_xxxl = $product->quantity_xxxl - $cartContent->xxxl;
+                $product->save();
 
                 $order->products()->attach($cartContent->product_id,
                     [

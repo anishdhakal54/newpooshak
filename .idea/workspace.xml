@@ -20,15 +20,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dc1963d-690f-4179-8e7d-39a870d9652a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/stock.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pooshak-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pooshak-master.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/Image/ImageService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Image/ImageService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Order/EloquentOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Order/EloquentOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/account/order-view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/account/order-view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/account/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/account/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/product-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/product-detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/product-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/product-detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Getquote.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Getquote.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/GetQuoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/GetQuoteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Checkout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Getquotes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Getquotes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Partials/Header.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Partials/Header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Product/EloquentProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Product/EloquentProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SizeChart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SizeChart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_17_084452_alter_getquotes_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_06_075559_alter_cart_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_06_075559_alter_cart_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_07_054256_alter_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_07_054256_alter_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ne.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ne.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/orders/update.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/orders/update.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/partials/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/products/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/products/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/getquotes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/getquotes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +266,8 @@
       <workItem from="1610086584488" duration="6438000" />
       <workItem from="1610095647680" duration="46000" />
       <workItem from="1610095758096" duration="47000" />
-      <workItem from="1610095806634" duration="2228000" />
+      <workItem from="1610095806634" duration="4360000" />
+      <workItem from="1610250423926" duration="27353000" />
     </task>
     <servers />
   </component>
@@ -297,10 +315,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1609825188037" />
-    <state x="339" y="22" width="672" height="676" key="search.everywhere.popup" timestamp="1610087786335">
+    <state x="339" y="22" width="672" height="676" key="search.everywhere.popup" timestamp="1610276007937">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="22" width="672" height="676" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1610087786335" />
+    <state x="339" y="22" width="672" height="676" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1610276007937" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

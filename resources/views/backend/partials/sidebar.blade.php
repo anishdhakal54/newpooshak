@@ -161,6 +161,8 @@
                 </ul>
             </li>
             @endrole
+
+
             {{--@role(['admin', 'manager','shop-manager'])--}}
 
 
@@ -333,6 +335,12 @@
                 <a href="{{ route('dashboard.getRequestedProduct') }}">
                     <i class="fa fa-cogs"></i>
                     <span>Requested Product</span>
+                </a>
+            </li>
+            <li class="{{ $route == 'dashboard.getStock' ? 'active': null }}">
+                <a href="{{ route('dashboard.getStock') }}">
+                    <i class="fa fa-cogs"></i>
+                    <span>Stock Management</span>
                 </a>
             </li>
             @endrole

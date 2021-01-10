@@ -8,13 +8,14 @@
             <div class="col-md-6 py-2 px-sm-5 ">
                 <h1 class="text-center">Get Quotes </h1>
 
-                <form id="get-quote">
+                <form id="get-quote" action="{{route('storequotes')}}" method="post">
+                    {{csrf_field()}}
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">{{__('First Name')}}</label>
                             <input class="form-control" type="text"
                                    placeholder="Enter your first name here.."
-                                   wire:model="firstname"/>
+                                   name="firstname"/>
                             @if ($errors->has('firstname'))
                                 <span class="error help-block">{{ $errors->first('firstname') }}</span>
                             @endif
@@ -23,7 +24,7 @@
                             <label for="inputPassword4">{{__('Last Name')}}</label>
                             <input class="form-control" type="text"
                                    placeholder="Enter your lastname here.."
-                                   wire:model="lastname"/>
+                                   name="lastname"/>
                             @if ($errors->has('lastname'))
                                 <span class="error help-block">{{ $errors->first('lastname') }}</span>
                             @endif
@@ -33,7 +34,7 @@
                         <label for="inputAddress">{{__('Email')}}</label>
                         <input class="form-control " type="email"
                                placeholder="Enter your email  here.."
-                               wire:model="email"/>
+                               name="email"/>
                         @if ($errors->has('email'))
                             <span class="error help-block">{{ $errors->first('email') }}</span>
                         @endif
@@ -42,7 +43,7 @@
                         <label for="inputEmail4">{{__('Company Name')}}</label>
                         <input class="form-control" type="text"
                                placeholder="Enter Company Name"
-                               wire:model="companyname"/>
+                              name="companyname"/>
                         @if ($errors->has('companyname'))
                             <span class="error help-block">{{ $errors->first('companyname') }}</span>
                         @endif
@@ -52,51 +53,65 @@
                         <label for="inputAddress">{{__('Address')}}</label>
                         <input class="form-control " type="text"
                                placeholder="Enter your address  here.."
-                               wire:model="address"/>
+                               name="address"/>
                         @if ($errors->has('address'))
                             <span class="error help-block">{{ $errors->first('address') }}</span>
                         @endif
 
                     </div>
 
-{{--                    <div class="form-group">--}}
-{{--                        <label for="inputAddress">{{__('attachment1')}}</label>--}}
-{{--                        <input class="form-control " type="file"--}}
-{{--                               placeholder="Upload File here.."--}}
-{{--                               wire:model="attachment1"/>--}}
-{{--                        @if ($errors->has('attachment1'))--}}
-{{--                            <span class="error help-block">{{ $errors->first('attachment1') }}</span>--}}
-{{--                        @endif--}}
+                    {{--                    <div class="form-group">--}}
+                    {{--                        <label for="inputAddress">{{__('attachment1')}}</label>--}}
+                    {{--                        <input class="form-control " type="file"--}}
+                    {{--                               placeholder="Upload File here.."--}}
+                    {{--                               wire:model="attachment1"/>--}}
+                    {{--                        @if ($errors->has('attachment1'))--}}
+                    {{--                            <span class="error help-block">{{ $errors->first('attachment1') }}</span>--}}
+                    {{--                        @endif--}}
 
-{{--                    </div>--}}
+                    {{--                    </div>--}}
 
-{{--                    <div class="form-group">--}}
-{{--                        <label for="inputAddress">{{__('attachment2')}}</label>--}}
-{{--                        <input class="form-control " type="file"--}}
-{{--                               placeholder="Upload File  here.."--}}
-{{--                               wire:model="attachment2"/>--}}
-{{--                        @if ($errors->has('attachment2'))--}}
-{{--                            <span class="error help-block">{{ $errors->first('attachment2') }}</span>--}}
-{{--                        @endif--}}
+                    {{--                    <div class="form-group">--}}
+                    {{--                        <label for="inputAddress">{{__('attachment2')}}</label>--}}
+                    {{--                        <input class="form-control " type="file"--}}
+                    {{--                               placeholder="Upload File  here.."--}}
+                    {{--                               wire:model="attachment2"/>--}}
+                    {{--                        @if ($errors->has('attachment2'))--}}
+                    {{--                            <span class="error help-block">{{ $errors->first('attachment2') }}</span>--}}
+                    {{--                        @endif--}}
 
-{{--                    </div>--}}
+                    {{--                    </div>--}}
 
 
                     @php
-                        $categories = \App\Category::all();
+                        $categories = \App\Category::where('parent_id',0)->get();
                     @endphp
 
                     @if($categories->count()>0)
                         <div class="form-group">
                             <label for="inputState">Category</label>
                             @foreach($categories as $category)
+
                                 <div>
-                                    <input type="checkbox" class="checkbox form-control"
-                                           wire:model="category.{{ $category->id}}"
+                                    <input type="checkbox"  name="category[]" class="checkbox form-control"
                                            value="{{$category->id}}">
                                     <label>{{$category->name}}</label>
                                 </div>
+                                @php
+                                    $subCategory=\App\Category::where('parent_id',$category->id)->get();
+                                @endphp
+                                @foreach($subCategory as $subcat)
+                                    @if($subcat->parent_id==$category->id)
+                                        <div class="mx-4">
+                                            <input type="checkbox" name="subcategory[]"
+                                                   class="checkbox form-control"
+                                                   value="{{$subcat->parent_id}}">
+                                            <label>{{$subcat->name}} </label>
+                                        </div>
+                                    @endif
+                                @endforeach
                             @endforeach
+
                         </div>
 
                     @endif
@@ -111,7 +126,7 @@
                         {{--            --}}
                         {{--                    </button>--}}
                         <div class="demo-area quotebutton">
-                            <button type="button" class="btn btn-cta" wire:click="sendquote">
+                            <button type="submitw" class="btn btn-cta" >
                                 Submit
                             </button>
                         </div>
@@ -202,7 +217,6 @@
             <img src="{{asset('assets/images/hehehe.png')}}">
         </div>
     </div>
-
 
 
 </div>

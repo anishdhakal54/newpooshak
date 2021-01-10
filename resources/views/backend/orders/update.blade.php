@@ -1,7 +1,6 @@
 @extends('backend.layouts.app')
 @section('content')
-    fsdfhnkjdsmlafd
-    <!-- Content Header (Page header) -->
+        <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>Edit Order</h1>
         <ol class="breadcrumb">

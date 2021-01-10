@@ -188,6 +188,7 @@ Route::group([
   Route::post('/delete-quotes', 'GetQuoteController@delete')->name('deleteQuote');
     Route::get('/get-requested-product', 'RequstedProductController@getRequestedProduct')->name('getRequestedProduct');
     Route::post('/delete-requestedproduct', 'RequstedProductController@delete')->name('deleteRequestedProduct');
+    Route::get('/stock', 'StockController@getStock')->name('getStock');
 });
 Route::group([
   'prefix' => 'dashboard',
@@ -307,3 +308,4 @@ Route::get('/checkout/zone/', 'CheckoutController@zonechange')->name('checkout.z
 Route::get('autocomplete', 'SearchController@autocomplete');
 Route::get('/getRequest','RequestProductController@getProductRequest')->name('getProductRequest');
 Route::post('/storeRequestProduct','RequestProductController@storeRequestProduct')->name('storeRequestProduct');
+Route::post('/storeQuotes','Backend\GetQuoteController@storequotes')->name('storequotes');

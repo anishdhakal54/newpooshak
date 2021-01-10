@@ -500,66 +500,88 @@
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <td><input type="text" name="v1" class="form-control" placeholder="s"
+                                        <td><input type="text" name="v1" class="form-control" placeholder="XS"
                                                    value="{{ isset($product->size_chart) && $product->size_chart->v1 !=''
                                ? $product->size_chart->v1  : '' }}"></td>
-                                        <td><input type="text" name="v2" class="form-control" placeholder="x"
+                                        <td><input type="text" name="v2" class="form-control" placeholder="S"
                                                    value="{{ isset($product->size_chart) && $product->size_chart->v2 !=''
-                                ? $product->size_chart->v2  : '' }}"></td>
-                                        <td><input type="text" name="v3" value="{{ isset($product->size_chart) && $product->size_chart->v3 !=''
-                     ? $product->size_chart->v3  : '' }}" class="form-control" placeholder="xl"></td>
-                                        <td><input type="text" name="v4" value="{{ isset($product->size_chart) && $product->size_chart->v4 !=''
-                     ? $product->size_chart->v4  : '' }}" class="form-control" placeholder="xll"></td>
+                               ? $product->size_chart->v2  : '' }}"></td>
+                                        <td><input type="text" name="v3" class="form-control" placeholder="M"
+                                                   value="{{ isset($product->size_chart) && $product->size_chart->v3 !=''
+                               ? $product->size_chart->v3  : '' }}"></td>
+                                        <td><input type="text" name="v4" class="form-control" placeholder="L"
+                                                   value="{{ isset($product->size_chart) && $product->size_chart->v4 !=''
+                                ? $product->size_chart->v4  : '' }}"></td>
                                         <td><input type="text" name="v5" value="{{ isset($product->size_chart) && $product->size_chart->v5 !=''
-                     ? $product->size_chart->v5  : '' }}" class="form-control" placeholder="l"></td>
+                     ? $product->size_chart->v5  : '' }}" class="form-control" placeholder="XL"></td>
+                                        <td><input type="text" name="v6" value="{{ isset($product->size_chart) && $product->size_chart->v6 !=''
+                     ? $product->size_chart->v6  : '' }}" class="form-control" placeholder="XXL"></td>
+                                        <td><input type="text" name="v7" value="{{ isset($product->size_chart) && $product->size_chart->v7 !=''
+                     ? $product->size_chart->v7  : '' }}" class="form-control" placeholder="XXXL"></td>
                                     </tr>
                                     <tr>
                                         <td><input type="text" name="y1" value="{{ isset($product->size_chart) && $product->size_chart->w1 !=''
-                               ? $product->size_chart->w1  : '' }}" class="form-control" placeholder="s"></td>
+                               ? $product->size_chart->w1  : '' }}" class="form-control" placeholder="XS"></td>
                                         <td><input type="text" name="y2" value="{{ isset($product->size_chart) && $product->size_chart->w2 !=''
-                               ? $product->size_chart->w2  : '' }}" class="form-control" placeholder="x"></td>
+                               ? $product->size_chart->w2  : '' }}" class="form-control" placeholder="S"></td>
                                         <td><input type="text" name="y3" value="{{ isset($product->size_chart) && $product->size_chart->w3 !=''
-                               ? $product->size_chart->w3  : '' }}" class="form-control" placeholder="xl"></td>
+                               ? $product->size_chart->w3  : '' }}" class="form-control" placeholder="M"></td>
                                         <td><input type="text" name="y4" value="{{ isset($product->size_chart) && $product->size_chart->w4 !=''
-                               ? $product->size_chart->w4  : '' }}" class="form-control" placeholder="xll"></td>
+                               ? $product->size_chart->w4  : '' }}" class="form-control" placeholder="L"></td>
                                         <td><input type="text" name="y5" value="{{ isset($product->size_chart) && $product->size_chart->w5 !=''
-                               ? $product->size_chart->w5  : '' }}" class="form-control" placeholder="l"></td>
+                               ? $product->size_chart->w5  : '' }}" class="form-control" placeholder="XL"></td>
+                                        <td><input type="text" name="y6" value="{{ isset($product->size_chart) && $product->size_chart->w6 !=''
+                               ? $product->size_chart->w6  : '' }}" class="form-control" placeholder="XXL"></td>
+                                        <td><input type="text" name="y7" value="{{ isset($product->size_chart) && $product->size_chart->w7 !=''
+                               ? $product->size_chart->w7  : '' }}" class="form-control" placeholder="XXXL"></td>
                                     </tr>
                                     <tr>
                                         <td><input type="text" name="x1" value="{{ isset($product->size_chart) && $product->size_chart->x1 !=''
-                               ? $product->size_chart->x1  : '' }}" class="form-control" placeholder="s"></td>
+                               ? $product->size_chart->x1  : '' }}" class="form-control" placeholder="XS"></td>
                                         <td><input type="text" name="x2" value="{{ isset($product->size_chart) && $product->size_chart->x2 !=''
-                               ? $product->size_chart->x2  : '' }}" class="form-control" placeholder="x"></td>
+                               ? $product->size_chart->x2  : '' }}" class="form-control" placeholder="S"></td>
                                         <td><input type="text" name="x3" value="{{ isset($product->size_chart) && $product->size_chart->x3 !=''
-                               ? $product->size_chart->x3  : '' }}" class="form-control" placeholder="xl"></td>
+                               ? $product->size_chart->x3  : '' }}" class="form-control" placeholder="M"></td>
                                         <td><input type="text" name="x4" value="{{ isset($product->size_chart) && $product->size_chart->x4 !=''
-                               ? $product->size_chart->x4  : '' }}" class="form-control" placeholder="xll"></td>
+                               ? $product->size_chart->x4  : '' }}" class="form-control" placeholder="L"></td>
                                         <td><input type="text" name="x5" value="{{ isset($product->size_chart) && $product->size_chart->x5 !=''
-                               ? $product->size_chart->x5  : '' }}" class="form-control" placeholder="l"></td>
+                               ? $product->size_chart->x5  : '' }}" class="form-control" placeholder="XL"></td>
+                                        <td><input type="text" name="x6" value="{{ isset($product->size_chart) && $product->size_chart->x6 !=''
+                               ? $product->size_chart->x6  : '' }}" class="form-control" placeholder="XXL"></td>
+                                        <td><input type="text" name="x7" value="{{ isset($product->size_chart) && $product->size_chart->x7 !=''
+                               ? $product->size_chart->x7  : '' }}" class="form-control" placeholder="XXXL"></td>
                                     </tr>
                                     <tr>
-                                        <td><input type="text" name="y1" value="{{ isset($product->size_chart) && $product->size_chart->y1 !=''
-                               ? $product->size_chart->y1  : '' }}" class="form-control" placeholder="s"></td>
-                                        <td><input type="text" name="y2" value="{{ isset($product->size_chart) && $product->size_chart->y2 !=''
-                               ? $product->size_chart->y2  : '' }}" class="form-control" placeholder="x"></td>
-                                        <td><input type="text" name="y3" value="{{ isset($product->size_chart) && $product->size_chart->y3 !=''
-                               ? $product->size_chart->y3  : '' }}" class="form-control" placeholder="xl"></td>
-                                        <td><input type="text" name="y4" value="{{ isset($product->size_chart) && $product->size_chart->y4 !=''
-                               ? $product->size_chart->y4  : '' }}" class="form-control" placeholder="xll"></td>
-                                        <td><input type="text" name="y5" value="{{ isset($product->size_chart) && $product->size_chart->y5 !=''
-                               ? $product->size_chart->y5  : '' }}" class="form-control" placeholder="l"></td>
+                                        <td><input type="text" name="w1" value="{{ isset($product->size_chart) && $product->size_chart->y1 !=''
+                               ? $product->size_chart->y1  : '' }}" class="form-control" placeholder="XS"></td>
+                                        <td><input type="text" name="w2" value="{{ isset($product->size_chart) && $product->size_chart->y2 !=''
+                               ? $product->size_chart->y2  : '' }}" class="form-control" placeholder="S"></td>
+                                        <td><input type="text" name="w3" value="{{ isset($product->size_chart) && $product->size_chart->y3 !=''
+                               ? $product->size_chart->y3  : '' }}" class="form-control" placeholder="M"></td>
+                                        <td><input type="text" name="w4" value="{{ isset($product->size_chart) && $product->size_chart->y4 !=''
+                               ? $product->size_chart->y4  : '' }}" class="form-control" placeholder="L"></td>
+                                        <td><input type="text" name="w5" value="{{ isset($product->size_chart) && $product->size_chart->y5 !=''
+                               ? $product->size_chart->y5  : '' }}" class="form-control" placeholder="XL"></td>
+                                        <td><input type="text" name="w6" value="{{ isset($product->size_chart) && $product->size_chart->y6 !=''
+                               ? $product->size_chart->y6  : '' }}" class="form-control" placeholder="XXL"></td>
+                                        <td><input type="text" name="w7" value="{{ isset($product->size_chart) && $product->size_chart->y7 !=''
+                               ? $product->size_chart->y7  : '' }}" class="form-control" placeholder="XXXL"></td>
                                     </tr>
                                     <tr>
                                         <td><input type="text" name="z1" value="{{ isset($product->size_chart) && $product->size_chart->z1 !=''
-                               ? $product->size_chart->z1  : '' }}" class="form-control" placeholder="s"></td>
+                               ? $product->size_chart->z1  : '' }}" class="form-control" placeholder="XS"></td>
                                         <td><input type="text" name="z2" value="{{ isset($product->size_chart) && $product->size_chart->z2 !=''
-                               ? $product->size_chart->z2  : '' }}" class="form-control" placeholder="x"></td>
+                               ? $product->size_chart->z2  : '' }}" class="form-control" placeholder="S"></td>
                                         <td><input type="text" name="z3" value="{{ isset($product->size_chart) && $product->size_chart->z3 !=''
-                               ? $product->size_chart->z3  : '' }}" class="form-control" placeholder="xl"></td>
+                               ? $product->size_chart->z3  : '' }}" class="form-control" placeholder="M"></td>
                                         <td><input type="text" name="z4" value="{{ isset($product->size_chart) && $product->size_chart->z4 !=''
-                               ? $product->size_chart->z4  : '' }}" class="form-control" placeholder="xll"></td>
-                                        <td><input type="text" name="z5" value="{{ isset($product->size_chart) && $product->size_chart->z5!=''
-                               ? $product->size_chart->z5 : '' }}" class="form-control" placeholder="l"></td>
+                               ? $product->size_chart->z4  : '' }}" class="form-control" placeholder="L"></td>
+                                        <td><input type="text" name="z5" value="{{ isset($product->size_chart) && $product->size_chart->z5 !=''
+                               ? $product->size_chart->z5  : '' }}" class="form-control" placeholder="XL"></td>
+                                        <td><input type="text" name="z6" value="{{ isset($product->size_chart) && $product->size_chart->z6 !=''
+                               ? $product->size_chart->z6  : '' }}" class="form-control" placeholder="XXL"></td>
+                                        <td><input type="text" name="z7" value="{{ isset($product->size_chart) && $product->size_chart->z7 !=''
+                               ? $product->size_chart->z7 : '' }}" class="form-control" placeholder="XXXL"></td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -574,33 +596,92 @@
                                     <tbody>
                                     <tr>
                                         <th scope="row">XS</th>
-                                        <td><input type="number" name="quantity_xs" value="{{ isset($product) ? $product->quantity_xs
+                                        <div class="col-md-6">
+                                            <td><input type="number" name="quantity_xs" value="{{ isset($product) ? $product->quantity_xs
                     : old('quantity_xs') }}" class="form-control" placeholder="XS"></td>
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <label for=""> Minimum stock to be:</label>
+                                            <td>
+                                                <input type="number" name="stock_quantity_xs" value="{{ isset($product) ? $product->stock_quantity_xs
+                    : old('stock_quantity_xs') }}" class="form-control" placeholder="Minimum stock"></td>
+                                        </div>
                                     </tr>
                                     <tr>
                                         <th scope="row">S</th>
-                                        <td><input type="number" name="quantity_s" value="{{  isset($product) ? $product->quantity_s
+                                        <div class="col-md-6">
+                                            <td><input type="number" name="quantity_s" value="{{  isset($product) ? $product->quantity_s
                     : old('quantity_s') }}" class="form-control" placeholder="S"></td>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <td><input type="number" name="stock_quantity_s" value="{{  isset($product) ? $product->stock_quantity_s
+                    : old('stock_quantity_s') }}" class="form-control" placeholder="Minimum stock"></td>
+
+                                        </div>
                                     </tr>
                                     <tr>
                                         <th scope="row">M</th>
-                                        <td><input type="number" name="quantity_m" value="{{  isset($product) ? $product->quantity_m
+                                        <div class="col-md-6">
+                                            <td><input type="number" name="quantity_m" value="{{  isset($product) ? $product->quantity_m
                     : old('quantity_m') }}" class="form-control" placeholder="M"></td>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <td><input type="number" name="stock_quantity_m" value="{{  isset($product) ? $product->stock_quantity_m
+                    : old('stock_quantity_m') }}" class="form-control" placeholder="Minimum stock"></td>
+                                        </div>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">L</th>
+                                        <div class="col-md-6">
+                                            <td><input type="number" name="quantity_l" value="{{ isset($product) ? $product->quantity_l
+                    : old('quantity_l')}}" class="form-control" placeholder="L"></td>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <td><input type="number" name="stock_quantity_l" value="{{ isset($product) ? $product->stock_quantity_l
+                    : old('stock_quantity_l')}}" class="form-control" placeholder="Minimum stock"></td>
+
+                                        </div>
+
                                     </tr>
                                     <tr>
                                         <th scope="row">XL</th>
-                                        <td><input type="number" name="quantity_xl" value="{{ isset($product) ? $product->quantity_xl
-                    : old('quantity_xl')}}" class="form-control" placeholder="Xl"></td>
+                                        <div class="col-md-6">
+                                            <td><input type="number" name="quantity_xl" value="{{ isset($product) ? $product->quantity_xl
+                    : old('quantity_xl')}}" class="form-control" placeholder="XL"></td>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <td><input type="number" name="stock_quantity_xl" value="{{ isset($product) ? $product->stock_quantity_xl
+                    : old('stock_quantity_xl" ')}}" class="form-control" placeholder="Minimum stock"></td>
+
+                                        </div>
+
                                     </tr>
                                     <tr>
                                         <th scope="row">XXL</th>
-                                        <td><input type="number" name="quantity_xxl" value="{{ isset($product) ? $product->quantity_xxl
-                    : old('quantity_xl')}}" class="form-control" placeholder="Xl"></td>
+                                        <div class="col-md-6">
+                                            <td><input type="number" name="quantity_xxl" value="{{ isset($product) ? $product->quantity_xxl
+                    : old('quantity_xxl')}}" class="form-control" placeholder="XXl"></td>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <td><input type="number" name="stock_quantity_xxl" value="{{ isset($product) ? $product->stock_quantity_xxl
+                    : old('stock_quantity_xxl')}}" class="form-control" placeholder="Minimum stock"></td>
+                                        </div>
                                     </tr>
+
                                     <tr>
                                         <th scope="row">XXXL</th>
-                                        <td><input type="number" name="quantity_xxl" value="{{ isset($product) ? $product->quantity_xxxl
-                    : old('quantity_xl')}}" class="form-control" placeholder="Xl"></td>
+                                        <div class="col-md-6">
+                                            <td><input type="number" name="quantity_xxxl" value="{{ isset($product) ? $product->quantity_xxxl
+                    : old('quantity_xxxl')}}" class="form-control" placeholder="XXXl"></td>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <td><input type="number" name="stock_quantity_xxxl" value="{{ isset($product) ? $product->stock_quantity_xxxl
+                    : old('stock_quantity_xxxl')}}" class="form-control" placeholder="Minimum stock"></td>
+                                        </div>
                                     </tr>
                                     </tbody>
                                     <tfoot>
@@ -765,9 +846,9 @@
                                 @endforeach
 
                             </div>
-                          <?php
-                          $slug = str_slug($configuration);
-                          ?>
+                            <?php
+                            $slug = str_slug($configuration);
+                            ?>
                         </div>
                     @endforeach
 

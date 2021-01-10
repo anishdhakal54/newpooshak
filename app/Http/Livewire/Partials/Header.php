@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Partials;
 use App\CartProduct;
 use App\Order;
 use Auth;
+use Illuminate\Contracts\Session\Session;
 use Livewire\Component;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -15,6 +16,7 @@ class Header extends Component
 
     public function render()
     {
+//        dd(Session('applocale'));
         $cart = "";
         if (Auth::check()) {
 

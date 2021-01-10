@@ -6,6 +6,7 @@ use App\Category;
 use App\Getquote;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class GetQuoteController extends Controller
 {
@@ -43,6 +44,32 @@ class GetQuoteController extends Controller
         $request->session()->flash('success', 'Data Deleted Successfully');
         return back();
 
+    }
+
+    public function storequotes(Request $request)
+    {
+        $request->validate([
+            'firstname' => 'required|string',
+            'lastname' => 'required|string',
+            'email' => 'required|email',
+            'address' => 'required|string',
+            'companyname' => 'required |string',
+            'category' => 'required',
+            'subcategory' => 'required'
+
+        ]);
+        $getquotes = Getquote::Create([
+            'first_name' => $request->firstname,
+            'last_name' => $request->lastname,
+            'email' => $request->email,
+            'address' => $request->address,
+            'company_name' => $request->companyname,
+            'category' => json_encode($request->category),
+            'subcategory' => json_encode($request->subcategory),
+            'user_id' => Auth::user()->id,
+        ]);
+        $request->session('success', 'Your quotes has been successfully saved. ');
+        return redirect()
     }
 
 

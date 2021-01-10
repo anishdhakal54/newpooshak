@@ -148,6 +148,10 @@
                                             <a data-turbolinks="false" href="{{ route('switch.lang','ne') }}">
                                                 भाषा परिवर्तन</a
                                             >
+                                            @elseif(Session::get('applocale')==null)
+                                                <a data-turbolinks="false" href="{{ route('switch.lang','ne') }}">
+                                                    भाषा परिवर्तन</a
+                                                >
                                         @else
                                             <a data-turbolinks="false" href="{{ route('switch.lang','en') }}">
                                                 Change Language</a>
