@@ -598,7 +598,7 @@
                                         <th scope="row">XS</th>
                                         <div class="col-md-6">
                                             <td><input type="number" name="quantity_xs" value="{{ isset($product) ? $product->quantity_xs
-                    : old('quantity_xs') }}" class="form-control" placeholder="XS"></td>
+                    : 0}}" class="form-control" placeholder="XS"></td>
                                         </div>
 
 
@@ -606,18 +606,18 @@
                                             <label for=""> Minimum stock to be:</label>
                                             <td>
                                                 <input type="number" name="stock_quantity_xs" value="{{ isset($product) ? $product->stock_quantity_xs
-                    : old('stock_quantity_xs') }}" class="form-control" placeholder="Minimum stock"></td>
+                    :0 }}" class="form-control" placeholder="Minimum stock"></td>
                                         </div>
                                     </tr>
                                     <tr>
                                         <th scope="row">S</th>
                                         <div class="col-md-6">
                                             <td><input type="number" name="quantity_s" value="{{  isset($product) ? $product->quantity_s
-                    : old('quantity_s') }}" class="form-control" placeholder="S"></td>
+                    : 0 }}" class="form-control" placeholder="S"></td>
                                         </div>
                                         <div class="col-md-6">
                                             <td><input type="number" name="stock_quantity_s" value="{{  isset($product) ? $product->stock_quantity_s
-                    : old('stock_quantity_s') }}" class="form-control" placeholder="Minimum stock"></td>
+                    : 0 }}" class="form-control" placeholder="Minimum stock"></td>
 
                                         </div>
                                     </tr>
@@ -625,11 +625,11 @@
                                         <th scope="row">M</th>
                                         <div class="col-md-6">
                                             <td><input type="number" name="quantity_m" value="{{  isset($product) ? $product->quantity_m
-                    : old('quantity_m') }}" class="form-control" placeholder="M"></td>
+                    :0 }}" class="form-control" placeholder="M"></td>
                                         </div>
                                         <div class="col-md-6">
                                             <td><input type="number" name="stock_quantity_m" value="{{  isset($product) ? $product->stock_quantity_m
-                    : old('stock_quantity_m') }}" class="form-control" placeholder="Minimum stock"></td>
+                    : 0 }}" class="form-control" placeholder="Minimum stock"></td>
                                         </div>
 
                                     </tr>
@@ -637,11 +637,11 @@
                                         <th scope="row">L</th>
                                         <div class="col-md-6">
                                             <td><input type="number" name="quantity_l" value="{{ isset($product) ? $product->quantity_l
-                    : old('quantity_l')}}" class="form-control" placeholder="L"></td>
+                    : 0}}" class="form-control" placeholder="L"></td>
                                         </div>
                                         <div class="col-md-6">
                                             <td><input type="number" name="stock_quantity_l" value="{{ isset($product) ? $product->stock_quantity_l
-                    : old('stock_quantity_l')}}" class="form-control" placeholder="Minimum stock"></td>
+                    : 0}}" class="form-control" placeholder="Minimum stock"></td>
 
                                         </div>
 
@@ -650,11 +650,11 @@
                                         <th scope="row">XL</th>
                                         <div class="col-md-6">
                                             <td><input type="number" name="quantity_xl" value="{{ isset($product) ? $product->quantity_xl
-                    : old('quantity_xl')}}" class="form-control" placeholder="XL"></td>
+                    : 0}}" class="form-control" placeholder="XL"></td>
                                         </div>
                                         <div class="col-md-6">
                                             <td><input type="number" name="stock_quantity_xl" value="{{ isset($product) ? $product->stock_quantity_xl
-                    : old('stock_quantity_xl" ')}}" class="form-control" placeholder="Minimum stock"></td>
+                    : 0}}" class="form-control" placeholder="Minimum stock"></td>
 
                                         </div>
 
@@ -663,11 +663,11 @@
                                         <th scope="row">XXL</th>
                                         <div class="col-md-6">
                                             <td><input type="number" name="quantity_xxl" value="{{ isset($product) ? $product->quantity_xxl
-                    : old('quantity_xxl')}}" class="form-control" placeholder="XXl"></td>
+                    : 0}}" class="form-control" placeholder="XXl"></td>
                                         </div>
                                         <div class="col-md-6">
                                             <td><input type="number" name="stock_quantity_xxl" value="{{ isset($product) ? $product->stock_quantity_xxl
-                    : old('stock_quantity_xxl')}}" class="form-control" placeholder="Minimum stock"></td>
+                    : 0}}" class="form-control" placeholder="Minimum stock"></td>
                                         </div>
                                     </tr>
 
@@ -675,12 +675,12 @@
                                         <th scope="row">XXXL</th>
                                         <div class="col-md-6">
                                             <td><input type="number" name="quantity_xxxl" value="{{ isset($product) ? $product->quantity_xxxl
-                    : old('quantity_xxxl')}}" class="form-control" placeholder="XXXl"></td>
+                    : 0}}" class="form-control" placeholder="XXXl"></td>
                                         </div>
 
                                         <div class="col-md-6">
                                             <td><input type="number" name="stock_quantity_xxxl" value="{{ isset($product) ? $product->stock_quantity_xxxl
-                    : old('stock_quantity_xxxl')}}" class="form-control" placeholder="Minimum stock"></td>
+                    : 0}}" class="form-control" placeholder="Minimum stock"></td>
                                         </div>
                                     </tr>
                                     </tbody>

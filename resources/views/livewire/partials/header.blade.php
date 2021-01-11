@@ -148,10 +148,10 @@
                                             <a data-turbolinks="false" href="{{ route('switch.lang','ne') }}">
                                                 भाषा परिवर्तन</a
                                             >
-                                            @elseif(Session::get('applocale')==null)
-                                                <a data-turbolinks="false" href="{{ route('switch.lang','ne') }}">
-                                                    भाषा परिवर्तन</a
-                                                >
+                                        @elseif(Session::get('applocale')==null)
+                                            <a data-turbolinks="false" href="{{ route('switch.lang','ne') }}">
+                                                भाषा परिवर्तन</a
+                                            >
                                         @else
                                             <a data-turbolinks="false" href="{{ route('switch.lang','en') }}">
                                                 Change Language</a>
@@ -175,9 +175,9 @@
                                          src="{{ url('storage') . '/' . getConfiguration('site_logo') }}"/>
                                     <img class="mini-logo" src="{{asset('assets/images/robho.png')}}" alt="">
 
-                                <div class="trades">
-                                    <p>Our Trademark</p>
-                                </div>
+                                    <div class="trades">
+                                        <p>Our Trademark</p>
+                                    </div>
                                 </a>
                             </div>
                         </div>
@@ -224,9 +224,9 @@
                                 <div class="same-style-2 same-style-2-font-inc">
                                     <div class="demo-area quotebutton">
                                         <form action="{{route('getProductRequest')}}" method="get">
-                                        <button type="submit" class="btn btn-cta" >
-                                            {{__('Request Product')}}
-                                        </button>
+                                            <button type="submit" class="btn btn-cta">
+                                                {{__('Request Product')}}
+                                            </button>
                                         </form>
                                     </div>
 
@@ -291,7 +291,8 @@
                     <div class="col-7">
                         <div class="header-action header-action-flex">
                             <div class="same-style-2 same-style-2-white same-style-2-hover-black same-style-2-font-inc">
-                                <a class="usermodalthis"><i class="icon-user"></i></a>
+                                <a class="usermodalthis" href="{{ route('my-account.index') }}"><i
+                                            class="icon-user"></i></a>
                             </div>
                             <div class="same-style-2 same-style-2-white same-style-2-hover-black same-style-2-font-inc">
                                 <a href="/wishlistl"><i class="icon-heart"></i><span
@@ -330,13 +331,13 @@
                                 <div class="cart-img">
                                     <a href="javascript:void(0);">
                                         @if($cartContent->imagename!="")
-                                        <img src="{{asset('/uploads/embroidery/'.$cartContent->imagename)}}"
-                                             alt="test-img">
-                                            @else
+                                            <img src="{{asset('/uploads/embroidery/'.$cartContent->imagename)}}"
+                                                 alt="test-img">
+                                        @else
                                             @php
 
 
-                                            @endphp
+                                                    @endphp
                                             <img src="{{$cartContent->product->getImageAttribute()->smallUrl}}"
                                                  alt="test-img">
                                         @endif
@@ -345,8 +346,6 @@
                                 <div class="cart-title">
                                     <h4><a href="#">{{ $cartContent->product->name }}</a></h4>
                                     <span> {{ cartQty($cartContent) }} × {{ $cartContent->price }} </span>
-
-
 
 
                                 </div>

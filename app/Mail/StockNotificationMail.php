@@ -7,8 +7,8 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class Order extends Mailable{
-
+class StockNotificationMail extends Mailable
+{
     use Queueable, SerializesModels;
 
     /**
@@ -16,7 +16,6 @@ class Order extends Mailable{
      *
      * @return void
      */
-    public $content;
     public function __construct($content)
     {
         $this->content = $content;
@@ -29,7 +28,7 @@ class Order extends Mailable{
      */
     public function build()
     {
-
-        return $this->markdown('emails.order-sent')->subject('Stock Management')->with('content',$this->content);
+//        dd($this->content);
+        return $this->markdown('emails.stock')->subject('Stock Management')->with('content',$this->content);
     }
 }

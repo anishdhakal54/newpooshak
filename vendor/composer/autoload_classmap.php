@@ -59,6 +59,7 @@ return array(
     'App\\Http\\Controllers\\Backend\\ReviewController' => $baseDir . '/app/Http/Controllers/Backend/ReviewController.php',
     'App\\Http\\Controllers\\Backend\\SizeController' => $baseDir . '/app/Http/Controllers/Backend/SizeController.php',
     'App\\Http\\Controllers\\Backend\\SlideshowController' => $baseDir . '/app/Http/Controllers/Backend/SlideshowController.php',
+    'App\\Http\\Controllers\\Backend\\StockController' => $baseDir . '/app/Http/Controllers/Backend/StockController.php',
     'App\\Http\\Controllers\\Backend\\TeamController' => $baseDir . '/app/Http/Controllers/Backend/TeamController.php',
     'App\\Http\\Controllers\\Backend\\TestimonialController' => $baseDir . '/app/Http/Controllers/Backend/TestimonialController.php',
     'App\\Http\\Controllers\\Backend\\UserController' => $baseDir . '/app/Http/Controllers/Backend/UserController.php',

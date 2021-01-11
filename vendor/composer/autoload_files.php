@@ -41,4 +41,5 @@ return array(
     'f18cc91337d49233e5754e93f3ed9ec3' => $vendorDir . '/laravelcollective/html/src/helpers.php',
     '0b47d6d4a00ca9112ba3953b49e7c9a4' => $vendorDir . '/yajra/laravel-datatables-oracle/src/helper.php',
     '381c1f7485be5ec909ca0fe1ede4b928' => $baseDir . '/app/Helpers/Helpers.php',
+    'e518fff8b4e519af6e89881f29b4eb97' => $baseDir . '/app/Helpers/stockHelper.php',
 );

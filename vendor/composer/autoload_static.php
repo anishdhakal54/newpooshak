@@ -42,6 +42,7 @@ class ComposerStaticInit46972693046797650976b0e587300f95
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '0b47d6d4a00ca9112ba3953b49e7c9a4' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/helper.php',
         '381c1f7485be5ec909ca0fe1ede4b928' => __DIR__ . '/../..' . '/app/Helpers/Helpers.php',
+        'e518fff8b4e519af6e89881f29b4eb97' => __DIR__ . '/../..' . '/app/Helpers/stockHelper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -692,6 +693,7 @@ class ComposerStaticInit46972693046797650976b0e587300f95
         'App\\Http\\Controllers\\Backend\\ReviewController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/ReviewController.php',
         'App\\Http\\Controllers\\Backend\\SizeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/SizeController.php',
         'App\\Http\\Controllers\\Backend\\SlideshowController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/SlideshowController.php',
+        'App\\Http\\Controllers\\Backend\\StockController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/StockController.php',
         'App\\Http\\Controllers\\Backend\\TeamController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/TeamController.php',
         'App\\Http\\Controllers\\Backend\\TestimonialController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/TestimonialController.php',
         'App\\Http\\Controllers\\Backend\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/UserController.php',

@@ -22,6 +22,7 @@ class AddColumnToProductsTable extends Migration
             $table->string('stock_quantity_xl')->after("stock_quantity_l")->default(0);
             $table->string('stock_quantity_xxl')->after("stock_quantity_xl")->default(0);
             $table->string('stock_quantity_xxxl')->after("stock_quantity_xxl")->default(0);
+
         });
     }
 
@@ -41,6 +42,7 @@ class AddColumnToProductsTable extends Migration
             $table->dropColumn('stock_quantity_xl');
             $table->dropColumn('stock_quantity_xxl');
             $table->dropColumn('stock_quantity_xxxl');
+
         });
     }
 }

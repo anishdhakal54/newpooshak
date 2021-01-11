@@ -39,7 +39,6 @@ class OrderController extends Controller
         if ($ordersCount == 0) {
 
             return view('backend.orders.index2', compact('ordersCount'));
-
         } else
 
             return view('backend.orders.index', compact('ordersCount'));
@@ -82,8 +81,6 @@ class OrderController extends Controller
         try {
 
             $this->order->create($request->all());
-
-
         } catch (Exception $e) {
 
             throw new Exception('Error in saving order: ' . $e->getMessage());
@@ -116,7 +113,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-         $order = $this->order->getById($id);
+        $order = $this->order->getById($id);
 
         $products = $this->getOrderedProducts($id);
 
@@ -147,7 +144,7 @@ class OrderController extends Controller
     public function update(Request $request, $id)
     {
 
-//   dd($request->all());
+        //   dd($request->all());
         $request->validate([
             'order_status' => 'required',
             'first_name' => 'required|max:255',
@@ -155,9 +152,9 @@ class OrderController extends Controller
             'state' => 'required',
         ]);
 
-//dd($request->all());
+        //dd($request->all());
         $status = $request->order_status;
-//        dd($status);
+        //        dd($status);
         switch ($status) {
             case '5':
                 $value = "Canceled";
@@ -169,8 +166,6 @@ class OrderController extends Controller
                 break;
             case '3':
                 $value = "Delivered";
-
-
                 break;
             case '2':
                 $value = "Approved";
@@ -178,38 +173,34 @@ class OrderController extends Controller
             case '1':
                 $value = "Pending";
                 break;
-            default :
+            default:
                 "";
-
-
         }
-//        $data2 = [
-//            'name' => $request['first_name'] . $request['last_name'],
-//            'value' => $value,
-//            'id' => $id,
-//
-//        ];
-//        $data = [
-//
-//            'id' => $id,
-//            'value' => $value
-//
-//
-//        ];
+        //        $data2 = [
+        //            'name' => $request['first_name'] . $request['last_name'],
+        //            'value' => $value,
+        //            'id' => $id,
+        //
+        //        ];
+        //        $data = [
+        //
+        //            'id' => $id,
+        //            'value' => $value
+        //
+        //
+        //        ];
 
 
         try {
 
-//
-//            Mail::to(getConfiguration('order_email'))->send(new  \App\Mail\OrderUpdated($data));
-//
-//
-//            Mail::to($request->email)->send(new \App\Mail\UserOrderUpdate($data2));
+            //
+            //            Mail::to(getConfiguration('order_email'))->send(new  \App\Mail\OrderUpdated($data));
+            //
+            //
+            //            Mail::to($request->email)->send(new \App\Mail\UserOrderUpdate($data2));
 
 
             $this->order->update($id, $request->all());
-
-
         } catch (Exception $e) {
 
             throw new Exception('Error in updating order: ' . $e->getMessage());
@@ -219,8 +210,6 @@ class OrderController extends Controller
             'success' => true,
             'message' => 'Order successfully updated!'
         ]);
-
-
     }
 
 
@@ -236,7 +225,6 @@ class OrderController extends Controller
         try {
 
             $this->order->delete($id);
-
         } catch (Exception $e) {
 
             throw new Exception('Error in deleting order: ' . $e->getMessage());
@@ -245,15 +233,15 @@ class OrderController extends Controller
         return redirect()->back()->with('success', 'Order successfully deleted!');
     }
 
-//    public function addProduct(Request $request)
-//    {
-//        $productsId = explode(',', $request->input('products'));
-//
-//        $products = Product::whereIn('products.id', $productsId)->get();
-//
-//        return view('backend.orders.products', compact('products'));
-//
-//    }
+    //    public function addProduct(Request $request)
+    //    {
+    //        $productsId = explode(',', $request->input('products'));
+    //
+    //        $products = Product::whereIn('products.id', $productsId)->get();
+    //
+    //        return view('backend.orders.products', compact('products'));
+    //
+    //    }
 
     public function updateProduct(Request $request)
     {
@@ -264,7 +252,7 @@ class OrderController extends Controller
         $discount = $request->input('discount');
 
         $price = $product->getPrice();
-        $actualPrice = (float)$price * $quantity;
+        $actualPrice = (float) $price * $quantity;
 
         if ($discount != 0) {
             $priceTotal = $actualPrice - ($actualPrice * ($discount / 100));
@@ -283,7 +271,7 @@ class OrderController extends Controller
     public function updateProductSummary(Request $request)
     {
 
-        $priceTotal = (float)0.00;
+        $priceTotal = (float) 0.00;
 
         if ($request->has('products')) {
             foreach ($request->input('products') as $product) {
@@ -292,7 +280,6 @@ class OrderController extends Controller
                 $discountAmount = $actualPrice * ($product['discount'] / 100);
                 $priceTotal += $actualPrice - $discountAmount;
             }
-
         }
 
         if ($request->has('order')) {
@@ -445,12 +432,9 @@ class OrderController extends Controller
             $priceTotal += $tax;
 
             $ordersArray[$orderKey]['price_total'] = number_format($priceTotal, 2);
-
-
         }
-//        dd($ordersArray);
+        //        dd($ordersArray);
 
         return datatables($ordersArray)->toJson();
-
     }
 }

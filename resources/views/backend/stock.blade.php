@@ -22,7 +22,7 @@
             <tbody>
             <tr>
                 @foreach ($products as $product)
-                    @if(($product->stock_quantity_xs>$product->quantity_xs ) ||( $product->stock_quantity_x>$product->quantity_x )||($product->stock_quantity_m>$product->quantity_m )||($product->stock_quantity_l>$product->quantity_l) ||($product->stock_quantity_xl>$product->quantity_xl) ||($product->stock_quantity_xxl>$product->quantity_xxl )||($product->stock_quantity_xxxl>$product->quantity_xxxl ))
+                    @if($product->notify==1)
                         <td>{{$loop->iteration}}</td>
                         <td>{{$product->name}}</td>
                         <td><img src="{{$product->getImageAttribute()->smallUrl}}"></td>

@@ -119,17 +119,17 @@ class Checkout extends Component
 
     public function orderNow()
     {
-      $validatedData = $this->validate([
-        'first_name' => 'required|max:255',
-        'last_name' => 'required|max:255',
-        'email' => 'required|max:255|email',
-        'phone' => 'required|max:255',
-        'zone' => 'required',
-        'district' => 'required',
-        'area' => 'required',
-        'address1' => 'required',
-        'pan' => 'digits:9|integer'
-      ]);
+    //   $validatedData = $this->validate([
+    //     'first_name' => 'required|max:255',
+    //     'last_name' => 'required|max:255',
+    //     'email' => 'required|max:255|email',
+    //     'phone' => 'required|max:255',
+    //     'zone' => 'required',
+    //     'district' => 'required',
+    //     'area' => 'required',
+    //     'address1' => 'required',
+    //     'pan' => 'digits:9|integer'
+    //   ]);
 //        dd($this->grandTotal);
 
 //        dd($this->quantity_l);
@@ -290,10 +290,11 @@ class Checkout extends Component
 
 
         if ($cartContents->count() > 0) {
-//            dd($cartContents);
+        //    dd($cartContents);
 
 
             foreach ($cartContents as $cartContent) {
+    // dd($cartContent);
                 $product = Product::find($cartContent->product_id);
 
                 $product->quantity_xs = $product->quantity_xs - $cartContent->xs;
@@ -304,6 +305,8 @@ class Checkout extends Component
                 $product->quantity_xxl = $product->quantity_xxl - $cartContent->xxl;
                 $product->quantity_xxxl = $product->quantity_xxxl - $cartContent->xxxl;
                 $product->save();
+
+                notifyStock($cartContent->product_id);
 
                 $order->products()->attach($cartContent->product_id,
                     [

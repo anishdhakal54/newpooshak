@@ -22,9 +22,8 @@ class AlterProductsTable extends Migration
             $table->string('quantity_xl')->after("view_chart")->default(0);
             $table->string('quantity_xxl')->after("view_chart")->default(0);
             $table->string('quantity_xxxl')->after("view_chart")->default(0);
-
             $table->string('v1')->after("quantity_xxxl")->default(0);
-
+            $table->boolean('notify')->after("v1")->default(0);
 
         });
     }
@@ -43,6 +42,8 @@ class AlterProductsTable extends Migration
             $table->dropColumn('quantity_xl');
             $table->dropColumn('quantity_xxl');
             $table->dropColumn('quantity_xxxl');
+            $table->dropColumn('notify');
+
         });
     }
 }

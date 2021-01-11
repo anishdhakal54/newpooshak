@@ -41,6 +41,9 @@ class EloquentProduct implements ProductRepository
         $attributes['size'] = json_encode($attributes['size']);
 
         $product = $this->model->create($attributes);
+        //Notification
+        notifyStock($product->id);
+
         // size
         SizeChart::create([
             'product_id' => $product->id,
@@ -177,6 +180,8 @@ class EloquentProduct implements ProductRepository
     {
 //        dd($attributes);
         $product = $this->model->findOrFail($id);
+
+//        dd($product->quantity_xxxl);
         // sizes
         $attributes['size'] = isset($attributes['size']) ? json_encode($attributes['size']) : '';
         $attributes['is_trending'] = !isset($attributes['is_trending']) ? 0 : 1;
@@ -186,6 +191,10 @@ class EloquentProduct implements ProductRepository
         $attributes['show_available_size'] = !isset($attributes['show_available_size']) ? 0 : 1;
 
         $product->update($attributes);
+        //Notification
+        notifyStock($product->id);
+
+
 
         // Product price
         $product->prices()->update([
