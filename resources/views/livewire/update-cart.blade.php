@@ -47,7 +47,7 @@
                                         </td>
 
                                         @livewire('update-cart-quantity',['cartContent' =>
-                                        $cartContent],key($loop->index))
+                                        $cartContent,'discount'=>$discount],key($loop->index))
 
 
                                     </tr>
@@ -74,18 +74,14 @@
                                   $discount = $subTotal * $discount_item / 100;
                                 }
 
-                                $tax = 0;
-                                if (getConfiguration('enable_tax')) {
-                                    $tax = ($subTotal * getConfiguration('tax_percentage')) / 100;
-                                }
-                                $grandTotal = $subTotal + $tax - $discount;
+
 
                             @endphp
                             <ul>
                                 <li>Subtotal ({{$usercart->count()}} items) <span
                                             class="subprice">{{trans('app.money_symbol')}} {{ $subTotal }}</span></li>
                                 <li>Tax <span
-                                            class="subprice">{{trans('app.money_symbol')}} {{ number_format($tax, 2) }}</span>
+                                            class="subprice">{{trans('app.money_symbol')}} {{ taxCalculation($usercart) }}</span>
                                 </li>
 
                                 <li>
@@ -93,14 +89,19 @@
                                         Discount @endif
                                     <span
                                             class="subprice">{{trans('app.money_symbol')}} {{ $discount }}</span></li>
+                                @php
+                                    $grandTotal=$subTotal+taxCalculation($usercart)-$discount;
 
+
+                                @endphp
                                 <li>Total <span
                                             class="totprice">{{trans('app.money_symbol')}} {{ number_format($grandTotal, 2) }}</span>
                                 </li>
                             </ul>
-                            <form action="{{route('checkout')}}" method="get">
+
+                            <a href="" wire:click="checkout">
                                 <button type="submit" class="site-btn">PROCEED TO CHECKOUT</button>
-                            </form>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -20,6 +20,7 @@ class ProductDetail extends Component
   protected $listeners = ['imagechange' => 'imagechange'];
 
 
+
   public $product;
   public $subtotal = 0;
   public $discount = 0;
@@ -390,6 +391,7 @@ class ProductDetail extends Component
 
   public function loginfromProductDetail()
   {
+//      dd('here');
     $this->validate([
       'login_email' => 'required|max:255|email',
       'password' => 'required|max:255',
@@ -404,7 +406,9 @@ class ProductDetail extends Component
     } else {
       $this->count = 5;
       $this->emit('login_success');
-      return redirect()->to('product/' . $this->product->slug);
+        $this->emit('rerenderHeader');
+        $this->dispatchBrowserEvent('closeModal');
+
     }
 
 

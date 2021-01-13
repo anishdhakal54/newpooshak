@@ -60,6 +60,10 @@
     });
   });
 
+  window.addEventListener('closeModal', event => {
+    $("#demoModal36699").modal('hide');
+  })
+
 
 </script>
 

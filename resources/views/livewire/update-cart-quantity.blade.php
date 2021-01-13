@@ -43,6 +43,7 @@
                 <div class="first_seventh">
                     <h4>Quantity</h4>
                     <input type="number" id="quantity" wire:model="quantity" min="0" value="0">
+
                 </div>
 
             </div>
@@ -50,7 +51,7 @@
         <div class="size_flex">
             <button type="button" class="updatebtn btn btn-success" wire:click="updatecart"
                     wire:loading.class="disabled">
-                <span><i wire:loading wire:target="updatecart" class="fa fa-spinner fa-spin"></i> Update Cart</span>
+                <span><i wire:loading wire:target="updatecart()" class="fa fa-spinner fa-spin"></i> Update Cart</span>
 
             </button>
             <a href="javascript:void(0);"

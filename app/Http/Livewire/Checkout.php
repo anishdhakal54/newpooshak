@@ -34,6 +34,7 @@ class Checkout extends Component
     public $subTotal_;
     public $discount = 0;
     public $has_bulk_discount;
+    public  $discountPrice;
 
     public function updated($field)
     {
@@ -117,19 +118,21 @@ class Checkout extends Component
         return view('livewire.checkout');
     }
 
-    public function orderNow()
+    public function orderNow($discountPrice)
     {
-    //   $validatedData = $this->validate([
-    //     'first_name' => 'required|max:255',
-    //     'last_name' => 'required|max:255',
-    //     'email' => 'required|max:255|email',
-    //     'phone' => 'required|max:255',
-    //     'zone' => 'required',
-    //     'district' => 'required',
-    //     'area' => 'required',
-    //     'address1' => 'required',
-    //     'pan' => 'digits:9|integer'
-    //   ]);
+        $this->discountPrice=$discountPrice;
+//        dd($this->discountPrice);
+              //   $validatedData = $this->validate([
+        //     'first_name' => 'required|max:255',
+        //     'last_name' => 'required|max:255',
+        //     'email' => 'required|max:255|email',
+        //     'phone' => 'required|max:255',
+        //     'zone' => 'required',
+        //     'district' => 'required',
+        //     'area' => 'required',
+        //     'address1' => 'required',
+        //     'pan' => 'digits:9|integer'
+        //   ]);
 //        dd($this->grandTotal);
 
 //        dd($this->quantity_l);
@@ -283,6 +286,8 @@ class Checkout extends Component
             'order_note' => $this->order_note,
             'order_date' => Carbon::now()->toDateTimeString(),
             'rewards' => $this->rewards,
+            'discount'=>$this->discountPrice,
+
         ]);
 
         // Attach products
@@ -290,16 +295,16 @@ class Checkout extends Component
 
 
         if ($cartContents->count() > 0) {
-        //    dd($cartContents);
+            //    dd($cartContents);
 
 
             foreach ($cartContents as $cartContent) {
-    // dd($cartContent);
+                // dd($cartContent);
                 $product = Product::find($cartContent->product_id);
 
                 $product->quantity_xs = $product->quantity_xs - $cartContent->xs;
                 $product->quantity_s = $product->quantity_s - $cartContent->s;
-                $product->quantity_m     = $product->quantity_m - $cartContent->m;
+                $product->quantity_m = $product->quantity_m - $cartContent->m;
                 $product->quantity_l = $product->quantity_l - $cartContent->l;
                 $product->quantity_xl = $product->quantity_xl - $cartContent->xl;
                 $product->quantity_xxl = $product->quantity_xxl - $cartContent->xxl;

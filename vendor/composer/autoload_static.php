@@ -815,6 +815,7 @@ class ComposerStaticInit46972693046797650976b0e587300f95
         'App\\Mail\\OrderUpdated' => __DIR__ . '/../..' . '/app/Mail/OrderUpdated.php',
         'App\\Mail\\QuickMail' => __DIR__ . '/../..' . '/app/Mail/QuickMail.php',
         'App\\Mail\\Request' => __DIR__ . '/../..' . '/app/Mail/Request.php',
+        'App\\Mail\\StockNotificationMail' => __DIR__ . '/../..' . '/app/Mail/StockNotificationMail.php',
         'App\\Mail\\User' => __DIR__ . '/../..' . '/app/Mail/User.php',
         'App\\Mail\\UserMessage' => __DIR__ . '/../..' . '/app/Mail/UserMessage.php',
         'App\\Mail\\UserOrderUpdate' => __DIR__ . '/../..' . '/app/Mail/UserOrderUpdate.php',

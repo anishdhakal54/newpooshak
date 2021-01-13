@@ -25,7 +25,8 @@ class CartProduct extends Model
         'interest_logo',
         'product_id',
         'user_id',
-        'color'
+        'color',
+        'discount'
     ];
 
     public function user()

@@ -155,7 +155,8 @@
             <div class="col-xs-12 col-md-12">
                 <div class="form-group wide{{ $errors->has('order_note') ? ' has-error' : '' }}">
                     <label for="order_note">Order Note</label>
-                    <textarea name="order_note" id="order_note" class="form-control" rows="5">{{ old('order_note') }}</textarea>
+                    <textarea name="order_note" id="order_note" class="form-control"
+                              rows="5">{{ old('order_note') }}</textarea>
 
                     @if ($errors->has('order_note'))
                         <span class="help-block">
@@ -172,29 +173,29 @@
     <div class="form-col">
         <h3>Review Your Order</h3>
         <table class="table table-striped mb-none">
-        <table class="table table-striped mb-none">
-            <thead>
-            <tr>
-                <th>Product Name</th>
-                <th class="text-center">Price</th>
-
-                <th class="text-center">Qty</th>
-                <th class="text-right">Subtotal</th>
-            </tr>
-            </thead>
-
-            <tbody>
-            @foreach(Cart::instance('default')->content() as $cartContent)
+            <table class="table table-striped mb-none">
+                <thead>
                 <tr>
-                    <td>{{ $cartContent->name }}</td>
- <td>{{$cartContent->price}} </td>
-                    <td class="text-center">{{ $cartContent->qty }}</td>
-                    <td class="text-right">RS {{ $cartContent->total }}</td>
-                </tr>
-            @endforeach
-            </tbody>
+                    <th>Product Name</th>
+                    <th class="text-center">Price</th>
 
-            <tfoot>
+                    <th class="text-center">Qty</th>
+                    <th class="text-right">Subtotal</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                @foreach(Cart::instance('default')->content() as $cartContent)
+                    <tr>
+                        <td>{{ $cartContent->name }}</td>
+                        <td>{{$cartContent->price}} </td>
+                        <td class="text-center">{{ $cartContent->qty }}</td>
+                        <td class="text-right">RS {{ $cartContent->total }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+
+                <tfoot>
                 @php
                     $subTotal = str_replace(',', '', Cart::instance('default')->subtotal());
                     $tax = 0;
@@ -214,14 +215,15 @@
                     <td class="text-right" colspan="2">Tax</td>
                     <td class="text-right">{{trans('app.money_symbol')}}  {{ number_format($tax, 2) }}</td>
                 </tr>
-                <h5 class="mt-sm">Grand Total <span>{{trans('app.money_symbol')}}  {{ number_format($grandTotal, 2) }}</span></h5>
-            </tfoot>
-        </table>
+                <h5 class="mt-sm">Grand Total
+                    <span>{{trans('app.money_symbol')}}  {{ number_format($grandTotal, 2) }}</span></h5>
+                </tfoot>
+            </table>
 
-        <div class="checkout-review-action no-borders pull-right">
-            <h5 class="mt-sm">Grand Total <span>RS {{ number_format($grandTotal, 2) }}</span></h5>
-            <button type="submit" class="btn btn-primary pull-right">Order Now</button>
-        </div>
+            <div class="checkout-review-action no-borders pull-right">
+                <h5 class="mt-sm">Grand Total <span>RS {{ number_format($grandTotal, 2) }}</span></h5>
+                <button type="submit" class="btn btn-primary pull-right">Order Now</button>
+            </div>
 
     </div>
 

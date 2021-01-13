@@ -215,33 +215,41 @@
                         @foreach($usercart as $cartContent)
 
                             @php
-                                $subTotal_ =getSubtotal($cartContent);
-                                $subTotal += getSubtotal($cartContent);
-                                $discount_ = getDiscount(cartQty($cartContent));
-                                $discount += $subTotal_ * $discount_ / 100;
-                                if(cartQty($cartContent)>4){
-                                  $has_bulk_discount = true;
-                                }
+                                $subTotal_ =$cartContent->price;
+                           $subTotal +=  $cartContent->price;
+
+                           if(cartQty($cartContent)>4){
+                           $has_bulk_discount = true;
+                           }
                             @endphp
                         @endforeach
                         @php
+
+
                             if(!$has_bulk_discount){
                               $discount_item = getMitemDiscount($usercart);
                               $discount = $subTotal * $discount_item / 100;
                             }
 
-                            $tax = 0;
-                            if (getConfiguration('enable_tax')) {
-                                $tax = ($subTotal * getConfiguration('tax_percentage')) / 100;
-                            }
-                            $grandTotal = $subTotal + $tax - $discount;
+
+
+
+
+
+
+                       $grandTotal = $subTotal + taxCalculation($usercart) - $discount;
 
                         @endphp
                         <div class="ordersummarysubtotal">
                             <p>Subtotal ( {{$usercart->count()}} Item(s))</p>
                             <p>{{trans('app.money_symbol')}}  {{ $subTotal }}</p>
                         </div>
-
+                        <div class="ordersummaryship">
+                            <p>
+                                Tax :
+                            </p>
+                            <p>{{taxCalculation($usercart)}}</p>
+                        </div>
                         <div class="ordersummaryship">
                             <p>
                                 @if(!$has_bulk_discount) Unique Discount ({{getUniqueDiscount()}}%) @else
@@ -260,7 +268,8 @@
                             <p>Total</p>
                             <div class="totalwithvat">
                                 <p>{{trans('app.money_symbol')}}  {{ number_format($grandTotal, 2) }}</p>
-                                <input type="hidden" wire:model="grandTotal"  value="{{ number_format($grandTotal, 2) }}">
+                                <input type="hidden" wire:model="grandTotal"
+                                       value="{{ number_format($grandTotal, 2) }}">
                             </div>
                         </div>
 
@@ -273,7 +282,7 @@
                         {{--                                    wire:loading wire:target="orderNow" class="fas fa-spinner fa-spin"></i>--}}
                         {{--                            Place Order</a>--}}
 
-                        <button type="submit" wire:click="orderNow" wire:loading.class="disabled"
+                        <button type="submit" wire:click="orderNow({{$discount}})" wire:loading.class="disabled"
                                 href="javascript:void(0);"><i
                                     wire:loading wire:target="orderNow" class="fas fa-spinner fa-spin"></i>
                             Place My Order

@@ -181,6 +181,7 @@ return array(
     'App\\Mail\\OrderUpdated' => $baseDir . '/app/Mail/OrderUpdated.php',
     'App\\Mail\\QuickMail' => $baseDir . '/app/Mail/QuickMail.php',
     'App\\Mail\\Request' => $baseDir . '/app/Mail/Request.php',
+    'App\\Mail\\StockNotificationMail' => $baseDir . '/app/Mail/StockNotificationMail.php',
     'App\\Mail\\User' => $baseDir . '/app/Mail/User.php',
     'App\\Mail\\UserMessage' => $baseDir . '/app/Mail/UserMessage.php',
     'App\\Mail\\UserOrderUpdate' => $baseDir . '/app/Mail/UserOrderUpdate.php',
