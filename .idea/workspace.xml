@@ -1,34 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dc1963d-690f-4179-8e7d-39a870d9652a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/CartProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CartProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Partials/ProductDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Partials/ProductDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/UpdateCartQuantity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/UpdateCartQuantity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/product-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/product-detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/update-cart-quantity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/update-cart-quantity.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/update-cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/update-cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+    <list default="true" id="0e66faeb-b75d-48d0-a7b6-51de8254f37e" name="Default Changelist" comment="fixup! asdf">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,20 +11,23 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable path="composer" />
-    </execution>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="rk" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/package.json" />
+    <option name="RESET_MODE" value="KEEP" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -182,7 +159,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1mVCxUbopjSfeaWCXQqcrKosGu5" />
+  <component name="ProjectId" id="1mpfOyTbNeFeARbmCxRXTz1bfeW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -191,41 +168,17 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public/assets/images" />
-=======
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/backend/orders" />
->>>>>>> 8f8e0e391a47e64fa361e494ea878c4521bb8be6
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-<<<<<<< HEAD
       <recent name="$PROJECT_DIR$/public/assets/images" />
-      <recent name="$PROJECT_DIR$/public/assets/css" />
-      <recent name="$PROJECT_DIR$/resources/views/backend" />
-      <recent name="$PROJECT_DIR$/database/migrations" />
-      <recent name="$PROJECT_DIR$/app" />
-=======
-      <recent name="C:\laragon\www\pooshak-master\resources\views\backend\orders" />
-      <recent name="C:\laragon\www\pooshak-master\public\assets\images" />
-      <recent name="$PROJECT_DIR$/public/assets/images" />
-      <recent name="$PROJECT_DIR$/public/assets/css" />
-      <recent name="$PROJECT_DIR$/resources/views/backend" />
->>>>>>> 8f8e0e391a47e64fa361e494ea878c4521bb8be6
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\pooshak-master\public\assets\images" />
-      <recent name="C:\xampp\htdocs\pooshak-master\public\assets" />
-      <recent name="C:\xampp\htdocs\pooshak-master\resources\views\pages\templates" />
-      <recent name="$PROJECT_DIR$/public/assets/js" />
     </key>
   </component>
   <component name="RunManager">
@@ -234,55 +187,33 @@
       <method v="2" />
     </configuration>
   </component>
-<<<<<<< HEAD
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-=======
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
->>>>>>> 8f8e0e391a47e64fa361e494ea878c4521bb8be6
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9dc1963d-690f-4179-8e7d-39a870d9652a" name="Default Changelist" comment="" />
-      <created>1609569617791</created>
+      <changelist id="0e66faeb-b75d-48d0-a7b6-51de8254f37e" name="Default Changelist" comment="" />
+      <created>1610195424896</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1609569617791</updated>
-      <workItem from="1609569618908" duration="727000" />
-      <workItem from="1609570713387" duration="69000" />
-      <workItem from="1609570815581" duration="3677000" />
-      <workItem from="1609581893330" duration="9751000" />
-      <workItem from="1609647532915" duration="2754000" />
-      <workItem from="1609660397766" duration="162000" />
-      <workItem from="1609662775748" duration="8279000" />
-      <workItem from="1609768319158" duration="26463000" />
-      <workItem from="1609842423318" duration="2421000" />
-      <workItem from="1609903804677" duration="947000" />
-      <workItem from="1609905303006" duration="4784000" />
-      <workItem from="1609911090690" duration="17441000" />
-      <workItem from="1609994935468" duration="2492000" />
-<<<<<<< HEAD
-      <workItem from="1610031074108" duration="575000" />
-      <workItem from="1610039555306" duration="72000" />
-      <workItem from="1610039664423" duration="166000" />
-      <workItem from="1610082734579" duration="19000" />
-      <workItem from="1610171898612" duration="5531000" />
-=======
-      <workItem from="1610086584488" duration="6438000" />
-      <workItem from="1610095647680" duration="46000" />
-      <workItem from="1610095758096" duration="47000" />
-      <workItem from="1610095806634" duration="2228000" />
->>>>>>> 8f8e0e391a47e64fa361e494ea878c4521bb8be6
+      <updated>1610195424896</updated>
+      <workItem from="1610195427319" duration="479000" />
+      <workItem from="1610221497786" duration="395000" />
+      <workItem from="1610252336139" duration="1027000" />
+      <workItem from="1610261660854" duration="8505000" />
+      <workItem from="1610333612991" duration="15000" />
+      <workItem from="1610351658187" duration="2996000" />
+      <workItem from="1610363983871" duration="731000" />
+      <workItem from="1610374690399" duration="307000" />
+      <workItem from="1610426475823" duration="2558000" />
+      <workItem from="1610442379238" duration="111000" />
+      <workItem from="1610448320745" duration="1449000" />
+      <workItem from="1610477466344" duration="1404000" />
+      <workItem from="1610502133065" duration="30000" />
+      <workItem from="1610508819719" duration="2526000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-<<<<<<< HEAD
     <option name="version" value="3" />
-=======
-    <option name="version" value="2" />
->>>>>>> 8f8e0e391a47e64fa361e494ea878c4521bb8be6
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -295,46 +226,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-<<<<<<< HEAD
-=======
-  <component name="WindowStateProjectService">
-    <state x="0" y="0" key="#Live_Templates" timestamp="1609740177279">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="0" y="0" key="#Live_Templates/0.0.1366.738@0.0.1366.738" timestamp="1609740177279" />
-    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609905731950">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1609905731950" />
-    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1610095799117">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1610095799117" />
-    <state x="92" y="92" width="1182" height="554" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1610096306594">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="92" y="92" width="1182" height="554" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1610096306594" />
-    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1610096306594">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1610096306594" />
-    <state x="484" y="157" key="git4idea.merge.GitMergeDialog" timestamp="1609824461148">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="484" y="157" key="git4idea.merge.GitMergeDialog/0.0.1366.738@0.0.1366.738" timestamp="1609824461148" />
-    <state x="339" y="165" key="run.anything.popup" timestamp="1609825188037">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1609825188037" />
-    <state x="339" y="22" width="672" height="676" key="search.everywhere.popup" timestamp="1610087786335">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="339" y="22" width="672" height="676" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1610087786335" />
-  </component>
->>>>>>> 8f8e0e391a47e64fa361e494ea878c4521bb8be6
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
