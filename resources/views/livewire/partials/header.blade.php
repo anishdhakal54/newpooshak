@@ -295,7 +295,7 @@
                                             class="icon-user"></i></a>
                             </div>
                             <div class="same-style-2 same-style-2-white same-style-2-hover-black same-style-2-font-inc">
-                                <a href="/wishlistl"><i class="icon-heart"></i><span
+                                <a href="/wishlist"><i class="icon-heart"></i><span
                                             class="pro-count black">   {{\App\Wishlist::where(['user_id' => auth()->id()])->count()}}</span></a>
                             </div>
                             <div

@@ -40,7 +40,7 @@
                                                     <p>{{$cartContent->color}}</p>
                                                 @endif
                                                 @if($cartContent->qty>4)
-                                                    {{getDiscount($cartContent->qty)}} % discount
+                                                    {{getDiscount($cartContent->qty)}} % discount (Included)
                                                 @endif
 
                                             </div>

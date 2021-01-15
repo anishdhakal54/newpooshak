@@ -59,7 +59,6 @@
                         <th>Product</th>
                         <th>Qty</th>
                         <th>Price</th>
-                        <th>Discount Amount</th>
                         <th>Subtotal</th>
                     </tr>
                     </thead>
@@ -106,7 +105,6 @@
 
                             </td>
                             <td>RS {{ number_format($product->getPrice(), 2) }}</td>
-                            <td>RS {{ number_format(($actualPrice * $discount / 100), 2) }}</td>
                             <td>RS {{ number_format($productSubTotal, 2) }}</td>
                         </tr>
                     @endforeach
@@ -117,7 +115,7 @@
                             $tax = ($productSubTotal_ * $order->tax_percentage) / 100;
                         }
 
-                        $grandTotal = $productSubTotal_ + $tax+$frameTotal+$color_price_ - $discount_;
+                        $grandTotal = $productSubTotal_ + $order->tax_amount+$frameTotal+$color_price_ - $order->discount;
                     @endphp
                     </tbody>
                 </table>
@@ -149,7 +147,11 @@
                         </tr>
                         <tr>
                             <th>Tax:</th>
-                            <td>RS {{ number_format($tax, 2) }}</td>
+                            <td>RS {{ number_format($order->tax_amount, 2) }}</td>
+                        </tr>
+                        <tr>
+                            <th>Discount:</th>
+                        <td>RS {{ $order->discount }}</td>
                         </tr>
                         <tr>
                             <th>Total:</th>

@@ -35,7 +35,7 @@ class ProductDetail extends Component
 
   public $color_no = 0;
 
-  public $quantity_xs = 0, $quantity_s = 0, $quantity_m = 0, $quantity_xl = 0, $quantity_2xl = 0, $quantity_3xl = 0;
+  public $quantity_xs = 0, $quantity_s = 0, $quantity_m = 0,$quantity_l, $quantity_xl = 0, $quantity_2xl = 0, $quantity_3xl = 0;
   public $total_item = 0;
   public $total_quantity = 0;
   public $imagename = "";
@@ -167,10 +167,10 @@ class ProductDetail extends Component
     return view('livewire.partials.product-detail');
   }
 
-  public function test()
-  {
-    dd($this->has_frame);
-  }
+//  public function test()
+//  {
+//    dd($this->has_frame);
+//  }
 
   public function addtocart()
   {
@@ -207,6 +207,7 @@ class ProductDetail extends Component
         'xs' => $this->quantity_xs,
         's' => $this->quantity_s,
         'm' => $this->quantity_m,
+        'l'=>$this->quantity_l,
         'xl' => $this->quantity_xl,
         'xxl' => $this->quantity_2xl,
         'xxxl' => $this->quantity_3xl,
@@ -358,6 +359,7 @@ class ProductDetail extends Component
         'quantity_xs' => $this->quantity_xs,
         'quantity_s' => $this->quantity_s,
         'quantity_m' => $this->quantity_m,
+        'quantity_l' => $this->quantity_l,
         'quantity_xl' => $this->quantity_xl,
         'quantity_2xl' => $this->quantity_2xl,
         'quantity_3xl' => $this->quantity_3xl,

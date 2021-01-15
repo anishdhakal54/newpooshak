@@ -4,6 +4,8 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">Order Details</h3>
+            @include('backend.partials.message-success')
+            @include('backend.partials.message-error')
             @if(isset($products))
                 <a href="{{ route('dashboard.order.invoice', $order->id) }}" class="btn btn-default pull-right" title="Generate a pdf invoice" target="_blank">
                     <i class="fa fa-print"></i> Print Invoice

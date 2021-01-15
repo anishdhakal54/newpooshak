@@ -12,6 +12,7 @@ class CartProduct extends Model
         'xs',
         's',
         'm',
+        'l',
         'xl',
         'xxl',
         'xxxl',

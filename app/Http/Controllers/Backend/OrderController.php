@@ -206,10 +206,8 @@ class OrderController extends Controller
             throw new Exception('Error in updating order: ' . $e->getMessage());
         }
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Order successfully updated!'
-        ]);
+        return redirect()->back()->with('success', 'Order successfully updated!');
+
     }
 
 

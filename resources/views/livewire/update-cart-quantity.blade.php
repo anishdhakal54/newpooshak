@@ -22,6 +22,10 @@
                     <h6>M</h6>
                     <input type="number" id="quantity_m" wire:model="quantity_m" min="0" value="0">
                 </div>
+                <div class="first_seventh">
+                    <h6>L</h6>
+                    <input type="number" id="quantity_l" wire:model="quantity_l" min="0" value="0">
+                </div>
             </div>
             <div class="size_flex">
                 <div class="first_seventh">

@@ -1856,7 +1856,7 @@ textarea:focus {
 }
 
 .bg-gray-6 {
-    background-color: #113b6d;
+    background-color: #0000FF;
 }
 
 .bg-gray-7 {
@@ -3784,7 +3784,7 @@ a:hover {
 
 .header-bottom {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: #113b6d;
+    background-color: #40E0D0;
 }
 
 @media (min-width: 1180px) {
@@ -23616,7 +23616,7 @@ body {
 }
 
 .quotebutton button {
-    background-color: red;
+    background-color: #228B22;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 5px;
     transition: 200ms ease-out;
@@ -23824,7 +23824,7 @@ body {
 .subnowbtn {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 5px;
-    background-color: #113b6d;
+    background-color: #228B22;
 }
 
 .subsform {
