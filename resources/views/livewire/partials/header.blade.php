@@ -5,16 +5,21 @@
             <div class="header-top bg-gray-6 mathiko-padding">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-xl-6 col-lg-6">
+                        <div class="col-xl-4 col-lg-4">
                             <div class="header-offer-wrap-2 mrg-none mt-1">
                                 <p>{{getConfiguration('ribbon_text')}}
                                 </p>
 
                             </div>
                         </div>
-                        <div class="col-xl-6 col-lg-6">
+                        <div class="col-xl-8 col-lg-8">
                             <div class="header-top-right">
                                 <div class="header-action header-action-flex pr-20">
+                                    <div class="same-style-2 text-pad top-right-whistlist same-style-2-white same-style-2-font-dec">
+                                        <a href="{{route('getProductRequest')}}">{{__('Request Product')}}</a>
+                                    </div>
+
+
                                     <div class="same-style-2 text-pad top-right-whistlist same-style-2-white same-style-2-font-dec">
                                         <a href="/wishlist"><i class="icon-heart"></i><span class="pro-count red">
                             {{\App\Wishlist::where( ['user_id' => auth()->id()])->count()}}
@@ -221,17 +226,7 @@
 
 
                                 </div>
-                                <div class="same-style-2 same-style-2-font-inc">
-                                    <div class="demo-area quotebutton">
-                                        <form action="{{route('getProductRequest')}}" method="get">
-                                            <button type="submit" class="btn btn-cta">
-                                                {{__('Request Product')}}
-                                            </button>
-                                        </form>
-                                    </div>
 
-
-                                </div>
 
                                 <div class="same-style-2 same-style-2-font-inc header-cart">
                                     <a class="cart-active" href="#">

@@ -118,7 +118,6 @@ h1, h2, h3, h4, h5, h6 {
 .footsoc i {
     margin-right: 10px;
     font-size: 16px;
-    background-color: red;
     border-radius: 50%;
     padding: 10px;
     width: 34px;
@@ -138,4 +137,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 .trades p {
     color: rgb(60 89 201);
+}
+.banner img {
+    height: auto;
+}
+.main-menu.main-menu-padding-3 > nav > ul > li {
+    padding-right: 20px;
+}
+.breadcrumb{
+    margin-top:10px;
+}
+.single-post article{
+    margin-bottom:24px;
 }
