@@ -11,7 +11,7 @@
             @else
                 @if(isset($product->size) && $product->size !="")
                     @foreach(json_decode($product->size) as $id)
-                <?php $size = getSize($id)?>
+                        <?php $size = getSize($id)?>
                         <h2 data-size="{{$size->id}}">{{$size->title}}</h2>
                     @endforeach
                 @endif
@@ -20,47 +20,83 @@
         </div>
     </div>
 
-    @if($product->disable_size)
-        <div class="seventh">
-            <div class="size_flex">
-                <div class="first_seventh">
-                    <h2>Write quantity</h2>
-                    <input type="number" name="quantity" wire:model="quantity" value="0">
+        @if($product->disable_size)
+            <div class="seventh">
+                <div class="size_flex">
+                    <div class="first_seventh">
+                        <h2>Write quantity</h2>
+                        <input type="number" name="quantity" wire:model="quantity" value="0">
+                    </div>
                 </div>
             </div>
-        </div>
-    @else
+        @else
+{{--    @if(json_decode($product->size)==null)--}}
+{{--        <div class="seventh">--}}
+{{--            <div class="size_flex">--}}
+{{--                <div class="first_seventh">--}}
+{{--                    <h2>Write quantity</h2>--}}
+{{--                    <input type="number" name="quantity" wire:model="quantity" value="0">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    @else--}}
         <div class="seventh">
             <h2>Select Sizes: </h2>
             <div class="size_flex">
-                <div class="first_seventh">
-                    <h2>XS</h2>
-                    <input type="number" id="quantity_xs" wire:model="quantity_xs" min="0" value="0">
-                </div>
-                <div class="first_seventh">
-                    <h2>S</h2>
-                    <input type="number" id="quantity_s" wire:model="quantity_s" min="0" value="0">
-                </div>
-                <div class="first_seventh">
-                    <h2>M</h2>
-                    <input type="number" id="quantity_m" wire:model="quantity_m" min="0" value="0">
-                </div>
-                <div class="first_seventh">
-                    <h2>XL</h2>
-                    <input type="number" id="quantity_xl" wire:model="quantity_xl" min="0" value="0">
-                </div>
-                <div class="first_seventh">
-                    <h2>2XL</h2>
-                    <input type="number" id="quantity_2xl" wire:model="quantity_2xl" min="0" value="0">
-                </div>
-                <div class="first_seventh">
-                    <h2>3XL</h2>
-                    <input type="number" id="quantity_3xl" wire:model="quantity_3xl" min="0" value="0">
-                </div>
+                @foreach(json_decode($product->size) as $id)
+                    @if($id==1)
+                        <div class="first_seventh">
+                            <h2>XS</h2>
+                            <input type="number" id="quantity_xs" wire:model="quantity_xs" min="0" value="0">
+                        </div>
+                    @endif
+                    @if($id==2)
+                        <div class="first_seventh">
+                            <h2>S</h2>
+                            <input type="number" id="quantity_s" wire:model="quantity_s" min="0" value="0">
+                        </div>
+                    @endif
+                    @if($id==3)
+                        <div class="first_seventh">
+                            <h2>M</h2>
+                            <input type="number" id="quantity_m" wire:model="quantity_m" min="0" value="0">
+                        </div>
+                    @endif
+                    @if($id==4)
+                        <div class="first_seventh">
+                            <h2>L</h2>
+                            <input type="number" id="quantity_l" wire:model="quantity_l" min="0" value="0">
+                        </div>
+                    @endif
+                    @if($id==5)
+                        <div class="first_seventh">
+                            <h2>XL</h2>
+                            <input type="number" id="quantity_xl" wire:model="quantity_xl" min="0"
+                                   value="0">
+                        </div>
+                    @endif
+                    @if($id==6)
+                        <div class="first_seventh">
+                            <h2>2XL</h2>
+                            <input type="number" id="quantity_2xl" wire:model="quantity_2xl" min="0"
+                                   value="0">
+                        </div>
+                    @endif
+                    @if($id==7)
+                        <div class="first_seventh">
+                            <h2>3XL</h2>
+                            <input type="number" id="quantity_3xl" wire:model="quantity_3xl" min="0"
+                                   value="0">
+                        </div>
+                    @endif
+
+                @endforeach
+
             </div>
 
         </div>
     @endif
+
 
     @if($product->colors->count()>0)
         <div class="seventh">
@@ -320,7 +356,7 @@
     </div>
 
     @push('styles')
-   
+
         <style>
             .help-block {
                 color: red;
@@ -437,49 +473,49 @@
 
 
         <script>
-          window.livewire.on('order_success', message => {
-            setTimeout(function () {
-              location.reload();
-            }, 1000)
+            window.livewire.on('order_success', message => {
+                setTimeout(function () {
+                    location.reload();
+                }, 1000)
 
-          });
-          $(function () {
-            $(".changed_checkbox").click(function () {
-              $('.btn_add_to_cart').prop('disabled', $('input.changed_checkbox:checked').length == 0);
             });
-          });
+            $(function () {
+                $(".changed_checkbox").click(function () {
+                    $('.btn_add_to_cart').prop('disabled', $('input.changed_checkbox:checked').length == 0);
+                });
+            });
         </script>
 
         <script>
-          $(document).ready(function () {
-            $(".small_img").click(function () {
-              $(".big_img").attr('src', $(this).attr('data-img'));
+            $(document).ready(function () {
+                $(".small_img").click(function () {
+                    $(".big_img").attr('src', $(this).attr('data-img'));
+                });
+                $(".checkme").click(function (event) {
+                    var x = $(this).is(':checked');
+                    if (x == true) {
+                        $(this).parents(".checkbox-card").find('.passport-box').show();
+                        $(this).parents(".checkbox-card").find('.apply-box').hide();
+                    } else {
+                        $(this).parents(".checkbox-card").find('.passport-box').hide();
+                        $(this).parents(".checkbox-card").find('.apply-box').show();
+                    }
+                });
             });
-            $(".checkme").click(function (event) {
-              var x = $(this).is(':checked');
-              if (x == true) {
-                $(this).parents(".checkbox-card").find('.passport-box').show();
-                $(this).parents(".checkbox-card").find('.apply-box').hide();
-              } else {
-                $(this).parents(".checkbox-card").find('.passport-box').hide();
-                $(this).parents(".checkbox-card").find('.apply-box').show();
-              }
-            });
-          });
         </script>
 
 
 
         <script>
 
-          var height = $('.inner-header').height();
-          $(window).scroll(function () {
-            if ($(this).scrollTop() > height) {
-              $('.main_nav').addClass('fixed');
-            } else {
-              $('.main_nav').removeClass('fixed');
-            }
-          });
+            var height = $('.inner-header').height();
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > height) {
+                    $('.main_nav').addClass('fixed');
+                } else {
+                    $('.main_nav').removeClass('fixed');
+                }
+            });
         </script>
 
 

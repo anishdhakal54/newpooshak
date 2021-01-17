@@ -77,3 +77,76 @@
     overflow: hidden;
     padding-top: 0px;
 }
+.quotebutton button {
+    background-color: #00a651;
+}
+.footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: #3b59c9;
+    color: white;
+}
+.paycopy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #009AF1;
+}
+.subnowbtn {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+    background-color: #02a651;
+    border: unset;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #3c59c9;
+    font-weight: 400;
+    margin-top: 0;
+}
+.header-action .same-style-2 a span.green {
+    background-color: #02a651;
+}
+.pro_buttons button {
+    background-color: #02a651;
+    color: white;
+    padding: 10px;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.footsoc i {
+    margin-right: 10px;
+    font-size: 16px;
+    border-radius: 50%;
+    padding: 10px;
+    width: 34px;
+    vertical-align: middle;
+    text-align: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: #02a651;
+    color: white !important;
+}
+.categori-search-wrap.categori-search-wrap-modify-3 .search-wrap-3 form button {
+    color: #ffffff;
+    height: 100%;
+    right: 0;
+    min-height: 41px;
+    padding: 0 20px;
+    background-color: rgb(60 89 201);
+}
+.trades p {
+    color: rgb(60 89 201);
+}
+.banner img {
+    height: auto;
+}
+.main-menu.main-menu-padding-3 > nav > ul > li {
+    padding-right: 20px;
+}
+.breadcrumb{
+    margin-top:10px;
+}
+.single-post article{
+    margin-bottom:24px;
+}

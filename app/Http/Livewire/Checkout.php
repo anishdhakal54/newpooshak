@@ -34,7 +34,8 @@ class Checkout extends Component
     public $subTotal_;
     public $discount = 0;
     public $has_bulk_discount;
-    public  $discountPrice;
+    public $discountPrice;
+    public $tax_amount;
 
     public function updated($field)
     {
@@ -118,11 +119,15 @@ class Checkout extends Component
         return view('livewire.checkout');
     }
 
-    public function orderNow($discountPrice)
+    public function orderNow($discountPrice, $tax_amounts)
     {
-        $this->discountPrice=$discountPrice;
+//        dd($tax_amounts);
+        $this->discountPrice = $discountPrice;
+        $this->tax_amount = $tax_amounts;
+//        dd($this->tax_amount);
+
 //        dd($this->discountPrice);
-              //   $validatedData = $this->validate([
+        //   $validatedData = $this->validate([
         //     'first_name' => 'required|max:255',
         //     'last_name' => 'required|max:255',
         //     'email' => 'required|max:255|email',
@@ -281,12 +286,12 @@ class Checkout extends Component
             'shipping_address_id' => $address->id,
             'user_id' => auth()->id(),
             'enable_tax' => getConfiguration('enable_tax'),
-            'tax_percentage' => (int)getConfiguration('tax_percentage'),
             'order_status_id' => $orderStatus->id,
             'order_note' => $this->order_note,
+            'tax_amount'=>$this->tax_amount,
             'order_date' => Carbon::now()->toDateTimeString(),
             'rewards' => $this->rewards,
-            'discount'=>$this->discountPrice,
+            'discount' => $this->discountPrice,
 
         ]);
 
@@ -327,6 +332,7 @@ class Checkout extends Component
                         'quantity_xs' => $cartContent->xs,
                         'quantity_s' => $cartContent->s,
                         'quantity_m' => $cartContent->m,
+                        'quantity_l' => $cartContent->l,
                         'quantity_xl' => $cartContent->xl,
                         'quantity_2xl' => $cartContent->xxl,
                         'quantity_3xl' => $cartContent->xxxl,

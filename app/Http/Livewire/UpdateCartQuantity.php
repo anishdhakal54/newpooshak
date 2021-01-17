@@ -16,7 +16,7 @@ class UpdateCartQuantity extends Component
   public $disable_size = false;
   public $discount;
 
-  public $quantity_xs = 0, $quantity_s = 0, $quantity_m = 0, $quantity_xl = 0, $quantity_2xl = 0, $quantity_3xl = 0;
+  public $quantity_xs = 0, $quantity_s = 0, $quantity_m = 0,$quantity_l = 0, $quantity_xl = 0, $quantity_2xl = 0, $quantity_3xl = 0;
 
   public function mount($cartContent,$discount)
   {
@@ -30,6 +30,7 @@ class UpdateCartQuantity extends Component
     $this->quantity_xs = $this->cartContent['xs'];
     $this->quantity_s = $this->cartContent['s'];
     $this->quantity_m = $this->cartContent['m'];
+      $this->quantity_l = $this->cartContent['l'];
     $this->quantity_xl = $this->cartContent['xl'];
     $this->quantity_2xl = $this->cartContent['xxl'];
     $this->quantity_3xl = $this->cartContent['xxxl'];
@@ -61,6 +62,7 @@ class UpdateCartQuantity extends Component
     $cartProduct->xs = $this->quantity_xs;
     $cartProduct->s = $this->quantity_s;
     $cartProduct->m = $this->quantity_m;
+    $cartProduct->l = $this->quantity_l;
     $cartProduct->xl = $this->quantity_xl;
     $cartProduct->xxl = $this->quantity_2xl;
     $cartProduct->xxxl = $this->quantity_3xl;

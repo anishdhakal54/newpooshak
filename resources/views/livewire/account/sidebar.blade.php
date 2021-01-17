@@ -4,7 +4,7 @@
         <img src="assets/images/newchecks.svg">
         <div>
             <img src="{{asset('assets/images/coin.svg')}}"> Reward Points:
-            {{auth()->user()->rewards}}
+            {{number_format( auth()->user()->rewards,2)}}
         </div>
 
     </h3>

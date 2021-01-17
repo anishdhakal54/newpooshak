@@ -232,12 +232,12 @@
                             }
 
 
+ $tax_amounts=taxCalculation($usercart);
 
 
 
 
-
-                       $grandTotal = $subTotal + taxCalculation($usercart) - $discount;
+                       $grandTotal = $subTotal +$tax_amounts - $discount;
 
                         @endphp
                         <div class="ordersummarysubtotal">
@@ -248,7 +248,7 @@
                             <p>
                                 Tax :
                             </p>
-                            <p>{{taxCalculation($usercart)}}</p>
+                            <p>{{$tax_amounts}}</p>
                         </div>
                         <div class="ordersummaryship">
                             <p>
@@ -282,9 +282,10 @@
                         {{--                                    wire:loading wire:target="orderNow" class="fas fa-spinner fa-spin"></i>--}}
                         {{--                            Place Order</a>--}}
 
-                        <button type="submit" wire:click="orderNow({{$discount}})" wire:loading.class="disabled"
-                                href="javascript:void(0);"><i
-                                    wire:loading wire:target="orderNow" class="fas fa-spinner fa-spin"></i>
+                        <button type="submit" wire:click="orderNow({{$discount}},{{$tax_amounts}})"
+                                wire:loading.class="disabled"
+                                href="javascript:void(0);"><i wire:loading wire:target="orderNow"
+                                                              class="fas fa-spinner fa-spin"></i>
                             Place My Order
                         </button>
                     </div>

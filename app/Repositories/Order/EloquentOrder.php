@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Order;
 
+use App\OrderProduct;
 use App\User;
 use Mail;
 use App\Order;
@@ -154,7 +155,7 @@ class EloquentOrder implements OrderRepository
                 $order->isGiven = false
             ]);
         }
-        if ($order->isGiven == 1 && ($attributes['order_status'] == 2 || $attributes['order_status'] == 5 || $attributes['order_status'] == 6 )) {
+        if ($order->isGiven == 1 && ($attributes['order_status'] == 2 || $attributes['order_status'] == 5 || $attributes['order_status'] == 6)) {
             $deducted_reward = $user->rewards - $order->rewards;
             $user->update([
                 $user->rewards = $deducted_reward
@@ -163,12 +164,57 @@ class EloquentOrder implements OrderRepository
                 $order->isGiven = false
             ]);
         }
+        if ($attributes['order_status'] == 5 || $attributes['order_status'] == 6) {
+            $orderedProduct = OrderProduct::where('order_id', $order->id)->get();
+//            dd($orderedProduct);
+            foreach ($orderedProduct as $orderproduct) {
+                $product_found = Product::where('id', $orderproduct->product_id)->first();
+                if (($orderproduct->product_id == $product_found->id) && ($orderproduct->isStockDeducted == 0)) {
+                    $product_found->quantity_xs = $product_found->quantity_xs + $orderproduct->quantity_xs;
+                    $product_found->quantity_s = $product_found->quantity_s + $orderproduct->quantity_s;
+                    $product_found->quantity_m = $product_found->quantity_m + $orderproduct->quantity_m;
+                    $product_found->quantity_l = $product_found->quantity_l + $orderproduct->quantity_l;
+                    $product_found->quantity_xl = $product_found->quantity_xl + $orderproduct->quantity_xl;
+                    $product_found->quantity_xxl = $product_found->quantity_xxl + $orderproduct->quantity_2xl;
+                    $product_found->quantity_xxxl = $product_found->quantity_xxxl + $orderproduct->quantity_3xl;
+                    $product_found->save();
+                    $orderproduct->isStockDeducted = true;
+                    $orderproduct->save();
+
+                }
+
+            }
+
+        }
+        if ($attributes['order_status'] == 1 || $attributes['order_status'] == 2 || $attributes['order_status'] == 3 || $attributes['order_status'] == 4) {
+            $orderedProduct = OrderProduct::where('order_id', $order->id)->get();
+            foreach ($orderedProduct as $orderproduct) {
+                $product_found = Product::where('id', $orderproduct->product_id)->first();
+
+                if ($orderproduct->isStockDeducted == 1 && ($orderproduct->product_id == $product_found->id)) {
+                    $product_found->quantity_xs = $product_found->quantity_xs - $orderproduct->quantity_xs;
+                    $product_found->quantity_s = $product_found->quantity_s - $orderproduct->quantity_s;
+                    $product_found->quantity_m = $product_found->quantity_m - $orderproduct->quantity_m;
+                    $product_found->quantity_l = $product_found->quantity_l - $orderproduct->quantity_l;
+                    $product_found->quantity_xl = $product_found->quantity_xl - $orderproduct->quantity_xl;
+                    $product_found->quantity_xxl = $product_found->quantity_xxl - $orderproduct->quantity_2xl;
+                    $product_found->quantity_xxxl = $product_found->quantity_xxxl - $orderproduct->quantity_3xl;
+                    $product_found->save();
+                    $orderproduct->isStockDeducted = false;
+                    $orderproduct->save();
+                }
+            }
+
+        }
+
+
         if ($order->isGiven == 0 && $attributes['order_status'] == 3) {
             // $order_isGiven = 1;
 
             $order->update([
                 $order->isGiven = true
             ]);
+
 
 //            dd($user->rewards);
 //            $user =  Auth::user();
