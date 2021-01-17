@@ -124,7 +124,7 @@
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 footlogo">
                         <div class="logo">
                             <a href="/">
-                                <img alt="logo" src="{{ url('storage') . '/' . getConfiguration('site_logo') }}"/>
+                                <img alt="logo" src="{{ url('storage') . '/' . getConfiguration('footer_logo') }}"/>
                                 <img class="mini-logo" src="{{asset('assets/images/footlogo1.png')}}" alt="">
                             </a>
 

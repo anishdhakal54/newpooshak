@@ -20,26 +20,16 @@
         </div>
     </div>
 
-        @if($product->disable_size)
-            <div class="seventh">
-                <div class="size_flex">
-                    <div class="first_seventh">
-                        <h2>Write quantity</h2>
-                        <input type="number" name="quantity" wire:model="quantity" value="0">
-                    </div>
+    @if($product->disable_size)
+        <div class="seventh">
+            <div class="size_flex">
+                <div class="first_seventh">
+                    <h2>Write quantity</h2>
+                    <input type="number" name="quantity" wire:model="quantity" value="0">
                 </div>
             </div>
-        @else
-{{--    @if(json_decode($product->size)==null)--}}
-{{--        <div class="seventh">--}}
-{{--            <div class="size_flex">--}}
-{{--                <div class="first_seventh">--}}
-{{--                    <h2>Write quantity</h2>--}}
-{{--                    <input type="number" name="quantity" wire:model="quantity" value="0">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    @else--}}
+        </div>
+    @elseif(json_decode($product->size)!=null)
         <div class="seventh">
             <h2>Select Sizes: </h2>
             <div class="size_flex">
@@ -92,6 +82,51 @@
 
                 @endforeach
 
+            </div>
+
+        </div>
+    @else
+        <div class="seventh">
+            <h2>Select Sizes: </h2>
+            <div class="size_flex">
+
+                <div class="first_seventh">
+                    <h2>XS</h2>
+                    <input type="number" id="quantity_xs" wire:model="quantity_xs" min="0" value="0">
+                </div>
+
+                <div class="first_seventh">
+                    <h2>S</h2>
+                    <input type="number" id="quantity_s" wire:model="quantity_s" min="0" value="0">
+                </div>
+
+                <div class="first_seventh">
+                    <h2>M</h2>
+                    <input type="number" id="quantity_m" wire:model="quantity_m" min="0" value="0">
+                </div>
+
+                <div class="first_seventh">
+                    <h2>L</h2>
+                    <input type="number" id="quantity_l" wire:model="quantity_l" min="0" value="0">
+                </div>
+
+                <div class="first_seventh">
+                    <h2>XL</h2>
+                    <input type="number" id="quantity_xl" wire:model="quantity_xl" min="0"
+                           value="0">
+                </div>
+
+                <div class="first_seventh">
+                    <h2>2XL</h2>
+                    <input type="number" id="quantity_2xl" wire:model="quantity_2xl" min="0"
+                           value="0">
+                </div>
+
+                <div class="first_seventh">
+                    <h2>3XL</h2>
+                    <input type="number" id="quantity_3xl" wire:model="quantity_3xl" min="0"
+                           value="0">
+                </div>
             </div>
 
         </div>
@@ -251,10 +286,10 @@
                 </div>
 
                 @if(Auth::check())
-                    <button type="button" class="btn_add_to_cart" data-toggle="modal" data-target="#myModal">
-                        Order Now
+                    <button type="button" class="btn_add_to_cart" wire:ignore data-toggle="modal" data-target="#myModal">
+                        Buy Now
                     </button>
-                    <button href="javascript:void(0);" class="button pro-add-to-cart " wire:click="addtocart"
+                    <button href="javascript:void(0);" wire:ignore class="button pro-add-to-cart " wire:click="addtocart"
                             data-product="{{ $product->id }}" title="Add to Cart" type="button"><span><i
                                     class="fa fa-shopping-cart"></i> Add to Cart</span></button>
                 @else
