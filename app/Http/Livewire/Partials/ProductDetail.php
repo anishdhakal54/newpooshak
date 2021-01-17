@@ -231,6 +231,66 @@ class ProductDetail extends Component
     //$quantity_xs = 0, $quantity_s = 0, $quantity_m = 0, $quantity_xl = 0, $quantity_2xl = 0, $quantity_3xl = 0;
   }
 
+  public function ordernow()
+  {
+    if ($this->has_frame == "false") {
+      $has_frame_ = 0;
+    } else {
+      $has_frame_ = 1;
+    }
+
+    if (!$this->agree_term) {
+      $notify = json_notification('error', 'Sorry!!!', 'Please agree our Terms and Conditions', 'linecons-pen');
+      $this->emit('notification', $notify);
+      return false;
+    }
+    if ($this->product->colors->count() > 0) {
+      if ($this->color == "") {
+        $notify = json_notification('error', 'Sorry!!!', 'Please choose color', 'linecons-pen');
+        $this->emit('notification', $notify);
+        return false;
+      }
+    }
+
+    if ($this->getTotalQuantity() != 0) {
+      $cart_product = CartProduct::create([
+        'user_id' => auth()->user()->id,
+        'product_id' => $this->product->id,
+        'qty' => $this->getTotalQuantity(),
+        'name' => $this->product->name,
+        'front' => $this->front ? 1 : 0,
+        'back' => $this->back ? 1 : 0,
+        'pocket' => $this->pocket ? 1 : 0,
+        'hasframe' => $has_frame_,
+        'color_no' => $this->color_no,
+        'xs' => $this->quantity_xs,
+        's' => $this->quantity_s,
+        'm' => $this->quantity_m,
+        'xl' => $this->quantity_xl,
+        'xxl' => $this->quantity_2xl,
+        'xxxl' => $this->quantity_3xl,
+        'interest_logo' => $this->interest_logo,
+        'price' => $this->total,
+        'imagename' => $this->imagename,
+        'color' => $this->color
+      ]);
+      $notify = json_notification('success', 'Success!!!', 'Successfully Added to cart!!!', 'linecons-like');
+      $this->emit('notification', $notify);
+      session()->flash('order', " Thank you. Your order has been received.");
+      $this->emit('rerenderHeader');
+      $this->emit('order_success');
+    } else {
+      $notify = json_notification('error', 'Sorry!!!', 'Please write quantity', 'linecons-pen');
+      $this->emit('notification', $notify);
+      return false;
+    }
+
+    return redirect()->to('/checkout');
+
+    //$quantity_xs = 0, $quantity_s = 0, $quantity_m = 0, $quantity_xl = 0, $quantity_2xl = 0, $quantity_3xl = 0;
+  }
+
+
   public function handleCheckout()
   {
     // dd($this);
