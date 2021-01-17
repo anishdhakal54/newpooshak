@@ -17,7 +17,7 @@
                                                 <?php $first_image = $gallery; ?>
                                             @endif
                                             <li><img src="{{ $gallery->smallUrl }}"
-                                                     data-mediumimg="{{$gallery->mediumUrl}}"
+                                                     data-mediumimg="{{$gallery->singleUrl}}"
                                                      data-largeimg="{{$gallery->url}}" class="small_img">
                                             </li>
                                         @endforeach

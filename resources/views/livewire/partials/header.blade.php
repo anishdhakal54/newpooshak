@@ -25,7 +25,7 @@
                             {{\App\Wishlist::where( ['user_id' => auth()->id()])->count()}}
                           </span> Wishlist</a>
                                     </div>
-
+w
                                     @if(!Auth::check())
                                         <div class="same-style-2 text-pad same-right-whistlist same-style-2-white same-style-2-font-dec">
                                             <i class="fa fa-user" style="color:#fff"></i>

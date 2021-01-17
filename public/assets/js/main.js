@@ -378,6 +378,49 @@
   });
 
 
+ /*------ Product categories slider 3 ----*/
+  $(".anishsir").slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    fade: false,
+    loop: true,
+    dots: false,
+    autoplay:true,
+    arrows: true,
+    rows: 2,
+    prevArrow:
+      '<span class="pro-slider-icon-1-prev"><i class="icon-arrow-left"></i></span>',
+    nextArrow:
+      '<span class="pro-slider-icon-1-next"><i class="icon-arrow-right"></i></span>',
+    responsive: [
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
+  });
+
+
 
 
   /*====== SidebarCart ======*/
