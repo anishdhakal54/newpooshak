@@ -64,6 +64,11 @@
     $("#demoModal36699").modal('hide');
   })
 
+  window.addEventListener('showModal', event => {
+    $("#demoModal36699").modal('show');
+  })
+
+
 
 </script>
 

@@ -285,7 +285,13 @@
 
                 </div>
 
-                  @livewire('product-detail-buttons',['product_id' => $product->id])
+
+                    <button type="button" class="btn_add_to_cart" wire:click="ordernow" @if( !Auth::check()) data-toggle="modal" data-target="#demoModal36699" @endif>
+                        Buy Now
+                    </button>
+                    <button href="javascript:void(0);" wire:ignore class="button pro-add-to-cart " wire:click="addtocart"
+                            data-product="{{ $product->id }}" title="Add to Cart" type="button"><span><i
+                                    class="fa fa-shopping-cart"></i> Add to Cart</span></button>
 
             @endif
 
