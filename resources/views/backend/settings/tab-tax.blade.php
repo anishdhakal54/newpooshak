@@ -1,5 +1,5 @@
 <div class="tab-pane" id="tax">
-    <div class="form-group">
+<div class="form-group">
         <label for="enable_tax" class="col-sm-2 control-label">Tax</label>
         <div class="col-sm-10">
             <div class="checkbox">

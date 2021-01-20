@@ -15,6 +15,7 @@
                 <th>XL:</th>
                 <th>XXL:</th>
                 <th>XXXL:</th>
+                <th><a class="btn btn-primary" href="{{route('dashboard.excelExport')}}">Export</a> </th>
 
 
             </tr>

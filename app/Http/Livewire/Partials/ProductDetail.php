@@ -469,6 +469,7 @@ class ProductDetail extends Component
       $this->count = 5;
       $this->emit('login_success');
         $this->emit('rerenderHeader');
+        $this->emit('rerenderProductDetail');
         $this->dispatchBrowserEvent('closeModal');
 
     }

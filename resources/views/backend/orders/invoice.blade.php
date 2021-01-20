@@ -115,7 +115,7 @@
                             $tax = ($productSubTotal_ * $order->tax_percentage) / 100;
                         }
 
-                        $grandTotal = $productSubTotal_ + $order->tax_amount+$frameTotal+$color_price_ - $order->discount;
+                        $grandTotal = $productSubTotal_ + $order->tax_amount+$order->shipping_amount+$frameTotal+$color_price_ - $order->discount;
                     @endphp
                     </tbody>
                 </table>
@@ -152,6 +152,10 @@
                         <tr>
                             <th>Discount:</th>
                         <td>RS {{ $order->discount }}</td>
+                        </tr>
+                        <tr>
+                            <th>Shipping Amount:</th>
+                            <td>RS {{ $order->shipping_amount }}</td>
                         </tr>
                         <tr>
                             <th>Total:</th>

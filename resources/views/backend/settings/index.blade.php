@@ -46,6 +46,8 @@
                                     {{--<li><a href="#product-single" data-toggle="tab">Product Single</a></li>--}}
                                     <li><a href="#seo" data-toggle="tab">SEO</a></li>
                                     <li><a href="#reward" data-toggle="tab">Rewards</a></li>
+                                    <li><a href="#shipping" data-toggle="tab">Shipping Amount</a></li>
+                                    <li><a href="#expiry_time" data-toggle="tab">Order Expiry time:</a></li>
 
                                 </ul>
                                 <div class="tab-content">
@@ -63,6 +65,8 @@
                                     {{--@include('backend.settings.tab-product-single')--}}
                                     @include('backend.settings.tab-seo')
                                     @include('backend.settings.tab-reward')
+                                    @include('backend.settings.tab-shipping_amount')
+                                    @include('backend.settings.tab-expiry_time')
                                 </div>
                                 <!-- /.tab-content -->
                             </div>

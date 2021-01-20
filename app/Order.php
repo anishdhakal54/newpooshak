@@ -20,7 +20,8 @@ class Order extends Model
         'order_date',
         'rewards',
         'discount',
-        'tax_amount'
+        'tax_amount',
+      'shipping_amount'
     ];
 
     /**

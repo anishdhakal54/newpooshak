@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Account;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -18,6 +19,14 @@ class Sidebar extends Component
 
 
         $foundorder = \App\Order::where('user_id', $user_id)->where('id', $this->order_id)->first();
+      $day=(Carbon::now()->diffInDays(Carbon::parse($foundorder->order_date)));
+      if($day>getConfiguration('expiry_time')){
+//        dd('here');
+        $notify = json_notification('error', 'Error!!!', 'Couldnot Exchange order because the order has already exceeded '.getConfiguration('expiry_time').' days', 'linecons-pen');
+        $this->emit('notification', $notify);
+        $this->emit('rerenderHeader');
+        return;
+      }
         if ($foundorder == null) {
             $notify = json_notification('error', 'Error!!!', 'Couldnot find order from your given Order Id', 'linecons-pen');
             $this->emit('notification', $notify);

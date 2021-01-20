@@ -103,7 +103,9 @@ class ConfigurationController extends Controller
             'newsletter_text',
             'home_eng_content',
             'home_ne_content',
-            'rewards'
+            'rewards',
+          'shipping_amount',
+          'expiry_time'
         );
 
         foreach ($inputs as $inputKey => $inputValue) {

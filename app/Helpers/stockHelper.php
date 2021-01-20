@@ -14,7 +14,7 @@ function notifyStock( $id)
 //        dd($product->notify);
         $foundProduct->notify = 1;
         $foundProduct->save();
-        Mail::to(getConfiguration('site_primary_email'))->send(new StockNotificationMail($foundProduct));
+        Mail::to("nshdhkl@gmail.com")->send(new StockNotificationMail($foundProduct));
     } else {
         $foundProduct->notify = 0;
         $foundProduct->save();

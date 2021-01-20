@@ -98,7 +98,7 @@
         <div class="container-fluid">
             <div class="about-us-content-2">
                 <div class="about-us-content-2-title">
-                    <h4>{{__(' Pooshak: The One-stop Shopping Destination')}}   </h4>
+                    <h4>{{__('Pooshak: The One-stop Shopping Destination')}}   </h4>
                 </div>
                 <p>
                     @if(Session::get('applocale')=='ne')

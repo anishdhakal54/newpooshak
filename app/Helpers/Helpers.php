@@ -346,6 +346,23 @@ function taxCalculation($usercart)
 
     }
 
+    function checkdatefor4days()
+    {
+        $otherDate = Carbon::now()->addDay(7);
+        $nowDate = Carbon::now();
+
+        if($nowDate->gt($otherDate)){
+          return true;
+        }
+        else{
+          return false;
+        }
+
+
+
+
+    }
+
 }
 
 

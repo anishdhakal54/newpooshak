@@ -24,12 +24,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '1ee75a05b4e0ed414fdc9b839e6c2fb713e3dde3',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -227,6 +227,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'cb17b6477dfff935958ba01325f2e8a2bfa6dab3',
+    ),
+    'ezyang/htmlpurifier' => 
+    array (
+      'pretty_version' => 'v4.13.0',
+      'version' => '4.13.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '08e27c97e4c6ed02f37c5b2b20488046c8d90d75',
     ),
     'fideloper/proxy' => 
     array (
@@ -568,12 +577,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '1ee75a05b4e0ed414fdc9b839e6c2fb713e3dde3',
     ),
     'laravel/nexmo-notification-channel' => 
     array (
@@ -665,6 +674,42 @@ private static $installed = array (
       ),
       'reference' => 'd3df4ec046d2886bbf43d4cd8d8d9858e422e2ce',
     ),
+    'maatwebsite/excel' => 
+    array (
+      'pretty_version' => '3.1.25',
+      'version' => '3.1.25.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a3e56f1a60e49f21798fd242a3b3d2f4051eeda7',
+    ),
+    'maennchen/zipstream-php' => 
+    array (
+      'pretty_version' => '2.1.0',
+      'version' => '2.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c4c5803cc1f93df3d2448478ef79394a5981cc58',
+    ),
+    'markbaker/complex' => 
+    array (
+      'pretty_version' => '2.0.0',
+      'version' => '2.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9999f1432fae467bc93c53f357105b4c31bb994c',
+    ),
+    'markbaker/matrix' => 
+    array (
+      'pretty_version' => '2.0.0',
+      'version' => '2.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9567d9c4c519fbe40de01dbd1e4469dbbb66f46a',
+    ),
     'maximebf/debugbar' => 
     array (
       'pretty_version' => 'v1.16.3',
@@ -713,6 +758,15 @@ private static $installed = array (
       array (
         0 => '1.10.1',
       ),
+    ),
+    'myclabs/php-enum' => 
+    array (
+      'pretty_version' => '1.7.7',
+      'version' => '1.7.7.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd178027d1e679832db9f38248fcc7200647dc2b7',
     ),
     'needim/noty' => 
     array (
@@ -872,6 +926,15 @@ private static $installed = array (
       ),
       'reference' => 'e878a14a65245fbe78f8080eba03b47c3b705651',
     ),
+    'phpoffice/phpspreadsheet' => 
+    array (
+      'pretty_version' => '1.16.0',
+      'version' => '1.16.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '76d4323b85129d0c368149c831a07a3e258b2b50',
+    ),
     'phpspec/prophecy' => 
     array (
       'pretty_version' => 'v1.10.3',
@@ -960,6 +1023,15 @@ private static $installed = array (
         0 => '1.0',
       ),
     ),
+    'psr/http-client' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2dfb5f6c5eff0e91e20e913f8c5452ed95b86621',
+    ),
     'psr/http-factory' => 
     array (
       'pretty_version' => '1.0.1',
@@ -1005,8 +1077,8 @@ private static $installed = array (
     array (
       'provided' => 
       array (
-        0 => '1.0',
-        1 => '1.0.0',
+        0 => '1.0.0',
+        1 => '1.0',
       ),
     ),
     'psr/simple-cache' => 

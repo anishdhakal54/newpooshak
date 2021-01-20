@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://poosak.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -163,10 +163,12 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+      Maatwebsite\Excel\ExcelServiceProvider::class,
 
-        /*
-         * Package Service Providers...
-         */
+
+      /*
+       * Package Service Providers...
+       */
 	    Zizaco\Entrust\EntrustServiceProvider::class,
 
         /*
@@ -232,8 +234,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+      'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
-	    /**
+
+      /**
 	     * Package Aliases
 	     */
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,

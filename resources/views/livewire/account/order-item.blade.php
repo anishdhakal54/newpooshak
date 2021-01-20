@@ -1,36 +1,48 @@
 <tr class="tableleft">
-    <td scope="row"><a href="{{ route('order.view',$order->id )}}"> #{{ $order->id }}</a></td>
-    <td>{{ \Carbon\Carbon::parse($order->order_date)->format('F j, Y')}}</td>
-    <td> <span class="label label-{{ getOrderStatusClass($order->orderStatus->name) }}">
+  <td scope="row"><a href="{{ route('order.view',$order->id )}}"> #{{ $order->id }}</a></td>
+  <td>{{ \Carbon\Carbon::parse($order->order_date)->format('F j, Y')}}</td>
+  <td> <span class="label label-{{ getOrderStatusClass($order->orderStatus->name) }}">
                                         {{ $order->orderStatus->name }}
                                     </span></td>
-    <td>    @php
-            $priceTotal = 0.00;
-            $actualPrice = 0;
-            foreach ($order->products as $product){
-                $actualPrice += $product->pivot->price;
-            }
+  <td>    @php
+      use Illuminate\Support\Carbon;$priceTotal = 0.00;
+      $actualPrice = 0;
+      foreach ($order->products as $product){
+          $actualPrice += $product->pivot->price;
+      }
 
-            $subTotal = $actualPrice;
-            $tax = 0;
-            if ($order->enable_tax) {
-                $tax = ($subTotal * $order->tax_percentage) / 100;
-            }
+      $subTotal = $actualPrice;
+      $tax = 0;
 
-            $grandTotal = $subTotal + $tax;
-        @endphp
-        RS <span class="label label-default">{{ number_format($grandTotal, 2) }}</span> for
-        <strong>{{ count($order->products) }}</strong> Products
-    </td>
-    <td class="eyetrash">
-        @if($order->orderStatus->name == 'Pending')
-            <a href="{{ route('my-account.order.cancel',$order->id )}}"
-               onclick="return confirm('Are you sure you want to cancel this order?');"><i class="fa fa-times"></i></a>
-        @endif
-        <a href="{{ route('order.view',$order->id )}}"
-        > <i class="fa fa-eye"></i></a>
+          $tax = $subTotal + $order->tax_amount;
 
-    </td>
+
+      $grandTotal = $subTotal +$order->tax_amount+ $order->shipping_amount-$order->discount;
+      $day = (Carbon::now()->diffInDays(Carbon::parse($order->order_date)));
+
+
+
+
+
+    @endphp
+    RS <span class="label label-default">{{ number_format($grandTotal, 2) }}</span> for
+    <strong>{{ count($order->products) }}</strong> Products
+  </td>
+
+
+  <td class="eyetrash">
+
+    @if($day<getConfiguration('expiry_time') )
+      @if($order->orderStatus->name == 'Pending')
+        <a href="{{ route('my-account.order.cancel',$order->id )}}"
+           onclick="return confirm('Are you sure you want to cancel this order?');"><i class="fa fa-times"></i></a>
+      @endif
+    @endif
+    <a href="{{ route('order.view',$order->id )}}"
+    > <i class="fa fa-eye"></i></a>
+
+  </td>
+
 </tr>
 
 

@@ -186,9 +186,11 @@ Route::group([
   Route::get('/get-message', 'MessageController@getReviewsJson')->name('message.json');
   Route::get('/get-quotes', 'GetQuoteController@getQuotes')->name('getquotes');
   Route::post('/delete-quotes', 'GetQuoteController@delete')->name('deleteQuote');
-    Route::get('/get-requested-product', 'RequstedProductController@getRequestedProduct')->name('getRequestedProduct');
-    Route::post('/delete-requestedproduct', 'RequstedProductController@delete')->name('deleteRequestedProduct');
-    Route::get('/stock', 'StockController@getStock')->name('getStock');
+  Route::get('/get-requested-product', 'RequstedProductController@getRequestedProduct')->name('getRequestedProduct');
+  Route::post('/delete-requestedproduct', 'RequstedProductController@delete')->name('deleteRequestedProduct');
+  Route::get('/stock', 'StockController@getStock')->name('getStock');
+  Route::get('/users/export/', 'StockController@export')->name('excelExport');
+
 });
 Route::group([
   'prefix' => 'dashboard',
@@ -306,6 +308,6 @@ Route::get('/page/{slug}', ['uses' => 'PageController@getPage'])->where('slug', 
 Route::get('/get-quote', 'Controller@getquote')->name('getquote');
 Route::get('/checkout/zone/', 'CheckoutController@zonechange')->name('checkout.zone');
 Route::get('autocomplete', 'SearchController@autocomplete');
-Route::get('/getRequest','RequestProductController@getProductRequest')->name('getProductRequest');
-Route::post('/storeRequestProduct','RequestProductController@storeRequestProduct')->name('storeRequestProduct');
-Route::post('/storeQuotes','Backend\GetQuoteController@storequotes')->name('storequotes');
+Route::get('/getRequest', 'RequestProductController@getProductRequest')->name('getProductRequest');
+Route::post('/storeRequestProduct', 'RequestProductController@storeRequestProduct')->name('storeRequestProduct');
+Route::post('/storeQuotes', 'Backend\GetQuoteController@storequotes')->name('storequotes');

@@ -154,6 +154,7 @@
                             var state = data.address_state;
                             var postcode = data.address_postcode;
 
+
                             var address = first_name + ' ' + last_name;
                             address += address1 ? '<br>' + address1 : '';
                             address += address2 ? '<br>' + address2 : '';
