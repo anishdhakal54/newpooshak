@@ -38,7 +38,9 @@ class EloquentProduct implements ProductRepository
     {
 //        dd($attributes);
         // sizes
-        $attributes['size'] = json_encode($attributes['size']);
+       if(isset($attributes['size'])) {
+            $attributes['size'] = json_encode($attributes['size']);
+        }
 
         $product = $this->model->create($attributes);
         //Notification
@@ -193,7 +195,6 @@ class EloquentProduct implements ProductRepository
         $product->update($attributes);
         //Notification
         notifyStock($product->id);
-
 
 
         // Product price

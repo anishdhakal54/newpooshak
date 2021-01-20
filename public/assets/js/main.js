@@ -12,12 +12,12 @@
 
 
   /*------ ScrollUp -------- */
-  $.scrollUp({
-    scrollText: '<i class="icon-arrow-up"></i>',
-    easingType: "linear",
-    scrollSpeed: 900,
-    animation: "fade",
-  });
+  // $.scrollUp({
+  //   scrollText: '<i class="icon-arrow-up"></i>',
+  //   easingType: "linear",
+  //   scrollSpeed: 900,
+  //   animation: "fade",
+  // });
 
   /*------ Wow Active ----*/
   new WOW().init();
@@ -377,118 +377,51 @@
     ],
   });
 
-  /*--------------------------------
-        InstagramFeed active
-    -----------------------------------*/
 
-  $(window).on("load", function () {
-    var instagramFeedSliderOne = function () {
-      $.instagramFeed({
-        username: "ecommerce.devitems",
-        container: "#instagramFeedOne",
-        display_profile: false,
-        display_biography: false,
-        display_gallery: true,
-        callback: null,
-        styling: false,
-        items: 8,
-      });
-    };
-    instagramFeedSliderOne();
-    $("#instagramFeedOne").on("DOMNodeInserted", function (e) {
-      if (e.target.className === "instagram_gallery") {
-        $(".instagram-carousel .instagram_gallery").slick({
-          slidesToShow: 5,
-          slidesToScroll: 1,
-          autoplay: false,
-          dots: false,
-          arrows: false,
-          loop: true,
-          responsive: [
-            {
-              breakpoint: 767,
-              settings: {
-                slidesToShow: 3,
-              },
-            },
-            {
-              breakpoint: 575,
-              settings: {
-                slidesToShow: 2,
-              },
-            },
-          ],
-        });
-        $(".instagram-carousel-2 .instagram_gallery").slick({
-          slidesToShow: 8,
-          slidesToScroll: 1,
-          autoplay: false,
-          dots: false,
-          arrows: false,
-          loop: true,
-          responsive: [
-            {
-              breakpoint: 1199,
-              settings: {
-                slidesToShow: 6,
-              },
-            },
-            {
-              breakpoint: 991,
-              settings: {
-                slidesToShow: 5,
-              },
-            },
-            {
-              breakpoint: 767,
-              settings: {
-                slidesToShow: 3,
-              },
-            },
-            {
-              breakpoint: 575,
-              settings: {
-                slidesToShow: 2,
-              },
-            },
-          ],
-        });
-      }
-    });
+ /*------ Product categories slider 3 ----*/
+  $(".anishsir").slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    fade: false,
+    loop: true,
+    dots: false,
+    autoplay:true,
+    arrows: true,
+    rows: 2,
+    prevArrow:
+      '<span class="pro-slider-icon-1-prev"><i class="icon-arrow-left"></i></span>',
+    nextArrow:
+      '<span class="pro-slider-icon-1-next"><i class="icon-arrow-right"></i></span>',
+    responsive: [
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   });
 
-  /*--- Language currency active ----*/
-  $(".language-dropdown-active").on("click", function (e) {
-    e.preventDefault();
-    $(".language-dropdown").slideToggle(400);
-  });
-  $(".currency-dropdown-active").on("click", function (e) {
-    e.preventDefault();
-    $(".currency-dropdown").slideToggle(400);
-  });
 
-  /*--- Countdown timer active ----*/
-  $("#timer-1-active , #timer-3-active").syotimer({
-    year: 2020,
-    month: 10,
-    day: 22,
-    hour: 8,
-    minute: 48,
-    layout: "hms",
-    periodic: false,
-    periodUnit: "m",
-  });
 
-  $("#timer-2-active").syotimer({
-    year: 2020,
-    month: 10,
-    day: 22,
-    hour: 8,
-    minute: 48,
-    layout: "dhms",
-    periodic: false,
-    periodUnit: "m",
-  });
 
   /*====== SidebarCart ======*/
   function miniCart() {
@@ -532,8 +465,7 @@
     }
   });
 
-  /* NiceSelect */
-  $(".nice-select").niceSelect();
+
 
   /*-------------------------
       Category active
@@ -933,7 +865,7 @@
     });
   });
 
-  /*====== Sidebar menu Active ======*/
+  /!*====== Sidebar menu Active ======*!/
   function mobileHeaderActive() {
     var navbarTrigger = $(".mobile-header-button-active"),
       endTrigger = $(".sidebar-close"),
@@ -1137,15 +1069,7 @@
     ],
   });
 
-  /*--
-        Magnific Popup
-    ------------------------*/
-  $(".img-popup").magnificPopup({
-    type: "image",
-    gallery: {
-      enabled: true,
-    },
-  });
+
 
   $(".related-product-active").slick({
     slidesToShow: 4,
@@ -1185,11 +1109,11 @@
   /*------------------------
         Sidebar sticky active
     -------------------------- */
-  $(".sidebar-active").stickySidebar({
-    topSpacing: 0,
-    bottomSpacing: 30,
-    minWidth: 767,
-  });
+  // $(".sidebar-active").stickySidebar({
+  //   topSpacing: 0,
+  //   bottomSpacing: 30,
+  //   minWidth: 767,
+  // });
 
   /*--- language currency active ----*/
   $(".mobile-language-active").on("click", function (e) {

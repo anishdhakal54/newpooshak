@@ -124,7 +124,7 @@
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 footlogo">
                         <div class="logo">
                             <a href="/">
-                                <img alt="logo" src="{{ url('storage') . '/' . getConfiguration('site_logo') }}"/>
+                                <img alt="logo" src="{{ url('storage') . '/' . getConfiguration('footer_logo') }}"/>
                                 <img class="mini-logo" src="{{asset('assets/images/footlogo1.png')}}" alt="">
                             </a>
 
@@ -298,13 +298,39 @@
 
                         <ul class='list-unstyled soc footsoc'>
 
-                            <i class="fab fa-facebook"></i>
-                            <i class="fab fa-google"></i>
-                            <i class="fab fa-linkedin"></i>
-                            <i class="fab fa-instagram"></i>
+                            {{--                            <i class="fab fa-facebook"></i>--}}
+                            {{--                            <i class="fab fa-google"></i>--}}
+                            {{--                            <i class="fab fa-linkedin"></i>--}}
+                            {{--                            <i class="fab fa-instagram"></i>--}}
+                            {{--                        </ul>--}}
+                            @if(getConfiguration('facebook_link') || getConfiguration('twitter_link') || getConfiguration('googleplus_link') || getConfiguration('instagram_link') || getConfiguration('linkedin_link'))
+                                @if(getConfiguration('facebook_link'))
+
+                                    <a href="{{ getConfiguration('facebook_link') }}"><i
+                                                class="fab fa-facebook"></i></a>
+
+
+                                @endif
+                                @if(getConfiguration('twitter_link'))
+
+                                    <a href="{{ getConfiguration('twitter_link') }}"><i class="fab fa-twitter"></i></a>
+
+
+                                @endif
+                                @if(getConfiguration('googleplus_link'))
+
+                                    <a href="{{ getConfiguration('googleplus_link') }}"><i
+                                                class="fab fa-google-plus"></i></a>
+
+                                @endif
+                                @if(getConfiguration('linkedin_link'))
+
+                                    <a href="{{ getConfiguration('linkedin_link') }}"><i
+                                                class="fab fa-linkedin"></i></a>
+
+                                @endif
+                            @endif
                         </ul>
-
-
                         <!-- /.module-body -->
                     </div>
 

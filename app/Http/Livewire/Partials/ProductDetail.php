@@ -35,7 +35,7 @@ class ProductDetail extends Component
 
   public $color_no = 0;
 
-  public $quantity_xs = 0, $quantity_s = 0, $quantity_m = 0,$quantity_l, $quantity_xl = 0, $quantity_2xl = 0, $quantity_3xl = 0;
+  public $quantity_xs = 0, $quantity_s = 0, $quantity_m = 0,$quantity_l=0, $quantity_xl = 0, $quantity_2xl = 0, $quantity_3xl = 0;
   public $total_item = 0;
   public $total_quantity = 0;
   public $imagename = "";
