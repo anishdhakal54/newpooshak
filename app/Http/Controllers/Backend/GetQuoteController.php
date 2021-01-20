@@ -69,7 +69,7 @@ class GetQuoteController extends Controller
             'user_id' => Auth::user()->id,
         ]);
         $request->session('success', 'Your quotes has been successfully saved. ');
-        return redirect()
+        return redirect()->back()->with('success', 'Your quotes has been successfully saved !');
     }
 
 

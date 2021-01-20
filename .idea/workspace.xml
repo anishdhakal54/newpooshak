@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0e66faeb-b75d-48d0-a7b6-51de8254f37e" name="Default Changelist" comment="fixup! asdf">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Partials/ProductDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Partials/ProductDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/GetQuoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/GetQuoteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/product-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/product-detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/product-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/product-detail.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +216,11 @@
       <workItem from="1610703522235" duration="194000" />
       <workItem from="1610780449416" duration="1054000" />
       <workItem from="1610796022690" duration="4142000" />
-      <workItem from="1610856840342" duration="1540000" />
+      <workItem from="1610856840342" duration="2210000" />
+      <workItem from="1611036885619" duration="3143000" />
+      <workItem from="1611048773407" duration="497000" />
+      <workItem from="1611052744543" duration="100000" />
+      <workItem from="1611072908275" duration="1416000" />
     </task>
     <servers />
   </component>

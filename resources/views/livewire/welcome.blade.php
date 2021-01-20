@@ -5,7 +5,7 @@
     @include('livewire.includes.home3ad')
     @livewire('components.featured-products')
 {{--    @livewire('components.bestselling-products')--}}
-    {{--  @livewire('components.latest-products')--}}
+      @livewire('components.latest-products')
 
     @livewire('components.popular-categories')
 
@@ -49,7 +49,7 @@
                             </div>
                             <div class="service-content-2">
                                 <h3>{{__('Free Shipping')}}</h3>
-                                <p>{{__('Oders over Rs. 10000')}}</p>
+                                <p>{{__('Order over Rs.5000 inside ktm')}}</p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                                 <i class="icon-refresh"></i>
                             </div>
                             <div class="service-content-2">
-                                <h3>{{__('10 Days Return')}}</h3>
+                                <h3>{{__('4 Days Exchange')}}</h3>
                                 <p>{{__('For any problems')}}</p>
                             </div>
                         </div>
